@@ -1,0 +1,14 @@
+{
+  "id": "flutter-project-init",
+  "category": "Core",
+  "title": "Flutter Project Initialization",
+  "description": "Create new Flutter project with proper package name, bundle identifiers, and initial configuration. Set up minimum SDK versions for iOS 12.0 and Android SDK 21.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "simple",
+  "dependencies": [],
+  "createdAt": "2026-01-18T14:55:32.565Z",
+  "updatedAt": "2026-01-18T14:57:52.086Z",
+  "startedAt": "2026-01-18T14:57:51.794Z",
+  "descriptionHistory": []
+}

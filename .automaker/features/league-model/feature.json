@@ -1,0 +1,14 @@
+{
+  "id": "league-model",
+  "category": "Database",
+  "title": "League Data Model",
+  "description": "Define league model with id, name, description, createdBy, members, inviteCode, createdAt, and settings. Implement Firestore serialization.",
+  "status": "backlog",
+  "priority": 1,
+  "complexity": "simple",
+  "dependencies": [
+    "user-model"
+  ],
+  "createdAt": "2026-01-18T14:55:32.573Z",
+  "updatedAt": "2026-01-18T14:55:32.573Z"
+}

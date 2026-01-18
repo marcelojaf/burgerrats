@@ -1,0 +1,15 @@
+{
+  "id": "firebase-auth-service",
+  "category": "Authentication",
+  "title": "Firebase Authentication Service",
+  "description": "Create authentication service wrapper for Firebase Auth. Implement methods for sign-in, sign-up, sign-out, and auth state listening.",
+  "status": "backlog",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "firebase-project-config",
+    "dependency-injection-setup"
+  ],
+  "createdAt": "2026-01-18T14:55:32.569Z",
+  "updatedAt": "2026-01-18T14:55:32.569Z"
+}

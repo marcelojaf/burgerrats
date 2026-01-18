@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768749871902-9596fe07",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-18T15:24:31.902Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "theme-design-system",
+  "error": "Feature completed in 660s - auto-verified",
+  "passes": true
+}

@@ -1,0 +1,15 @@
+{
+  "id": "checkin-repository",
+  "category": "Database",
+  "title": "Check-In Repository",
+  "description": "Create repository for check-in operations with methods to create check-ins, validate daily limits, and query by user/league. Implement real-time listeners.",
+  "status": "backlog",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "checkin-model",
+    "firebase-project-config"
+  ],
+  "createdAt": "2026-01-18T14:55:32.576Z",
+  "updatedAt": "2026-01-18T14:55:32.576Z"
+}

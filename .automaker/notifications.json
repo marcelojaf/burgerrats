@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "notifications": [
+    {
+      "id": "13aa1e77-a5d2-48df-b022-3c30557f3b8b",
+      "type": "spec_regeneration_complete",
+      "title": "Spec Generation Complete",
+      "message": "Created 50 features from the project specification.",
+      "createdAt": "2026-01-18T14:55:32.584Z",
+      "read": true,
+      "dismissed": false,
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "796fe561-d9c9-4ff4-b94d-185ba952eb3f",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"flutter-project-init\" has been verified and is complete.",
+      "createdAt": "2026-01-18T14:59:37.505Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "flutter-project-init",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "6c0eabbd-1112-4c8c-b3c0-92a0bd2c0284",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"project-structure-setup\" has been verified and is complete.",
+      "createdAt": "2026-01-18T15:17:22.079Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "project-structure-setup",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "24af46f6-006c-4d49-85cc-3f27a422581f",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"firebase-project-config\" has been verified and is complete.",
+      "createdAt": "2026-01-18T15:18:48.385Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "firebase-project-config",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "9d5a837d-8ead-4bc5-a855-a9b9ad578c1b",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"theme-design-system\" has been verified and is complete.",
+      "createdAt": "2026-01-18T15:24:31.899Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "theme-design-system",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    }
+  ]
+}

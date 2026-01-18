@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_specification>
+  <project_name>BurgerRats</project_name>
+
+  <overview>
+    BurgerRats is a mobile gamification app for burger enthusiasts, inspired by the GymRats app concept. The app allows users to create and join leagues (ligas) where they compete with friends by doing daily check-ins when eating burgers. Each check-in requires photo proof to be validated and grants one point in the league ranking. The competitive social aspect encourages friendly rivalry among burger lovers, creating a fun and engaging experience around the shared activity of enjoying hamburgers. Key goals include: fostering social connections through shared food experiences, gamifying burger consumption with a competitive points system, ensuring authenticity through mandatory photo verification, and limiting to one check-in per day to maintain fair competition.
+  </overview>
+
+  <technology_stack>
+    <technology>Flutter (Dart) - Cross-platform mobile framework</technology>
+    <technology>iOS Platform Support</technology>
+    <technology>Android Platform Support</technology>
+    <technology>Firebase Authentication - User authentication and management</technology>
+    <technology>Firebase Firestore - NoSQL database for leagues, users, and check-ins</technology>
+    <technology>Firebase Storage - Photo storage for check-in images</technology>
+    <technology>Firebase Cloud Messaging - Push notifications for league activities</technology>
+    <technology>Provider or Riverpod - State management</technology>
+    <technology>Camera Plugin - Native camera access for check-in photos</technology>
+    <technology>Image Picker - Photo selection from gallery</technology>
+    <technology>Cached Network Image - Efficient image loading and caching</technology>
+    <technology>Flutter Secure Storage - Secure local data storage</technology>
+    <technology>Go Router or Auto Route - Navigation management</technology>
+    <technology>Intl - Internationalization support (PT-BR primary)</technology>
+    <technology>Flutter Local Notifications - Local notification handling</technology>
+  </technology_stack>
+
+  <core_capabilities>
+    <capability>User registration and authentication with email/password and social login options</capability>
+    <capability>League (Liga) creation with customizable names and settings</capability>
+    <capability>League discovery and joining via invitation codes or links</capability>
+    <capability>Daily check-in system with mandatory photo upload</capability>
+    <capability>Photo validation and storage for check-in proof</capability>
+    <capability>One check-in per day limit enforcement per user per league</capability>
+    <capability>Real-time league leaderboard and rankings</capability>
+    <capability>Check-in history with photo gallery view</capability>
+    <capability>Push notifications for league activities and reminders</capability>
+    <capability>User profile management with statistics</capability>
+    <capability>League member management (invite, remove, admin roles)</capability>
+    <capability>Activity feed showing recent check-ins from league members</capability>
+    <capability>Streak tracking for consecutive daily check-ins</capability>
+    <capability>Social sharing of check-ins and achievements</capability>
+  </core_capabilities>
+
+  <implemented_features>
+    <feature>
+      <name>Project Initialization</name>
+      <description>Git repository has been initialized for version control. The project structure is set up with automaker configuration files for AI-assisted development workflow.</description>
+      <file_locations>
+        <location>.git/</location>
+        <location>.automaker/</location>
+      </file_locations>
+    </feature>
+    <feature>
+      <name>Flutter Project Initialization</name>
+      <description>Create new Flutter project with proper package name, bundle identifiers, and initial configuration. Set up minimum SDK versions for iOS 12.0 and Android SDK 21.</description>
+    </feature>
+    <feature>
+      <name>Clean Architecture Folder Structure</name>
+      <description>Set up feature-first folder structure with clean architecture layers (presentation, domain, data). Create base directories for core, features, and shared modules.</description>
+    </feature>
+    <feature>
+      <name>Firebase Project Configuration</name>
+      <description>Create Firebase project, enable Authentication, Firestore, Storage, and Cloud Messaging. Add google-services.json and GoogleService-Info.plist to the Flutter project.</description>
+    </feature>
+    <feature>
+      <name>Material Design 3 Theme System</name>
+      <description>Create app-wide theme with Material Design 3 components, color schemes, typography, and spacing constants. Support light and dark mode with Portuguese-friendly fonts.</description>
+    </feature>
+  </implemented_features>
+
+  <additional_requirements>
+    <requirement>Minimum iOS version: 12.0</requirement>
+    <requirement>Minimum Android SDK: 21 (Android 5.0 Lollipop)</requirement>
+    <requirement>Flutter SDK version: 3.x or higher</requirement>
+    <requirement>Dart SDK version: 3.x or higher</requirement>
+    <requirement>Camera permissions required for check-in photos</requirement>
+    <requirement>Photo library access permissions</requirement>
+    <requirement>Internet connectivity required for core functionality</requirement>
+    <requirement>Push notification permissions for league updates</requirement>
+    <requirement>Location permissions (optional) for check-in location tagging</requirement>
+    <requirement>Firebase project setup with Firestore, Storage, and Authentication enabled</requirement>
+  </additional_requirements>
+
+  <development_guidelines>
+    <guideline>Follow Flutter best practices and Material Design 3 guidelines</guideline>
+    <guideline>Use Clean Architecture pattern (Presentation, Domain, Data layers)</guideline>
+    <guideline>Implement repository pattern for data access abstraction</guideline>
+    <guideline>Write unit tests for business logic and widget tests for UI components</guideline>
+    <guideline>Use feature-first folder structure for scalability</guideline>
+    <guideline>Implement proper error handling with user-friendly messages in Portuguese</guideline>
+    <guideline>Follow BLoC or Riverpod patterns for state management consistency</guideline>
+    <guideline>Use dependency injection for testability</guideline>
+    <guideline>Implement offline-first approach with local caching where applicable</guideline>
+    <guideline>Follow semantic versioning for releases</guideline>
+    <guideline>Document public APIs and complex business logic</guideline>
+    <guideline>Use environment configuration for Firebase (dev, staging, prod)</guideline>
+    <guideline>Implement proper image compression before upload to optimize storage</guideline>
+  </development_guidelines>
+
+  <implementation_roadmap>
+    <phase>
+      <name>Phase 1 - Project Setup &amp; Authentication</name>
+      <status>in_progress</status>
+      <description>Initialize Flutter project structure, configure Firebase integration, implement user authentication (email/password, Google Sign-In), create basic app navigation shell, and design system setup with themes and common widgets.</description>
+    </phase>
+    <phase>
+      <name>Phase 2 - League Management</name>
+      <status>pending</status>
+      <description>Implement league creation flow, league discovery and joining via invite codes, league settings and member management, league listing for users, and real-time league data synchronization.</description>
+    </phase>
+    <phase>
+      <name>Phase 3 - Check-in System</name>
+      <status>pending</status>
+      <description>Build camera integration for photo capture, implement check-in creation with photo upload, enforce one check-in per day rule validation, create check-in history view with photo gallery, and implement photo compression and optimization.</description>
+    </phase>
+    <phase>
+      <name>Phase 4 - Leaderboard &amp; Rankings</name>
+      <status>pending</status>
+      <description>Develop real-time leaderboard calculations, implement ranking display with user positions, add streak tracking for consecutive check-ins, create statistics and analytics views, and build activity feed for league members.</description>
+    </phase>
+    <phase>
+      <name>Phase 5 - Notifications &amp; Social Features</name>
+      <status>pending</status>
+      <description>Integrate Firebase Cloud Messaging for push notifications, implement check-in reminders, add social sharing capabilities, create achievement system and badges, and build user profile enhancements.</description>
+    </phase>
+    <phase>
+      <name>Phase 6 - Polish &amp; Launch Preparation</name>
+      <status>pending</status>
+      <description>Performance optimization and testing, UI/UX refinements based on feedback, app store assets preparation (screenshots, descriptions), beta testing program, and production deployment to App Store and Google Play.</description>
+    </phase>
+  </implementation_roadmap>
+</project_specification>

@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768748377508-f9c9903c",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-18T14:59:37.508Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "flutter-project-init",
+  "error": "Feature completed in 105s - auto-verified",
+  "passes": true
+}

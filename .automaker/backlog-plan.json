@@ -1,0 +1,10 @@
+{
+  "savedAt": "2026-01-18T14:35:26.014Z",
+  "prompt": "Quero criar um projeto Flutter que se chama Burger Rats. Esse app será como o Gym Rats que gamifica check-ins em academia. Um usuário pode criar uma liga. Cada pessoa faz o checkin e existem regras pra esse checkin: é preciso mostrar fotos para fazer o checkin. Só pode um checkin por dia. Cada checking gera um ponto para o ranking da liga criada. Me faça mais perguntas se necessário",
+  "model": "opus",
+  "result": {
+    "changes": [],
+    "summary": "Failed to parse AI response",
+    "dependencyUpdates": []
+  }
+}

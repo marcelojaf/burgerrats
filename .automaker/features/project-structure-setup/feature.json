@@ -1,0 +1,16 @@
+{
+  "id": "project-structure-setup",
+  "category": "Core",
+  "title": "Clean Architecture Folder Structure",
+  "description": "Set up feature-first folder structure with clean architecture layers (presentation, domain, data). Create base directories for core, features, and shared modules.",
+  "status": "verified",
+  "priority": 1,
+  "complexity": "simple",
+  "dependencies": [
+    "flutter-project-init"
+  ],
+  "createdAt": "2026-01-18T14:55:32.565Z",
+  "updatedAt": "2026-01-18T15:17:22.078Z",
+  "startedAt": "2026-01-18T15:13:28.027Z",
+  "descriptionHistory": []
+}

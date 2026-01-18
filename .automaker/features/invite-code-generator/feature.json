@@ -1,0 +1,14 @@
+{
+  "id": "invite-code-generator",
+  "category": "Core",
+  "title": "League Invite Code Generator",
+  "description": "Generate unique, human-readable invite codes for leagues (6-8 characters). Ensure uniqueness by checking existing codes in Firestore.",
+  "status": "backlog",
+  "priority": 1,
+  "complexity": "simple",
+  "dependencies": [
+    "league-repository"
+  ],
+  "createdAt": "2026-01-18T14:55:32.573Z",
+  "updatedAt": "2026-01-18T14:55:32.573Z"
+}

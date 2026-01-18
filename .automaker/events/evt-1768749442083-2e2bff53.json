@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768749442083-2e2bff53",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-18T15:17:22.083Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "project-structure-setup",
+  "error": "Feature completed in 234s - auto-verified",
+  "passes": true
+}

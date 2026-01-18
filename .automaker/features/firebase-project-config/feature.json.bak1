@@ -1,0 +1,16 @@
+{
+  "id": "firebase-project-config",
+  "category": "Configuration",
+  "title": "Firebase Project Configuration",
+  "description": "Create Firebase project, enable Authentication, Firestore, Storage, and Cloud Messaging. Add google-services.json and GoogleService-Info.plist to the Flutter project.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "flutter-project-init"
+  ],
+  "createdAt": "2026-01-18T14:55:32.566Z",
+  "updatedAt": "2026-01-18T15:13:25.207Z",
+  "startedAt": "2026-01-18T15:13:24.947Z",
+  "descriptionHistory": []
+}

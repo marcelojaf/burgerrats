@@ -1,0 +1,15 @@
+{
+  "id": "firebase-storage-service",
+  "category": "Core",
+  "title": "Firebase Storage Service",
+  "description": "Create service for uploading check-in photos to Firebase Storage. Organize files by user and date, generate secure download URLs.",
+  "status": "backlog",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "firebase-project-config",
+    "image-compression-service"
+  ],
+  "createdAt": "2026-01-18T14:55:32.578Z",
+  "updatedAt": "2026-01-18T14:55:32.578Z"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "theme-design-system",
+  "category": "UI",
+  "title": "Material Design 3 Theme System",
+  "description": "Create app-wide theme with Material Design 3 components, color schemes, typography, and spacing constants. Support light and dark mode with Portuguese-friendly fonts.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "flutter-project-init"
+  ],
+  "createdAt": "2026-01-18T14:55:32.566Z",
+  "updatedAt": "2026-01-18T15:13:32.321Z",
+  "startedAt": "2026-01-18T15:13:32.118Z",
+  "descriptionHistory": []
+}
