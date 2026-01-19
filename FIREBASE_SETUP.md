@@ -1,8 +1,65 @@
-# Firebase Setup Instructions for BurgerRats
+# Configuração do Firebase - BurgerRats
 
-This document provides step-by-step instructions to set up Firebase for the BurgerRats Flutter application.
+## ⚠️ ALERTA DE SEGURANÇA CRÍTICO
 
-## Prerequisites
+**As Google API Keys expostas no repositório foram detectadas pelo GitHub.**
+
+### 🚨 Ação Imediata Necessária
+
+Você **DEVE** revogar as seguintes API keys comprometidas:
+- **Android Key**: `AIzaSyBlx31c6ZXii7keadznwVnFggNG8d2NMyA`
+- **iOS Key**: `AIzaSyAJMRzehR9UYGqIa1vGHpaifi0iZek7rXg`
+
+Essas keys foram expostas publicamente no commit `29240ed5` e podem ser usadas por qualquer pessoa que tenha acesso ao histórico do Git.
+
+---
+
+## 🔑 Como Revogar as Keys Comprometidas
+
+### 1. Acessar Google Cloud Console
+
+1. Acesse [Google Cloud Console](https://console.cloud.google.com/)
+2. Selecione o projeto: **burgerrats-1d62d**
+3. No menu lateral, vá em **APIs & Services** > **Credentials**
+
+### 2. Revogar as Keys Antigas
+
+1. Procure pelas API Keys listadas acima
+2. Clique em cada uma delas
+3. Clique em **DELETE** para revogar completamente
+4. Confirme a exclusão
+
+### 3. Gerar Novas Configurações
+
+Após revogar as keys antigas:
+
+1. Acesse o [Firebase Console](https://console.firebase.google.com/)
+2. Selecione o projeto **burgerrats-1d62d**
+3. Vá em **Project Settings** (ícone de engrenagem ⚙️)
+
+#### Para Android:
+1. Na seção "Your apps", encontre o app Android
+2. Clique nos três pontos ⋮ > **Delete this app**
+3. Confirme a exclusão
+4. Clique em **Add app** > **Android**
+5. Registre novamente com package: `com.cklabs.burgerrats`
+6. Baixe o novo `google-services.json`
+7. Coloque em: `android/app/google-services.json`
+
+#### Para iOS:
+1. Na seção "Your apps", encontre o app iOS
+2. Clique nos três pontos ⋮ > **Delete this app**
+3. Confirme a exclusão
+4. Clique em **Add app** > **iOS**
+5. Registre novamente com Bundle ID: `com.cklabs.burgerrats`
+6. Baixe o novo `GoogleService-Info.plist`
+7. Coloque em: `ios/Runner/GoogleService-Info.plist`
+
+---
+
+## 📋 Configuração Normal do Firebase
+
+### Prerequisites
 
 - A Google account
 - Access to [Firebase Console](https://console.firebase.google.com/)
