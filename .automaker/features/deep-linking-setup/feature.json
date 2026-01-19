@@ -3,12 +3,14 @@
   "category": "Core",
   "title": "Deep Linking Configuration",
   "description": "Configure deep links for league invitations and check-in sharing. Handle app opening from links on both iOS and Android.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 2,
   "complexity": "moderate",
   "dependencies": [
     "navigation-router-setup"
   ],
   "createdAt": "2026-01-18T14:55:32.583Z",
-  "updatedAt": "2026-01-18T14:55:32.583Z"
+  "updatedAt": "2026-01-18T20:06:00.880Z",
+  "startedAt": "2026-01-18T19:58:19.897Z",
+  "descriptionHistory": []
 }

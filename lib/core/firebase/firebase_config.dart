@@ -27,45 +27,60 @@ class FirebaseConfig {
 
   /// Configure Firebase Cloud Messaging for push notifications.
   static Future<void> _configureMessaging() async {
-    final messaging = FirebaseMessaging.instance;
+    try {
+      final messaging = FirebaseMessaging.instance;
 
-    // Request permission for iOS (Android handles this differently)
-    final settings = await messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
+      // Request permission for iOS (Android handles this differently)
+      final settings = await messaging.requestPermission(
+        alert: true,
+        announcement: false,
+        badge: true,
+        carPlay: false,
+        criticalAlert: false,
+        provisional: false,
+        sound: true,
+      );
 
-    debugPrint('FCM authorization status: ${settings.authorizationStatus}');
+      debugPrint('FCM authorization status: ${settings.authorizationStatus}');
 
-    // Get FCM token for this device
-    final token = await messaging.getToken();
-    debugPrint('FCM Token: $token');
-
-    // Handle background messages
-    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
-    // Handle foreground messages
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      debugPrint('Received foreground message: ${message.messageId}');
-      if (message.notification != null) {
-        debugPrint('Notification: ${message.notification!.title}');
+      // Try to get FCM token, but don't fail if unavailable
+      try {
+        final token = await messaging.getToken();
+        debugPrint('FCM Token: $token');
+      } catch (e) {
+        debugPrint('Warning: Could not get FCM token: $e');
+        debugPrint('Push notifications may not work until service is available');
       }
-    });
 
-    // Handle notification taps when app is in background
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      debugPrint('Notification opened app: ${message.messageId}');
-    });
+      // Handle background messages
+      FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+      // Handle foreground messages
+      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+        debugPrint('Received foreground message: ${message.messageId}');
+        if (message.notification != null) {
+          debugPrint('Notification: ${message.notification!.title}');
+        }
+      });
+
+      // Handle notification taps when app is in background
+      FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+        debugPrint('Notification opened app: ${message.messageId}');
+      });
+    } catch (e) {
+      debugPrint('Warning: Firebase Messaging setup failed: $e');
+      debugPrint('The app will continue to work, but push notifications may be unavailable');
+    }
   }
 
   /// Get the current FCM token for this device.
   static Future<String?> getFcmToken() async {
-    return FirebaseMessaging.instance.getToken();
+    try {
+      return await FirebaseMessaging.instance.getToken();
+    } catch (e) {
+      debugPrint('Error getting FCM token: $e');
+      return null;
+    }
   }
 
   /// Subscribe to a topic for targeted push notifications.

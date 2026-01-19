@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768828210329-180cbc65",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T13:10:10.329Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "league-model",
+  "error": "Feature completed in 324s - auto-verified",
+  "passes": true
+}

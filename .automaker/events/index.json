@@ -2,6 +2,138 @@
   "version": 1,
   "events": [
     {
+      "id": "evt-1768830867877-6c213262",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:54:27.877Z",
+      "featureId": "firebase-storage-service"
+    },
+    {
+      "id": "evt-1768830604915-ff3c0753",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:50:04.915Z",
+      "featureId": "firebase-auth-service"
+    },
+    {
+      "id": "evt-1768830515747-fcd50353",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:48:35.747Z",
+      "featureId": "create-checkin-screen"
+    },
+    {
+      "id": "evt-1768830470015-fe47c500",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:47:50.015Z",
+      "featureId": "create-league-screen"
+    },
+    {
+      "id": "evt-1768830200828-0d39daf8",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:43:20.828Z",
+      "featureId": "join-league-screen"
+    },
+    {
+      "id": "evt-1768830044915-e4ccacdb",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:40:44.915Z",
+      "featureId": "invite-code-generator"
+    },
+    {
+      "id": "evt-1768829966609-731401e8",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:39:26.609Z",
+      "featureId": "daily-limit-validator"
+    },
+    {
+      "id": "evt-1768829681396-31b1b074",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:34:41.396Z",
+      "featureId": "league-repository"
+    },
+    {
+      "id": "evt-1768829560268-61766ad9",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:32:40.268Z",
+      "featureId": "checkin-repository"
+    },
+    {
+      "id": "evt-1768829522447-a2387f7a",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:32:02.447Z",
+      "featureId": "checkin-model"
+    },
+    {
+      "id": "evt-1768829192904-310112cc",
+      "trigger": "feature_error",
+      "timestamp": "2026-01-19T13:26:32.904Z",
+      "featureId": "league-repository"
+    },
+    {
+      "id": "evt-1768828210329-180cbc65",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:10:10.329Z",
+      "featureId": "league-model"
+    },
+    {
+      "id": "evt-1768828150440-aaef452d",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T13:09:10.440Z",
+      "featureId": "user-repository"
+    },
+    {
+      "id": "evt-1768766760884-16b7f6a8",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-18T20:06:00.884Z",
+      "featureId": "deep-linking-setup"
+    },
+    {
+      "id": "evt-1768766566376-9593a5d7",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-18T20:02:46.376Z",
+      "featureId": "user-model"
+    },
+    {
+      "id": "evt-1768766110767-a9fc2448",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-18T19:55:10.767Z",
+      "featureId": "state-management-setup"
+    },
+    {
+      "id": "evt-1768765999712-d6e49d89",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-18T19:53:19.712Z",
+      "featureId": "image-compression-service"
+    },
+    {
+      "id": "evt-1768754674128-48670302",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-18T16:44:34.128Z",
+      "featureId": "photo-capture-service"
+    },
+    {
+      "id": "evt-1768753720147-1791b935",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-18T16:28:40.147Z",
+      "featureId": "camera-permission-handler"
+    },
+    {
+      "id": "evt-1768751753479-7eb915fb",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-18T15:55:53.479Z",
+      "featureId": "error-handling-framework"
+    },
+    {
+      "id": "evt-1768751067995-23cfe46d",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-18T15:44:27.995Z",
+      "featureId": "navigation-router-setup"
+    },
+    {
+      "id": "evt-1768750533670-f4cb48b6",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-18T15:35:33.670Z",
+      "featureId": "dependency-injection-setup"
+    },
+    {
       "id": "evt-1768749871902-9596fe07",
       "trigger": "feature_success",
       "timestamp": "2026-01-18T15:24:31.902Z",

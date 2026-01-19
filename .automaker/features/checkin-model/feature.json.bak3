@@ -1,0 +1,15 @@
+{
+  "id": "checkin-model",
+  "category": "Database",
+  "title": "Check-In Data Model",
+  "description": "Define check-in model with id, userId, leagueId, photoURL, timestamp, and optional location. Implement Firestore serialization with proper indexing.",
+  "status": "backlog",
+  "priority": 1,
+  "complexity": "simple",
+  "dependencies": [
+    "league-model",
+    "user-model"
+  ],
+  "createdAt": "2026-01-18T14:55:32.575Z",
+  "updatedAt": "2026-01-18T14:55:32.575Z"
+}

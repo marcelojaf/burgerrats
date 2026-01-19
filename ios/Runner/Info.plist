@@ -52,5 +52,20 @@
 	</array>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Este aplicativo precisa de acesso à câmera para tirar fotos dos seus check-ins em restaurantes.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>burgerrats</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>com.burgerrats.app</string>
+		</dict>
+	</array>
+	<key>FlutterDeepLinkingEnabled</key>
+	<true/>
 </dict>
 </plist>

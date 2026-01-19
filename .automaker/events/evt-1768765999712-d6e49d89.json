@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768765999712-d6e49d89",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-18T19:53:19.712Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "image-compression-service",
+  "error": "Feature completed in 383s - auto-verified",
+  "passes": true
+}

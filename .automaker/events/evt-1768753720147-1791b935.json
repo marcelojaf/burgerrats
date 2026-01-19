@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768753720147-1791b935",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-18T16:28:40.147Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "camera-permission-handler",
+  "error": "Feature completed in 414s - auto-verified",
+  "passes": true
+}

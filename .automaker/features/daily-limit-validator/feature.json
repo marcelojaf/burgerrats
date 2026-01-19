@@ -3,12 +3,14 @@
   "category": "Core",
   "title": "Daily Check-In Limit Validator",
   "description": "Validate that users can only check-in once per day per league. Check existing check-ins for current date before allowing new submissions.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 1,
   "complexity": "moderate",
   "dependencies": [
     "checkin-repository"
   ],
   "createdAt": "2026-01-18T14:55:32.576Z",
-  "updatedAt": "2026-01-18T14:55:32.576Z"
+  "updatedAt": "2026-01-19T13:39:26.604Z",
+  "startedAt": "2026-01-19T13:35:09.624Z",
+  "descriptionHistory": []
 }

@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768830604915-ff3c0753",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T13:50:04.915Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "firebase-auth-service",
+  "error": "Feature completed in 396s - auto-verified",
+  "passes": true
+}

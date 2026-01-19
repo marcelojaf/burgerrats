@@ -1,0 +1,16 @@
+{
+  "id": "camera-permission-handler",
+  "category": "Core",
+  "title": "Camera Permission Handler",
+  "description": "Request and manage camera permissions for iOS and Android. Show user-friendly messages in Portuguese explaining why permissions are needed.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "simple",
+  "dependencies": [
+    "error-handling-framework"
+  ],
+  "createdAt": "2026-01-18T14:55:32.577Z",
+  "updatedAt": "2026-01-18T16:21:45.798Z",
+  "startedAt": "2026-01-18T16:21:45.574Z",
+  "descriptionHistory": []
+}

@@ -1,0 +1,14 @@
+{
+  "id": "dependency-injection-setup",
+  "category": "Core",
+  "title": "Dependency Injection Container",
+  "description": "Set up dependency injection using get_it or injectable for service locator pattern. Configure injectable services and repositories for testability.",
+  "status": "backlog",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "project-structure-setup"
+  ],
+  "createdAt": "2026-01-18T14:55:32.566Z",
+  "updatedAt": "2026-01-18T14:55:32.566Z"
+}

@@ -3,12 +3,14 @@
   "category": "Database",
   "title": "User Data Model",
   "description": "Define user model with fields for uid, email, displayName, photoURL, createdAt, and statistics. Implement JSON serialization for Firestore.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 1,
   "complexity": "simple",
   "dependencies": [
     "project-structure-setup"
   ],
   "createdAt": "2026-01-18T14:55:32.571Z",
-  "updatedAt": "2026-01-18T14:55:32.571Z"
+  "updatedAt": "2026-01-18T20:02:46.373Z",
+  "startedAt": "2026-01-18T19:58:14.727Z",
+  "descriptionHistory": []
 }

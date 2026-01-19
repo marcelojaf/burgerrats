@@ -1,0 +1,17 @@
+{
+  "id": "league-repository",
+  "category": "Database",
+  "title": "League Repository",
+  "description": "Create repository for league operations in Firestore. Implement create, read, update, delete leagues and manage member lists with real-time updates.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "league-model",
+    "firebase-project-config"
+  ],
+  "createdAt": "2026-01-18T14:55:32.573Z",
+  "updatedAt": "2026-01-19T13:29:56.083Z",
+  "startedAt": "2026-01-19T13:29:55.801Z",
+  "descriptionHistory": []
+}

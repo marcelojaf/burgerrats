@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "YOUR_PROJECT_NUMBER",
-    "project_id": "YOUR_PROJECT_ID",
-    "storage_bucket": "YOUR_PROJECT_ID.appspot.com"
+    "project_number": "793973559216",
+    "project_id": "burgerrats-1d62d",
+    "storage_bucket": "burgerrats-1d62d.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:YOUR_PROJECT_NUMBER:android:YOUR_APP_ID",
+        "mobilesdk_app_id": "1:793973559216:android:bae4b232e87bd6e871d075",
         "android_client_info": {
-          "package_name": "com.burgerrats.burgerrats"
+          "package_name": "com.cklabs.burgerrats"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "YOUR_API_KEY"
+          "current_key": "AIzaSyBlx31c6ZXii7keadznwVnFggNG8d2NMyA"
         }
       ],
       "services": {

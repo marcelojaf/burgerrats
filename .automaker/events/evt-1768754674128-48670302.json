@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768754674128-48670302",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-18T16:44:34.128Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "photo-capture-service",
+  "error": "Feature completed in 528s - auto-verified",
+  "passes": true
+}

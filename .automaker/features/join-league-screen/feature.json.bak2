@@ -1,0 +1,17 @@
+{
+  "id": "join-league-screen",
+  "category": "UI",
+  "title": "Join League Screen",
+  "description": "Create screen for joining leagues via invite code input. Validate code, show league preview, and add user to member list on confirmation.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "league-repository",
+    "theme-design-system"
+  ],
+  "createdAt": "2026-01-18T14:55:32.574Z",
+  "updatedAt": "2026-01-18T14:55:32.574Z",
+  "startedAt": "2026-01-19T13:35:17.391Z",
+  "descriptionHistory": []
+}

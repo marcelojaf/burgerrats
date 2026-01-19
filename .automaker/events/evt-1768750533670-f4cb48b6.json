@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768750533670-f4cb48b6",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-18T15:35:33.670Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "dependency-injection-setup",
+  "error": "Feature completed in 296s - auto-verified",
+  "passes": true
+}

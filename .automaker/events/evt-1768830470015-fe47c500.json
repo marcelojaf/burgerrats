@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768830470015-fe47c500",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T13:47:50.015Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "create-league-screen",
+  "error": "Feature completed in 367s - auto-verified",
+  "passes": true
+}

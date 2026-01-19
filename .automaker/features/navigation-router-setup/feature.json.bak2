@@ -1,0 +1,16 @@
+{
+  "id": "navigation-router-setup",
+  "category": "Core",
+  "title": "Navigation Router Configuration",
+  "description": "Implement Go Router or Auto Route for declarative navigation. Define routes for authentication, home, leagues, check-ins, and profile screens.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "project-structure-setup"
+  ],
+  "createdAt": "2026-01-18T14:55:32.567Z",
+  "updatedAt": "2026-01-18T14:55:32.567Z",
+  "startedAt": "2026-01-18T15:30:43.842Z",
+  "descriptionHistory": []
+}

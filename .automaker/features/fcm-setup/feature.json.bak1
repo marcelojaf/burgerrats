@@ -1,0 +1,14 @@
+{
+  "id": "fcm-setup",
+  "category": "Configuration",
+  "title": "Firebase Cloud Messaging Setup",
+  "description": "Configure FCM for push notifications on iOS and Android. Handle token registration and storage. Set up notification channels.",
+  "status": "backlog",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "firebase-project-config"
+  ],
+  "createdAt": "2026-01-18T14:55:32.582Z",
+  "updatedAt": "2026-01-18T14:55:32.582Z"
+}

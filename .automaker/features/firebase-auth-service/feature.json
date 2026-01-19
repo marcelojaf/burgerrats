@@ -2,8 +2,8 @@
   "id": "firebase-auth-service",
   "category": "Authentication",
   "title": "Firebase Authentication Service",
-  "description": "Create authentication service wrapper for Firebase Auth. Implement methods for sign-in, sign-up, sign-out, and auth state listening.",
-  "status": "backlog",
+  "description": "Create authentication service wrapper for Firebase Auth. Implement methods for sign-in, sign-up, sign-out, and auth state listening.\n\nUpdate README.md with instructions on how to make changes in Firebase portal. Instructions in brazilian portuguese",
+  "status": "verified",
   "priority": 1,
   "complexity": "moderate",
   "dependencies": [
@@ -11,5 +11,22 @@
     "dependency-injection-setup"
   ],
   "createdAt": "2026-01-18T14:55:32.569Z",
-  "updatedAt": "2026-01-18T14:55:32.569Z"
+  "updatedAt": "2026-01-19T13:50:04.907Z",
+  "skipTests": false,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "imagePaths": [],
+  "textFilePaths": [],
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "workMode": "current",
+  "descriptionHistory": [
+    {
+      "description": "Create authentication service wrapper for Firebase Auth. Implement methods for sign-in, sign-up, sign-out, and auth state listening.\n\nUpdate README.md with instructions on how to make changes in Firebase portal. Instructions in brazilian portuguese",
+      "timestamp": "2026-01-19T13:36:23.216Z",
+      "source": "edit"
+    }
+  ],
+  "startedAt": "2026-01-19T13:43:28.852Z"
 }

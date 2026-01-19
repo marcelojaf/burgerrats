@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768766760884-16b7f6a8",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-18T20:06:00.884Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "deep-linking-setup",
+  "error": "Feature completed in 461s - auto-verified",
+  "passes": true
+}

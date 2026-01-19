@@ -3,7 +3,7 @@
   "category": "UI",
   "title": "Create League Screen",
   "description": "Design screen for creating new leagues with name, optional description, and settings. Generate invite code automatically and show success confirmation.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 1,
   "complexity": "moderate",
   "dependencies": [
@@ -12,5 +12,7 @@
     "theme-design-system"
   ],
   "createdAt": "2026-01-18T14:55:32.574Z",
-  "updatedAt": "2026-01-18T14:55:32.574Z"
+  "updatedAt": "2026-01-19T13:47:50.008Z",
+  "startedAt": "2026-01-19T13:41:42.404Z",
+  "descriptionHistory": []
 }

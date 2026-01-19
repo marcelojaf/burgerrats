@@ -1,0 +1,32 @@
+{
+  "id": "firebase-storage-service",
+  "category": "Core",
+  "title": "Firebase Storage Service",
+  "description": "Create service for uploading check-in photos to Firebase Storage. Organize files by user and date, generate secure download URLs.\n\nUpdate README.md with instructions on how to make changes in Firebase portal. Instructions in brazilian portuguese",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "firebase-project-config",
+    "image-compression-service"
+  ],
+  "createdAt": "2026-01-18T14:55:32.578Z",
+  "updatedAt": "2026-01-19T13:48:18.310Z",
+  "skipTests": false,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "imagePaths": [],
+  "textFilePaths": [],
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "workMode": "current",
+  "descriptionHistory": [
+    {
+      "description": "Create service for uploading check-in photos to Firebase Storage. Organize files by user and date, generate secure download URLs.\n\nUpdate README.md with instructions on how to make changes in Firebase portal. Instructions in brazilian portuguese",
+      "timestamp": "2026-01-19T13:36:28.501Z",
+      "source": "edit"
+    }
+  ],
+  "startedAt": "2026-01-19T13:48:18.023Z"
+}

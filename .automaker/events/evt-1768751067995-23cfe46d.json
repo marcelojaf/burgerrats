@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768751067995-23cfe46d",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-18T15:44:27.995Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "navigation-router-setup",
+  "error": "Feature completed in 824s - auto-verified",
+  "passes": true
+}

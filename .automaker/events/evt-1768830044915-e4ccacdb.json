@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768830044915-e4ccacdb",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T13:40:44.915Z",
+  "projectPath": "/Users/marcelo/dev/burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "invite-code-generator",
+  "error": "Feature completed in 330s - auto-verified",
+  "passes": true
+}

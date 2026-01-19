@@ -66,6 +66,94 @@
       <name>Material Design 3 Theme System</name>
       <description>Create app-wide theme with Material Design 3 components, color schemes, typography, and spacing constants. Support light and dark mode with Portuguese-friendly fonts.</description>
     </feature>
+    <feature>
+      <name>Dependency Injection Container</name>
+      <description>Set up dependency injection using get_it or injectable for service locator pattern. Configure injectable services and repositories for testability.</description>
+    </feature>
+    <feature>
+      <name>Navigation Router Configuration</name>
+      <description>Implement Go Router or Auto Route for declarative navigation. Define routes for authentication, home, leagues, check-ins, and profile screens.</description>
+    </feature>
+    <feature>
+      <name>Error Handling Framework</name>
+      <description>Create custom exception classes, error handlers, and user-friendly error messages in Portuguese. Implement global error boundary for uncaught exceptions.</description>
+    </feature>
+    <feature>
+      <name>Camera Permission Handler</name>
+      <description>Request and manage camera permissions for iOS and Android. Show user-friendly messages in Portuguese explaining why permissions are needed.</description>
+    </feature>
+    <feature>
+      <name>Photo Capture Service</name>
+      <description>Integrate camera plugin to capture photos for check-ins. Provide fallback to select from gallery. Handle camera errors gracefully.</description>
+    </feature>
+    <feature>
+      <name>Image Compression Service</name>
+      <description>Compress and optimize images before upload to reduce storage costs and improve performance. Resize to appropriate dimensions while maintaining quality.</description>
+    </feature>
+    <feature>
+      <name>State Management Configuration</name>
+      <description>Set up Riverpod or Provider for state management across the app. Create base providers and notifiers for common state patterns.</description>
+    </feature>
+    <feature>
+      <name>User Data Model</name>
+      <description>Define user model with fields for uid, email, displayName, photoURL, createdAt, and statistics. Implement JSON serialization for Firestore.</description>
+    </feature>
+    <feature>
+      <name>Deep Linking Configuration</name>
+      <description>Configure deep links for league invitations and check-in sharing. Handle app opening from links on both iOS and Android.</description>
+    </feature>
+    <feature>
+      <name>User Repository</name>
+      <description>Create repository for user CRUD operations in Firestore. Implement methods to create, read, update user profiles and sync with authentication.</description>
+    </feature>
+    <feature>
+      <name>League Data Model</name>
+      <description>Define league model with id, name, description, createdBy, members, inviteCode, createdAt, and settings. Implement Firestore serialization.</description>
+    </feature>
+    <feature>
+      <name>Check-In Data Model</name>
+      <description>Define check-in model with id, userId, leagueId, photoURL, timestamp, and optional location. Implement Firestore serialization with proper indexing.</description>
+    </feature>
+    <feature>
+      <name>Check-In Repository</name>
+      <description>Create repository for check-in operations with methods to create check-ins, validate daily limits, and query by user/league. Implement real-time listeners.</description>
+    </feature>
+    <feature>
+      <name>League Repository</name>
+      <description>Create repository for league operations in Firestore. Implement create, read, update, delete leagues and manage member lists with real-time updates.</description>
+    </feature>
+    <feature>
+      <name>Daily Check-In Limit Validator</name>
+      <description>Validate that users can only check-in once per day per league. Check existing check-ins for current date before allowing new submissions.</description>
+    </feature>
+    <feature>
+      <name>League Invite Code Generator</name>
+      <description>Generate unique, human-readable invite codes for leagues (6-8 characters). Ensure uniqueness by checking existing codes in Firestore.</description>
+    </feature>
+    <feature>
+      <name>Join League Screen</name>
+      <description>Create screen for joining leagues via invite code input. Validate code, show league preview, and add user to member list on confirmation.</description>
+    </feature>
+    <feature>
+      <name>Create League Screen</name>
+      <description>Design screen for creating new leagues with name, optional description, and settings. Generate invite code automatically and show success confirmation.</description>
+    </feature>
+    <feature>
+      <name>Create Check-In Screen</name>
+      <description>Build screen for creating check-ins with camera preview, photo capture button, and league selection. Show daily limit status and validation messages.</description>
+    </feature>
+    <feature>
+      <name>Firebase Authentication Service</name>
+      <description>Create authentication service wrapper for Firebase Auth. Implement methods for sign-in, sign-up, sign-out, and auth state listening.
+
+Update README.md with instructions on how to make changes in Firebase portal. Instructions in brazilian portuguese</description>
+    </feature>
+    <feature>
+      <name>Firebase Storage Service</name>
+      <description>Create service for uploading check-in photos to Firebase Storage. Organize files by user and date, generate secure download URLs.
+
+Update README.md with instructions on how to make changes in Firebase portal. Instructions in brazilian portuguese</description>
+    </feature>
   </implemented_features>
 
   <additional_requirements>

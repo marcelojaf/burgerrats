@@ -1,0 +1,16 @@
+{
+  "id": "image-compression-service",
+  "category": "Core",
+  "title": "Image Compression Service",
+  "description": "Compress and optimize images before upload to reduce storage costs and improve performance. Resize to appropriate dimensions while maintaining quality.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "photo-capture-service"
+  ],
+  "createdAt": "2026-01-18T14:55:32.577Z",
+  "updatedAt": "2026-01-18T14:55:32.577Z",
+  "startedAt": "2026-01-18T19:46:56.044Z",
+  "descriptionHistory": []
+}

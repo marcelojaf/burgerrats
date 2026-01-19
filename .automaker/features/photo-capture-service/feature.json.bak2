@@ -1,0 +1,16 @@
+{
+  "id": "photo-capture-service",
+  "category": "Core",
+  "title": "Photo Capture Service",
+  "description": "Integrate camera plugin to capture photos for check-ins. Provide fallback to select from gallery. Handle camera errors gracefully.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "camera-permission-handler"
+  ],
+  "createdAt": "2026-01-18T14:55:32.577Z",
+  "updatedAt": "2026-01-18T14:55:32.577Z",
+  "startedAt": "2026-01-18T16:35:45.902Z",
+  "descriptionHistory": []
+}

@@ -54,6 +54,237 @@
       "dismissed": false,
       "featureId": "theme-design-system",
       "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "63e8909b-493e-41cb-b10d-b9e16a6bdd5e",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"dependency-injection-setup\" has been verified and is complete.",
+      "createdAt": "2026-01-18T15:35:33.665Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "dependency-injection-setup",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "0ab18805-8f90-4ba0-ad9b-4cee447edb59",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"navigation-router-setup\" has been verified and is complete.",
+      "createdAt": "2026-01-18T15:44:27.992Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "navigation-router-setup",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "31f21633-2bda-44aa-84b5-4c52af352999",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"error-handling-framework\" has been verified and is complete.",
+      "createdAt": "2026-01-18T15:55:53.477Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "error-handling-framework",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "1cf63c46-15a1-4926-9859-b97f37fd67bc",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"camera-permission-handler\" has been verified and is complete.",
+      "createdAt": "2026-01-18T16:28:40.144Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "camera-permission-handler",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "a10ccfdb-a724-458a-b29d-288353a439af",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"photo-capture-service\" has been verified and is complete.",
+      "createdAt": "2026-01-18T16:44:34.126Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "photo-capture-service",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "3e101536-633e-4fd3-990c-8a8f3d4ae6c6",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"image-compression-service\" has been verified and is complete.",
+      "createdAt": "2026-01-18T19:53:19.707Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "image-compression-service",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "2273cf77-78e4-466c-8a0b-2eeb54eba45e",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"state-management-setup\" has been verified and is complete.",
+      "createdAt": "2026-01-18T19:55:10.765Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "state-management-setup",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "e435128a-45c4-466e-88d6-c2401dcd2a64",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"user-model\" has been verified and is complete.",
+      "createdAt": "2026-01-18T20:02:46.374Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "user-model",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "d95c080f-134e-4234-be97-deb0b9b556d7",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"deep-linking-setup\" has been verified and is complete.",
+      "createdAt": "2026-01-18T20:06:00.881Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "deep-linking-setup",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "77197196-8628-4080-a40f-a63776321527",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"user-repository\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:09:10.436Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "user-repository",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "97f6c595-b614-4464-959a-06d9e911a08c",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"league-model\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:10:10.326Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "league-model",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "9bbfdaa4-531e-4b83-b4bb-78268d040495",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"checkin-model\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:32:02.443Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "checkin-model",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "84a5fc74-e2f7-40f4-9a92-be6eda1135e2",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"checkin-repository\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:32:40.265Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "checkin-repository",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "a39fa8d1-fee4-47fd-a3f9-5b73978ee29a",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"league-repository\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:34:41.394Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "league-repository",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "8744f33e-243e-45ad-a5ef-61cd2dc34cff",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"daily-limit-validator\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:39:26.606Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "daily-limit-validator",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "8ad3ff48-816f-49f2-befd-09dc92d8d518",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"invite-code-generator\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:40:44.902Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "invite-code-generator",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "08a826f7-43f6-4c38-bdc0-7e982876e72e",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"join-league-screen\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:43:20.825Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "join-league-screen",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "362d34ab-6160-48d5-90aa-4a3ba4bbabf5",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"create-league-screen\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:47:50.011Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "create-league-screen",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "31544010-99d1-4b29-b7e9-873b942350df",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"create-checkin-screen\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:48:35.691Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "create-checkin-screen",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "76d24dbf-4632-496d-9323-5b212588edfb",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"firebase-auth-service\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:50:04.910Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "firebase-auth-service",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
+    },
+    {
+      "id": "7e7d5891-7bcc-4da7-a5fd-67393903addc",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"firebase-storage-service\" has been verified and is complete.",
+      "createdAt": "2026-01-19T13:54:27.875Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "firebase-storage-service",
+      "projectPath": "/Users/marcelo/dev/burgerrats"
     }
   ]
 }

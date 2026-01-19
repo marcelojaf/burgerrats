@@ -1,0 +1,16 @@
+{
+  "id": "error-handling-framework",
+  "category": "Core",
+  "title": "Error Handling Framework",
+  "description": "Create custom exception classes, error handlers, and user-friendly error messages in Portuguese. Implement global error boundary for uncaught exceptions.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "project-structure-setup"
+  ],
+  "createdAt": "2026-01-18T14:55:32.568Z",
+  "updatedAt": "2026-01-18T15:30:39.933Z",
+  "startedAt": "2026-01-18T15:30:39.642Z",
+  "descriptionHistory": []
+}

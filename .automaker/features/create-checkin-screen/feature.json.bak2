@@ -1,0 +1,18 @@
+{
+  "id": "create-checkin-screen",
+  "category": "UI",
+  "title": "Create Check-In Screen",
+  "description": "Build screen for creating check-ins with camera preview, photo capture button, and league selection. Show daily limit status and validation messages.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "complex",
+  "dependencies": [
+    "photo-capture-service",
+    "daily-limit-validator",
+    "theme-design-system"
+  ],
+  "createdAt": "2026-01-18T14:55:32.578Z",
+  "updatedAt": "2026-01-18T14:55:32.578Z",
+  "startedAt": "2026-01-19T13:39:37.883Z",
+  "descriptionHistory": []
+}
