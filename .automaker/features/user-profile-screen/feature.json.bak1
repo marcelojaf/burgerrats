@@ -1,0 +1,18 @@
+{
+  "id": "user-profile-screen",
+  "category": "UI",
+  "title": "User Profile Screen",
+  "description": "Display user profile with avatar, name, email, total check-ins, current streak, and leagues joined. Include edit profile option.",
+  "status": "in_progress",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "user-repository",
+    "streak-tracker-service",
+    "theme-design-system"
+  ],
+  "createdAt": "2026-01-18T14:55:32.580Z",
+  "updatedAt": "2026-01-19T18:16:30.686Z",
+  "startedAt": "2026-01-19T18:16:30.446Z",
+  "descriptionHistory": []
+}

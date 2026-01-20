@@ -278,6 +278,7 @@ class LeagueRepositoryImpl implements LeagueRepository {
   Future<void> removeMember({
     required String leagueId,
     required String userId,
+    required String requesterId,
   }) async {
     try {
       final league = await getLeagueById(leagueId);
@@ -303,6 +304,18 @@ class LeagueRepositoryImpl implements LeagueRepository {
         );
       }
 
+      // Check permissions: either removing yourself (leaving) or admin removing a member
+      final isRemovingSelf = requesterId == userId;
+      final isRequesterAdmin = league.isAdmin(requesterId);
+
+      if (!isRemovingSelf && !isRequesterAdmin) {
+        throw const PermissionException(
+          message: 'Only admins can remove other members',
+          code: 'permission-denied',
+          permissionType: 'admin',
+        );
+      }
+
       final updatedMembers =
           league.members.where((m) => m.userId != userId).toList();
       final updatedLeague = league.copyWith(members: updatedMembers);
@@ -311,6 +324,8 @@ class LeagueRepositoryImpl implements LeagueRepository {
     } on FirestoreException {
       rethrow;
     } on BusinessException {
+      rethrow;
+    } on PermissionException {
       rethrow;
     } on FirebaseException catch (e, stackTrace) {
       throw FirestoreException(
@@ -327,6 +342,7 @@ class LeagueRepositoryImpl implements LeagueRepository {
     required String leagueId,
     required String userId,
     required LeagueMemberRole newRole,
+    required String requesterId,
   }) async {
     try {
       final league = await getLeagueById(leagueId);
@@ -334,6 +350,16 @@ class LeagueRepositoryImpl implements LeagueRepository {
         throw const BusinessException(
           message: 'League not found',
           code: 'league-not-found',
+        );
+      }
+
+      // Check permissions: only owner can promote/demote
+      final isRequesterOwner = league.isOwner(requesterId);
+      if (!isRequesterOwner) {
+        throw const PermissionException(
+          message: 'Only the owner can change member roles',
+          code: 'permission-denied',
+          permissionType: 'owner',
         );
       }
 
@@ -371,6 +397,8 @@ class LeagueRepositoryImpl implements LeagueRepository {
     } on FirestoreException {
       rethrow;
     } on BusinessException {
+      rethrow;
+    } on PermissionException {
       rethrow;
     } on FirebaseException catch (e, stackTrace) {
       throw FirestoreException(
@@ -499,8 +527,29 @@ class LeagueRepositoryImpl implements LeagueRepository {
   }
 
   @override
-  Future<String> regenerateInviteCode(String leagueId) async {
+  Future<String> regenerateInviteCode({
+    required String leagueId,
+    required String requesterId,
+  }) async {
     try {
+      final league = await getLeagueById(leagueId);
+      if (league == null) {
+        throw const BusinessException(
+          message: 'League not found',
+          code: 'league-not-found',
+        );
+      }
+
+      // Check permissions: only admins/owners can regenerate invite code
+      final isRequesterAdmin = league.isAdmin(requesterId);
+      if (!isRequesterAdmin) {
+        throw const PermissionException(
+          message: 'Only admins can regenerate the invite code',
+          code: 'permission-denied',
+          permissionType: 'admin',
+        );
+      }
+
       // Generate unique invite code with Firestore validation
       final inviteCodeResult = await _inviteCodeService.generateUniqueCode();
       final newInviteCode = inviteCodeResult.code;
@@ -512,9 +561,127 @@ class LeagueRepositoryImpl implements LeagueRepository {
       return newInviteCode;
     } on BusinessException {
       rethrow;
+    } on PermissionException {
+      rethrow;
     } on FirebaseException catch (e, stackTrace) {
       throw FirestoreException(
         message: 'Failed to regenerate invite code: ${e.message}',
+        code: e.code,
+        originalError: e,
+        stackTrace: stackTrace,
+      );
+    }
+  }
+
+  @override
+  Future<void> transferOwnership({
+    required String leagueId,
+    required String newOwnerId,
+    required String requesterId,
+  }) async {
+    try {
+      final league = await getLeagueById(leagueId);
+      if (league == null) {
+        throw const BusinessException(
+          message: 'League not found',
+          code: 'league-not-found',
+        );
+      }
+
+      // Check permissions: only owner can transfer ownership
+      final isRequesterOwner = league.isOwner(requesterId);
+      if (!isRequesterOwner) {
+        throw const PermissionException(
+          message: 'Only the owner can transfer ownership',
+          code: 'permission-denied',
+          permissionType: 'owner',
+        );
+      }
+
+      final newOwner = league.getMember(newOwnerId);
+      if (newOwner == null) {
+        throw const BusinessException(
+          message: 'New owner must be a member of the league',
+          code: 'not-member',
+        );
+      }
+
+      if (newOwnerId == requesterId) {
+        throw const BusinessException(
+          message: 'You are already the owner',
+          code: 'already-owner',
+        );
+      }
+
+      // Update members: new owner becomes owner, old owner becomes admin
+      final updatedMembers = league.members.map((m) {
+        if (m.userId == newOwnerId) {
+          return m.copyWith(role: LeagueMemberRole.owner);
+        }
+        if (m.userId == requesterId) {
+          return m.copyWith(role: LeagueMemberRole.admin);
+        }
+        return m;
+      }).toList();
+
+      // Also update createdBy field to the new owner
+      final updatedLeague = league.copyWith(
+        members: updatedMembers,
+        createdBy: newOwnerId,
+      );
+      await updateLeague(updatedLeague);
+    } on FirestoreException {
+      rethrow;
+    } on BusinessException {
+      rethrow;
+    } on PermissionException {
+      rethrow;
+    } on FirebaseException catch (e, stackTrace) {
+      throw FirestoreException(
+        message: 'Failed to transfer ownership: ${e.message}',
+        code: e.code,
+        originalError: e,
+        stackTrace: stackTrace,
+      );
+    }
+  }
+
+  @override
+  Future<void> updateLeagueSettings({
+    required String leagueId,
+    required LeagueSettings settings,
+    required String requesterId,
+  }) async {
+    try {
+      final league = await getLeagueById(leagueId);
+      if (league == null) {
+        throw const BusinessException(
+          message: 'League not found',
+          code: 'league-not-found',
+        );
+      }
+
+      // Check permissions: only admins/owners can update settings
+      final isRequesterAdmin = league.isAdmin(requesterId);
+      if (!isRequesterAdmin) {
+        throw const PermissionException(
+          message: 'Only admins can update league settings',
+          code: 'permission-denied',
+          permissionType: 'admin',
+        );
+      }
+
+      final updatedLeague = league.copyWith(settings: settings);
+      await updateLeague(updatedLeague);
+    } on FirestoreException {
+      rethrow;
+    } on BusinessException {
+      rethrow;
+    } on PermissionException {
+      rethrow;
+    } on FirebaseException catch (e, stackTrace) {
+      throw FirestoreException(
+        message: 'Failed to update league settings: ${e.message}',
         code: e.code,
         originalError: e,
         stackTrace: stackTrace,

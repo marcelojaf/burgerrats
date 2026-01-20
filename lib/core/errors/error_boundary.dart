@@ -37,22 +37,31 @@ class _ErrorBoundaryState extends State<ErrorBoundary> {
   void _setupGlobalErrorHandlers() {
     // Handle Flutter framework errors
     FlutterError.onError = (FlutterErrorDetails details) {
-      final exception = ErrorHandler.handleError(
-        details.exception,
-        details.stack,
-      );
+      // Don't block UI for layout errors (overflow, etc.)
+      // These are visual issues that shouldn't stop the app
+      final isLayoutError = details.library == 'rendering library' &&
+          (details.exception.toString().contains('overflowed') ||
+           details.exception.toString().contains('RenderFlex'));
 
       if (kDebugMode) {
         FlutterError.dumpErrorToConsole(details);
       }
 
-      widget.onError?.call(exception, details.stack);
+      // Only report non-layout errors to the error boundary
+      if (!isLayoutError) {
+        final exception = ErrorHandler.handleError(
+          details.exception,
+          details.stack,
+        );
 
-      if (mounted) {
-        setState(() {
-          _error = exception;
-          _hasError = true;
-        });
+        widget.onError?.call(exception, details.stack);
+
+        if (mounted) {
+          setState(() {
+            _error = exception;
+            _hasError = true;
+          });
+        }
       }
     };
 

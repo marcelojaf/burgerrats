@@ -1,7 +1,6 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:burgerrats/core/services/invite_code_generator_service.dart';
-import 'package:burgerrats/core/errors/exceptions.dart';
 
 void main() {
   late FakeFirebaseFirestore fakeFirestore;
@@ -32,8 +31,11 @@ void main() {
         for (int i = 0; i < 100; i++) {
           final code = service.generateCode();
           for (final char in code.split('')) {
-            expect(allowedChars.contains(char), true,
-                reason: 'Character "$char" is not allowed');
+            expect(
+              allowedChars.contains(char),
+              true,
+              reason: 'Character "$char" is not allowed',
+            );
           }
         }
       });

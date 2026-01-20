@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768837413690-ea7b94b6",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T15:43:33.690Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "google-signin-integration",
+  "error": "Feature completed in 373s - auto-verified",
+  "passes": true
+}

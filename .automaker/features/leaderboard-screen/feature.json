@@ -3,7 +3,7 @@
   "category": "UI",
   "title": "League Leaderboard Screen",
   "description": "Display ranked list of league members with points, positions, and user avatars. Highlight current user's position. Update in real-time.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 1,
   "complexity": "moderate",
   "dependencies": [
@@ -11,5 +11,7 @@
     "theme-design-system"
   ],
   "createdAt": "2026-01-18T14:55:32.579Z",
-  "updatedAt": "2026-01-18T14:55:32.579Z"
+  "updatedAt": "2026-01-19T15:55:10.402Z",
+  "startedAt": "2026-01-19T15:51:09.329Z",
+  "descriptionHistory": []
 }

@@ -4,3 +4,4 @@ export 'pages/league_details_page.dart';
 export 'pages/leagues_page.dart';
 export 'providers/create_league_provider.dart';
 export 'providers/join_league_provider.dart';
+export 'providers/leaderboard_provider.dart';

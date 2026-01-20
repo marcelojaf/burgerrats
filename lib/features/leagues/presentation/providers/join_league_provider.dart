@@ -1,14 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/di/injection.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/errors/error_handler.dart';
+import '../../../../core/services/notification_service.dart';
 import '../../domain/entities/league_entity.dart';
 import '../../domain/repositories/league_repository.dart';
 
 /// Provides the LeagueRepository instance from GetIt
 final leagueRepositoryProvider = Provider<LeagueRepository>((ref) {
   return getIt<LeagueRepository>();
+});
+
+/// Provides the NotificationService instance from GetIt
+final notificationServiceProvider = Provider<NotificationService>((ref) {
+  return getIt<NotificationService>();
 });
 
 /// State for the join league flow
@@ -117,8 +124,10 @@ class JoinLeagueState {
 /// Handles searching for a league by invite code and joining it.
 class JoinLeagueNotifier extends StateNotifier<JoinLeagueState> {
   final LeagueRepository _repository;
+  final NotificationService _notificationService;
 
-  JoinLeagueNotifier(this._repository) : super(const JoinLeagueState.initial());
+  JoinLeagueNotifier(this._repository, this._notificationService)
+      : super(const JoinLeagueState.initial());
 
   /// Searches for a league by its invite code
   ///
@@ -208,6 +217,9 @@ class JoinLeagueNotifier extends StateNotifier<JoinLeagueState> {
         userId: userId,
       );
 
+      // Subscribe to league notifications (fire-and-forget)
+      _subscribeToLeagueNotifications(league.id);
+
       state = JoinLeagueState.success(league, state.inviteCode);
       return true;
     } on BusinessException catch (e) {
@@ -250,6 +262,15 @@ class JoinLeagueNotifier extends StateNotifier<JoinLeagueState> {
       state = const JoinLeagueState.initial();
     }
   }
+
+  /// Subscribes to league push notifications
+  ///
+  /// This is a fire-and-forget operation that doesn't affect the join flow.
+  void _subscribeToLeagueNotifications(String leagueId) {
+    _notificationService.subscribeToLeague(leagueId).catchError((e) {
+      debugPrint('Failed to subscribe to league notifications: $e');
+    });
+  }
 }
 
 /// Provider for the JoinLeagueNotifier
@@ -257,6 +278,7 @@ final joinLeagueNotifierProvider =
     StateNotifierProvider.autoDispose<JoinLeagueNotifier, JoinLeagueState>(
   (ref) {
     final repository = ref.watch(leagueRepositoryProvider);
-    return JoinLeagueNotifier(repository);
+    final notificationService = ref.watch(notificationServiceProvider);
+    return JoinLeagueNotifier(repository, notificationService);
   },
 );

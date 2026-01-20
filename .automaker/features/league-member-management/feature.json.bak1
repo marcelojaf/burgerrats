@@ -1,0 +1,16 @@
+{
+  "id": "league-member-management",
+  "category": "Core",
+  "title": "League Member Management",
+  "description": "Implement admin functions to remove members, transfer admin role, and manage league settings. Enforce permission checks based on user role.",
+  "status": "in_progress",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "league-repository"
+  ],
+  "createdAt": "2026-01-18T14:55:32.581Z",
+  "updatedAt": "2026-01-19T16:50:29.341Z",
+  "startedAt": "2026-01-19T16:50:29.104Z",
+  "descriptionHistory": []
+}

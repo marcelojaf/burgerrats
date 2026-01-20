@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../di/injection.dart';
+import '../../services/notification_service.dart';
 import '../../../features/auth/domain/repositories/auth_repository.dart';
 
 /// Provides the Firebase Auth instance
@@ -68,6 +70,9 @@ enum AuthStatus {
 
   /// Authentication failed
   error,
+
+  /// User needs email verification
+  needsEmailVerification,
 }
 
 /// State class for authentication operations
@@ -105,9 +110,15 @@ class AuthState {
       : status = AuthStatus.error,
         user = null;
 
+  const AuthState.needsEmailVerification(this.user)
+      : status = AuthStatus.needsEmailVerification,
+        errorMessage = null;
+
   bool get isAuthenticated => status == AuthStatus.authenticated;
   bool get isLoading => status == AuthStatus.authenticating;
   bool get hasError => status == AuthStatus.error;
+  bool get needsEmailVerification =>
+      status == AuthStatus.needsEmailVerification;
 
   AuthState copyWith({
     AuthStatus? status,
@@ -147,21 +158,36 @@ class AuthState {
 /// ```
 class AuthNotifier extends StateNotifier<AuthState> {
   final AuthRepository _repository;
+  final NotificationService _notificationService;
   StreamSubscription<User?>? _authSubscription;
 
-  AuthNotifier(this._repository) : super(const AuthState.initial()) {
+  AuthNotifier(this._repository, this._notificationService)
+      : super(const AuthState.initial()) {
     _init();
   }
 
   void _init() {
     // Listen to auth state changes
-    _authSubscription = _repository.authStateChanges.listen((user) {
+    _authSubscription = _repository.authStateChanges.listen((user) async {
       if (user != null) {
         state = AuthState.authenticated(user);
+        // Initialize notifications when user is authenticated
+        await _initializeNotifications();
       } else {
         state = const AuthState.unauthenticated();
       }
     });
+  }
+
+  /// Initialize notification service after authentication
+  Future<void> _initializeNotifications() async {
+    try {
+      await _notificationService.initialize();
+      debugPrint('Notifications initialized after authentication');
+    } catch (e) {
+      // Don't fail authentication if notifications fail
+      debugPrint('Failed to initialize notifications: $e');
+    }
   }
 
   @override
@@ -219,6 +245,12 @@ class AuthNotifier extends StateNotifier<AuthState> {
   /// Signs out the current user
   Future<void> signOut() async {
     try {
+      // Delete FCM token before signing out
+      try {
+        await _notificationService.deleteToken();
+      } catch (e) {
+        debugPrint('Failed to delete notification token: $e');
+      }
       await _repository.signOut();
       state = const AuthState.unauthenticated();
     } catch (e) {
@@ -249,6 +281,89 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
+  /// Sends email verification to the current user
+  Future<bool> sendEmailVerification() async {
+    try {
+      await _repository.sendEmailVerification();
+      return true;
+    } on FirebaseAuthException catch (e) {
+      state = AuthState.error(_mapFirebaseError(e.code));
+      return false;
+    } catch (e) {
+      state = AuthState.error('Erro ao enviar verificação. Tente novamente.');
+      return false;
+    }
+  }
+
+  /// Reloads the current user and updates state
+  Future<void> reloadUser() async {
+    try {
+      await _repository.reloadUser();
+      final user = _repository.currentUser;
+      if (user != null) {
+        if (user.emailVerified) {
+          state = AuthState.authenticated(user);
+        } else {
+          state = AuthState.needsEmailVerification(user);
+        }
+      }
+    } catch (e) {
+      // Silently fail on reload
+    }
+  }
+
+  /// Checks if email is verified
+  bool get isEmailVerified => _repository.isEmailVerified;
+
+  /// Updates the display name of the current user
+  Future<bool> updateDisplayName(String displayName) async {
+    try {
+      await _repository.updateDisplayName(displayName);
+      return true;
+    } catch (e) {
+      state = AuthState.error('Erro ao atualizar nome. Tente novamente.');
+      return false;
+    }
+  }
+
+  /// Updates the profile photo URL of the current user
+  Future<bool> updatePhotoURL(String photoURL) async {
+    try {
+      await _repository.updatePhotoURL(photoURL);
+      return true;
+    } catch (e) {
+      state = AuthState.error('Erro ao atualizar foto. Tente novamente.');
+      return false;
+    }
+  }
+
+  /// Signs in with Google
+  ///
+  /// Returns true if sign-in was successful, false otherwise.
+  /// Returns false without error if user cancelled the flow.
+  Future<bool> signInWithGoogle() async {
+    state = const AuthState.authenticating();
+
+    try {
+      final credential = await _repository.signInWithGoogle();
+
+      // User cancelled the sign-in flow
+      if (credential == null) {
+        state = const AuthState.unauthenticated();
+        return false;
+      }
+
+      state = AuthState.authenticated(credential.user);
+      return true;
+    } on FirebaseAuthException catch (e) {
+      state = AuthState.error(_mapFirebaseError(e.code));
+      return false;
+    } catch (e) {
+      state = AuthState.error('Erro ao fazer login com Google. Tente novamente.');
+      return false;
+    }
+  }
+
   /// Maps Firebase error codes to Portuguese messages
   String _mapFirebaseError(String code) {
     switch (code) {
@@ -276,10 +391,16 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 }
 
+/// Provider for the NotificationService from GetIt
+final notificationServiceAuthProvider = Provider<NotificationService>((ref) {
+  return getIt<NotificationService>();
+});
+
 /// Provider for the AuthNotifier
 final authNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(
   (ref) {
     final repository = ref.watch(authRepositoryProvider);
-    return AuthNotifier(repository);
+    final notificationService = ref.watch(notificationServiceAuthProvider);
+    return AuthNotifier(repository, notificationService);
   },
 );

@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768837861478-e4a50af2",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T15:51:01.478Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "leaderboard-calculator",
+  "error": "Feature completed in 346s - auto-verified",
+  "passes": true
+}

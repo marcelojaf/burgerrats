@@ -1,0 +1,18 @@
+{
+  "id": "dark-mode-support",
+  "category": "Design System",
+  "title": "Dark Mode Theme Support",
+  "description": "Implement complete dark mode support using the dark theme color variants. Create theme provider/notifier to allow users to switch between light, dark, and system themes. Store preference in SharedPreferences. Update MaterialApp to use both lightTheme and darkTheme. Ensure all screens properly respond to theme changes with warm-tinted dark surfaces (#1A1612), lighter primary colors for visibility, and maintained contrast ratios. Test all UI components in both themes to verify WCAG AA compliance and visual consistency. Add theme toggle in settings/profile screen.",
+  "status": "in_progress",
+  "priority": 2,
+  "complexity": "medium",
+  "dependencies": [
+    "color-system-implementation",
+    "theme-configuration",
+    "user-profile-screen"
+  ],
+  "createdAt": "2026-01-19T16:45:00.000Z",
+  "updatedAt": "2026-01-19T18:49:38.384Z",
+  "descriptionHistory": [],
+  "startedAt": "2026-01-19T18:49:38.014Z"
+}

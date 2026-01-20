@@ -3,7 +3,7 @@
   "category": "UI",
   "title": "Sign-Up Screen UI",
   "description": "Create sign-up screen with email, password, and name fields. Implement form validation, terms acceptance, and account creation flow.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 1,
   "complexity": "simple",
   "dependencies": [
@@ -11,5 +11,7 @@
     "email-password-auth"
   ],
   "createdAt": "2026-01-18T14:55:32.570Z",
-  "updatedAt": "2026-01-18T14:55:32.571Z"
+  "updatedAt": "2026-01-19T15:58:22.147Z",
+  "startedAt": "2026-01-19T15:53:46.848Z",
+  "descriptionHistory": []
 }

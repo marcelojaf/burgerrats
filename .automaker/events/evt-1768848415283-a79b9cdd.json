@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768848415283-a79b9cdd",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T18:46:55.283Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "app-branding-assets",
+  "error": "Feature completed in 193s - auto-verified",
+  "passes": true
+}

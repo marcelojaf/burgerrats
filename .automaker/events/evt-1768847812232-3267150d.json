@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768847812232-3267150d",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T18:36:52.232Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "android-app-icon",
+  "error": "Feature completed in 131s - auto-verified",
+  "passes": true
+}

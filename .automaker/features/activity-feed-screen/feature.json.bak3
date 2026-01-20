@@ -1,0 +1,15 @@
+{
+  "id": "activity-feed-screen",
+  "category": "UI",
+  "title": "League Activity Feed",
+  "description": "Show real-time feed of recent check-ins from all league members. Display user name, photo, and timestamp with infinite scroll pagination.",
+  "status": "backlog",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "checkin-repository",
+    "theme-design-system"
+  ],
+  "createdAt": "2026-01-18T14:55:32.581Z",
+  "updatedAt": "2026-01-18T14:55:32.581Z"
+}

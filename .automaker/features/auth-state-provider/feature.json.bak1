@@ -1,0 +1,17 @@
+{
+  "id": "auth-state-provider",
+  "category": "Authentication",
+  "title": "Authentication State Provider",
+  "description": "Create global auth state provider that listens to Firebase auth changes. Manage user session and authentication status throughout the app.",
+  "status": "completed",
+  "priority": 1,
+  "complexity": "simple",
+  "dependencies": [
+    "firebase-auth-service",
+    "state-management-setup"
+  ],
+  "createdAt": "2026-01-18T14:55:32.570Z",
+  "updatedAt": "2026-01-19T14:49:21.067Z",
+  "startedAt": "2026-01-19T14:49:20.803Z",
+  "descriptionHistory": []
+}

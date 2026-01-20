@@ -1,0 +1,17 @@
+{
+  "id": "league-detail-screen",
+  "category": "UI",
+  "title": "League Detail Screen",
+  "description": "Show comprehensive league information including members, settings, invite code, and admin actions. Display league statistics and activity summary.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "moderate",
+  "dependencies": [
+    "league-repository",
+    "theme-design-system"
+  ],
+  "createdAt": "2026-01-18T14:55:32.575Z",
+  "updatedAt": "2026-01-18T14:55:32.575Z",
+  "startedAt": "2026-01-19T15:45:29.054Z",
+  "descriptionHistory": []
+}

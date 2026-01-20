@@ -1,0 +1,18 @@
+{
+  "id": "login-screen",
+  "category": "UI",
+  "title": "Login Screen UI",
+  "description": "Design and implement login screen with email/password fields, Google Sign-In button, and navigation to sign-up. Include form validation and loading states in Portuguese.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "simple",
+  "dependencies": [
+    "theme-design-system",
+    "email-password-auth",
+    "google-signin-integration"
+  ],
+  "createdAt": "2026-01-18T14:55:32.570Z",
+  "updatedAt": "2026-01-18T14:55:32.570Z",
+  "startedAt": "2026-01-19T15:48:09.109Z",
+  "descriptionHistory": []
+}

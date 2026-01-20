@@ -261,7 +261,7 @@ void main() {
     });
 
     group('removeMember', () {
-      test('should remove member from league', () async {
+      test('should remove member from league when requester is admin', () async {
         final created = await repository.createLeague(
           name: 'Test League',
           createdBy: 'user-123',
@@ -275,12 +275,62 @@ void main() {
         await repository.removeMember(
           leagueId: created.id,
           userId: 'user-456',
+          requesterId: 'user-123',
         );
 
         final retrieved = await repository.getLeagueById(created.id);
 
         expect(retrieved!.members.length, 1);
         expect(retrieved.isMember('user-456'), false);
+      });
+
+      test('should allow member to remove themselves', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        await repository.addMember(
+          leagueId: created.id,
+          userId: 'user-456',
+        );
+
+        await repository.removeMember(
+          leagueId: created.id,
+          userId: 'user-456',
+          requesterId: 'user-456',
+        );
+
+        final retrieved = await repository.getLeagueById(created.id);
+
+        expect(retrieved!.members.length, 1);
+        expect(retrieved.isMember('user-456'), false);
+      });
+
+      test('should throw when non-admin tries to remove another member', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        await repository.addMember(
+          leagueId: created.id,
+          userId: 'user-456',
+        );
+
+        await repository.addMember(
+          leagueId: created.id,
+          userId: 'user-789',
+        );
+
+        expect(
+          () => repository.removeMember(
+            leagueId: created.id,
+            userId: 'user-789',
+            requesterId: 'user-456',
+          ),
+          throwsA(isA<PermissionException>()),
+        );
       });
 
       test('should throw when trying to remove owner', () async {
@@ -293,6 +343,7 @@ void main() {
           () => repository.removeMember(
             leagueId: created.id,
             userId: 'user-123',
+            requesterId: 'user-123',
           ),
           throwsA(isA<BusinessException>()),
         );
@@ -308,6 +359,7 @@ void main() {
           () => repository.removeMember(
             leagueId: created.id,
             userId: 'user-456',
+            requesterId: 'user-123',
           ),
           throwsA(isA<BusinessException>()),
         );
@@ -315,7 +367,7 @@ void main() {
     });
 
     group('updateMemberRole', () {
-      test('should update member role', () async {
+      test('should update member role when requester is owner', () async {
         final created = await repository.createLeague(
           name: 'Test League',
           createdBy: 'user-123',
@@ -330,12 +382,47 @@ void main() {
           leagueId: created.id,
           userId: 'user-456',
           newRole: LeagueMemberRole.admin,
+          requesterId: 'user-123',
         );
 
         final retrieved = await repository.getLeagueById(created.id);
         final member = retrieved!.getMember('user-456');
 
         expect(member!.role, LeagueMemberRole.admin);
+      });
+
+      test('should throw when non-owner tries to change role', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        await repository.addMember(
+          leagueId: created.id,
+          userId: 'user-456',
+        );
+
+        await repository.updateMemberRole(
+          leagueId: created.id,
+          userId: 'user-456',
+          newRole: LeagueMemberRole.admin,
+          requesterId: 'user-123',
+        );
+
+        await repository.addMember(
+          leagueId: created.id,
+          userId: 'user-789',
+        );
+
+        expect(
+          () => repository.updateMemberRole(
+            leagueId: created.id,
+            userId: 'user-789',
+            newRole: LeagueMemberRole.admin,
+            requesterId: 'user-456',
+          ),
+          throwsA(isA<PermissionException>()),
+        );
       });
 
       test('should throw when trying to change owner role', () async {
@@ -349,6 +436,7 @@ void main() {
             leagueId: created.id,
             userId: 'user-123',
             newRole: LeagueMemberRole.admin,
+            requesterId: 'user-123',
           ),
           throwsA(isA<BusinessException>()),
         );
@@ -370,6 +458,7 @@ void main() {
             leagueId: created.id,
             userId: 'user-456',
             newRole: LeagueMemberRole.owner,
+            requesterId: 'user-123',
           ),
           throwsA(isA<BusinessException>()),
         );
@@ -506,7 +595,7 @@ void main() {
     });
 
     group('regenerateInviteCode', () {
-      test('should generate a new invite code', () async {
+      test('should generate a new invite code when requester is admin', () async {
         final created = await repository.createLeague(
           name: 'Test League',
           createdBy: 'user-123',
@@ -514,7 +603,10 @@ void main() {
 
         final originalCode = created.inviteCode;
 
-        final newCode = await repository.regenerateInviteCode(created.id);
+        final newCode = await repository.regenerateInviteCode(
+          leagueId: created.id,
+          requesterId: 'user-123',
+        );
 
         expect(newCode, isNot(originalCode));
         expect(newCode.length, greaterThanOrEqualTo(6));
@@ -522,6 +614,157 @@ void main() {
 
         final retrieved = await repository.getLeagueById(created.id);
         expect(retrieved!.inviteCode, newCode);
+      });
+
+      test('should throw when non-admin tries to regenerate', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        await repository.addMember(
+          leagueId: created.id,
+          userId: 'user-456',
+        );
+
+        expect(
+          () => repository.regenerateInviteCode(
+            leagueId: created.id,
+            requesterId: 'user-456',
+          ),
+          throwsA(isA<PermissionException>()),
+        );
+      });
+    });
+
+    group('transferOwnership', () {
+      test('should transfer ownership to another member', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        await repository.addMember(
+          leagueId: created.id,
+          userId: 'user-456',
+        );
+
+        await repository.transferOwnership(
+          leagueId: created.id,
+          newOwnerId: 'user-456',
+          requesterId: 'user-123',
+        );
+
+        final retrieved = await repository.getLeagueById(created.id);
+        expect(retrieved!.createdBy, 'user-456');
+        expect(retrieved.getMember('user-456')!.role, LeagueMemberRole.owner);
+        expect(retrieved.getMember('user-123')!.role, LeagueMemberRole.admin);
+      });
+
+      test('should throw when non-owner tries to transfer', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        await repository.addMember(
+          leagueId: created.id,
+          userId: 'user-456',
+        );
+
+        expect(
+          () => repository.transferOwnership(
+            leagueId: created.id,
+            newOwnerId: 'user-456',
+            requesterId: 'user-456',
+          ),
+          throwsA(isA<PermissionException>()),
+        );
+      });
+
+      test('should throw when new owner is not a member', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        expect(
+          () => repository.transferOwnership(
+            leagueId: created.id,
+            newOwnerId: 'user-456',
+            requesterId: 'user-123',
+          ),
+          throwsA(isA<BusinessException>()),
+        );
+      });
+
+      test('should throw when transferring to yourself', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        expect(
+          () => repository.transferOwnership(
+            leagueId: created.id,
+            newOwnerId: 'user-123',
+            requesterId: 'user-123',
+          ),
+          throwsA(isA<BusinessException>()),
+        );
+      });
+    });
+
+    group('updateLeagueSettings', () {
+      test('should update league settings when requester is admin', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        const newSettings = LeagueSettings(
+          isPublic: true,
+          maxMembers: 100,
+          pointsPerCheckIn: 20,
+          pointsPerReview: 10,
+          allowMemberInvites: false,
+          requireApproval: true,
+        );
+
+        await repository.updateLeagueSettings(
+          leagueId: created.id,
+          settings: newSettings,
+          requesterId: 'user-123',
+        );
+
+        final retrieved = await repository.getLeagueById(created.id);
+        expect(retrieved!.settings.isPublic, true);
+        expect(retrieved.settings.maxMembers, 100);
+        expect(retrieved.settings.pointsPerCheckIn, 20);
+        expect(retrieved.settings.pointsPerReview, 10);
+        expect(retrieved.settings.allowMemberInvites, false);
+        expect(retrieved.settings.requireApproval, true);
+      });
+
+      test('should throw when non-admin tries to update settings', () async {
+        final created = await repository.createLeague(
+          name: 'Test League',
+          createdBy: 'user-123',
+        );
+
+        await repository.addMember(
+          leagueId: created.id,
+          userId: 'user-456',
+        );
+
+        expect(
+          () => repository.updateLeagueSettings(
+            leagueId: created.id,
+            settings: const LeagueSettings(isPublic: true),
+            requesterId: 'user-456',
+          ),
+          throwsA(isA<PermissionException>()),
+        );
       });
     });
 

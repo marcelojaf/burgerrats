@@ -1,0 +1,14 @@
+{
+  "id": "ios-app-icon",
+  "category": "Branding",
+  "title": "iOS App Icon Configuration",
+  "description": "Configure the iOS app icon with the BurgerRats branding. Replace the default app icon with custom rat mascot icons. The AppIcon.appiconset is located at: C:\\Users\\marce\\OneDrive - CK Labs Dev\\CKLabs-Projetos\\BurgerRats\\AppIcons\\Assets.xcassets\\AppIcon.appiconset and needs to replace the existing one at ios/Runner/Assets.xcassets/AppIcon.appiconset. Includes all required sizes for iPhone and iPad (20pt, 29pt, 40pt, 60pt, 76pt, 83.5pt, 1024pt) and App Store icon.",
+  "status": "in_progress",
+  "priority": 2,
+  "complexity": "simple",
+  "dependencies": [],
+  "createdAt": "2026-01-19T16:30:00.000Z",
+  "updatedAt": "2026-01-19T18:36:57.123Z",
+  "descriptionHistory": [],
+  "startedAt": "2026-01-19T18:36:56.737Z"
+}

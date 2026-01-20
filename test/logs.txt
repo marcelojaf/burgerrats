@@ -1,0 +1,389 @@
+Launching lib\main.dart on SM A556E in debug mode...
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+Warning: Observed package id 'platform-tools' in inconsistent location 'C:\Android\sdk\platform-tools.old443062208' (Expected 'C:\Android\sdk\platform-tools')
+Warning: Already observed package id 'platform-tools' in 'C:\Android\sdk\platform-tools'. Skipping duplicate at 'C:\Android\sdk\platform-tools.old443062208'
+Warning: Observed package id 'platform-tools' in inconsistent location 'C:\Android\sdk\platform-tools.old443062208' (Expected 'C:\Android\sdk\platform-tools')
+Warning: Already observed package id 'platform-tools' in 'C:\Android\sdk\platform-tools'. Skipping duplicate at 'C:\Android\sdk\platform-tools.old443062208'
+Checking the license for package CMake 3.22.1 in C:\Android\sdk\licenses
+License for package CMake 3.22.1 accepted.
+Preparing "Install CMake 3.22.1 v.3.22.1".
+"Install CMake 3.22.1 v.3.22.1" ready.
+Installing CMake 3.22.1 in C:\Android\sdk\cmake\3.22.1
+"Install CMake 3.22.1 v.3.22.1" complete.
+"Install CMake 3.22.1 v.3.22.1" finished.
+Warning: Observed package id 'platform-tools' in inconsistent location 'C:\Android\sdk\platform-tools.old443062208' (Expected 'C:\Android\sdk\platform-tools')
+Warning: Already observed package id 'platform-tools' in 'C:\Android\sdk\platform-tools'. Skipping duplicate at 'C:\Android\sdk\platform-tools.old443062208'
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+D/FlutterJNI(19378): Beginning load of flutter...
+D/FlutterJNI(19378): flutter (null) was loaded normally!
+I/flutter (19378): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+Connecting to VM Service at ws://127.0.0.1:50807/WO23A03M7XE=/ws
+Connected to the VM Service.
+D/ProfileInstaller(19378): Installing profile for com.cklabs.burgerratsapp
+I/BLASTBufferQueue_Java(19378): update, w= 1080 h= 2340 mName = VRI[MainActivity]@110f657 mNativeObject= 0xb4000072b27decd0 sc.mNativeObject= 0xb4000073d2730fd0 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901
+I/VRI[MainActivity]@110f657(19378): Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)0 dur=13 res=0x1 s={true 0xb400007462733720} ch=false seqId=0
+I/VRI[MainActivity]@110f657(19378): updateBoundsLayer: t=android.view.SurfaceControl$Transaction@5002604 sc=Surface(name=Bounds for - com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity@0)/@0x7bd97ed frame=1
+D/VRI[MainActivity]@110f657(19378): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910
+I/flutter (19378): FCM authorization status: AuthorizationStatus.authorized
+I/InsetsSourceConsumer(19378): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/InsetsSourceConsumer(19378): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/flutter (19378): FCM Token: fSTR6IHzQ8-bmcPYupAd-s:APA91bEC9C_B9nlUN8jXMM8lCxBWGSjQmEz3sZlZWnKM2mlIX8D7fKvejFaTC-tQeqsMCpWneKuiF_PluVxnwOJnCmaJJ2hKtuN5UpJv7s5infm96GRpC54
+I/flutter (19378): Firebase initialized successfully
+I/FLTFireBGExecutor(19378): Creating background FlutterEngine instance, with args: [--start-paused, --enable-dart-profiling]
+V/XGL     (19378): ----------------------------------------------------------------------
+V/XGL     (19378): SUMD version compiled date     = 2025-06-11 14:47 - KST
+V/XGL     (19378): SUMD version revision number   = 1fc295b0d2
+V/XGL     (19378): SUMD version info              = Driver version: 24.0.545, git hash: 1fc295b0d2
+V/XGL     (19378): ----------------------------------------------------------------------
+V/XGL     (19378): Entering: Create
+D/FLTFireContextHolder(19378): received application context.
+V/XGL     (19378): Exiting: Create
+I/flutter (19378): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/Choreographer(19378): Skipped 32 frames!  The application may be doing too much work on its main thread.
+I/flutter (19378): ReminderSchedulerService initialized successfully
+I/flutter (19378): Notification message handlers setup complete
+[GoRouter] setting initial location /
+[GoRouter] Full paths for routes:
+           ├─/ (SplashPage)
+           ├─/onboarding (OnboardingPage)
+           ├─/login (LoginPage)
+           │ ├─/login/register (RegisterPage)
+           │ └─/login/forgot-password (ForgotPasswordPage)
+           ├─/email-verification (EmailVerificationPage)
+           ├─ (ShellRoute)
+           │ ├─/home
+           │ ├─/leagues
+           │ ├─/check-ins
+           │ └─/profile
+           ├─/leagues/:leagueId (LeagueDetailsPage)
+           ├─/check-ins/:checkInId (CheckInDetailsPage)
+           ├─/check-ins/create (CreateCheckInPage)
+           ├─/profile/edit (EditProfilePage)
+           ├─/settings (SettingsPage)
+           ├─/leagues/join (JoinLeaguePage)
+           ├─/leagues/create (CreateLeaguePage)
+           ├─/leagues/:leagueId/settings (LeagueSettingsPage)
+           ├─/leagues/:leagueId/reminders (ReminderSettingsPageWrapper)
+           ├─/error-demo (ErrorDemoPage)
+           ├─/league/:leagueId
+           ├─/checkin/:checkInId
+           └─/join/:inviteCode
+           known full paths for route names:
+             splash => /
+             onboarding => /onboarding
+             login => /login
+             register => /login/register
+             forgot-password => /login/forgot-password
+             email-verification => /email-verification
+             home => /home
+             leagues => /leagues
+             check-ins => /check-ins
+             profile => /profile
+             league-details => /leagues/:leagueId
+             check-in-details => /check-ins/:checkInId
+             create-check-in => /check-ins/create
+             edit-profile => /profile/edit
+             settings => /settings
+             join-league => /leagues/join
+             create-league => /leagues/create
+             league-settings => /leagues/:leagueId/settings
+             league-reminders => /leagues/:leagueId/reminders
+             error-demo => /error-demo
+             league-invite => /league/:leagueId
+             checkin-share => /checkin/:checkInId
+             join-league-invite => /join/:inviteCode
+[GoRouter] Using MaterialApp configuration
+[GoRouter] going to /onboarding
+[GoRouter] setting initial location /
+[GoRouter] Full paths for routes:
+           ├─/ (SplashPage)
+           ├─/onboarding (OnboardingPage)
+           ├─/login (LoginPage)
+           │ ├─/login/register (RegisterPage)
+           │ └─/login/forgot-password (ForgotPasswordPage)
+           ├─/email-verification (EmailVerificationPage)
+           ├─ (ShellRoute)
+           │ ├─/home
+           │ ├─/leagues
+           │ ├─/check-ins
+           │ └─/profile
+           ├─/leagues/:leagueId (LeagueDetailsPage)
+           ├─/check-ins/:checkInId (CheckInDetailsPage)
+           ├─/check-ins/create (CreateCheckInPage)
+           ├─/profile/edit (EditProfilePage)
+           ├─/settings (SettingsPage)
+           ├─/leagues/join (JoinLeaguePage)
+           ├─/leagues/create (CreateLeaguePage)
+           ├─/leagues/:leagueId/settings (LeagueSettingsPage)
+           ├─/leagues/:leagueId/reminders (ReminderSettingsPageWrapper)
+           ├─/error-demo (ErrorDemoPage)
+           ├─/league/:leagueId
+           ├─/checkin/:checkInId
+           └─/join/:inviteCode
+           known full paths for route names:
+             splash => /
+             onboarding => /onboarding
+             login => /login
+             register => /login/register
+             forgot-password => /login/forgot-password
+             email-verification => /email-verification
+             home => /home
+             leagues => /leagues
+             check-ins => /check-ins
+             profile => /profile
+             league-details => /leagues/:leagueId
+             check-in-details => /check-ins/:checkInId
+             create-check-in => /check-ins/create
+             edit-profile => /profile/edit
+             settings => /settings
+             join-league => /leagues/join
+             create-league => /leagues/create
+             league-settings => /leagues/:leagueId/settings
+             league-reminders => /leagues/:leagueId/reminders
+             error-demo => /error-demo
+             league-invite => /league/:leagueId
+             checkin-share => /checkin/:checkInId
+             join-league-invite => /join/:inviteCode
+I/flutter (19378): NotificationHandler initialized
+I/BLASTBufferQueue(19378): [850776f SurfaceView[com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity]@0#1](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/Choreographer(19378): Skipped 130 frames!  The application may be doing too much work on its main thread.
+I/SurfaceView(19378): 139491183 finishedDrawing
+D/PhoneWindow(19378): forceLight changed to false [com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4584 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4275 io.flutter.plugin.platform.PlatformPlugin.setSystemChromeSystemUIOverlayStyle:503 io.flutter.plugin.platform.PlatformPlugin.access$700:36 io.flutter.plugin.platform.PlatformPlugin$1.setSystemUiOverlayStyle:123
+I/FLTFireMsgService(19378): FlutterFirebaseMessagingBackgroundService started!
+I/BLASTBufferQueue_Java(19378): update, w= 1080 h= 2340 mName = VRI[MainActivity]@110f657 mNativeObject= 0xb4000072b27decd0 sc.mNativeObject= 0xb4000073d271ad10 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901
+I/VRI[MainActivity]@110f657(19378): Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)0 dur=4 res=0x1 s={true 0xb400007462733720} ch=false seqId=0
+I/VRI[MainActivity]@110f657(19378): updateBoundsLayer: t=android.view.SurfaceControl$Transaction@5002604 sc=Surface(name=Bounds for - com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity@0)/@0x7bd97ed frame=1
+D/VRI[MainActivity]@110f657(19378): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910
+D/VRI[MainActivity]@110f657(19378): Setup new sync=wmsSync-VRI[MainActivity]@110f657#1
+I/VRI[MainActivity]@110f657(19378): Creating new active sync group VRI[MainActivity]@110f657#2
+D/VRI[MainActivity]@110f657(19378): Draw frame after cancel
+D/VRI[MainActivity]@110f657(19378): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(19378): 139491183 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 0, 1080, 2340] surfaceSize = 1080x2340
+I/SV[139491183 MainActivity](19378): uSP: rtp = Rect(0, 0 - 1080, 2340) rtsw = 1080 rtsh = 2340
+I/SV[139491183 MainActivity](19378): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[139491183 MainActivity](19378): aOrMT: VRI[MainActivity]@110f657 t = android.view.SurfaceControl$Transaction@638bfce fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401
+I/VRI[MainActivity]@110f657(19378): mWNT: t=0xb4000074e2749410 mBlastBufferQueue=0xb4000072b27decd0 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932
+D/VRI[MainActivity]@110f657(19378): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[MainActivity]@110f657(19378): mWNT: t=0xb4000074e2756990 mBlastBufferQueue=0xb4000072b27decd0 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack>
+I/VRI[MainActivity]@110f657(19378): Setting up sync and frameCommitCallback
+I/GSC     (19378): SID[77] : 3fbab2d0b9a11634, Kind: 1, time : 2.106 ms
+I/GSC     (19378): SID[78] : 9fb7104710fc7e74, Kind: 0, time : 7.407 ms
+I/GSC     (19378): SID[79] : fe6ff4e467193f9c, Kind: 1, time : 1.727 ms
+I/GSC     (19378): SID[80] : 9fb7104710fc7e74, Kind: 0, time : 3.673 ms
+I/BLASTBufferQueue(19378): [VRI[MainActivity]@110f657#0](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/VRI[MainActivity]@110f657(19378): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+D/HWUI    (19378): CFMS:: SetUp Pid : 19378    Tid : 19404
+D/VRI[MainActivity]@110f657(19378): reportDrawFinished seqId=0
+D/VRI[MainActivity]@110f657(19378): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007462733720}
+D/InputMethodManagerUtils(19378): startInputInner - Id : 0
+I/InputMethodManager(19378): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(19378): handleMessage: setImeVisibility visible=false
+D/InsetsController(19378): hide(ime(), fromIme=false)
+I/ImeTracker(19378): com.cklabs.burgerratsapp:978883c8: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(19378): Input channel constructed: 'ClientS', fd=178
+I/VRI[MainActivity]@110f657(19378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@110f657
+I/VRI[MainActivity]@110f657(19378): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@110f657
+I/VRI[MainActivity]@110f657(19378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@110f657
+I/VRI[MainActivity]@110f657(19378): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@110f657
+I/InsetsController(19378): onStateChanged: host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 2340, 1080), mDisplayCutout=DisplayCutout{insets=Rect(89, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 507 - 89, 573), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2340 physicalDisplayWidth=1080 physicalDisplayHeight=2340 density={2.8125} cutoutSpec={M 0,0 M 0,8.177777777777778 a 11.73333333333333,11.73333333333333 0 1,0 0,23.46666666666667 a 11.73333333333333,11.73333333333333 0 1,0 0,-23.46666666666667 Z @dp} rotation={1} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=118, center=Point(118, 118)}, RoundedCorner{position=TopRight, radius=118, center=Point(2222, 118)}, RoundedCorner{position=BottomRight, radius=118, center=Point(2222, 962)}, RoundedCorner{position=BottomLeft, radius=118, center=Point(118, 962)}]}  mRoundedCornerFrame=Rect(0, 0 - 2340, 1080), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(2216, 0 - 2340, 84) rotation=1}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2340 physicalPixelDisplaySizeRatio=1.0 rotation=1 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5f80000 mType=statusBars mFrame=[0,0][2340,84] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80005 mType=mandatorySystemGestures mFrame=[0,0][2340,84] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80006 mType=tappableElement mFrame=[0,0][2340,84] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {7 mType=displayCutout mFrame=[0,0][89,1080] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {5a310001 mType=navigationBars mFrame=[2205,0][2340,1080] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {5a310004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {5a310005 mType=mandatorySystemGestures mFrame=[2205,0][2340,1080] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {5a310006 mType=tappableElement mFrame=[2205,0][2340,1080] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {5a310024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null} }
+I/VRI[MainActivity]@110f657(19378): handleResized, frames=ClientWindowFrames{frame=[0,0][2340,1080] display=[0,0][2340,1080] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=true attachedFrameChanged=false configChanged=true displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/VRI[MainActivity]@110f657(19378): handleResized mSyncSeqId = 0
+D/VRI[MainActivity]@110f657(19378): reportNextDraw android.view.ViewRootImpl.handleResized:2983 android.view.ViewRootImpl.-$$Nest$mhandleResized:0 android.view.ViewRootImpl$W.resized:14082 android.app.servertransaction.WindowStateResizeItem.execute:93 android.app.servertransaction.WindowStateTransactionItem.execute:62
+I/BLASTBufferQueue_Java(19378): update, w= 2340 h= 1080 mName = VRI[MainActivity]@110f657 mNativeObject= 0xb4000072b27decd0 sc.mNativeObject= 0xb4000073d271ad10 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901
+I/VRI[MainActivity]@110f657(19378): Relayout returned: old=(0,0,2340,1080) new=(0,0,2340,1080) relayoutAsync=true req=(2340,1080)0 dur=1 res=0x0 s={true 0xb400007462733720} ch=false seqId=0
+D/VRI[MainActivity]@110f657(19378): mThreadedRenderer.updateSurface() mSurface={isValid=true 0xb400007462733720}
+I/VRI[MainActivity]@110f657(19378): updateBoundsLayer: t=android.view.SurfaceControl$Transaction@5002604 sc=Surface(name=Bounds for - com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity@0)/@0x7bd97ed frame=2
+I/SurfaceView(19378): 139491183 Changes: creating=false format=false size=true visible=false alpha=false hint=true left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(19378): 139491183 Cur surface: Surface(name=null mNativeObject=-5476376647014607120)/@0xa7d94d3
+D/SurfaceComposerClient(19378): setCornerRadius ## 850776f SurfaceView[com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity]@0#1006 cornerRadius=0.000000
+I/BLASTBufferQueue_Java(19378): update, w= 2340 h= 1080 mName = 850776f SurfaceView[com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity]@0 mNativeObject= 0xb4000072b27c1b00 sc.mNativeObject= 0xb4000073d2730850 format= 4 caller= android.view.SurfaceView.setBufferSize:1703 android.view.SurfaceView.performSurfaceTransaction:1238 android.view.SurfaceView.updateSurface:1467 android.view.SurfaceView.setFrame:716 android.view.View.layout:26931 android.widget.FrameLayout.layoutChildren:345
+I/SV[139491183 MainActivity](19378): pST: sr = Rect(0, 0 - 2340, 1080) sw = 2340 sh = 1080
+D/SurfaceView(19378): 139491183 performSurfaceTransaction RenderWorker position = [0, 0, 2340, 1080] surfaceSize = 2340x1080
+I/SV[139491183 MainActivity](19378): updateSurface: mVisible = true mSurface.isValid() = true
+I/SV[139491183 MainActivity](19378): updateSurface: mSurfaceCreated = true surfaceChanged = false visibleChanged = false
+I/SurfaceView(19378): 139491183 surfaceChanged -- format=4 w=2340 h=1080
+I/SV[139491183 MainActivity](19378): surfaceChanged (2340,1080) 1 #5 io.flutter.embedding.android.FlutterSurfaceView{850776f V.E...... ......ID 0,0-2340,1080}
+I/SurfaceView(19378): 139491183 surfaceRedrawNeeded
+I/SurfaceView(19378): 139491183 finishedDrawing
+V/SurfaceView(19378): Layout: x=0 y=0 w=2340 h=1080, frame=Rect(0, 0 - 2340, 1080)
+D/VRI[MainActivity]@110f657(19378): Setup new sync=wmsSync-VRI[MainActivity]@110f657#4
+I/VRI[MainActivity]@110f657(19378): Creating new active sync group VRI[MainActivity]@110f657#5
+D/VRI[MainActivity]@110f657(19378): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(19378): 139491183 updateSurfacePosition RenderWorker, frameNr = 2, position = [0, 0, 2340, 1080] surfaceSize = 2340x1080
+I/SV[139491183 MainActivity](19378): uSP: rtp = Rect(0, 0 - 2340, 1080) rtsw = 2340 rtsh = 1080
+I/SV[139491183 MainActivity](19378): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[139491183 MainActivity](19378): aOrMT: VRI[MainActivity]@110f657 t = android.view.SurfaceControl$Transaction@c1a39 fN = 2 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401
+I/VRI[MainActivity]@110f657(19378): mWNT: t=0xb4000074e2762310 mBlastBufferQueue=0xb4000072b27decd0 fn= 2 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932
+D/VRI[MainActivity]@110f657(19378): Received frameDrawingCallback syncResult=0 frameNum=2.
+I/VRI[MainActivity]@110f657(19378): mWNT: t=0xb4000074e2763f10 mBlastBufferQueue=0xb4000072b27decd0 fn= 2 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack>
+I/VRI[MainActivity]@110f657(19378): Setting up sync and frameCommitCallback
+I/VRI[MainActivity]@110f657(19378): Received frameCommittedCallback lastAttemptedDrawFrameNum=2 didProduceBuffer=true
+D/VRI[MainActivity]@110f657(19378): reportDrawFinished seqId=0
+I/flutter (19378): ErrorHandler: UnknownException
+I/flutter (19378): Message: Ocorreu um erro inesperado. Por favor, tente novamente.
+I/flutter (19378): Code: unknown
+I/flutter (19378): Global Error: UnknownException
+I/flutter (19378): Message: Ocorreu um erro inesperado. Por favor, tente novamente.
+I/flutter (19378): Code: unknown
+I/flutter (19378): ══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+I/flutter (19378): The following assertion was thrown during layout:
+I/flutter (19378): A RenderFlex overflowed by 42 pixels on the bottom.
+I/flutter (19378):
+I/flutter (19378): The relevant error-causing widget was:
+I/flutter (19378):   Column
+I/flutter (19378):   Column:file:///C:/dev/burgerrats/lib/features/splash/presentation/pages/splash_page.dart:167:20
+I/flutter (19378):
+I/flutter (19378): To inspect this widget in Flutter DevTools, visit:
+I/flutter (19378): http://127.0.0.1:9100/#/inspector?uri=http%3A%2F%2F127.0.0.1%3A50807%2FWO23A03M7XE%3D%2F&inspectorRef=inspector-0
+I/flutter (19378):
+I/flutter (19378): The overflowing RenderFlex has an orientation of Axis.vertical.
+I/flutter (19378): The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+I/flutter (19378): black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+I/flutter (19378): Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+I/flutter (19378): RenderFlex to fit within the available space instead of being sized to their natural size.
+I/flutter (19378): This is considered an error condition because it indicates that there is content that cannot be
+I/flutter (19378): seen. If the content is legitimately bigger than the available space, consider clipping it with a
+I/flutter (19378): ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+I/flutter (19378): like a ListView.
+I/flutter (19378): The specific RenderFlex in question is: RenderFlex#07d1e OVERFLOWING:
+I/flutter (19378):   creator: Column ← Transform ← Opacity ← AnimatedBuilder ← MediaQuery ← Padding ← SafeArea ← Padding
+I/flutter (19378):     ← DecoratedBox ← ConstrainedBox ← Container ← KeyedSubtree-[GlobalKey#d2e50] ← ⋯
+I/flutter (19378):   parentData: <none> (can use size)
+I/flutter (19378):   constraints: BoxConstraints(w=752.4, h=354.1)
+I/flutter (19378):   size: Size(752.4, 354.1)
+I/flutter (19378):   direction: vertical
+I/flutter (19378):   mainAxisAlignment: center
+I/flutter (19378):   mainAxisSize: max
+I/flutter (19378):   crossAxisAlignment: center
+I/flutter (19378):   verticalDirection: down
+I/flutter (19378):   spacing: 0.0
+I/flutter (19378): ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+I/flutter (19378): ════════════════════════════════════════════════════════════════════════════════════════════════════
+I/flutter (19378): Global Error: UnknownException
+I/flutter (19378): Message: Ocorreu um erro inesperado. Por favor, tente novamente.
+I/flutter (19378): Code: unknown
+I/flutter (19378): ErrorHandler: UnknownException
+I/flutter (19378): Message: Ocorreu um erro inesperado. Por favor, tente novamente.
+I/flutter (19378): Code: unknown
+I/flutter (19378): StackTrace: #0      WidgetsBinding._handleBuildScheduled.<anonymous closure> (package:flutter/src/widgets/binding.dart:1126:9)
+I/flutter (19378): #1      WidgetsBinding._handleBuildScheduled (package:flutter/src/widgets/binding.dart:1149:6)
+I/flutter (19378): #2      BuildOwner.scheduleBuildFor (package:flutter/src/widgets/framework.dart:2987:24)
+I/flutter (19378): #3      Element.markNeedsBuild (package:flutter/src/widgets/framework.dart:5393:12)
+I/flutter (19378): #4      State.setState (package:flutter/src/widgets/framework.dart:1219:15)
+I/flutter (19378): #5      _ErrorBoundaryState._setupGlobalErrorHandlers.<anonymous closure> (package:burgerrats/core/errors/error_boundary.dart:52:9)
+I/flutter (19378): #6      FlutterError.reportError (package:flutter/src/foundation/assertions.dart:1203:14)
+I/flutter (19378): #7      DebugOverflowIndicatorMixin._reportOverflow (package:flutter/src/rendering/debug_overflow_indicator.dart:259:18)
+I/flutter (19378): #8      DebugOverflowIndicatorMixin.paintOverflowIndicator (package:flutter/src/rendering/debug_overflow_indicator.dart:329:7)
+I/flutter (19378): #9      RenderFlex.paint.<anonymous closure> (package:flutter/src/rendering/flex.dart:1364:7)
+I/flutter (19378): #10     RenderFlex.paint (package:flutter/src/rendering/flex.dart:1372:6)
+I/flutter (19378): #11     RenderObject._paintWithContext (package:flutter/src/rendering/object.dart:3436:7)
+I/flutter (19378): #12     PaintingContext.paintChild (package:flutter/src/rendering/object.dart:261:13)
+I/flutter (19378): #13     RenderProxyBoxMixin.paint (package:flutter/src/rendering/proxy_box.dart:140:13)
+I/flutter (19378): #14     RenderTransform.paint (package:flutter/src/rendering/proxy_box.dart:2688:17)
+I/flutter (19378): #15     RenderObject._paintWithContext (package:flutter/src/rendering/object.dart:3436:7)
+I/flutter (19378): #16     PaintingContext.paintChild (package:flutter/src/rendering/object.dart:261:13)
+I/flutter (19378): #17     RenderProxyBoxMixin.paint (package:flutter/src/rendering/proxy_box.dart:140:13)
+I/flutter (19378): #18     RenderOpacity.paint (package:flutter/src/rendering/proxy_box.dart:949:11)
+I/flutter (19378): #19     RenderObject._paintWithContext (package:flutter/src/rendering/object.dart:3436:7)
+I/flutter (19378): #20     PaintingContext._repaintCompositedChild (package:flutter/src/rendering/object.dart:176:11)
+I/flutter (19378): #21     PaintingContext.repaintCompositedChild (package:flutter/src/rendering/object.dart:121:5)
+I/flutter (19378): #22     PipelineOwner.flushPaint (package:flutter/src/rendering/object.dart:1322:31)
+I/flutter (19378): #23     PipelineOwner.flushPaint (package:flutter/src/rendering/object.dart:1332:15)
+I/flutter (19378): #24     RendererBinding.drawFrame (package:flutter/src/rendering/binding.dart:631:23)
+I/flutter (19378): #25     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1264:13)
+I/flutter (19378): #26     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495:5)
+I/flutter (19378): #27     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1434:15)
+I/flutter (19378): #28     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1347:9)
+I/flutter (19378): #29     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1200:5)
+I/flutter (19378): #30     _invoke (dart:ui/hooks.dart:356:13)
+I/flutter (19378): #31     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:444:5)
+I/flutter (19378): #32     _drawFrame (dart:ui/hooks.dart:328:31)
+I/flutter (19378):
+I/flutter (19378): Global Error: UnknownException
+I/flutter (19378): Message: Ocorreu um erro inesperado. Por favor, tente novamente.
+I/flutter (19378): Code: unknown
+I/flutter (19378): Another exception was thrown: Build scheduled during frame.
+I/flutter (19378): Global Error: UnknownException
+I/flutter (19378): Message: Ocorreu um erro inesperado. Por favor, tente novamente.
+I/flutter (19378): Code: unknown
+D/s.burgerratsapp(19378): [is_supported_usage] Other IPs besides the CPU do not support the format 59
+D/s.burgerratsapp(19378): [is_supported_usage] Other IPs besides the CPU do not support the format 59
+E/Surface (19378): freeAllBuffers: 1 buffers were freed while being dequeued!
+I/InsetsSourceConsumer(19378): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/InsetsSourceConsumer(19378): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/InsetsController(19378): onStateChanged: host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 2340, 1080), mDisplayCutout=DisplayCutout{insets=Rect(89, 0 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 507 - 89, 573), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2340 physicalDisplayWidth=1080 physicalDisplayHeight=2340 density={2.8125} cutoutSpec={M 0,0 M 0,8.177777777777778 a 11.73333333333333,11.73333333333333 0 1,0 0,23.46666666666667 a 11.73333333333333,11.73333333333333 0 1,0 0,-23.46666666666667 Z @dp} rotation={1} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=118, center=Point(118, 118)}, RoundedCorner{position=TopRight, radius=118, center=Point(2222, 118)}, RoundedCorner{position=BottomRight, radius=118, center=Point(2222, 962)}, RoundedCorner{position=BottomLeft, radius=118, center=Point(118, 962)}]}  mRoundedCornerFrame=Rect(0, 0 - 2340, 1080), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(2216, 0 - 2340, 84) rotation=1}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2340 physicalPixelDisplaySizeRatio=1.0 rotation=1 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5f80000 mType=statusBars mFrame=[0,0][2340,84] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80005 mType=mandatorySystemGestures mFrame=[0,0][2340,84] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80006 mType=tappableElement mFrame=[0,0][2340,84] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {7 mType=displayCutout mFrame=[0,0][89,1080] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {5a310001 mType=navigationBars mFrame=[2205,0][2340,1080] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {5a310004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {5a310005 mType=mandatorySystemGestures mFrame=[2205,0][2340,1080] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {5a310006 mType=tappableElement mFrame=[2205,0][2340,1080] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {5a310024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null} }
+I/VRI[MainActivity]@110f657(19378): handleResized, frames=ClientWindowFrames{frame=[0,0][2340,1080] display=[0,0][2340,1080] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/InsetsController(19378): onStateChanged: host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2340), mDisplayCutout=DisplayCutout{insets=Rect(0, 89 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(507, 0 - 573, 89), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2340 physicalDisplayWidth=1080 physicalDisplayHeight=2340 density={2.8125} cutoutSpec={M 0,0 M 0,8.177777777777778 a 11.73333333333333,11.73333333333333 0 1,0 0,23.46666666666667 a 11.73333333333333,11.73333333333333 0 1,0 0,-23.46666666666667 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=118, center=Point(118, 118)}, RoundedCorner{position=TopRight, radius=118, center=Point(962, 118)}, RoundedCorner{position=BottomRight, radius=118, center=Point(962, 2222)}, RoundedCorner{position=BottomLeft, radius=118, center=Point(118, 2222)}]}  mRoundedCornerFrame=Rect(0, 0 - 1080, 2340), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(956, 0 - 1080, 89) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2340 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5f80000 mType=statusBars mFrame=[0,0][1080,89] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80005 mType=mandatorySystemGestures mFrame=[0,0][1080,123] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80006 mType=tappableElement mFrame=[0,0][1080,89] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,89] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {5a310001 mType=navigationBars mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5a310004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {5a310005 mType=mandatorySystemGestures mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5a310006 mType=tappableElement mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5a310024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null} }
+I/VRI[MainActivity]@110f657(19378): handleResized, frames=ClientWindowFrames{frame=[0,0][1080,2340] display=[0,0][1080,2340] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=true attachedFrameChanged=false configChanged=true displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/VRI[MainActivity]@110f657(19378): handleResized mSyncSeqId = 0
+D/VRI[MainActivity]@110f657(19378): reportNextDraw android.view.ViewRootImpl.handleResized:2983 android.view.ViewRootImpl.-$$Nest$mhandleResized:0 android.view.ViewRootImpl$W.resized:14082 android.app.servertransaction.WindowStateResizeItem.execute:93 android.app.servertransaction.WindowStateTransactionItem.execute:62
+I/BLASTBufferQueue_Java(19378): update, w= 1080 h= 2340 mName = VRI[MainActivity]@110f657 mNativeObject= 0xb4000072b27decd0 sc.mNativeObject= 0xb4000073d271ad10 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901
+I/VRI[MainActivity]@110f657(19378): Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=true req=(1080,2340)0 dur=0 res=0x0 s={true 0xb400007462733720} ch=false seqId=0
+D/VRI[MainActivity]@110f657(19378): mThreadedRenderer.updateSurface() mSurface={isValid=true 0xb400007462733720}
+I/VRI[MainActivity]@110f657(19378): updateBoundsLayer: t=android.view.SurfaceControl$Transaction@5002604 sc=Surface(name=Bounds for - com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity@0)/@0x7bd97ed frame=4
+I/SurfaceView(19378): 139491183 Changes: creating=false format=false size=true visible=false alpha=false hint=true left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(19378): 139491183 Cur surface: Surface(name=null mNativeObject=-5476376647014607120)/@0xa7d94d3
+D/SurfaceComposerClient(19378): setCornerRadius ## 850776f SurfaceView[com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity]@0#1006 cornerRadius=0.000000
+I/BLASTBufferQueue_Java(19378): update, w= 1080 h= 2340 mName = 850776f SurfaceView[com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity]@0 mNativeObject= 0xb4000072b27c1b00 sc.mNativeObject= 0xb4000073d2730850 format= 4 caller= android.view.SurfaceView.setBufferSize:1703 android.view.SurfaceView.performSurfaceTransaction:1238 android.view.SurfaceView.updateSurface:1467 android.view.SurfaceView.setFrame:716 android.view.View.layout:26931 android.widget.FrameLayout.layoutChildren:345
+I/SV[139491183 MainActivity](19378): pST: sr = Rect(0, 0 - 1080, 2340) sw = 1080 sh = 2340
+D/SurfaceView(19378): 139491183 performSurfaceTransaction RenderWorker position = [0, 0, 1080, 2340] surfaceSize = 1080x2340
+I/SV[139491183 MainActivity](19378): updateSurface: mVisible = true mSurface.isValid() = true
+I/SV[139491183 MainActivity](19378): updateSurface: mSurfaceCreated = true surfaceChanged = false visibleChanged = false
+I/SurfaceView(19378): 139491183 surfaceChanged -- format=4 w=1080 h=2340
+I/SV[139491183 MainActivity](19378): surfaceChanged (1080,2340) 1 #5 io.flutter.embedding.android.FlutterSurfaceView{850776f V.E...... ......ID 0,0-1080,2340}
+I/SurfaceView(19378): 139491183 surfaceRedrawNeeded
+I/SurfaceView(19378): 139491183 finishedDrawing
+V/SurfaceView(19378): Layout: x=0 y=0 w=1080 h=2340, frame=Rect(0, 0 - 1080, 2340)
+D/VRI[MainActivity]@110f657(19378): Setup new sync=wmsSync-VRI[MainActivity]@110f657#7
+I/VRI[MainActivity]@110f657(19378): Creating new active sync group VRI[MainActivity]@110f657#8
+D/VRI[MainActivity]@110f657(19378): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(19378): 139491183 updateSurfacePosition RenderWorker, frameNr = 4, position = [0, 0, 1080, 2340] surfaceSize = 1080x2340
+I/SV[139491183 MainActivity](19378): uSP: rtp = Rect(0, 0 - 1080, 2340) rtsw = 1080 rtsh = 2340
+I/SV[139491183 MainActivity](19378): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[139491183 MainActivity](19378): aOrMT: VRI[MainActivity]@110f657 t = android.view.SurfaceControl$Transaction@ec9fcfb fN = 4 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401
+I/VRI[MainActivity]@110f657(19378): mWNT: t=0xb4000074e2762d90 mBlastBufferQueue=0xb4000072b27decd0 fn= 4 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932
+D/VRI[MainActivity]@110f657(19378): Received frameDrawingCallback syncResult=0 frameNum=4.
+I/VRI[MainActivity]@110f657(19378): mWNT: t=0xb4000074e273d710 mBlastBufferQueue=0xb4000072b27decd0 fn= 4 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack>
+I/VRI[MainActivity]@110f657(19378): Setting up sync and frameCommitCallback
+I/VRI[MainActivity]@110f657(19378): Received frameCommittedCallback lastAttemptedDrawFrameNum=4 didProduceBuffer=true
+D/VRI[MainActivity]@110f657(19378): reportDrawFinished seqId=0
+D/s.burgerratsapp(19378): [is_supported_usage] Other IPs besides the CPU do not support the format 59
+D/s.burgerratsapp(19378): [is_supported_usage] Other IPs besides the CPU do not support the format 59
+E/Surface (19378): freeAllBuffers: 1 buffers were freed while being dequeued!
+I/InsetsSourceConsumer(19378): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/InsetsSourceConsumer(19378): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+D/SmartClipDataCropperImpl(19378): doExtractSmartClipData : Extraction start! reqId = 8  Cropped area = Rect(540, 1170 - 541, 1171)  Package = com.cklabs.burgerratsapp
+D/SmartClipDataCropperImpl(19378): addAppMetaTag : package name is com.cklabs.burgerratsapp
+D/SmartClipDataCropperImpl(19378): sendExtractionResultToSmartClipService : -- Extracted SmartClip data information --
+D/SmartClipDataCropperImpl(19378): sendExtractionResultToSmartClipService : Request Id : 8
+D/SmartClipDataCropperImpl(19378): sendExtractionResultToSmartClipService : Extraction mode : 1
+D/SemSmartClipDataRepository(19378): ----- Start of SmartClip repository informations -----
+D/SemSmartClipDataRepository(19378): ** Content type : image
+D/SemSmartClipDataRepository(19378): ** Meta area rect : Rect(0, 0 - 0, 0)
+D/SemSmartClipDataRepository(19378): ** Captured image file path : null
+D/SemSmartClipDataRepository(19378): ----- End of SmartClip repository informations -----
+D/SmartClipDataCropperImpl(19378): sendExtractionResultToSmartClipService : Elapsed = 5
+I/ImeFocusController(19378): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(19378): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+D/SmartClipRemoteRequestDispatcher(19378): dispatchScrollableAreaInfo : windowRect = Rect(0, 0 - 1080, 2340)
+D/SmartClipRemoteRequestDispatcher(19378): dispatchScrollableAreaInfo : Scrollable view count = 1
+D/SmartClipRemoteRequestDispatcher(19378): dispatchScrollableAreaInfo : Unscrollable view count = 0
+D/SmartClipRemoteRequestDispatcher(19378): dispatchScrollableAreaInfo : Pkg=com.cklabs.burgerratsapp Activity=null
+I/InsetsSourceConsumer(19378): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/InsetsSourceConsumer(19378): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+D/VRI[MainActivity]@110f657(19378): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007462733720}
+D/InputMethodManagerUtils(19378): startInputInner - Id : 0
+I/InputMethodManager(19378): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(19378): handleMessage: setImeVisibility visible=false
+D/InsetsController(19378): hide(ime(), fromIme=false)
+I/ImeTracker(19378): com.cklabs.burgerratsapp:497c0939: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(19378): Input channel constructed: 'ClientS', fd=198

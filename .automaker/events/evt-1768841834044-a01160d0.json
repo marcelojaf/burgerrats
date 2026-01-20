@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768841834044-a01160d0",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T16:57:14.044Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "fcm-setup",
+  "error": "Feature completed in 406s - auto-verified",
+  "passes": true
+}

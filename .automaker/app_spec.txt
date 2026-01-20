@@ -154,6 +154,132 @@ Update README.md with instructions on how to make changes in Firebase portal. In
 
 Update README.md with instructions on how to make changes in Firebase portal. Instructions in brazilian portuguese</description>
     </feature>
+    <feature>
+      <name>Authentication State Provider</name>
+      <description>Create global auth state provider that listens to Firebase auth changes. Manage user session and authentication status throughout the app.</description>
+    </feature>
+    <feature>
+      <name>Check-In Submission Flow</name>
+      <description>Orchestrate complete check-in flow: capture photo, compress, upload to Storage, create Firestore document, update league points. Handle errors at each step.</description>
+    </feature>
+    <feature>
+      <name>Email/Password Authentication</name>
+      <description>Implement email and password sign-up and sign-in flows with Firebase Auth. Include email verification and password reset functionality.</description>
+    </feature>
+    <feature>
+      <name>Google Sign-In Integration</name>
+      <description>Integrate Google Sign-In plugin for social authentication. Configure OAuth credentials for both iOS and Android platforms.</description>
+    </feature>
+    <feature>
+      <name>Leaderboard Calculator Service</name>
+      <description>Calculate league rankings based on check-in counts. Update in real-time when new check-ins are submitted. Handle ties appropriately.</description>
+    </feature>
+    <feature>
+      <name>Login Screen UI</name>
+      <description>Design and implement login screen with email/password fields, Google Sign-In button, and navigation to sign-up. Include form validation and loading states in Portuguese.</description>
+    </feature>
+    <feature>
+      <name>League Detail Screen</name>
+      <description>Show comprehensive league information including members, settings, invite code, and admin actions. Display league statistics and activity summary.</description>
+    </feature>
+    <feature>
+      <name>League Leaderboard Screen</name>
+      <description>Display ranked list of league members with points, positions, and user avatars. Highlight current user&apos;s position. Update in real-time.</description>
+    </feature>
+    <feature>
+      <name>Sign-Up Screen UI</name>
+      <description>Create sign-up screen with email, password, and name fields. Implement form validation, terms acceptance, and account creation flow.</description>
+    </feature>
+    <feature>
+      <name>My Leagues List Screen</name>
+      <description>Display list of leagues user is member of with league names, member counts, and last activity. Include FAB for creating/joining leagues.</description>
+    </feature>
+    <feature>
+      <name>Splash Screen with Auth Check</name>
+      <description>Create branded splash screen that checks authentication state on app launch. Route users to login or home screen based on auth status.</description>
+    </feature>
+    <feature>
+      <name>Check-In History Screen</name>
+      <description>Show chronological list of user&apos;s check-ins with photos, timestamps, and league names. Support filtering by league and date range.</description>
+    </feature>
+    <feature>
+      <name>League Activity Feed</name>
+      <description>Show real-time feed of recent check-ins from all league members. Display user name, photo, and timestamp with infinite scroll pagination.</description>
+    </feature>
+    <feature>
+      <name>Firebase Cloud Messaging Setup</name>
+      <description>Configure FCM for push notifications on iOS and Android. Handle token registration and storage. Set up notification channels.
+
+Update README.md with instructions on how to make changes in Firebase portal. Instructions in brazilian portuguese</description>
+    </feature>
+    <feature>
+      <name>User Onboarding Flow</name>
+      <description>Create onboarding screens explaining app features, how leagues work, and check-in mechanics. Show once on first launch with skip option.</description>
+    </feature>
+    <feature>
+      <name>League Member Management</name>
+      <description>Implement admin functions to remove members, transfer admin role, and manage league settings. Enforce permission checks based on user role.</description>
+    </feature>
+    <feature>
+      <name>League Settings Screen</name>
+      <description>Admin screen for editing league name, description, and settings. Show member list with remove options. Display and regenerate invite code.</description>
+    </feature>
+    <feature>
+      <name>Daily Check-In Reminder Scheduler</name>
+      <description>Schedule local notifications to remind users to check-in daily. Allow users to customize reminder time and enable/disable per league.</description>
+    </feature>
+    <feature>
+      <name>Push Notification Service</name>
+      <description>Create service to send push notifications for league activities. Implement notification handlers for foreground and background states.</description>
+    </feature>
+    <feature>
+      <name>Photo Gallery View</name>
+      <description>Display check-in photos in grid gallery format with fullscreen preview. Use cached_network_image for efficient loading. Support swipe navigation.</description>
+    </feature>
+    <feature>
+      <name>Streak Tracking Service</name>
+      <description>Track consecutive daily check-ins for users. Calculate current streak and longest streak. Reset on missed days with grace period handling.</description>
+    </feature>
+    <feature>
+      <name>User Profile Screen</name>
+      <description>Display user profile with avatar, name, email, total check-ins, current streak, and leagues joined. Include edit profile option.</description>
+    </feature>
+    <feature>
+      <name>Share Check-In to Social Media</name>
+      <description>Integrate share plugin to share check-in photos to social media platforms. Generate shareable image with app branding and league info.</description>
+    </feature>
+    <feature>
+      <name>Check-In Notifications</name>
+      <description>Send push notifications to league members when someone checks in. Include user name and league name in notification content.</description>
+    </feature>
+    <feature>
+      <name>Android App Icon Configuration</name>
+      <description>Configure the Android app launcher icon with the BurgerRats branding. Replace default launcher icons with custom rat mascot icons across all density buckets (mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi). Icons are located at: C:\Users\marce\OneDrive - CK Labs Dev\CKLabs-Projetos\BurgerRats\AppIcons\android\mipmap-* and need to be copied to android/app/src/main/res/. Also configure adaptive icons if needed.</description>
+    </feature>
+    <feature>
+      <name>Complete Color System Implementation</name>
+      <description>Implement comprehensive color palette based on BurgerRats brand identity. Create or update lib/shared/theme/app_colors.dart with colors extracted from app icons including: Primary (orange #FF5722), Secondary (gold #FF8F00), Tertiary (brown #6D4C41), semantic colors (success green, warning amber, error red, info blue), surface colors with warm tints, special purpose colors for leaderboards and streaks, and brand gradients. Includes full Material Design 3 ColorScheme for both light and dark themes with WCAG AA accessibility compliance. All colors derived from the rat mascot icon to maintain brand cohesion.</description>
+    </feature>
+    <feature>
+      <name>iOS App Icon Configuration</name>
+      <description>Configure the iOS app icon with the BurgerRats branding. Replace the default app icon with custom rat mascot icons. The AppIcon.appiconset is located at: C:\Users\marce\OneDrive - CK Labs Dev\CKLabs-Projetos\BurgerRats\AppIcons\Assets.xcassets\AppIcon.appiconset and needs to replace the existing one at ios/Runner/Assets.xcassets/AppIcon.appiconset. Includes all required sizes for iPhone and iPad (20pt, 29pt, 40pt, 60pt, 76pt, 83.5pt, 1024pt) and App Store icon.</description>
+    </feature>
+    <feature>
+      <name>Edit Profile Screen</name>
+      <description>Allow users to update display name, profile photo, and preferences. Upload photo to Storage and update Firestore and Auth profile.</description>
+    </feature>
+    <feature>
+      <name>App Branding Assets Integration</name>
+      <description>Integrate BurgerRats branding assets (logos and images) throughout the app. Copy logo assets from C:\Users\marce\OneDrive - CK Labs Dev\CKLabs-Projetos\BurgerRats\ImageSets to assets/images with proper density variants for both platforms. For Android: copy drawable-* folders. For iOS: use logo.png, logo@2x.png, logo@3x.png. Update splash screen, onboarding, and login screens to use these branded assets. Also includes appstore.png (1024x1024) and playstore.png (512x512) for store submissions.</description>
+    </feature>
+    <feature>
+      <name>Theme Configuration with New Color System</name>
+      <description>Update lib/shared/theme/app_theme.dart to integrate the new color system. Configure ThemeData for both light and dark modes using the new AppColors ColorSchemes. Define text themes, button styles, card styles, app bar themes, input decoration themes, and other component themes using the branded color palette. Ensure consistent styling across all UI components with warm-tinted surfaces, proper elevation colors, and semantic color usage. Include configuration for gradients on splash screens and achievement badges.</description>
+    </feature>
+    <feature>
+      <name>Dark Mode Theme Support</name>
+      <description>Implement complete dark mode support using the dark theme color variants. Create theme provider/notifier to allow users to switch between light, dark, and system themes. Store preference in SharedPreferences. Update MaterialApp to use both lightTheme and darkTheme. Ensure all screens properly respond to theme changes with warm-tinted dark surfaces (#1A1612), lighter primary colors for visibility, and maintained contrast ratios. Test all UI components in both themes to verify WCAG AA compliance and visual consistency. Add theme toggle in settings/profile screen.</description>
+    </feature>
   </implemented_features>
 
   <additional_requirements>

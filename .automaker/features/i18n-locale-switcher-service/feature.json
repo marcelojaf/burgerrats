@@ -1,0 +1,35 @@
+{
+  "id": "i18n-locale-switcher-service",
+  "title": "Create Locale Switcher Service",
+  "description": "Implement service to allow users to change app language at runtime",
+  "status": "backlog",
+  "priority": "medium",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "Create LocaleService with @LazySingleton annotation",
+    "Implement methods to get/set current locale",
+    "Persist locale preference using SharedPreferences",
+    "Create Riverpod provider for locale state",
+    "Integrate with MaterialApp.locale",
+    "Add language switcher UI in settings page"
+  ],
+  "technicalNotes": [
+    "Store locale preference as language code (pt, en)",
+    "Default to system locale if no preference set",
+    "Use shared_preferences for persistence",
+    "Create localeProvider in core/state/providers/",
+    "Update MaterialApp in main.dart to use localeProvider",
+    "Add language selection dropdown in settings"
+  ],
+  "dependencies": [
+    "i18n-migrate-profile-feature"
+  ],
+  "estimatedEffort": "medium",
+  "affectedFiles": [
+    "lib/core/services/locale_service.dart",
+    "lib/core/state/providers/locale_provider.dart",
+    "lib/main.dart",
+    "lib/features/profile/presentation/pages/settings_page.dart",
+    "pubspec.yaml"
+  ]
+}

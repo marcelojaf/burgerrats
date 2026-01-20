@@ -1,0 +1,14 @@
+{
+  "id": "android-app-icon",
+  "category": "Branding",
+  "title": "Android App Icon Configuration",
+  "description": "Configure the Android app launcher icon with the BurgerRats branding. Replace default launcher icons with custom rat mascot icons across all density buckets (mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi). Icons are located at: C:\\Users\\marce\\OneDrive - CK Labs Dev\\CKLabs-Projetos\\BurgerRats\\AppIcons\\android\\mipmap-* and need to be copied to android/app/src/main/res/. Also configure adaptive icons if needed.",
+  "status": "in_progress",
+  "priority": 2,
+  "complexity": "simple",
+  "dependencies": [],
+  "createdAt": "2026-01-19T16:30:00.000Z",
+  "updatedAt": "2026-01-19T16:30:00.000Z",
+  "descriptionHistory": [],
+  "startedAt": "2026-01-19T18:34:40.659Z"
+}

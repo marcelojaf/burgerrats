@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768840782882-0ee21b27",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T16:39:42.882Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "splash-screen",
+  "error": "Feature completed in 196s - auto-verified",
+  "passes": true
+}

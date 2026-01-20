@@ -151,4 +151,33 @@ abstract class CheckInRepository {
   ///
   /// Throws [FirestoreException] on failure
   Future<int> getUserCheckInCount(String userId);
+
+  /// Retrieves check-ins for a user within a date range
+  ///
+  /// Returns check-ins sorted by timestamp (newest first).
+  /// Optionally filter by [leagueId] to get check-ins for a specific league.
+  /// Supports pagination with [limit] and [startAfter].
+  ///
+  /// Throws [FirestoreException] on failure
+  Future<List<CheckInEntity>> getCheckInsByUserInDateRange(
+    String userId, {
+    DateTime? startDate,
+    DateTime? endDate,
+    String? leagueId,
+    int? limit,
+    DateTime? startAfter,
+  });
+
+  /// Stream of check-ins for a user with optional filters (real-time updates)
+  ///
+  /// Emits the list of check-ins and subsequent changes.
+  /// Check-ins are sorted by timestamp (newest first).
+  /// Optionally filter by [leagueId] and/or date range.
+  Stream<List<CheckInEntity>> watchUserCheckInsFiltered(
+    String userId, {
+    String? leagueId,
+    DateTime? startDate,
+    DateTime? endDate,
+    int? limit,
+  });
 }

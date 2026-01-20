@@ -466,4 +466,113 @@ class CheckInRepositoryImpl implements CheckInRepository {
       );
     }
   }
+
+  @override
+  Future<List<CheckInEntity>> getCheckInsByUserInDateRange(
+    String userId, {
+    DateTime? startDate,
+    DateTime? endDate,
+    String? leagueId,
+    int? limit,
+    DateTime? startAfter,
+  }) async {
+    try {
+      Query<Json> query = _checkInsRef.where('userId', isEqualTo: userId);
+
+      if (leagueId != null) {
+        query = query.where('leagueId', isEqualTo: leagueId);
+      }
+
+      if (startDate != null) {
+        final startOfRange = _getStartOfDate(startDate);
+        query = query.where(
+          'timestamp',
+          isGreaterThanOrEqualTo: Timestamp.fromDate(startOfRange),
+        );
+      }
+
+      if (endDate != null) {
+        final endOfRange = _getEndOfDate(endDate);
+        query = query.where(
+          'timestamp',
+          isLessThanOrEqualTo: Timestamp.fromDate(endOfRange),
+        );
+      }
+
+      query = query.orderBy('timestamp', descending: true);
+
+      if (startAfter != null) {
+        query = query.startAfter([Timestamp.fromDate(startAfter)]);
+      }
+
+      if (limit != null) {
+        query = query.limit(limit);
+      }
+
+      final snapshot = await query.get();
+      return snapshot.docs
+          .map((doc) => CheckInModel.fromFirestore(doc).toEntity())
+          .toList();
+    } on FirebaseException catch (e, stackTrace) {
+      throw FirestoreException(
+        message: 'Failed to get check-ins in date range: ${e.message}',
+        code: e.code,
+        originalError: e,
+        stackTrace: stackTrace,
+      );
+    }
+  }
+
+  @override
+  Stream<List<CheckInEntity>> watchUserCheckInsFiltered(
+    String userId, {
+    String? leagueId,
+    DateTime? startDate,
+    DateTime? endDate,
+    int? limit,
+  }) {
+    Query<Json> query = _checkInsRef.where('userId', isEqualTo: userId);
+
+    if (leagueId != null) {
+      query = query.where('leagueId', isEqualTo: leagueId);
+    }
+
+    if (startDate != null) {
+      final startOfRange = _getStartOfDate(startDate);
+      query = query.where(
+        'timestamp',
+        isGreaterThanOrEqualTo: Timestamp.fromDate(startOfRange),
+      );
+    }
+
+    if (endDate != null) {
+      final endOfRange = _getEndOfDate(endDate);
+      query = query.where(
+        'timestamp',
+        isLessThanOrEqualTo: Timestamp.fromDate(endOfRange),
+      );
+    }
+
+    query = query.orderBy('timestamp', descending: true);
+
+    if (limit != null) {
+      query = query.limit(limit);
+    }
+
+    return query.snapshots().map((snapshot) {
+      return snapshot.docs
+          .map((doc) => CheckInModel.fromFirestore(doc).toEntity())
+          .toList();
+    }).handleError((error, stackTrace) {
+      if (error is FirebaseException) {
+        throw FirestoreException(
+          message: 'Failed to watch filtered check-ins: ${error.message}',
+          code: error.code,
+          originalError: error,
+          stackTrace: stackTrace,
+        );
+      }
+      throw error;
+    });
+  }
 }

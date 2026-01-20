@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768841154939-9e09e2c6",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T16:45:54.939Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "activity-feed-screen",
+  "error": "Feature completed in 565s - auto-verified",
+  "passes": true
+}

@@ -34,4 +34,26 @@ abstract class AuthRepository {
 
   /// Sends a password reset email
   Future<void> sendPasswordResetEmail({required String email});
+
+  /// Sends an email verification to the current user
+  Future<void> sendEmailVerification();
+
+  /// Reloads the current user to get updated data (e.g., email verification status)
+  Future<void> reloadUser();
+
+  /// Returns true if the current user's email is verified
+  bool get isEmailVerified;
+
+  /// Updates the display name of the current user
+  Future<void> updateDisplayName(String displayName);
+
+  /// Updates the profile photo URL of the current user
+  Future<void> updatePhotoURL(String photoURL);
+
+  /// Signs in a user with Google
+  ///
+  /// Returns [UserCredential] on success
+  /// Throws [FirebaseAuthException] on failure
+  /// Returns null if user cancels the sign-in flow
+  Future<UserCredential?> signInWithGoogle();
 }

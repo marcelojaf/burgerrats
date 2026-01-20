@@ -4,9 +4,11 @@ abstract class AppRoutes {
 
   // Authentication routes
   static const String splash = '/';
+  static const String onboarding = '/onboarding';
   static const String login = '/login';
   static const String register = '/register';
   static const String forgotPassword = '/forgot-password';
+  static const String emailVerification = '/email-verification';
 
   // Main app routes
   static const String home = '/home';
@@ -22,6 +24,8 @@ abstract class AppRoutes {
   // League routes
   static const String joinLeague = '/leagues/join';
   static const String createLeague = '/leagues/create';
+  static const String leagueSettings = '/leagues/:leagueId/settings';
+  static const String leagueReminders = '/leagues/:leagueId/reminders';
 
   // Deep link routes
   static const String leagueInvite = '/league/:leagueId';
@@ -38,9 +42,11 @@ abstract class RouteNames {
 
   // Authentication
   static const String splash = 'splash';
+  static const String onboarding = 'onboarding';
   static const String login = 'login';
   static const String register = 'register';
   static const String forgotPassword = 'forgot-password';
+  static const String emailVerification = 'email-verification';
 
   // Main app
   static const String home = 'home';
@@ -56,6 +62,8 @@ abstract class RouteNames {
   // League
   static const String joinLeague = 'join-league';
   static const String createLeague = 'create-league';
+  static const String leagueSettings = 'league-settings';
+  static const String leagueReminders = 'league-reminders';
 
   // Deep link routes
   static const String leagueInvite = 'league-invite';

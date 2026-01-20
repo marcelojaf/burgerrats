@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768834536008-a47cd156",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T14:55:36.008Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "auth-state-provider",
+  "error": "Feature completed in 375s - auto-verified",
+  "passes": true
+}

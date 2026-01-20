@@ -64,6 +64,17 @@
 			<key>CFBundleURLName</key>
 			<string>com.burgerrats.app</string>
 		</dict>
+		<!-- Google Sign-In URL Scheme: Replace PLACEHOLDER with the iOS client ID suffix from GoogleService-Info.plist -->
+		<!-- The REVERSED_CLIENT_ID from GoogleService-Info.plist should be used here -->
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!-- TODO: Replace this with REVERSED_CLIENT_ID from GoogleService-Info.plist -->
+				<string>com.googleusercontent.apps.793973559216-YOUR_IOS_CLIENT_ID</string>
+			</array>
+		</dict>
 	</array>
 	<key>FlutterDeepLinkingEnabled</key>
 	<true/>

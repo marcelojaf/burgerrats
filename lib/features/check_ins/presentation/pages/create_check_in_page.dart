@@ -100,7 +100,8 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
   }
 
   Future<void> _submitCheckIn() async {
-    final userId = _currentUserId;
+    final currentUser = FirebaseAuth.instance.currentUser;
+    final userId = currentUser?.uid;
     if (userId == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -110,9 +111,14 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
       return;
     }
 
+    // Get user display name for notification
+    final userName = currentUser?.displayName ??
+        currentUser?.email?.split('@').first ??
+        'Usuario';
+
     final success = await ref
         .read(createCheckInNotifierProvider.notifier)
-        .submitCheckIn(userId);
+        .submitCheckIn(userId, userName: userName);
 
     if (success && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -257,13 +263,26 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
                       ),
                     ),
                     child: state.status == CreateCheckInStatus.submitting
-                        ? const SizedBox(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                              color: Colors.white,
-                            ),
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Text(
+                                state.submissionStepMessage.isNotEmpty
+                                    ? state.submissionStepMessage
+                                    : 'Processando...',
+                                style: const TextStyle(fontSize: 14),
+                              ),
+                            ],
                           )
                         : const Text(
                             'Fazer Check-in',

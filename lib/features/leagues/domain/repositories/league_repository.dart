@@ -79,21 +79,31 @@ abstract class LeagueRepository {
 
   /// Removes a member from a league
   ///
+  /// Requires the [requesterId] to be an admin or owner of the league.
+  /// A member can remove themselves (leave) without admin privileges.
+  ///
   /// Throws [FirestoreException] on failure
   /// Throws [BusinessException] if user is not a member or is the owner
+  /// Throws [PermissionException] if requester doesn't have permission
   Future<void> removeMember({
     required String leagueId,
     required String userId,
+    required String requesterId,
   });
 
   /// Updates a member's role in a league
   ///
+  /// Requires the [requesterId] to be the owner of the league.
+  /// Only owners can promote/demote admins.
+  ///
   /// Throws [FirestoreException] on failure
   /// Throws [BusinessException] if user is not a member or changing owner role
+  /// Throws [PermissionException] if requester doesn't have permission
   Future<void> updateMemberRole({
     required String leagueId,
     required String userId,
     required LeagueMemberRole newRole,
+    required String requesterId,
   });
 
   /// Updates a member's points in a league
@@ -133,8 +143,40 @@ abstract class LeagueRepository {
 
   /// Regenerates the invite code for a league
   ///
-  /// Only admins/owners should be able to do this.
+  /// Requires the [requesterId] to be an admin or owner of the league.
   /// Returns the new invite code.
+  ///
   /// Throws [FirestoreException] on failure
-  Future<String> regenerateInviteCode(String leagueId);
+  /// Throws [PermissionException] if requester doesn't have permission
+  Future<String> regenerateInviteCode({
+    required String leagueId,
+    required String requesterId,
+  });
+
+  /// Transfers ownership of a league to another member
+  ///
+  /// Requires the [requesterId] to be the current owner of the league.
+  /// The new owner must be an existing member of the league.
+  /// The current owner becomes an admin after transfer.
+  ///
+  /// Throws [FirestoreException] on failure
+  /// Throws [BusinessException] if new owner is not a member
+  /// Throws [PermissionException] if requester is not the owner
+  Future<void> transferOwnership({
+    required String leagueId,
+    required String newOwnerId,
+    required String requesterId,
+  });
+
+  /// Updates league settings
+  ///
+  /// Requires the [requesterId] to be an admin or owner of the league.
+  ///
+  /// Throws [FirestoreException] on failure
+  /// Throws [PermissionException] if requester doesn't have permission
+  Future<void> updateLeagueSettings({
+    required String leagueId,
+    required LeagueSettings settings,
+    required String requesterId,
+  });
 }

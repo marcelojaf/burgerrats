@@ -1,0 +1,18 @@
+{
+  "id": "app-branding-assets",
+  "category": "Branding",
+  "title": "App Branding Assets Integration",
+  "description": "Integrate BurgerRats branding assets (logos and images) throughout the app. Copy logo assets from C:\\Users\\marce\\OneDrive - CK Labs Dev\\CKLabs-Projetos\\BurgerRats\\ImageSets to assets/images with proper density variants for both platforms. For Android: copy drawable-* folders. For iOS: use logo.png, logo@2x.png, logo@3x.png. Update splash screen, onboarding, and login screens to use these branded assets. Also includes appstore.png (1024x1024) and playstore.png (512x512) for store submissions.",
+  "status": "in_progress",
+  "priority": 3,
+  "complexity": "simple",
+  "dependencies": [
+    "splash-screen",
+    "login-screen",
+    "onboarding-flow"
+  ],
+  "createdAt": "2026-01-19T16:30:00.000Z",
+  "updatedAt": "2026-01-19T16:30:00.000Z",
+  "descriptionHistory": [],
+  "startedAt": "2026-01-19T18:43:41.906Z"
+}

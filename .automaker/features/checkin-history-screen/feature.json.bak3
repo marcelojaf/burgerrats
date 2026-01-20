@@ -1,0 +1,15 @@
+{
+  "id": "checkin-history-screen",
+  "category": "UI",
+  "title": "Check-In History Screen",
+  "description": "Show chronological list of user's check-ins with photos, timestamps, and league names. Support filtering by league and date range.",
+  "status": "backlog",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "checkin-repository",
+    "theme-design-system"
+  ],
+  "createdAt": "2026-01-18T14:55:32.579Z",
+  "updatedAt": "2026-01-18T14:55:32.579Z"
+}

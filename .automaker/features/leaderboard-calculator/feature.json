@@ -3,12 +3,14 @@
   "category": "Core",
   "title": "Leaderboard Calculator Service",
   "description": "Calculate league rankings based on check-in counts. Update in real-time when new check-ins are submitted. Handle ties appropriately.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 1,
   "complexity": "moderate",
   "dependencies": [
     "checkin-repository"
   ],
   "createdAt": "2026-01-18T14:55:32.579Z",
-  "updatedAt": "2026-01-18T14:55:32.579Z"
+  "updatedAt": "2026-01-19T15:51:01.452Z",
+  "startedAt": "2026-01-19T15:45:15.681Z",
+  "descriptionHistory": []
 }

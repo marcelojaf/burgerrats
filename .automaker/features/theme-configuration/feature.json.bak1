@@ -1,0 +1,16 @@
+{
+  "id": "theme-configuration",
+  "category": "Design System",
+  "title": "Theme Configuration with New Color System",
+  "description": "Update lib/shared/theme/app_theme.dart to integrate the new color system. Configure ThemeData for both light and dark modes using the new AppColors ColorSchemes. Define text themes, button styles, card styles, app bar themes, input decoration themes, and other component themes using the branded color palette. Ensure consistent styling across all UI components with warm-tinted surfaces, proper elevation colors, and semantic color usage. Include configuration for gradients on splash screens and achievement badges.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "medium",
+  "dependencies": [
+    "color-system-implementation"
+  ],
+  "createdAt": "2026-01-19T16:45:00.000Z",
+  "updatedAt": "2026-01-19T18:43:40.949Z",
+  "descriptionHistory": [],
+  "startedAt": "2026-01-19T18:43:40.493Z"
+}

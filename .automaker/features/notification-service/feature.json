@@ -3,12 +3,14 @@
   "category": "Core",
   "title": "Push Notification Service",
   "description": "Create service to send push notifications for league activities. Implement notification handlers for foreground and background states.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 2,
   "complexity": "moderate",
   "dependencies": [
     "fcm-setup"
   ],
   "createdAt": "2026-01-18T14:55:32.582Z",
-  "updatedAt": "2026-01-18T14:55:32.582Z"
+  "updatedAt": "2026-01-19T18:12:59.639Z",
+  "startedAt": "2026-01-19T18:06:58.367Z",
+  "descriptionHistory": []
 }

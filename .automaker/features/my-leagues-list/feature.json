@@ -3,7 +3,7 @@
   "category": "UI",
   "title": "My Leagues List Screen",
   "description": "Display list of leagues user is member of with league names, member counts, and last activity. Include FAB for creating/joining leagues.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 1,
   "complexity": "moderate",
   "dependencies": [
@@ -11,5 +11,7 @@
     "theme-design-system"
   ],
   "createdAt": "2026-01-18T14:55:32.575Z",
-  "updatedAt": "2026-01-18T14:55:32.575Z"
+  "updatedAt": "2026-01-19T15:58:23.682Z",
+  "startedAt": "2026-01-19T15:53:42.822Z",
+  "descriptionHistory": []
 }

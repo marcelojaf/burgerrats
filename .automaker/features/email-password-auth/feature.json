@@ -3,12 +3,14 @@
   "category": "Authentication",
   "title": "Email/Password Authentication",
   "description": "Implement email and password sign-up and sign-in flows with Firebase Auth. Include email verification and password reset functionality.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 1,
   "complexity": "moderate",
   "dependencies": [
     "firebase-auth-service"
   ],
   "createdAt": "2026-01-18T14:55:32.569Z",
-  "updatedAt": "2026-01-18T14:55:32.569Z"
+  "updatedAt": "2026-01-19T15:00:38.137Z",
+  "startedAt": "2026-01-19T14:49:24.347Z",
+  "descriptionHistory": []
 }

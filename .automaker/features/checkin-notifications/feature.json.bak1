@@ -1,0 +1,17 @@
+{
+  "id": "checkin-notifications",
+  "category": "Core",
+  "title": "Check-In Notifications",
+  "description": "Send push notifications to league members when someone checks in. Include user name and league name in notification content.",
+  "status": "in_progress",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "notification-service",
+    "checkin-repository"
+  ],
+  "createdAt": "2026-01-18T14:55:32.583Z",
+  "updatedAt": "2026-01-19T18:16:29.761Z",
+  "startedAt": "2026-01-19T18:16:29.504Z",
+  "descriptionHistory": []
+}

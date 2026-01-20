@@ -1,0 +1,17 @@
+{
+  "id": "edit-profile-screen",
+  "category": "UI",
+  "title": "Edit Profile Screen",
+  "description": "Allow users to update display name, profile photo, and preferences. Upload photo to Storage and update Firestore and Auth profile.",
+  "status": "in_progress",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "user-profile-screen",
+    "firebase-storage-service"
+  ],
+  "createdAt": "2026-01-18T14:55:32.581Z",
+  "updatedAt": "2026-01-18T14:55:32.581Z",
+  "startedAt": "2026-01-19T18:34:50.716Z",
+  "descriptionHistory": []
+}

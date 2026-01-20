@@ -1,0 +1,16 @@
+{
+  "id": "photo-gallery-view",
+  "category": "UI",
+  "title": "Photo Gallery View",
+  "description": "Display check-in photos in grid gallery format with fullscreen preview. Use cached_network_image for efficient loading. Support swipe navigation.",
+  "status": "in_progress",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "checkin-history-screen"
+  ],
+  "createdAt": "2026-01-18T14:55:32.580Z",
+  "updatedAt": "2026-01-19T18:06:59.920Z",
+  "startedAt": "2026-01-19T18:06:59.690Z",
+  "descriptionHistory": []
+}

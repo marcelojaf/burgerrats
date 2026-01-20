@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768848012330-b21c1094",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T18:40:12.330Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "ios-app-icon",
+  "error": "Feature completed in 195s - auto-verified",
+  "passes": true
+}

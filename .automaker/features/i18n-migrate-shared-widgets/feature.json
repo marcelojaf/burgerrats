@@ -1,0 +1,28 @@
+{
+  "id": "i18n-migrate-shared-widgets",
+  "title": "Migrate Shared Widgets to i18n",
+  "description": "Replace hardcoded Portuguese strings in shared widgets and components",
+  "status": "backlog",
+  "priority": "medium",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "All strings in shared widgets use AppLocalizations",
+    "Error dialog messages are localized",
+    "Loading indicators text is localized",
+    "Common button labels are localized",
+    "Empty state messages are localized"
+  ],
+  "technicalNotes": [
+    "Review all widgets in lib/shared/widgets/",
+    "Localize generic error messages",
+    "Consider creating reusable localized widgets",
+    "Test both pt-BR and en-US locales"
+  ],
+  "dependencies": [
+    "i18n-generate-localizations"
+  ],
+  "estimatedEffort": "small",
+  "affectedFiles": [
+    "lib/shared/widgets/*.dart"
+  ]
+}

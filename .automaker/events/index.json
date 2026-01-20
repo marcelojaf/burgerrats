@@ -2,6 +2,192 @@
   "version": 1,
   "events": [
     {
+      "id": "evt-1768848824250-b311b5a9",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:53:44.250Z",
+      "featureId": "dark-mode-support"
+    },
+    {
+      "id": "evt-1768848449167-1cd6a989",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:47:29.167Z",
+      "featureId": "theme-configuration"
+    },
+    {
+      "id": "evt-1768848415283-a79b9cdd",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:46:55.283Z",
+      "featureId": "app-branding-assets"
+    },
+    {
+      "id": "evt-1768848034171-1782d5c4",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:40:34.171Z",
+      "featureId": "edit-profile-screen"
+    },
+    {
+      "id": "evt-1768848012330-b21c1094",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:40:12.330Z",
+      "featureId": "ios-app-icon"
+    },
+    {
+      "id": "evt-1768847981672-120072d7",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:39:41.673Z",
+      "featureId": "color-system-implementation"
+    },
+    {
+      "id": "evt-1768847812232-3267150d",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:36:52.232Z",
+      "featureId": "android-app-icon"
+    },
+    {
+      "id": "evt-1768847085316-b91919d5",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:24:45.316Z",
+      "featureId": "checkin-notifications"
+    },
+    {
+      "id": "evt-1768846995794-a13ca03d",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:23:15.794Z",
+      "featureId": "share-checkin-feature"
+    },
+    {
+      "id": "evt-1768846970932-cad945dd",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:22:50.932Z",
+      "featureId": "user-profile-screen"
+    },
+    {
+      "id": "evt-1768846581157-ebaf1a74",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:16:21.157Z",
+      "featureId": "streak-tracker-service"
+    },
+    {
+      "id": "evt-1768846438910-40c991e3",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:13:58.910Z",
+      "featureId": "photo-gallery-view"
+    },
+    {
+      "id": "evt-1768846379658-705f0eb0",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T18:12:59.658Z",
+      "featureId": "notification-service"
+    },
+    {
+      "id": "evt-1768845051843-48ec2215",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T17:50:51.843Z",
+      "featureId": "daily-reminder-scheduler"
+    },
+    {
+      "id": "evt-1768844940064-da02e718",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T17:49:00.064Z",
+      "featureId": "league-settings-screen"
+    },
+    {
+      "id": "evt-1768841940691-deb61076",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T16:59:00.691Z",
+      "featureId": "league-member-management"
+    },
+    {
+      "id": "evt-1768841856081-e91f94f7",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T16:57:36.081Z",
+      "featureId": "onboarding-flow"
+    },
+    {
+      "id": "evt-1768841834044-a01160d0",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T16:57:14.044Z",
+      "featureId": "fcm-setup"
+    },
+    {
+      "id": "evt-1768841154939-9e09e2c6",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T16:45:54.939Z",
+      "featureId": "activity-feed-screen"
+    },
+    {
+      "id": "evt-1768841114525-7d114355",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T16:45:14.525Z",
+      "featureId": "checkin-history-screen"
+    },
+    {
+      "id": "evt-1768840782882-0ee21b27",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T16:39:42.882Z",
+      "featureId": "splash-screen"
+    },
+    {
+      "id": "evt-1768838303699-e1800f2b",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T15:58:23.699Z",
+      "featureId": "my-leagues-list"
+    },
+    {
+      "id": "evt-1768838302166-5019bdcf",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T15:58:22.166Z",
+      "featureId": "signup-screen"
+    },
+    {
+      "id": "evt-1768838110422-5902d092",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T15:55:10.422Z",
+      "featureId": "leaderboard-screen"
+    },
+    {
+      "id": "evt-1768838004661-76931ad8",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T15:53:24.661Z",
+      "featureId": "league-detail-screen"
+    },
+    {
+      "id": "evt-1768837968610-7f9f8ed2",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T15:52:48.610Z",
+      "featureId": "login-screen"
+    },
+    {
+      "id": "evt-1768837861478-e4a50af2",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T15:51:01.478Z",
+      "featureId": "leaderboard-calculator"
+    },
+    {
+      "id": "evt-1768837413690-ea7b94b6",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T15:43:33.690Z",
+      "featureId": "google-signin-integration"
+    },
+    {
+      "id": "evt-1768834838146-bb07bc2f",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T15:00:38.146Z",
+      "featureId": "email-password-auth"
+    },
+    {
+      "id": "evt-1768834601420-79371d19",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T14:56:41.420Z",
+      "featureId": "checkin-submission-flow"
+    },
+    {
+      "id": "evt-1768834536008-a47cd156",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-19T14:55:36.008Z",
+      "featureId": "auth-state-provider"
+    },
+    {
       "id": "evt-1768830867877-6c213262",
       "trigger": "feature_success",
       "timestamp": "2026-01-19T13:54:27.877Z",

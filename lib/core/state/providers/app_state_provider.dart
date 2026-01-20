@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../di/injection.dart';
+import '../../services/theme_preferences_service.dart';
+
 /// Global app state for theme and app-wide settings
 class AppState {
   /// Current theme mode
@@ -63,26 +66,38 @@ class AppState {
 
 /// Notifier for global app state
 class AppStateNotifier extends StateNotifier<AppState> {
-  AppStateNotifier() : super(const AppState.initial());
+  final ThemePreferencesService _themePreferencesService;
+
+  AppStateNotifier(this._themePreferencesService)
+      : super(const AppState.initial()) {
+    _loadSavedThemeMode();
+  }
+
+  /// Loads the saved theme mode from SharedPreferences
+  void _loadSavedThemeMode() {
+    final savedThemeMode = _themePreferencesService.getThemeMode();
+    state = state.copyWith(themeMode: savedThemeMode);
+  }
 
   /// Marks the app as initialized
   void setInitialized() {
     state = state.copyWith(isInitialized: true);
   }
 
-  /// Sets the theme mode
+  /// Sets the theme mode and persists to SharedPreferences
   void setThemeMode(ThemeMode mode) {
     state = state.copyWith(themeMode: mode);
+    _themePreferencesService.setThemeMode(mode);
   }
 
-  /// Toggles between light and dark theme
+  /// Toggles between light, dark and system theme
   void toggleTheme() {
     final newMode = state.themeMode == ThemeMode.light
         ? ThemeMode.dark
         : state.themeMode == ThemeMode.dark
             ? ThemeMode.system
             : ThemeMode.light;
-    state = state.copyWith(themeMode: newMode);
+    setThemeMode(newMode);
   }
 
   /// Shows a global loading indicator
@@ -108,7 +123,7 @@ class AppStateNotifier extends StateNotifier<AppState> {
 
 /// Provider for global app state
 final appStateProvider = StateNotifierProvider<AppStateNotifier, AppState>(
-  (ref) => AppStateNotifier(),
+  (ref) => AppStateNotifier(getIt<ThemePreferencesService>()),
 );
 
 /// Provider for current theme mode

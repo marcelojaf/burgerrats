@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768846438910-40c991e3",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T18:13:58.910Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "photo-gallery-view",
+  "error": "Feature completed in 419s - auto-verified",
+  "passes": true
+}

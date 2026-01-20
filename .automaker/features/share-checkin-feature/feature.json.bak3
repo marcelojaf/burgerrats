@@ -1,0 +1,14 @@
+{
+  "id": "share-checkin-feature",
+  "category": "Core",
+  "title": "Share Check-In to Social Media",
+  "description": "Integrate share plugin to share check-in photos to social media platforms. Generate shareable image with app branding and league info.",
+  "status": "backlog",
+  "priority": 3,
+  "complexity": "moderate",
+  "dependencies": [
+    "checkin-repository"
+  ],
+  "createdAt": "2026-01-18T14:55:32.583Z",
+  "updatedAt": "2026-01-18T14:55:32.583Z"
+}

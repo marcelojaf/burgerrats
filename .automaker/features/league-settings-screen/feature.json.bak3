@@ -1,0 +1,15 @@
+{
+  "id": "league-settings-screen",
+  "category": "UI",
+  "title": "League Settings Screen",
+  "description": "Admin screen for editing league name, description, and settings. Show member list with remove options. Display and regenerate invite code.",
+  "status": "backlog",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "league-member-management",
+    "theme-design-system"
+  ],
+  "createdAt": "2026-01-18T14:55:32.582Z",
+  "updatedAt": "2026-01-18T14:55:32.582Z"
+}

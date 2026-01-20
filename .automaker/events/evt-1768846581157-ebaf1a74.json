@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768846581157-ebaf1a74",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T18:16:21.157Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "streak-tracker-service",
+  "error": "Feature completed in 560s - auto-verified",
+  "passes": true
+}

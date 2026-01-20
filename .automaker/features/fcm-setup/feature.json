@@ -3,14 +3,14 @@
   "category": "Configuration",
   "title": "Firebase Cloud Messaging Setup",
   "description": "Configure FCM for push notifications on iOS and Android. Handle token registration and storage. Set up notification channels.\n\nUpdate README.md with instructions on how to make changes in Firebase portal. Instructions in brazilian portuguese",
-  "status": "backlog",
+  "status": "verified",
   "priority": 2,
   "complexity": "moderate",
   "dependencies": [
     "firebase-project-config"
   ],
   "createdAt": "2026-01-18T14:55:32.582Z",
-  "updatedAt": "2026-01-18T14:55:32.582Z",
+  "updatedAt": "2026-01-19T16:57:14.020Z",
   "skipTests": false,
   "model": "opus",
   "thinkingLevel": "none",
@@ -26,5 +26,6 @@
       "timestamp": "2026-01-19T13:36:51.977Z",
       "source": "edit"
     }
-  ]
+  ],
+  "startedAt": "2026-01-19T16:50:27.471Z"
 }

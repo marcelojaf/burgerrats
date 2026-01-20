@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/errors/error_handler.dart';
+import '../../../../core/services/notification_service.dart';
 import '../../domain/entities/league_entity.dart';
 import '../../domain/repositories/league_repository.dart';
 import 'join_league_provider.dart';
@@ -89,8 +91,9 @@ class CreateLeagueState {
 /// Handles creating new leagues with name, description, and settings.
 class CreateLeagueNotifier extends StateNotifier<CreateLeagueState> {
   final LeagueRepository _repository;
+  final NotificationService _notificationService;
 
-  CreateLeagueNotifier(this._repository)
+  CreateLeagueNotifier(this._repository, this._notificationService)
       : super(const CreateLeagueState.initial());
 
   /// Creates a new league with the given parameters
@@ -135,6 +138,9 @@ class CreateLeagueNotifier extends StateNotifier<CreateLeagueState> {
         settings: settings ?? const LeagueSettings.defaults(),
       );
 
+      // Subscribe to league notifications (fire-and-forget)
+      _subscribeToLeagueNotifications(league.id);
+
       state = CreateLeagueState.success(league);
       return true;
     } on BusinessException catch (e) {
@@ -175,6 +181,15 @@ class CreateLeagueNotifier extends StateNotifier<CreateLeagueState> {
       state = const CreateLeagueState.initial();
     }
   }
+
+  /// Subscribes to league push notifications
+  ///
+  /// This is a fire-and-forget operation that doesn't affect the create flow.
+  void _subscribeToLeagueNotifications(String leagueId) {
+    _notificationService.subscribeToLeague(leagueId).catchError((e) {
+      debugPrint('Failed to subscribe to league notifications: $e');
+    });
+  }
 }
 
 /// Provider for the CreateLeagueNotifier
@@ -182,6 +197,7 @@ final createLeagueNotifierProvider =
     StateNotifierProvider.autoDispose<CreateLeagueNotifier, CreateLeagueState>(
   (ref) {
     final repository = ref.watch(leagueRepositoryProvider);
-    return CreateLeagueNotifier(repository);
+    final notificationService = ref.watch(notificationServiceProvider);
+    return CreateLeagueNotifier(repository, notificationService);
   },
 );

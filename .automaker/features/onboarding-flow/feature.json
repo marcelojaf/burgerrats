@@ -3,12 +3,14 @@
   "category": "UI",
   "title": "User Onboarding Flow",
   "description": "Create onboarding screens explaining app features, how leagues work, and check-in mechanics. Show once on first launch with skip option.",
-  "status": "backlog",
+  "status": "verified",
   "priority": 2,
   "complexity": "simple",
   "dependencies": [
     "splash-screen"
   ],
   "createdAt": "2026-01-18T14:55:32.572Z",
-  "updatedAt": "2026-01-18T14:55:32.572Z"
+  "updatedAt": "2026-01-19T16:57:36.065Z",
+  "startedAt": "2026-01-19T16:50:30.736Z",
+  "descriptionHistory": []
 }

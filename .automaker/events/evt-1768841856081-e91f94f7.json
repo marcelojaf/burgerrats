@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768841856081-e91f94f7",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-19T16:57:36.081Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "onboarding-flow",
+  "error": "Feature completed in 425s - auto-verified",
+  "passes": true
+}

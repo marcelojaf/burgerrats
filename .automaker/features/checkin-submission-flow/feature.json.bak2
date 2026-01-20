@@ -1,0 +1,18 @@
+{
+  "id": "checkin-submission-flow",
+  "category": "Core",
+  "title": "Check-In Submission Flow",
+  "description": "Orchestrate complete check-in flow: capture photo, compress, upload to Storage, create Firestore document, update league points. Handle errors at each step.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "complex",
+  "dependencies": [
+    "firebase-storage-service",
+    "checkin-repository",
+    "image-compression-service"
+  ],
+  "createdAt": "2026-01-18T14:55:32.578Z",
+  "updatedAt": "2026-01-18T14:55:32.578Z",
+  "startedAt": "2026-01-19T14:49:18.044Z",
+  "descriptionHistory": []
+}

@@ -1,0 +1,17 @@
+{
+  "id": "splash-screen",
+  "category": "UI",
+  "title": "Splash Screen with Auth Check",
+  "description": "Create branded splash screen that checks authentication state on app launch. Route users to login or home screen based on auth status.",
+  "status": "in_progress",
+  "priority": 1,
+  "complexity": "simple",
+  "dependencies": [
+    "auth-state-provider",
+    "navigation-router-setup"
+  ],
+  "createdAt": "2026-01-18T14:55:32.571Z",
+  "updatedAt": "2026-01-19T16:36:27.251Z",
+  "startedAt": "2026-01-19T16:36:26.990Z",
+  "descriptionHistory": []
+}

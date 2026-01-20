@@ -1,0 +1,16 @@
+{
+  "id": "daily-reminder-scheduler",
+  "category": "Core",
+  "title": "Daily Check-In Reminder Scheduler",
+  "description": "Schedule local notifications to remind users to check-in daily. Allow users to customize reminder time and enable/disable per league.",
+  "status": "in_progress",
+  "priority": 2,
+  "complexity": "moderate",
+  "dependencies": [
+    "fcm-setup"
+  ],
+  "createdAt": "2026-01-18T14:55:32.583Z",
+  "updatedAt": "2026-01-18T14:55:32.583Z",
+  "startedAt": "2026-01-19T17:42:01.517Z",
+  "descriptionHistory": []
+}
