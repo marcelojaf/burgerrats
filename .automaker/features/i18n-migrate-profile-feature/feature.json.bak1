@@ -1,0 +1,33 @@
+{
+  "id": "i18n-migrate-profile-feature",
+  "title": "Migrate Profile Feature to i18n",
+  "description": "Replace hardcoded Portuguese strings in profile feature with localized strings",
+  "status": "in_progress",
+  "priority": "medium",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "All strings in profile_page.dart use AppLocalizations",
+    "All strings in edit_profile_page.dart use AppLocalizations",
+    "All strings in settings_page.dart use AppLocalizations",
+    "Profile validation messages are localized",
+    "Settings options are localized"
+  ],
+  "technicalNotes": [
+    "Localize profile field labels and placeholders",
+    "Update profile update success/error messages",
+    "Consider adding language selector in settings",
+    "Test both pt-BR and en-US locales"
+  ],
+  "dependencies": [
+    "i18n-generate-localizations"
+  ],
+  "estimatedEffort": "medium",
+  "affectedFiles": [
+    "lib/features/profile/presentation/pages/profile_page.dart",
+    "lib/features/profile/presentation/pages/edit_profile_page.dart",
+    "lib/features/profile/presentation/pages/settings_page.dart"
+  ],
+  "startedAt": "2026-01-20T21:52:07.538Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-20T21:52:08.122Z"
+}

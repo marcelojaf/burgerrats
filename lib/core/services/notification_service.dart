@@ -12,6 +12,7 @@ import 'package:injectable/injectable.dart';
 
 import '../errors/exceptions.dart';
 import '../errors/error_messages.dart';
+import 'notification_messages_service.dart';
 
 /// Notification channel configuration for Android
 class NotificationChannel {
@@ -207,6 +208,7 @@ class NotificationService {
   final FirebaseMessaging _messaging;
   final FirebaseFirestore _firestore;
   final FirebaseAuth _auth;
+  final NotificationMessagesService _messagesService;
 
   /// Collection name for storing FCM tokens
   static const String _tokensCollection = 'fcm_tokens';
@@ -231,39 +233,46 @@ class NotificationService {
   /// Stores the initial notification if app was opened from terminated state
   NotificationPayload? _initialNotification;
 
-  /// Predefined notification channels for Android
-  static const List<NotificationChannel> channels = [
-    NotificationChannel(
-      id: 'burgerrats_default_channel',
-      name: 'Geral',
-      description: 'Notificacoes gerais do aplicativo',
-      importance: Importance.defaultImportance,
-    ),
-    NotificationChannel(
-      id: 'burgerrats_checkins_channel',
-      name: 'Check-ins',
-      description: 'Notificacoes sobre novos check-ins na liga',
-      importance: Importance.high,
-    ),
-    NotificationChannel(
-      id: 'burgerrats_leagues_channel',
-      name: 'Ligas',
-      description: 'Notificacoes sobre convites e atualizacoes de ligas',
-      importance: Importance.high,
-    ),
-    NotificationChannel(
-      id: 'burgerrats_reminders_channel',
-      name: 'Lembretes',
-      description: 'Lembretes para fazer check-in',
-      importance: Importance.defaultImportance,
-    ),
-  ];
+  /// Notification channel IDs (static, not localized)
+  static const String defaultChannelId = 'burgerrats_default_channel';
+  static const String checkInsChannelId = 'burgerrats_checkins_channel';
+  static const String leaguesChannelId = 'burgerrats_leagues_channel';
+  static const String remindersChannelId = 'burgerrats_reminders_channel';
 
   NotificationService(
     this._messaging,
     this._firestore,
     this._auth,
+    this._messagesService,
   );
+
+  /// Get localized notification channels for Android
+  List<NotificationChannel> get channels => [
+    NotificationChannel(
+      id: defaultChannelId,
+      name: _messagesService.channelNameGeneral,
+      description: _messagesService.channelDescriptionGeneral,
+      importance: Importance.defaultImportance,
+    ),
+    NotificationChannel(
+      id: checkInsChannelId,
+      name: _messagesService.channelNameCheckIns,
+      description: _messagesService.channelDescriptionCheckIns,
+      importance: Importance.high,
+    ),
+    NotificationChannel(
+      id: leaguesChannelId,
+      name: _messagesService.channelNameLeagues,
+      description: _messagesService.channelDescriptionLeagues,
+      importance: Importance.high,
+    ),
+    NotificationChannel(
+      id: remindersChannelId,
+      name: _messagesService.channelNameReminders,
+      description: _messagesService.channelDescriptionReminders,
+      importance: Importance.defaultImportance,
+    ),
+  ];
 
   /// Stream of notifications that were tapped by the user
   ///
@@ -455,10 +464,10 @@ class NotificationService {
   String _getChannelIdForMessage(RemoteMessage message) {
     final type = message.data['type'] as String?;
     return switch (type) {
-      'new_checkin' => 'burgerrats_checkins_channel',
-      'league_invite' || 'league_update' => 'burgerrats_leagues_channel',
-      'reminder' => 'burgerrats_reminders_channel',
-      _ => 'burgerrats_default_channel',
+      'new_checkin' => checkInsChannelId,
+      'league_invite' || 'league_update' => leaguesChannelId,
+      'reminder' => remindersChannelId,
+      _ => defaultChannelId,
     };
   }
 

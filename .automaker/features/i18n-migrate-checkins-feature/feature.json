@@ -2,7 +2,7 @@
   "id": "i18n-migrate-checkins-feature",
   "title": "Migrate Check-ins Feature to i18n",
   "description": "Replace hardcoded Portuguese strings in check-ins feature with localized strings",
-  "status": "backlog",
+  "status": "verified",
   "priority": "high",
   "category": "localization",
   "acceptanceCriteria": [
@@ -30,5 +30,8 @@
     "lib/features/check_ins/presentation/pages/check_in_details_page.dart",
     "lib/features/check_ins/presentation/providers/*.dart",
     "lib/features/check_ins/data/repositories/check_in_repository_impl.dart"
-  ]
+  ],
+  "startedAt": "2026-01-20T21:44:36.368Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-20T22:02:01.077Z"
 }

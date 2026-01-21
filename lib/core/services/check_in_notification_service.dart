@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
+import 'notification_messages_service.dart';
+
 /// Service for sending push notifications when a user checks in
 ///
 /// This service creates notification requests in Firestore that will be
@@ -29,11 +31,12 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 class CheckInNotificationService {
   final FirebaseFirestore _firestore;
+  final NotificationMessagesService _messagesService;
 
   /// Collection for notification requests that Cloud Functions will process
   static const String _notificationRequestsCollection = 'notification_requests';
 
-  CheckInNotificationService(this._firestore);
+  CheckInNotificationService(this._firestore, this._messagesService);
 
   /// Sends a check-in notification to all league members
   ///
@@ -61,14 +64,12 @@ class CheckInNotificationService {
     String? restaurantName,
   }) async {
     try {
-      // Build notification title and body
-      final title = '$userName fez check-in!';
-      String body;
-      if (restaurantName != null && restaurantName.isNotEmpty) {
-        body = '$restaurantName - $leagueName';
-      } else {
-        body = 'Novo check-in na liga $leagueName';
-      }
+      // Build localized notification title and body
+      final title = _messagesService.checkInNotificationTitle(userName);
+      final body = _messagesService.checkInNotificationBody(
+        restaurantName: restaurantName,
+        leagueName: leagueName,
+      );
 
       // Create notification request document
       final notificationRequest = {

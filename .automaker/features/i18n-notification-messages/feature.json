@@ -2,7 +2,7 @@
   "id": "i18n-notification-messages",
   "title": "Localize Notification Messages",
   "description": "Ensure FCM notification messages support multiple languages",
-  "status": "backlog",
+  "status": "verified",
   "priority": "low",
   "category": "localization",
   "acceptanceCriteria": [
@@ -27,5 +27,8 @@
     "lib/core/services/notification_service.dart",
     "lib/core/services/check_in_notification_service.dart",
     "lib/core/services/reminder_scheduler_service.dart"
-  ]
+  ],
+  "startedAt": "2026-01-21T02:21:30.824Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-21T02:28:45.874Z"
 }

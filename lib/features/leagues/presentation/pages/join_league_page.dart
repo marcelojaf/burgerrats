@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/state/providers/auth_state_provider.dart';
+import '../../../../shared/extensions/context_extensions.dart';
 import '../../../../shared/theme/app_spacing.dart';
 import '../../domain/entities/league_entity.dart';
 import '../providers/join_league_provider.dart';
@@ -54,11 +55,12 @@ class _JoinLeaguePageState extends ConsumerState<JoinLeaguePage> {
   }
 
   Future<void> _joinLeague() async {
+    final l10n = context.l10n;
     final user = ref.read(currentUserProvider);
     if (user == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Voce precisa estar logado para entrar em uma liga'),
+        SnackBar(
+          content: Text(l10n.mustBeLoggedInToJoin),
         ),
       );
       return;
@@ -72,7 +74,7 @@ class _JoinLeaguePageState extends ConsumerState<JoinLeaguePage> {
       final league = ref.read(joinLeagueNotifierProvider).league;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Voce entrou na liga "${league?.name}" com sucesso!'),
+          content: Text(l10n.joinedLeagueSuccess(league?.name ?? '')),
           backgroundColor: Theme.of(context).colorScheme.primary,
         ),
       );
@@ -91,10 +93,11 @@ class _JoinLeaguePageState extends ConsumerState<JoinLeaguePage> {
   Widget build(BuildContext context) {
     final state = ref.watch(joinLeagueNotifierProvider);
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Entrar em Liga'),
+        title: Text(l10n.joinLeagueTitle),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -104,13 +107,13 @@ class _JoinLeaguePageState extends ConsumerState<JoinLeaguePage> {
             children: [
               // Header text
               Text(
-                'Digite o codigo de convite',
+                l10n.enterInviteCode,
                 style: theme.textTheme.headlineSmall,
                 textAlign: TextAlign.center,
               ),
               AppSpacing.gapVerticalSm,
               Text(
-                'Peca ao administrador da liga o codigo de 8 caracteres',
+                l10n.askAdminForCode,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.onSurfaceVariant,
                 ),
@@ -129,7 +132,7 @@ class _JoinLeaguePageState extends ConsumerState<JoinLeaguePage> {
               // Error message
               if (state.status == JoinLeagueStatus.error) ...[
                 AppSpacing.gapVerticalMd,
-                _ErrorMessage(message: state.errorMessage ?? 'Erro desconhecido'),
+                _ErrorMessage(message: state.errorMessage ?? l10n.unknownError),
               ],
 
               // League preview
@@ -170,6 +173,7 @@ class _InviteCodeForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     return Form(
       key: formKey,
@@ -200,10 +204,10 @@ class _InviteCodeForm extends StatelessWidget {
             ],
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Insira o codigo de convite';
+                return l10n.enterInviteCodeValidation;
               }
               if (value.length != 8) {
-                return 'O codigo deve ter 8 caracteres';
+                return l10n.codeMustHaveChars;
               }
               return null;
             },
@@ -224,7 +228,7 @@ class _InviteCodeForm extends StatelessWidget {
                       ),
                     )
                   : const Icon(Icons.search),
-              label: Text(isLoading ? 'Buscando...' : 'Buscar Liga'),
+              label: Text(isLoading ? l10n.searching : l10n.searchLeague),
             ),
           ),
         ],
@@ -287,6 +291,7 @@ class _LeaguePreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     return Card(
       child: Padding(
@@ -343,20 +348,20 @@ class _LeaguePreview extends StatelessWidget {
               children: [
                 _StatItem(
                   icon: Icons.people,
-                  label: 'Membros',
+                  label: l10n.members,
                   value: '${league.memberCount}/${league.settings.maxMembers}',
                 ),
                 _StatItem(
                   icon: Icons.star,
-                  label: 'Pontos/Check-in',
+                  label: l10n.pointsPerCheckIn,
                   value: '${league.settings.pointsPerCheckIn}',
                 ),
                 _StatItem(
                   icon: league.settings.isPublic
                       ? Icons.public
                       : Icons.lock_outline,
-                  label: 'Visibilidade',
-                  value: league.settings.isPublic ? 'Publica' : 'Privada',
+                  label: l10n.visibility,
+                  value: league.settings.isPublic ? l10n.publicLabel : l10n.privateLabel,
                 ),
               ],
             ),
@@ -370,7 +375,7 @@ class _LeaguePreview extends StatelessWidget {
                   ? FilledButton.icon(
                       onPressed: null,
                       icon: const Icon(Icons.check),
-                      label: const Text('Voce entrou!'),
+                      label: Text(l10n.youJoined),
                       style: FilledButton.styleFrom(
                         backgroundColor: theme.colorScheme.primary,
                       ),
@@ -387,7 +392,7 @@ class _LeaguePreview extends StatelessWidget {
                               ),
                             )
                           : const Icon(Icons.login),
-                      label: Text(isJoining ? 'Entrando...' : 'Entrar na Liga'),
+                      label: Text(isJoining ? l10n.joining : l10n.joinTheLeague),
                     ),
             ),
           ],

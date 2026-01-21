@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768944291211-15d0bd90",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-20T21:24:51.211Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "i18n-arb-files-structure",
+  "error": "Feature completed in 249s - auto-verified",
+  "passes": true
+}

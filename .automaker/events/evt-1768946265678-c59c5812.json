@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768946265678-c59c5812",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-20T21:57:45.678Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "i18n-migrate-leagues-feature",
+  "error": "Feature completed in 786s - auto-verified",
+  "passes": true
+}

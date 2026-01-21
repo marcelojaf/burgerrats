@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768946299101-64386395",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-20T21:58:19.101Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "i18n-migrate-profile-feature",
+  "error": "Feature completed in 371s - auto-verified",
+  "passes": true
+}

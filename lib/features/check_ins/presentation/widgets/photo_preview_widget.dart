@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../../../../shared/extensions/context_extensions.dart';
+
 /// Widget for previewing the captured photo
 class PhotoPreviewWidget extends StatelessWidget {
   const PhotoPreviewWidget({
@@ -18,6 +20,7 @@ class PhotoPreviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     return Stack(
       children: [
@@ -43,7 +46,7 @@ class PhotoPreviewWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Erro ao carregar imagem',
+                          l10n.errorLoadingImage,
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: theme.colorScheme.error,
                           ),
@@ -106,7 +109,7 @@ class PhotoPreviewWidget extends StatelessWidget {
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      'Trocar',
+                      l10n.changePhoto,
                       style: theme.textTheme.labelMedium?.copyWith(
                         color: isLoading ? Colors.white54 : Colors.white,
                         fontWeight: FontWeight.bold,
@@ -142,7 +145,7 @@ class PhotoPreviewWidget extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  'Foto adicionada',
+                  l10n.photoAdded,
                   style: theme.textTheme.labelMedium?.copyWith(
                     color: theme.colorScheme.onPrimary,
                     fontWeight: FontWeight.bold,

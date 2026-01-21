@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../di/injection.dart';
+import '../../services/locale_preferences_service.dart';
 import '../../services/theme_preferences_service.dart';
 
 /// Global app state for theme and app-wide settings
 class AppState {
   /// Current theme mode
   final ThemeMode themeMode;
+
+  /// Current locale
+  final Locale locale;
 
   /// Whether the app has completed initialization
   final bool isInitialized;
@@ -20,6 +24,7 @@ class AppState {
 
   const AppState({
     this.themeMode = ThemeMode.system,
+    this.locale = const Locale('pt', 'BR'),
     this.isInitialized = false,
     this.isLoading = false,
     this.errorMessage,
@@ -27,18 +32,21 @@ class AppState {
 
   const AppState.initial()
       : themeMode = ThemeMode.system,
+        locale = const Locale('pt', 'BR'),
         isInitialized = false,
         isLoading = false,
         errorMessage = null;
 
   AppState copyWith({
     ThemeMode? themeMode,
+    Locale? locale,
     bool? isInitialized,
     bool? isLoading,
     String? errorMessage,
   }) {
     return AppState(
       themeMode: themeMode ?? this.themeMode,
+      locale: locale ?? this.locale,
       isInitialized: isInitialized ?? this.isInitialized,
       isLoading: isLoading ?? this.isLoading,
       errorMessage: errorMessage,
@@ -50,6 +58,7 @@ class AppState {
     if (identical(this, other)) return true;
     return other is AppState &&
         other.themeMode == themeMode &&
+        other.locale == locale &&
         other.isInitialized == isInitialized &&
         other.isLoading == isLoading &&
         other.errorMessage == errorMessage;
@@ -58,6 +67,7 @@ class AppState {
   @override
   int get hashCode => Object.hash(
         themeMode,
+        locale,
         isInitialized,
         isLoading,
         errorMessage,
@@ -67,16 +77,20 @@ class AppState {
 /// Notifier for global app state
 class AppStateNotifier extends StateNotifier<AppState> {
   final ThemePreferencesService _themePreferencesService;
+  final LocalePreferencesService _localePreferencesService;
 
-  AppStateNotifier(this._themePreferencesService)
-      : super(const AppState.initial()) {
-    _loadSavedThemeMode();
+  AppStateNotifier(
+    this._themePreferencesService,
+    this._localePreferencesService,
+  ) : super(const AppState.initial()) {
+    _loadSavedPreferences();
   }
 
-  /// Loads the saved theme mode from SharedPreferences
-  void _loadSavedThemeMode() {
+  /// Loads saved preferences from SharedPreferences
+  void _loadSavedPreferences() {
     final savedThemeMode = _themePreferencesService.getThemeMode();
-    state = state.copyWith(themeMode: savedThemeMode);
+    final savedLocale = _localePreferencesService.getLocale();
+    state = state.copyWith(themeMode: savedThemeMode, locale: savedLocale);
   }
 
   /// Marks the app as initialized
@@ -88,6 +102,12 @@ class AppStateNotifier extends StateNotifier<AppState> {
   void setThemeMode(ThemeMode mode) {
     state = state.copyWith(themeMode: mode);
     _themePreferencesService.setThemeMode(mode);
+  }
+
+  /// Sets the locale and persists to SharedPreferences
+  void setLocale(Locale locale) {
+    state = state.copyWith(locale: locale);
+    _localePreferencesService.setLocale(locale);
   }
 
   /// Toggles between light, dark and system theme
@@ -123,12 +143,20 @@ class AppStateNotifier extends StateNotifier<AppState> {
 
 /// Provider for global app state
 final appStateProvider = StateNotifierProvider<AppStateNotifier, AppState>(
-  (ref) => AppStateNotifier(getIt<ThemePreferencesService>()),
+  (ref) => AppStateNotifier(
+    getIt<ThemePreferencesService>(),
+    getIt<LocalePreferencesService>(),
+  ),
 );
 
 /// Provider for current theme mode
 final themeModeProvider = Provider<ThemeMode>((ref) {
   return ref.watch(appStateProvider.select((state) => state.themeMode));
+});
+
+/// Provider for current locale
+final localeProvider = Provider<Locale>((ref) {
+  return ref.watch(appStateProvider.select((state) => state.locale));
 });
 
 /// Provider for app initialization status

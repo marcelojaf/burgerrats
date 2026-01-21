@@ -1,0 +1,723 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "BurgerRats",
+  "welcome": "Welcome",
+  "login": "Login",
+  "logout": "Logout",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "forgotPassword": "Forgot password?",
+  "home": "Home",
+  "profile": "Profile",
+  "settings": "Settings",
+  "loading": "Loading...",
+  "error": "Error",
+  "tryAgain": "Try again",
+  "cancel": "Cancel",
+  "save": "Save",
+  "delete": "Delete",
+  "confirm": "Confirm",
+
+  "loginSubtitle": "Sign in to rate burger joints",
+  "emailHint": "your@email.com",
+  "or": "or",
+  "continueWithGoogle": "Continue with Google",
+  "createAccount": "Create account",
+
+  "registerSubtitle": "Create your account to start rating burger joints and compete with your friends!",
+  "name": "Name",
+  "nameHint": "Your name",
+  "passwordMinChars": "Minimum 6 characters",
+  "acceptTermsText": "I have read and accept the ",
+  "termsOfUse": "Terms of Use",
+  "and": " and the ",
+  "privacyPolicy": "Privacy Policy",
+  "mustAcceptTerms": "You must accept the terms of use",
+  "alreadyHaveAccount": "Already have an account?",
+
+  "recoverPassword": "Recover password",
+  "forgotPasswordTitle": "Forgot your password?",
+  "forgotPasswordDescription": "Enter your email and we will send you a link to reset your password.",
+  "sendLink": "Send link",
+  "backToLogin": "Back to login",
+  "emailSent": "Email sent!",
+  "recoveryLinkSentTo": "We sent a recovery link to:",
+  "checkInboxAndSpam": "Check your inbox and spam folder.",
+  "didNotReceiveResend": "Didn't receive it? Resend",
+
+  "myLeagues": "My Leagues",
+  "joinLeague": "Join a league",
+  "newLeague": "New League",
+  "member": "member",
+  "members": "members",
+
+  "justNow": "Just now",
+  "minutesAgo": "{minutes} min ago",
+  "@minutesAgo": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{hours}h ago",
+  "@hoursAgo": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "yesterday": "Yesterday",
+  "daysAgo": "{days} days ago",
+  "@daysAgo": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "weekAgo": "{weeks} week ago",
+  "@weekAgo": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "weeksAgo": "{weeks} weeks ago",
+  "@weeksAgo": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "monthAgo": "{months} month ago",
+  "@monthAgo": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsAgo": "{months} months ago",
+  "@monthsAgo": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "yearAgo": "{years} year ago",
+  "@yearAgo": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+  "yearsAgo": "{years} years ago",
+  "@yearsAgo": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+
+  "noLeaguesYet": "No leagues yet",
+  "createOrJoinLeague": "Create a new league or join an existing one using an invite code.",
+  "join": "Join",
+  "createLeague": "Create League",
+  "errorLoadingLeagues": "Error loading leagues",
+  "checkConnectionTryAgain": "Check your connection and try again.",
+
+  "myCheckIns": "My Check-ins",
+  "viewAsGallery": "View as gallery",
+  "viewAsList": "View as list",
+  "clearFilters": "Clear filters",
+  "filter": "Filter",
+  "noCheckInsFound": "No check-ins found",
+  "noCheckInsYet": "No check-ins yet",
+  "adjustFiltersMessage": "Try adjusting the filters to see more results.",
+  "makeFirstCheckIn": "Make your first check-in by clicking the + button",
+  "errorLoadingCheckIns": "Error loading check-ins",
+
+  "filters": "Filters",
+  "clear": "Clear",
+  "league": "League",
+  "notPartOfAnyLeague": "You are not part of any league yet.",
+  "allLeagues": "All leagues",
+  "period": "Period",
+  "today": "Today",
+  "thisWeek": "This week",
+  "thisMonth": "This month",
+  "last30Days": "Last 30 days",
+  "startDate": "Start date",
+  "endDate": "End date",
+  "clearPeriod": "Clear period",
+  "applyFilters": "Apply filters",
+
+  "errorLoadingProfile": "Error loading profile",
+  "checkIns": "Check-ins",
+  "streak": "Streak",
+  "leagues": "Leagues",
+  "editProfile": "Edit Profile",
+  "checkInHistory": "Check-in History",
+  "logoutConfirmation": "Are you sure you want to logout?",
+
+  "notifications": "Notifications",
+  "theme": "Theme",
+  "language": "Language",
+  "portuguese": "Portuguese",
+  "english": "English",
+  "about": "About",
+  "version": "Version {version}",
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteAccount": "Delete Account",
+  "deleteAccountConfirmation": "Are you sure you want to delete your account? This action cannot be undone.",
+
+  "selectTheme": "Select Theme",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System",
+
+  "selectLanguage": "Select Language",
+
+  "skip": "Skip",
+  "next": "Next",
+  "start": "Start",
+
+  "onboardingTitle1": "Welcome to BurgerRats!",
+  "onboardingDescription1": "Record your visits to burger joints, rate your favorite burgers and share your experiences with friends.",
+  "onboardingHighlight1": "Your burger journey starts here!",
+
+  "onboardingTitle2": "Compete in Leagues",
+  "onboardingDescription2": "Create or join leagues with your friends. Whoever visits more burger joints during the league period wins!",
+  "onboardingHighlight2": "Form your team and climb the ranking!",
+
+  "onboardingTitle3": "Make Check-ins",
+  "onboardingDescription3": "Take a photo of your burger, rate it from 1 to 5 stars and record the burger joint name. Each check-in earns league points!",
+  "onboardingHighlight3": "One check-in per day per league!",
+
+  "mustBeLoggedIn": "You must be logged in to create a league",
+  "createYourLeague": "Create your league",
+  "createLeagueDescription": "Gather your friends and compete to find the best burgers!",
+  "leagueName": "League Name",
+  "leagueNameRequired": "League name is required",
+  "leagueNameHint": "E.g.: Burger Hunters",
+  "minCharsRequired": "Minimum of {min} characters",
+  "@minCharsRequired": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "descriptionOptional": "Description (optional)",
+  "describeYourLeague": "Describe your league...",
+
+  "configuration": "Configuration",
+  "publicLeague": "Public League",
+  "anyoneCanFind": "Anyone can find your league",
+  "inviteCodeOnly": "Invite code only",
+  "membersCanInvite": "Members can invite",
+  "allMembersCanShare": "All members can share the code",
+  "onlyAdminsCanInvite": "Only admins can invite",
+  "maxMembers": "Maximum members",
+  "fromToMembers": "From {min} to {max} members",
+  "@fromToMembers": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+
+  "unknownError": "Unknown error",
+  "creating": "Creating...",
+  "leagueCreated": "League Created!",
+  "leagueCreatedSuccess": "Your league \"{name}\" was created successfully!",
+  "@leagueCreatedSuccess": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "inviteCode": "Invite Code",
+  "codeCopied": "Code copied!",
+  "tapToCopy": "Tap to copy",
+  "shareInviteCode": "Share this code with your friends so they can join your league!",
+  "back": "Back",
+  "viewLeague": "View League",
+
+  "requiredField": "This field is required.",
+  "invalidEmail": "The email address is not valid.",
+  "weakPassword": "The password is too weak. Use at least 6 characters.",
+  "passwordMismatch": "Passwords do not match.",
+  "maxLengthExceeded": "Maximum number of characters exceeded.",
+
+  "checkInDetails": "Check-in Details",
+  "share": "Share",
+  "generatingShareableImage": "Generating shareable image...",
+  "note": "Note",
+  "details": "Details",
+  "checkInNotFound": "Check-in not found",
+  "checkInNotFoundDescription": "This check-in may have been removed or the link is incorrect.",
+  "errorLoadingCheckIn": "Error loading check-in",
+  "newCheckIn": "New Check-in",
+  "selectLeague": "Select League",
+  "detailsOptional": "Details (optional)",
+  "restaurantName": "Restaurant Name",
+  "restaurantNameHint": "E.g.: Burger King",
+  "observation": "Observation",
+  "observationHint": "Tell about your experience...",
+  "processing": "Processing...",
+  "makeCheckIn": "Make Check-in",
+  "cannotCheckIn": "Cannot check-in: {message}",
+  "@cannotCheckIn": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "takePhotoToCheckIn": "Take a photo of your burger to check-in",
+  "selectLeagueToCheckIn": "Select a league to check-in",
+  "joinALeague": "Join a League",
+  "mustBeLoggedInToCheckIn": "You must be logged in to check-in.",
+  "checkInSuccess": "Check-in completed successfully!",
+  "errorCapturingPhoto": "Error capturing photo: {error}",
+  "@errorCapturingPhoto": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "takeBurgerPhoto": "Take Burger Photo",
+  "tapToAddPhoto": "Tap to add a photo",
+  "errorLoadingLeagues": "Error loading leagues",
+  "availableForCheckIn": "Available for check-in",
+  "oneCheckInPerDayPerLeague": "You can make 1 check-in per day in this league",
+  "dailyLimitReached": "Daily limit reached",
+  "alreadyCheckedInToday": "You already checked in today in this league.",
+  "changePhoto": "Change",
+  "errorLoadingImage": "Error loading image",
+  "photoAdded": "Photo added",
+  "ratingLabel": "Rating",
+  "tapStarsToRate": "Tap the stars to rate",
+  "ratingBad": "Bad",
+  "ratingRegular": "Regular",
+  "ratingGood": "Good",
+  "ratingVeryGood": "Very good",
+  "ratingExcellent": "Excellent",
+  "compressingPhoto": "Compressing photo...",
+  "uploadingPhoto": "Uploading photo ({progress}%)...",
+  "@uploadingPhoto": {
+    "placeholders": {
+      "progress": {
+        "type": "int"
+      }
+    }
+  },
+  "savingCheckIn": "Saving check-in...",
+  "updatingPoints": "Updating points...",
+  "errorLoadingYourLeagues": "Error loading your leagues. Try again.",
+  "errorCheckingDailyLimit": "Error checking daily limit. Try again.",
+  "errorCreatingCheckIn": "Error creating check-in. Try again.",
+  "dateAt": "{day} of {month} of {year} at {time}",
+  "@dateAt": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "monthJanuary": "January",
+  "monthFebruary": "February",
+  "monthMarch": "March",
+  "monthApril": "April",
+  "monthMay": "May",
+  "monthJune": "June",
+  "monthJuly": "July",
+  "monthAugust": "August",
+  "monthSeptember": "September",
+  "monthOctober": "October",
+  "monthNovember": "November",
+  "monthDecember": "December",
+  "week": "week",
+  "weeks": "weeks",
+  "monthSingular": "month",
+  "monthsPlural": "months",
+  "year": "year",
+  "yearsPlural": "years",
+
+  "leagueDetails": "League Details",
+  "shareInvite": "Share Invite",
+  "leagueNotFound": "League not found",
+  "leagueNotFoundDescription": "The league may have been deleted or you don't have access.",
+  "errorLoadingLeague": "Error loading league",
+  "promoteToAdmin": "Promote to Admin",
+  "removeAdmin": "Remove Admin",
+  "removeFromLeague": "Remove from League",
+  "transferOwnership": "Transfer Ownership",
+  "promoteToAdminConfirmation": "Do you want to promote {name} to admin? Admins can manage league members.",
+  "@promoteToAdminConfirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "promote": "Promote",
+  "promotingMember": "Promoting member...",
+  "removeAdminConfirmation": "Do you want to remove {name} as admin? They will remain as a league member.",
+  "@removeAdminConfirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removingAdmin": "Removing admin...",
+  "removeMember": "Remove Member",
+  "removeMemberConfirmation": "Do you want to remove {name} from the league? This action cannot be undone.",
+  "@removeMemberConfirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "remove": "Remove",
+  "removingMember": "Removing member...",
+  "cannotLeaveTitle": "Cannot leave",
+  "cannotLeaveOnlyMember": "You are the only member of the league. To leave, you need to delete the league.",
+  "understood": "Understood",
+  "cannotLeaveOwner": "You are the owner of the league. To leave, you need to delete the league or transfer ownership to another member.",
+  "leaveLeague": "Leave League",
+  "leaveLeagueConfirmation": "Do you want to leave this league? Your points will be lost and this action cannot be undone.",
+  "leave": "Leave",
+  "leavingLeague": "Leaving league...",
+  "selectNewOwner": "Select the new owner of the league:",
+  "confirmTransfer": "Confirm Transfer",
+  "transferOwnershipConfirmation": "Do you want to transfer ownership of the league to {name}?\n\nYou will become an admin of the league.",
+  "@transferOwnershipConfirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "transfer": "Transfer",
+  "transferringOwnership": "Transferring ownership...",
+  "leagueSettings": "League Settings",
+  "visibleToAllUsers": "Visible to all users",
+  "pointsPerCheckIn": "Points per Check-in",
+  "pointsPerReview": "Points per Review",
+  "allowsMemberInvites": "Allows members to share the invite",
+  "requiresApproval": "Requires approval",
+  "newMembersNeedApproval": "New members need approval",
+  "savingSettings": "Saving settings...",
+  "deleteLeague": "Delete League",
+  "deleteLeagueConfirmation": "Do you want to permanently delete this league? All members will be removed and this action cannot be undone.",
+  "deletingLeague": "Deleting league...",
+  "generateNewCode": "Generate New Code",
+  "generateNewCodeConfirmation": "Do you want to generate a new invite code? The old code will be invalidated.",
+  "generate": "Generate",
+  "generatingNewCode": "Generating new code...",
+  "roleOwner": "Owner",
+  "roleAdmin": "Admin",
+  "roleMember": "Member",
+  "publicLabel": "Public",
+  "privateLabel": "Private",
+  "membersCount": "{count}/{max} members",
+  "@membersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "createdOn": "Created on {date}",
+  "@createdOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "statistics": "Statistics",
+  "totalPoints": "Total Points",
+  "averagePerMember": "Average per Member",
+  "ranking": "Ranking",
+  "noMembersYet": "No members yet",
+  "makeCheckInsForPoints": "Make check-ins to earn points!",
+  "tied": "Tied",
+  "loadingRanking": "Loading ranking...",
+  "errorLoadingRanking": "Error loading ranking",
+  "reminders": "Reminders",
+  "copy": "Copy",
+  "yes": "Yes",
+  "no": "No",
+  "errorMessage": "Error: {message}",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "joinLeagueTitle": "Join League",
+  "enterInviteCode": "Enter the invite code",
+  "askAdminForCode": "Ask the league administrator for the 8-character code",
+  "enterInviteCodeValidation": "Enter the invite code",
+  "codeMustHaveChars": "The code must have 8 characters",
+  "searching": "Searching...",
+  "searchLeague": "Search League",
+  "visibility": "Visibility",
+  "youJoined": "You joined!",
+  "joining": "Joining...",
+  "joinTheLeague": "Join the League",
+  "mustBeLoggedInToJoin": "You must be logged in to join a league",
+  "joinedLeagueSuccess": "You joined the league \"{name}\" successfully!",
+  "@joinedLeagueSuccess": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "basicInfo": "Basic Information",
+  "leagueNameLabel": "League Name",
+  "enterLeagueName": "Enter the league name",
+  "leagueNameRequiredValidation": "League name is required",
+  "nameMustHaveChars": "Name must have at least 3 characters",
+  "description": "Description",
+  "enterDescriptionOptional": "Enter a description (optional)",
+  "noPermission": "No permission",
+  "onlyAdminsCanAccessSettings": "Only administrators can access league settings.",
+  "errorLoadingSettings": "Error loading settings",
+  "savingChanges": "Saving changes...",
+  "changesSavedSuccess": "Changes saved successfully!",
+  "saveChanges": "Save Changes",
+  "discardChanges": "Discard changes?",
+  "unsavedChangesWarning": "You have unsaved changes. Do you want to discard them?",
+  "continueEditing": "Continue Editing",
+  "discard": "Discard",
+  "youLabel": "(you)",
+  "shareLeagueInviteMessage": "Join my league \"{name}\" on BurgerRats! {link}\n\nInvite code: {code}",
+  "@shareLeagueInviteMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "link": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "leagueInviteSubject": "League Invite - {name}",
+  "@leagueInviteSubject": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "verifyEmail": "Verify Email",
+  "verificationEmailSent": "Verification email sent!",
+  "verifyYourEmail": "Verify your email",
+  "verificationLinkSentTo": "We sent a verification link to:",
+  "openEmailApp": "Open your email app",
+  "lookForBurgerRatsEmail": "Look for the BurgerRats email",
+  "clickVerificationLink": "Click the verification link",
+  "checkSpamFolder": "Didn't find it? Also check your spam folder.",
+  "alreadyVerified": "I've verified",
+  "resendEmail": "Resend email",
+  "resendInSeconds": "Resend in {seconds}s",
+  "@resendInSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "emailNotYetVerified": "Email not yet verified",
+  "verifyingAutomatically": "Verifying automatically...",
+
+  "myCheckIns": "My Check-ins",
+  "viewAsGallery": "View as gallery",
+  "viewAsList": "View as list",
+  "clearFilters": "Clear filters",
+  "filter": "Filter",
+  "noCheckInsFound": "No check-ins found",
+  "noCheckInsYet": "No check-ins yet",
+  "adjustFiltersMessage": "Try adjusting the filters to see more results.",
+  "makeFirstCheckIn": "Make your first check-in by tapping the + button",
+  "errorLoadingCheckIns": "Error loading check-ins",
+  "checkConnectionTryAgain": "Check your connection and try again.",
+  "tryAgain": "Try again",
+  "filters": "Filters",
+  "clearAll": "Clear all",
+  "clear": "Clear",
+  "league": "League",
+  "period": "Period",
+  "applyFilters": "Apply filters",
+  "notPartOfAnyLeague": "You are not part of any league yet.",
+  "allLeagues": "All leagues",
+  "today": "Today",
+  "thisWeek": "This week",
+  "thisMonth": "This month",
+  "last30Days": "Last 30 days",
+  "startDate": "Start date",
+  "endDate": "End date",
+  "clearPeriod": "Clear period",
+  "justNow": "Just now",
+  "minutesAgo": "{minutes} min ago",
+  "@minutesAgo": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{hours}h ago",
+  "@hoursAgo": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "memberSingular": "member",
+  "membersPlural": "members",
+
+  "removeSelectedPhoto": "Remove selected photo",
+  "pleaseEnterName": "Please enter your name",
+  "nameMustHaveMinChars": "Name must have at least {min} characters",
+  "@nameMustHaveMinChars": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "emailCannotBeChanged": "Email cannot be changed",
+  "profileUpdatedSuccess": "Profile updated successfully!",
+  "errorUpdatingProfile": "Error updating profile. Try again.",
+  "photoUpdatedSuccess": "Photo updated successfully!",
+  "errorUpdatingPhoto": "Error updating profile photo.",
+  "errorUploadingPhoto": "Error uploading photo. Try again.",
+  "errorSelectingPhoto": "Error selecting photo: {error}",
+  "@errorSelectingPhoto": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+
+  "ok": "OK",
+  "criticalError": "Critical Error",
+  "contactSupportIfPersists": "Please contact support if the problem persists.",
+  "noInternetConnection": "No internet connection",
+  "noDataFound": "No data found",
+
+  "cameraAccess": "Camera Access",
+  "cameraAccessRequired": "Camera Access Required",
+  "cameraPermission": "Camera Permission",
+  "cameraPermissionDenied": "Camera Permission Denied",
+  "cameraPermissionExplanation": "We need access to your camera to take photos of your check-ins. Your photos help verify your visits and make the experience more fun!",
+  "cameraPermissionDeniedExplanation": "Camera permission was denied. To use this feature, you need to enable access in your device settings.",
+  "cameraPermissionPermanentlyDeniedExplanation": "You permanently denied camera access. To use this feature, you need to enable the permission in your device settings.",
+  "cameraPermissionForCheckIns": "To make check-ins with photos, we need access to your device's camera.\n\nYour photos help verify your visits and make the experience more interactive and fun!",
+  "allowAccess": "Allow Access",
+  "allowCameraAccess": "Allow Camera Access",
+  "openSettings": "Open Settings",
+  "notNow": "Not now",
+  "takeCheckInPhotos": "Take photos of your check-ins",
+  "verifyYourVisits": "Verify your visits",
+  "shareWithFriends": "Share with friends",
+
+  "noPhotosYet": "No photos yet",
+  "checkInPhotosWillAppearHere": "Your check-in photos will appear here",
+
+  "notificationChannelGeneral": "General",
+  "notificationChannelGeneralDescription": "General app notifications",
+  "notificationChannelCheckIns": "Check-ins",
+  "notificationChannelCheckInsDescription": "Notifications about new check-ins in the league",
+  "notificationChannelLeagues": "Leagues",
+  "notificationChannelLeaguesDescription": "Notifications about league invites and updates",
+  "notificationChannelReminders": "Reminders",
+  "notificationChannelRemindersDescription": "Reminders to make check-ins",
+  "notificationReminderTitle": "Time to check-in!",
+  "notificationReminderBody": "Don't forget to check-in at the \"{leagueName}\" league",
+  "@notificationReminderBody": {
+    "placeholders": {
+      "leagueName": {
+        "type": "String"
+      }
+    }
+  },
+  "notificationCheckInTitle": "{userName} checked in!",
+  "@notificationCheckInTitle": {
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "notificationCheckInBodyWithRestaurant": "{restaurantName} - {leagueName}",
+  "@notificationCheckInBodyWithRestaurant": {
+    "placeholders": {
+      "restaurantName": {
+        "type": "String"
+      },
+      "leagueName": {
+        "type": "String"
+      }
+    }
+  },
+  "notificationCheckInBodyWithoutRestaurant": "New check-in at {leagueName} league",
+  "@notificationCheckInBodyWithoutRestaurant": {
+    "placeholders": {
+      "leagueName": {
+        "type": "String"
+      }
+    }
+  },
+  "notificationReminderChannelName": "Check-in Reminders",
+  "notificationReminderChannelDescription": "Daily reminders to check-in at your leagues"
+}

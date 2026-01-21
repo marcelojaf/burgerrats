@@ -2,7 +2,7 @@
   "id": "i18n-testing-coverage",
   "title": "Add i18n Testing Coverage",
   "description": "Create tests to ensure localization works correctly across the app",
-  "status": "backlog",
+  "status": "verified",
   "priority": "low",
   "category": "localization",
   "acceptanceCriteria": [
@@ -28,5 +28,8 @@
     "test/core/services/locale_service_test.dart",
     "test/l10n/arb_validation_test.dart",
     "test/features/*/presentation/pages/*_test.dart"
-  ]
+  ],
+  "startedAt": "2026-01-21T02:21:34.036Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-21T02:27:19.854Z"
 }

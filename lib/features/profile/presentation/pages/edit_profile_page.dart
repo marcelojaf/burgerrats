@@ -10,6 +10,8 @@ import '../../../../core/services/firebase_storage_service.dart';
 import '../../../../core/services/image_compression_service.dart';
 import '../../../../core/services/photo_capture_service.dart';
 import '../../../../core/state/providers/auth_state_provider.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../shared/extensions/context_extensions.dart';
 import '../providers/user_profile_provider.dart';
 
 /// State for edit profile form
@@ -57,6 +59,15 @@ class EditProfileState {
   }
 }
 
+/// Message key enum for localized messages
+enum ProfileMessageKey {
+  profileUpdatedSuccess,
+  errorUpdatingProfile,
+  photoUpdatedSuccess,
+  errorUpdatingPhoto,
+  errorUploadingPhoto,
+}
+
 /// Notifier for edit profile state
 class EditProfileNotifier extends StateNotifier<EditProfileState> {
   final AuthNotifier _authNotifier;
@@ -69,24 +80,30 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
     this._compressionService,
   ) : super(const EditProfileState());
 
-  Future<bool> updateDisplayName(String displayName) async {
+  /// Gets localized message based on key
+  static String getLocalizedMessage(ProfileMessageKey key, AppLocalizations l10n) {
+    switch (key) {
+      case ProfileMessageKey.profileUpdatedSuccess:
+        return l10n.profileUpdatedSuccess;
+      case ProfileMessageKey.errorUpdatingProfile:
+        return l10n.errorUpdatingProfile;
+      case ProfileMessageKey.photoUpdatedSuccess:
+        return l10n.photoUpdatedSuccess;
+      case ProfileMessageKey.errorUpdatingPhoto:
+        return l10n.errorUpdatingPhoto;
+      case ProfileMessageKey.errorUploadingPhoto:
+        return l10n.errorUploadingPhoto;
+    }
+  }
+
+  Future<ProfileMessageKey?> updateDisplayName(String displayName) async {
     state = state.copyWith(isSaving: true, clearError: true, clearSuccess: true);
 
     final success = await _authNotifier.updateDisplayName(displayName);
 
-    if (success) {
-      state = state.copyWith(
-        isSaving: false,
-        successMessage: 'Perfil atualizado com sucesso!',
-      );
-    } else {
-      state = state.copyWith(
-        isSaving: false,
-        errorMessage: 'Erro ao atualizar perfil. Tente novamente.',
-      );
-    }
+    state = state.copyWith(isSaving: false);
 
-    return success;
+    return success ? ProfileMessageKey.profileUpdatedSuccess : ProfileMessageKey.errorUpdatingProfile;
   }
 
   void setSelectedPhoto(File photo) {
@@ -97,8 +114,8 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
     state = state.copyWith(clearPhoto: true);
   }
 
-  Future<bool> uploadProfilePhoto(String userId) async {
-    if (state.selectedPhoto == null) return false;
+  Future<ProfileMessageKey?> uploadProfilePhoto(String userId) async {
+    if (state.selectedPhoto == null) return null;
 
     state = state.copyWith(
       isUploadingPhoto: true,
@@ -130,23 +147,16 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
         state = state.copyWith(
           isUploadingPhoto: false,
           uploadProgress: 1.0,
-          successMessage: 'Foto atualizada com sucesso!',
           clearPhoto: true,
         );
-        return true;
+        return ProfileMessageKey.photoUpdatedSuccess;
       } else {
-        state = state.copyWith(
-          isUploadingPhoto: false,
-          errorMessage: 'Erro ao atualizar foto no perfil.',
-        );
-        return false;
+        state = state.copyWith(isUploadingPhoto: false);
+        return ProfileMessageKey.errorUpdatingPhoto;
       }
     } catch (e) {
-      state = state.copyWith(
-        isUploadingPhoto: false,
-        errorMessage: 'Erro ao enviar foto. Tente novamente.',
-      );
-      return false;
+      state = state.copyWith(isUploadingPhoto: false);
+      return ProfileMessageKey.errorUploadingPhoto;
     }
   }
 
@@ -236,7 +246,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erro ao selecionar foto: ${e.toString()}'),
+            content: Text(context.l10n.errorSelectingPhoto(e.toString())),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
@@ -251,28 +261,41 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     final profile = ref.read(userBasicInfoProvider);
     final editState = ref.read(editProfileNotifierProvider);
 
-    bool photoSuccess = true;
-    bool nameSuccess = true;
+    ProfileMessageKey? photoResult;
+    ProfileMessageKey? nameResult;
 
     // Upload photo if selected
     if (editState.selectedPhoto != null && profile != null) {
-      photoSuccess = await notifier.uploadProfilePhoto(profile.uid);
+      photoResult = await notifier.uploadProfilePhoto(profile.uid);
     }
 
     // Update display name if changed
     if (_hasNameChanges) {
-      nameSuccess = await notifier.updateDisplayName(_nameController.text.trim());
+      nameResult = await notifier.updateDisplayName(_nameController.text.trim());
     }
 
-    if (photoSuccess && nameSuccess && mounted) {
+    final hasPhotoError = photoResult == ProfileMessageKey.errorUpdatingPhoto ||
+        photoResult == ProfileMessageKey.errorUploadingPhoto;
+    final hasNameError = nameResult == ProfileMessageKey.errorUpdatingProfile;
+
+    if (!hasPhotoError && !hasNameError && mounted) {
       ref.invalidate(userProfileProvider);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Perfil atualizado com sucesso!'),
+        SnackBar(
+          content: Text(context.l10n.profileUpdatedSuccess),
           backgroundColor: Colors.green,
         ),
       );
       context.pop();
+    } else if (mounted) {
+      // Show the first error encountered
+      final errorKey = hasPhotoError ? photoResult! : nameResult!;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(EditProfileNotifier.getLocalizedMessage(errorKey, context.l10n)),
+          backgroundColor: Theme.of(context).colorScheme.error,
+        ),
+      );
     }
   }
 
@@ -284,23 +307,11 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     // Initialize form with current data
     _initializeForm(profile);
 
-    // Show error if any
-    ref.listen<EditProfileState>(editProfileNotifierProvider, (previous, next) {
-      if (next.errorMessage != null && previous?.errorMessage != next.errorMessage) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(next.errorMessage!),
-            backgroundColor: Theme.of(context).colorScheme.error,
-          ),
-        );
-      }
-    });
-
     final isBusy = editState.isSaving || editState.isUploadingPhoto;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Editar Perfil'),
+        title: Text(context.l10n.editProfile),
         actions: [
           TextButton(
             onPressed: isBusy || !_hasChanges ? null : _saveProfile,
@@ -311,7 +322,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
                 : Text(
-                    'Salvar',
+                    context.l10n.save,
                     style: TextStyle(
                       color: _hasChanges
                           ? Theme.of(context).colorScheme.primary
@@ -366,7 +377,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                                 setState(() {});
                               },
                         icon: const Icon(Icons.close, size: 16),
-                        label: const Text('Remover foto selecionada'),
+                        label: Text(context.l10n.removeSelectedPhoto),
                         style: TextButton.styleFrom(
                           foregroundColor: Theme.of(context).colorScheme.error,
                         ),
@@ -375,20 +386,20 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                     const SizedBox(height: 32),
                     TextFormField(
                       controller: _nameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Nome',
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: context.l10n.name,
+                        prefixIcon: const Icon(Icons.person),
+                        border: const OutlineInputBorder(),
                       ),
                       textCapitalization: TextCapitalization.words,
                       enabled: !isBusy,
                       onChanged: (_) => _onFieldChanged(),
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Por favor, insira seu nome';
+                          return context.l10n.pleaseEnterName;
                         }
                         if (value.trim().length < 2) {
-                          return 'Nome deve ter pelo menos 2 caracteres';
+                          return context.l10n.nameMustHaveMinChars(2);
                         }
                         return null;
                       },
@@ -396,16 +407,16 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                     const SizedBox(height: 16),
                     TextFormField(
                       initialValue: profile.email,
-                      decoration: const InputDecoration(
-                        labelText: 'Email',
-                        prefixIcon: Icon(Icons.email),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: context.l10n.email,
+                        prefixIcon: const Icon(Icons.email),
+                        border: const OutlineInputBorder(),
                       ),
                       enabled: false,
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'O email nao pode ser alterado',
+                      context.l10n.emailCannotBeChanged,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Theme.of(context).colorScheme.onSurfaceVariant,
                           ),

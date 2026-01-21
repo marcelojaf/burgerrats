@@ -65,31 +65,44 @@ class _SplashPageState extends ConsumerState<SplashPage>
 
   Future<void> _initializeAndNavigate() async {
     // Minimum splash duration for UX (enough to see the animation)
+    debugPrint('SplashPage: Starting initialization...');
     await Future.delayed(const Duration(milliseconds: 2000));
 
-    if (!mounted) return;
+    if (!mounted) {
+      debugPrint('SplashPage: Widget not mounted after delay');
+      return;
+    }
 
+    debugPrint('SplashPage: Checking onboarding...');
     // First check if onboarding is needed
     await _checkOnboardingAndNavigate();
   }
 
   Future<void> _checkOnboardingAndNavigate() async {
+    debugPrint('SplashPage: _checkOnboardingAndNavigate called, _hasNavigated=$_hasNavigated, mounted=$mounted');
     if (_hasNavigated || !mounted) return;
 
     // Check if this is the first launch (onboarding not completed)
     final onboardingService = ref.read(onboardingServiceProvider);
+    debugPrint('SplashPage: Checking hasCompletedOnboarding...');
     final hasCompletedOnboarding = await onboardingService.hasCompletedOnboarding();
+    debugPrint('SplashPage: hasCompletedOnboarding=$hasCompletedOnboarding');
 
-    if (!mounted) return;
+    if (!mounted) {
+      debugPrint('SplashPage: Widget not mounted after onboarding check');
+      return;
+    }
 
     // If first launch, show onboarding
     if (!hasCompletedOnboarding) {
+      debugPrint('SplashPage: Navigating to onboarding');
       _hasNavigated = true;
       context.go(AppRoutes.onboarding);
       return;
     }
 
     // Otherwise, check auth state and navigate accordingly
+    debugPrint('SplashPage: Checking auth state...');
     _checkAuthAndNavigate();
   }
 

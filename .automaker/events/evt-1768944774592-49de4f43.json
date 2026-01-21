@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768944774592-49de4f43",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-20T21:32:54.592Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "i18n-generate-localizations",
+  "error": "Feature completed in 134s - auto-verified",
+  "passes": true
+}

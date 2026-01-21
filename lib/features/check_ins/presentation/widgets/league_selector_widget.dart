@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../shared/extensions/context_extensions.dart';
 import '../../../leagues/domain/entities/league_entity.dart';
 
 /// Widget for selecting a league from the user's leagues
@@ -20,6 +21,7 @@ class LeagueSelectorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     if (leagues.isEmpty) {
       return Container(
@@ -40,7 +42,7 @@ class LeagueSelectorWidget extends StatelessWidget {
             const SizedBox(width: 12),
             Expanded(
               child: Text(
-                'Voce ainda nao faz parte de nenhuma liga.',
+                l10n.notPartOfAnyLeague,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.outline,
                 ),
@@ -142,7 +144,7 @@ class _LeagueCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      '${league.memberCount} ${league.memberCount == 1 ? 'membro' : 'membros'}',
+                      '${league.memberCount} ${league.memberCount == 1 ? context.l10n.memberSingular : context.l10n.membersPlural}',
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: isSelected
                             ? theme.colorScheme.onPrimaryContainer

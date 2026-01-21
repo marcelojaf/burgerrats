@@ -101,7 +101,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Criar conta'),
+        title: Text(context.l10n.createAccount),
       ),
       body: SafeArea(
         child: Center(
@@ -114,7 +114,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                 children: [
                   // Info text
                   Text(
-                    'Crie sua conta para começar a avaliar hamburguerias e competir com seus amigos!',
+                    context.l10n.registerSubtitle,
                     style: context.textTheme.bodyLarge?.copyWith(
                       color: context.colorScheme.onSurfaceVariant,
                     ),
@@ -125,10 +125,10 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   // Name field
                   TextFormField(
                     controller: _nameController,
-                    decoration: const InputDecoration(
-                      labelText: 'Nome',
-                      prefixIcon: Icon(Icons.person_outlined),
-                      hintText: 'Seu nome',
+                    decoration: InputDecoration(
+                      labelText: context.l10n.name,
+                      prefixIcon: const Icon(Icons.person_outlined),
+                      hintText: context.l10n.nameHint,
                     ),
                     textInputAction: TextInputAction.next,
                     textCapitalization: TextCapitalization.words,
@@ -139,10 +139,10 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   // Email field
                   TextFormField(
                     controller: _emailController,
-                    decoration: const InputDecoration(
-                      labelText: 'E-mail',
-                      prefixIcon: Icon(Icons.email_outlined),
-                      hintText: 'seu@email.com',
+                    decoration: InputDecoration(
+                      labelText: context.l10n.email,
+                      prefixIcon: const Icon(Icons.email_outlined),
+                      hintText: context.l10n.emailHint,
                     ),
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
@@ -156,9 +156,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   TextFormField(
                     controller: _passwordController,
                     decoration: InputDecoration(
-                      labelText: 'Senha',
+                      labelText: context.l10n.password,
                       prefixIcon: const Icon(Icons.lock_outlined),
-                      helperText: 'Mínimo 6 caracteres',
+                      helperText: context.l10n.passwordMinChars,
                       suffixIcon: IconButton(
                         icon: Icon(
                           _obscurePassword
@@ -182,7 +182,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   TextFormField(
                     controller: _confirmPasswordController,
                     decoration: InputDecoration(
-                      labelText: 'Confirmar senha',
+                      labelText: context.l10n.confirmPassword,
                       prefixIcon: const Icon(Icons.lock_outline),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -212,7 +212,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     initialValue: _acceptedTerms,
                     validator: (value) {
                       if (value != true) {
-                        return 'Você deve aceitar os termos de uso';
+                        return context.l10n.mustAcceptTerms;
                       }
                       return null;
                     },
@@ -247,19 +247,19 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                                   },
                                   child: Text.rich(
                                     TextSpan(
-                                      text: 'Li e aceito os ',
+                                      text: context.l10n.acceptTermsText,
                                       style: context.textTheme.bodyMedium,
                                       children: [
                                         TextSpan(
-                                          text: 'Termos de Uso',
+                                          text: context.l10n.termsOfUse,
                                           style: TextStyle(
                                             color: context.colorScheme.primary,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
-                                        const TextSpan(text: ' e a '),
+                                        TextSpan(text: context.l10n.and),
                                         TextSpan(
-                                          text: 'Política de Privacidade',
+                                          text: context.l10n.privacyPolicy,
                                           style: TextStyle(
                                             color: context.colorScheme.primary,
                                             fontWeight: FontWeight.w500,
@@ -304,7 +304,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                               strokeWidth: 2,
                             ),
                           )
-                        : const Text('Criar conta'),
+                        : Text(context.l10n.createAccount),
                   ),
                   AppSpacing.gapVerticalMd,
 
@@ -313,14 +313,14 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Já tem uma conta?',
+                        context.l10n.alreadyHaveAccount,
                         style: context.textTheme.bodyMedium?.copyWith(
                           color: context.colorScheme.onSurfaceVariant,
                         ),
                       ),
                       TextButton(
                         onPressed: () => context.pop(),
-                        child: const Text('Entrar'),
+                        child: Text(context.l10n.login),
                       ),
                     ],
                   ),

@@ -73,7 +73,7 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
       // Show success message
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('E-mail de verificação enviado!'),
+          content: Text(context.l10n.verificationEmailSent),
           backgroundColor: context.colorScheme.primary,
         ),
       );
@@ -120,7 +120,7 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('E-mail ainda não verificado'),
+          content: Text(context.l10n.emailNotYetVerified),
           backgroundColor: context.colorScheme.error,
         ),
       );
@@ -146,12 +146,12 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Verificar e-mail'),
+        title: Text(context.l10n.verifyEmail),
         automaticallyImplyLeading: false,
         actions: [
           TextButton(
             onPressed: _handleSignOut,
-            child: const Text('Sair'),
+            child: Text(context.l10n.logout),
           ),
         ],
       ),
@@ -173,7 +173,7 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
 
                 // Title
                 Text(
-                  'Verifique seu e-mail',
+                  context.l10n.verifyYourEmail,
                   style: context.textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -183,7 +183,7 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
 
                 // Info text
                 Text(
-                  'Enviamos um link de verificação para:',
+                  context.l10n.verificationLinkSentTo,
                   style: context.textTheme.bodyLarge?.copyWith(
                     color: context.colorScheme.onSurfaceVariant,
                   ),
@@ -214,19 +214,19 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
                       _buildInstructionItem(
                         context,
                         '1',
-                        'Abra seu aplicativo de e-mail',
+                        context.l10n.openEmailApp,
                       ),
                       AppSpacing.gapVerticalSm,
                       _buildInstructionItem(
                         context,
                         '2',
-                        'Procure pelo e-mail do BurgerRats',
+                        context.l10n.lookForBurgerRatsEmail,
                       ),
                       AppSpacing.gapVerticalSm,
                       _buildInstructionItem(
                         context,
                         '3',
-                        'Clique no link de verificação',
+                        context.l10n.clickVerificationLink,
                       ),
                     ],
                   ),
@@ -235,7 +235,7 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
 
                 // Additional info
                 Text(
-                  'Não encontrou? Verifique também a pasta de spam.',
+                  context.l10n.checkSpamFolder,
                   style: context.textTheme.bodySmall?.copyWith(
                     color: context.colorScheme.onSurfaceVariant,
                   ),
@@ -246,7 +246,7 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
                 // Check verification button
                 FilledButton(
                   onPressed: _handleCheckVerification,
-                  child: const Text('Já verifiquei'),
+                  child: Text(context.l10n.alreadyVerified),
                 ),
                 AppSpacing.gapVerticalMd,
 
@@ -265,8 +265,8 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
                         )
                       : Text(
                           _canResend
-                              ? 'Reenviar e-mail'
-                              : 'Reenviar em ${_resendCooldown}s',
+                              ? context.l10n.resendEmail
+                              : context.l10n.resendInSeconds(_resendCooldown),
                         ),
                 ),
                 AppSpacing.gapVerticalLg,
@@ -285,7 +285,7 @@ class _EmailVerificationPageState extends ConsumerState<EmailVerificationPage> {
                     ),
                     AppSpacing.gapHorizontalSm,
                     Text(
-                      'Verificando automaticamente...',
+                      context.l10n.verifyingAutomatically,
                       style: context.textTheme.bodySmall?.copyWith(
                         color: context.colorScheme.onSurfaceVariant,
                       ),

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/state/providers/auth_state_provider.dart';
+import '../../../../shared/extensions/context_extensions.dart';
 import '../../../../shared/theme/app_spacing.dart';
 import '../../domain/entities/league_entity.dart';
 import '../providers/create_league_provider.dart';
@@ -46,8 +47,8 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
     final user = ref.read(currentUserProvider);
     if (user == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Voce precisa estar logado para criar uma liga'),
+        SnackBar(
+          content: Text(context.l10n.mustBeLoggedIn),
         ),
       );
       return;
@@ -103,10 +104,11 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
   Widget build(BuildContext context) {
     final state = ref.watch(createLeagueNotifierProvider);
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Criar Liga'),
+        title: Text(l10n.createLeague),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -124,13 +126,13 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                 ),
                 AppSpacing.gapVerticalMd,
                 Text(
-                  'Crie sua liga',
+                  l10n.createYourLeague,
                   style: theme.textTheme.headlineSmall,
                   textAlign: TextAlign.center,
                 ),
                 AppSpacing.gapVerticalSm,
                 Text(
-                  'Reuna seus amigos e compitam para encontrar os melhores hamburgueres!',
+                  l10n.createLeagueDescription,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
@@ -144,10 +146,10 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                   enabled: !state.isLoading,
                   maxLength: 50,
                   textCapitalization: TextCapitalization.words,
-                  decoration: const InputDecoration(
-                    labelText: 'Nome da Liga *',
-                    hintText: 'Ex: Burguer Hunters',
-                    prefixIcon: Icon(Icons.group),
+                  decoration: InputDecoration(
+                    labelText: '${l10n.leagueName} *',
+                    hintText: l10n.leagueNameHint,
+                    prefixIcon: const Icon(Icons.group),
                     counterText: '',
                   ),
                   inputFormatters: [
@@ -155,10 +157,10 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                   ],
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Nome da liga e obrigatorio';
+                      return l10n.leagueNameRequired;
                     }
                     if (value.trim().length < 3) {
-                      return 'Minimo de 3 caracteres';
+                      return l10n.minCharsRequired(3);
                     }
                     return null;
                   },
@@ -172,10 +174,10 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                   maxLength: 200,
                   maxLines: 3,
                   textCapitalization: TextCapitalization.sentences,
-                  decoration: const InputDecoration(
-                    labelText: 'Descricao (opcional)',
-                    hintText: 'Descreva sua liga...',
-                    prefixIcon: Icon(Icons.description),
+                  decoration: InputDecoration(
+                    labelText: l10n.descriptionOptional,
+                    hintText: l10n.describeYourLeague,
+                    prefixIcon: const Icon(Icons.description),
                     alignLabelWithHint: true,
                   ),
                   inputFormatters: [
@@ -186,7 +188,7 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
 
                 // Settings section
                 Text(
-                  'Configuracoes',
+                  l10n.configuration,
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -196,11 +198,11 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                 // Public/Private toggle
                 Card(
                   child: SwitchListTile(
-                    title: const Text('Liga Publica'),
+                    title: Text(l10n.publicLeague),
                     subtitle: Text(
                       _isPublic
-                          ? 'Qualquer um pode encontrar sua liga'
-                          : 'Apenas com codigo de convite',
+                          ? l10n.anyoneCanFind
+                          : l10n.inviteCodeOnly,
                       style: theme.textTheme.bodySmall,
                     ),
                     secondary: Icon(
@@ -218,11 +220,11 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                 // Allow member invites toggle
                 Card(
                   child: SwitchListTile(
-                    title: const Text('Membros podem convidar'),
+                    title: Text(l10n.membersCanInvite),
                     subtitle: Text(
                       _allowMemberInvites
-                          ? 'Todos membros podem compartilhar o codigo'
-                          : 'Apenas administradores podem convidar',
+                          ? l10n.allMembersCanShare
+                          : l10n.onlyAdminsCanInvite,
                       style: theme.textTheme.bodySmall,
                     ),
                     secondary: Icon(
@@ -253,7 +255,7 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                             AppSpacing.gapHorizontalMd,
                             Expanded(
                               child: Text(
-                                'Maximo de membros',
+                                l10n.maxMembers,
                                 style: theme.textTheme.bodyLarge,
                               ),
                             ),
@@ -278,7 +280,7 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                                   setState(() => _maxMembers = value.round()),
                         ),
                         Text(
-                          'De 2 a 100 membros',
+                          l10n.fromToMembers(2, 100),
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
@@ -291,7 +293,7 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                 // Error message
                 if (state.hasError) ...[
                   AppSpacing.gapVerticalMd,
-                  _ErrorMessage(message: state.errorMessage ?? 'Erro desconhecido'),
+                  _ErrorMessage(message: state.errorMessage ?? l10n.unknownError),
                 ],
 
                 AppSpacing.gapVerticalXl,
@@ -309,7 +311,7 @@ class _CreateLeaguePageState extends ConsumerState<CreateLeaguePage> {
                           ),
                         )
                       : const Icon(Icons.add),
-                  label: Text(state.isLoading ? 'Criando...' : 'Criar Liga'),
+                  label: Text(state.isLoading ? l10n.creating : l10n.createLeague),
                 ),
 
                 AppSpacing.gapVerticalMd,
@@ -335,11 +337,12 @@ class _SuccessDialog extends StatelessWidget {
   final VoidCallback onBackToLeagues;
 
   void _copyInviteCode(BuildContext context) {
+    final l10n = context.l10n;
     Clipboard.setData(ClipboardData(text: league.inviteCode));
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Codigo copiado!'),
-        duration: Duration(seconds: 2),
+      SnackBar(
+        content: Text(l10n.codeCopied),
+        duration: const Duration(seconds: 2),
       ),
     );
   }
@@ -347,6 +350,7 @@ class _SuccessDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     return AlertDialog(
       icon: Icon(
@@ -354,17 +358,17 @@ class _SuccessDialog extends StatelessWidget {
         size: 64,
         color: theme.colorScheme.primary,
       ),
-      title: const Text('Liga Criada!'),
+      title: Text(l10n.leagueCreated),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Sua liga "${league.name}" foi criada com sucesso!',
+            l10n.leagueCreatedSuccess(league.name),
             textAlign: TextAlign.center,
           ),
           AppSpacing.gapVerticalLg,
           Text(
-            'Codigo de Convite',
+            l10n.inviteCode,
             style: theme.textTheme.labelMedium?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),
@@ -401,14 +405,14 @@ class _SuccessDialog extends StatelessWidget {
           ),
           AppSpacing.gapVerticalSm,
           Text(
-            'Toque para copiar',
+            l10n.tapToCopy,
             style: theme.textTheme.bodySmall?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),
           ),
           AppSpacing.gapVerticalMd,
           Text(
-            'Compartilhe este codigo com seus amigos para que eles possam entrar na sua liga!',
+            l10n.shareInviteCode,
             textAlign: TextAlign.center,
             style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
@@ -419,11 +423,11 @@ class _SuccessDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: onBackToLeagues,
-          child: const Text('Voltar'),
+          child: Text(l10n.back),
         ),
         FilledButton(
           onPressed: onViewLeague,
-          child: const Text('Ver Liga'),
+          child: Text(l10n.viewLeague),
         ),
       ],
     );

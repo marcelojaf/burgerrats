@@ -2,7 +2,7 @@
   "id": "i18n-arb-files-structure",
   "title": "Create ARB Files Structure",
   "description": "Set up ARB (Application Resource Bundle) files for pt-BR and en-US translations",
-  "status": "backlog",
+  "status": "verified",
   "priority": "high",
   "category": "localization",
   "acceptanceCriteria": [
@@ -27,5 +27,8 @@
     "lib/l10n/app_pt_BR.arb",
     "lib/l10n/app_en_US.arb",
     "l10n.yaml"
-  ]
+  ],
+  "startedAt": "2026-01-20T21:20:42.234Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-20T21:24:51.202Z"
 }

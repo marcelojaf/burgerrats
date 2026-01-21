@@ -2,7 +2,7 @@
   "id": "i18n-migrate-leagues-feature",
   "title": "Migrate Leagues Feature to i18n",
   "description": "Replace hardcoded Portuguese strings in leagues feature with localized strings",
-  "status": "backlog",
+  "status": "verified",
   "priority": "high",
   "category": "localization",
   "acceptanceCriteria": [
@@ -30,5 +30,8 @@
     "lib/features/leagues/presentation/pages/league_settings_page.dart",
     "lib/features/leagues/presentation/providers/*.dart",
     "lib/features/leagues/data/repositories/league_repository_impl.dart"
-  ]
+  ],
+  "startedAt": "2026-01-20T21:44:39.016Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-20T21:57:45.647Z"
 }

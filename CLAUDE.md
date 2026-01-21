@@ -83,6 +83,29 @@ Custom exceptions in `lib/core/errors/exceptions.dart`:
 - `BusinessException` - Business rule violations
 - `PermissionException` - Permission checks
 
+### Secrets Configuration
+
+Sensitive configuration (API keys, DSNs) is stored in `.secrets/app_secrets.json` (gitignored).
+
+**Setup:**
+1. Copy `.secrets.example/app_secrets.json` to `.secrets/app_secrets.json`
+2. Fill in the actual values
+
+**Structure:**
+```json
+{
+  "environment": "dev | stg | prod",
+  "sentry": {
+    "dsn": "https://YOUR_KEY@YOUR_ORG.ingest.sentry.io/YOUR_PROJECT_ID"
+  }
+}
+```
+
+**Environments:**
+- `dev` - Development (full tracing)
+- `stg` - Staging (full tracing)
+- `prod` - Production (20% trace sampling)
+
 ### Testing
 
 Uses `fake_cloud_firestore` for Firestore mocks and `mocktail` for mocking. Tests mirror the `lib/` structure under `test/`.

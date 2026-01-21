@@ -2,6 +2,72 @@
   "version": 1,
   "events": [
     {
+      "id": "evt-1768962525905-f15f8df8",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T02:28:45.905Z",
+      "featureId": "i18n-notification-messages"
+    },
+    {
+      "id": "evt-1768962439879-1ca3147c",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T02:27:19.879Z",
+      "featureId": "i18n-testing-coverage"
+    },
+    {
+      "id": "evt-1768947076050-b274e5ce",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-20T22:11:16.050Z",
+      "featureId": "i18n-locale-switcher-service"
+    },
+    {
+      "id": "evt-1768946865815-f6e86ae3",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-20T22:07:45.815Z",
+      "featureId": "i18n-migrate-shared-widgets"
+    },
+    {
+      "id": "evt-1768946521117-b0c89e07",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-20T22:02:01.117Z",
+      "featureId": "i18n-migrate-checkins-feature"
+    },
+    {
+      "id": "evt-1768946299101-64386395",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-20T21:58:19.101Z",
+      "featureId": "i18n-migrate-profile-feature"
+    },
+    {
+      "id": "evt-1768946265678-c59c5812",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-20T21:57:45.678Z",
+      "featureId": "i18n-migrate-leagues-feature"
+    },
+    {
+      "id": "evt-1768945847425-41d878c9",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-20T21:50:47.425Z",
+      "featureId": "i18n-migrate-auth-feature"
+    },
+    {
+      "id": "evt-1768944774592-49de4f43",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-20T21:32:54.592Z",
+      "featureId": "i18n-generate-localizations"
+    },
+    {
+      "id": "evt-1768944291211-15d0bd90",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-20T21:24:51.211Z",
+      "featureId": "i18n-arb-files-structure"
+    },
+    {
+      "id": "evt-1768944038102-58eabea1",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-20T21:20:38.102Z",
+      "featureId": "i18n-setup-flutter-localizations"
+    },
+    {
       "id": "evt-1768848824250-b311b5a9",
       "trigger": "feature_success",
       "timestamp": "2026-01-19T18:53:44.250Z",

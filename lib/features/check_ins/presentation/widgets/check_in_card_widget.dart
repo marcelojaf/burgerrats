@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../shared/extensions/context_extensions.dart';
 import '../../../../shared/widgets/photo_gallery/cached_photo_widget.dart';
 import '../../domain/entities/check_in_entity.dart';
 import '../providers/check_in_history_provider.dart';
@@ -21,6 +22,7 @@ class CheckInCardWidget extends ConsumerWidget {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final leagueAsync = ref.watch(leagueByIdProvider(checkIn.leagueId));
+    final l10n = context.l10n;
 
     return Card(
       clipBehavior: Clip.antiAlias,
@@ -73,14 +75,14 @@ class CheckInCardWidget extends ConsumerWidget {
                       // League chip
                       leagueAsync.when(
                         data: (league) => _LeagueChip(
-                          leagueName: league?.name ?? 'Liga',
+                          leagueName: league?.name ?? l10n.league,
                         ),
                         loading: () => const _LeagueChip(
                           leagueName: '...',
                           isLoading: true,
                         ),
-                        error: (_, _) => const _LeagueChip(
-                          leagueName: 'Liga',
+                        error: (_, _) => _LeagueChip(
+                          leagueName: l10n.league,
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -94,7 +96,7 @@ class CheckInCardWidget extends ConsumerWidget {
                       const SizedBox(width: 4),
                       Expanded(
                         child: Text(
-                          _formatTimestamp(checkIn.timestamp),
+                          _formatTimestamp(context, checkIn.timestamp),
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: colorScheme.onSurfaceVariant,
                           ),
@@ -126,31 +128,32 @@ class CheckInCardWidget extends ConsumerWidget {
     );
   }
 
-  String _formatTimestamp(DateTime timestamp) {
+  String _formatTimestamp(BuildContext context, DateTime timestamp) {
+    final l10n = context.l10n;
     final now = DateTime.now();
     final difference = now.difference(timestamp);
 
     if (difference.inDays == 0) {
       if (difference.inHours == 0) {
         if (difference.inMinutes == 0) {
-          return 'Agora mesmo';
+          return l10n.justNow;
         }
-        return 'Ha ${difference.inMinutes} min';
+        return l10n.minutesAgo(difference.inMinutes);
       }
-      return 'Ha ${difference.inHours}h';
+      return l10n.hoursAgo(difference.inHours);
     } else if (difference.inDays == 1) {
-      return 'Ontem';
+      return l10n.yesterday;
     } else if (difference.inDays < 7) {
-      return 'Ha ${difference.inDays} dias';
+      return l10n.daysAgo(difference.inDays);
     } else if (difference.inDays < 30) {
       final weeks = (difference.inDays / 7).floor();
-      return 'Ha $weeks ${weeks == 1 ? 'semana' : 'semanas'}';
+      return weeks == 1 ? l10n.weekAgo(weeks) : l10n.weeksAgo(weeks);
     } else if (difference.inDays < 365) {
       final months = (difference.inDays / 30).floor();
-      return 'Ha $months ${months == 1 ? 'mes' : 'meses'}';
+      return months == 1 ? l10n.monthAgo(months) : l10n.monthsAgo(months);
     } else {
       final years = (difference.inDays / 365).floor();
-      return 'Ha $years ${years == 1 ? 'ano' : 'anos'}';
+      return years == 1 ? l10n.yearAgo(years) : l10n.yearsAgo(years);
     }
   }
 }

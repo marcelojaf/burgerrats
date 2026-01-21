@@ -1,0 +1,36 @@
+{
+  "id": "i18n-migrate-checkins-feature",
+  "title": "Migrate Check-ins Feature to i18n",
+  "description": "Replace hardcoded Portuguese strings in check-ins feature with localized strings",
+  "status": "in_progress",
+  "priority": "high",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "All strings in check_ins_page.dart use AppLocalizations",
+    "All strings in create_check_in_page.dart use AppLocalizations",
+    "All strings in check_in_details_page.dart use AppLocalizations",
+    "Check-in validation messages are localized",
+    "Photo upload messages are localized",
+    "Date/time formatting respects locale"
+  ],
+  "technicalNotes": [
+    "Use intl DateFormat for date/time localization",
+    "Localize camera/gallery permission messages",
+    "Update CheckInRepository error messages",
+    "Consider localization for relative time (\"2 hours ago\")",
+    "Test both pt-BR and en-US locales"
+  ],
+  "dependencies": [
+    "i18n-generate-localizations"
+  ],
+  "estimatedEffort": "medium",
+  "affectedFiles": [
+    "lib/features/check_ins/presentation/pages/check_ins_page.dart",
+    "lib/features/check_ins/presentation/pages/create_check_in_page.dart",
+    "lib/features/check_ins/presentation/pages/check_in_details_page.dart",
+    "lib/features/check_ins/presentation/providers/*.dart",
+    "lib/features/check_ins/data/repositories/check_in_repository_impl.dart"
+  ],
+  "startedAt": "2026-01-20T21:44:36.368Z",
+  "descriptionHistory": []
+}

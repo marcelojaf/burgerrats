@@ -69,7 +69,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Recuperar senha'),
+        title: Text(context.l10n.recoverPassword),
       ),
       body: SafeArea(
         child: Center(
@@ -99,7 +99,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
 
           // Title
           Text(
-            'Esqueceu sua senha?',
+            context.l10n.forgotPasswordTitle,
             style: context.textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold,
             ),
@@ -109,7 +109,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
 
           // Info text
           Text(
-            'Digite seu e-mail e enviaremos um link para você redefinir sua senha.',
+            context.l10n.forgotPasswordDescription,
             style: context.textTheme.bodyLarge?.copyWith(
               color: context.colorScheme.onSurfaceVariant,
             ),
@@ -120,10 +120,10 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
           // Email field
           TextFormField(
             controller: _emailController,
-            decoration: const InputDecoration(
-              labelText: 'E-mail',
-              prefixIcon: Icon(Icons.email_outlined),
-              hintText: 'seu@email.com',
+            decoration: InputDecoration(
+              labelText: context.l10n.email,
+              prefixIcon: const Icon(Icons.email_outlined),
+              hintText: context.l10n.emailHint,
             ),
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.done,
@@ -145,14 +145,14 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
                       strokeWidth: 2,
                     ),
                   )
-                : const Text('Enviar link'),
+                : Text(context.l10n.sendLink),
           ),
           AppSpacing.gapVerticalMd,
 
           // Back to login link
           TextButton(
             onPressed: () => context.pop(),
-            child: const Text('Voltar para login'),
+            child: Text(context.l10n.backToLogin),
           ),
         ],
       ),
@@ -174,7 +174,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
 
         // Title
         Text(
-          'E-mail enviado!',
+          context.l10n.emailSent,
           style: context.textTheme.headlineSmall?.copyWith(
             fontWeight: FontWeight.bold,
           ),
@@ -184,7 +184,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
 
         // Info text
         Text(
-          'Enviamos um link de recuperação para:',
+          context.l10n.recoveryLinkSentTo,
           style: context.textTheme.bodyLarge?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
           ),
@@ -205,7 +205,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
 
         // Additional info
         Text(
-          'Verifique sua caixa de entrada e a pasta de spam.',
+          context.l10n.checkInboxAndSpam,
           style: context.textTheme.bodyMedium?.copyWith(
             color: context.colorScheme.onSurfaceVariant,
           ),
@@ -216,7 +216,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
         // Back to login button
         FilledButton(
           onPressed: () => context.pop(),
-          child: const Text('Voltar para login'),
+          child: Text(context.l10n.backToLogin),
         ),
         AppSpacing.gapVerticalMd,
 
@@ -227,7 +227,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
               _emailSent = false;
             });
           },
-          child: const Text('Não recebeu? Enviar novamente'),
+          child: Text(context.l10n.didNotReceiveResend),
         ),
       ],
     );

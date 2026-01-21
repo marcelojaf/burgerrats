@@ -6,6 +6,7 @@ import '../../../core/di/injection.dart';
 import '../../../core/services/shareable_image_service.dart';
 import '../../../features/check_ins/domain/entities/check_in_entity.dart';
 import '../../../features/leagues/domain/repositories/league_repository.dart';
+import '../../extensions/context_extensions.dart';
 
 /// A fullscreen photo viewer with swipe navigation between photos.
 ///
@@ -78,9 +79,9 @@ class _FullscreenPhotoViewerState extends State<FullscreenPhotoViewer> {
     // Show loading indicator
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Gerando imagem compartilhavel...'),
-          duration: Duration(seconds: 1),
+        SnackBar(
+          content: Text(context.l10n.generatingShareableImage),
+          duration: const Duration(seconds: 1),
         ),
       );
     }
@@ -302,15 +303,15 @@ class _FullscreenPhotoViewerState extends State<FullscreenPhotoViewer> {
     if (difference.inDays == 0) {
       if (difference.inHours == 0) {
         if (difference.inMinutes == 0) {
-          return 'Agora mesmo';
+          return context.l10n.justNow;
         }
-        return 'Ha ${difference.inMinutes} min';
+        return context.l10n.minutesAgo(difference.inMinutes);
       }
-      return 'Ha ${difference.inHours}h';
+      return context.l10n.hoursAgo(difference.inHours);
     } else if (difference.inDays == 1) {
-      return 'Ontem';
+      return context.l10n.yesterday;
     } else if (difference.inDays < 7) {
-      return 'Ha ${difference.inDays} dias';
+      return context.l10n.daysAgo(difference.inDays);
     } else {
       return '${timestamp.day.toString().padLeft(2, '0')}/${timestamp.month.toString().padLeft(2, '0')}/${timestamp.year}';
     }

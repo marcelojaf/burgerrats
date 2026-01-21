@@ -280,6 +280,50 @@ Update README.md with instructions on how to make changes in Firebase portal. In
       <name>Dark Mode Theme Support</name>
       <description>Implement complete dark mode support using the dark theme color variants. Create theme provider/notifier to allow users to switch between light, dark, and system themes. Store preference in SharedPreferences. Update MaterialApp to use both lightTheme and darkTheme. Ensure all screens properly respond to theme changes with warm-tinted dark surfaces (#1A1612), lighter primary colors for visibility, and maintained contrast ratios. Test all UI components in both themes to verify WCAG AA compliance and visual consistency. Add theme toggle in settings/profile screen.</description>
     </feature>
+    <feature>
+      <name>Setup Flutter Localizations Package</name>
+      <description>Configure flutter_localizations and intl packages for internationalization support</description>
+    </feature>
+    <feature>
+      <name>Create ARB Files Structure</name>
+      <description>Set up ARB (Application Resource Bundle) files for pt-BR and en-US translations</description>
+    </feature>
+    <feature>
+      <name>Generate Localization Classes</name>
+      <description>Run Flutter localization generation and create AppLocalizations classes</description>
+    </feature>
+    <feature>
+      <name>Migrate Auth Feature to i18n</name>
+      <description>Replace hardcoded Portuguese strings in auth feature with localized strings</description>
+    </feature>
+    <feature>
+      <name>Migrate Leagues Feature to i18n</name>
+      <description>Replace hardcoded Portuguese strings in leagues feature with localized strings</description>
+    </feature>
+    <feature>
+      <name>Migrate Profile Feature to i18n</name>
+      <description>Replace hardcoded Portuguese strings in profile feature with localized strings</description>
+    </feature>
+    <feature>
+      <name>Migrate Check-ins Feature to i18n</name>
+      <description>Replace hardcoded Portuguese strings in check-ins feature with localized strings</description>
+    </feature>
+    <feature>
+      <name>Migrate Shared Widgets to i18n</name>
+      <description>Replace hardcoded Portuguese strings in shared widgets and components</description>
+    </feature>
+    <feature>
+      <name>Create Locale Switcher Service</name>
+      <description>Implement service to allow users to change app language at runtime</description>
+    </feature>
+    <feature>
+      <name>Add i18n Testing Coverage</name>
+      <description>Create tests to ensure localization works correctly across the app</description>
+    </feature>
+    <feature>
+      <name>Localize Notification Messages</name>
+      <description>Ensure FCM notification messages support multiple languages</description>
+    </feature>
   </implemented_features>
 
   <additional_requirements>

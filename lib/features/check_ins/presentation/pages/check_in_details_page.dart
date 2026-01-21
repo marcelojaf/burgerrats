@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/di/injection.dart';
 import '../../../../core/services/shareable_image_service.dart';
+import '../../../../shared/extensions/context_extensions.dart';
 import '../../../../shared/widgets/photo_gallery/photo_gallery.dart';
 import '../../../leagues/domain/repositories/league_repository.dart';
 import '../../domain/entities/check_in_entity.dart';
@@ -30,9 +31,9 @@ class CheckInDetailsPage extends ConsumerWidget {
     // Show loading indicator
     final scaffoldMessenger = ScaffoldMessenger.of(context);
     scaffoldMessenger.showSnackBar(
-      const SnackBar(
-        content: Text('Gerando imagem compartilhavel...'),
-        duration: Duration(seconds: 1),
+      SnackBar(
+        content: Text(context.l10n.generatingShareableImage),
+        duration: const Duration(seconds: 1),
       ),
     );
 
@@ -68,12 +69,12 @@ class CheckInDetailsPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detalhes do Check-in'),
+        title: Text(context.l10n.checkInDetails),
         actions: [
           checkInAsync.whenOrNull(
                 data: (checkIn) => IconButton(
                   icon: const Icon(Icons.share),
-                  tooltip: 'Compartilhar',
+                  tooltip: context.l10n.share,
                   onPressed: () => _shareCheckIn(context, checkIn),
                 ),
               ) ??
@@ -116,6 +117,7 @@ class _CheckInDetailsContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final l10n = context.l10n;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
@@ -203,7 +205,7 @@ class _CheckInDetailsContent extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          'Nota',
+                          l10n.note,
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
@@ -230,7 +232,7 @@ class _CheckInDetailsContent extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Detalhes',
+                    l10n.details,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -256,7 +258,7 @@ class _CheckInDetailsContent extends StatelessWidget {
                       Icons.calendar_today,
                       color: colorScheme.primary,
                     ),
-                    title: Text(_formatDateTime(checkIn.timestamp)),
+                    title: Text(_formatDateTime(context, checkIn.timestamp)),
                     contentPadding: EdgeInsets.zero,
                   ),
                 ],
@@ -268,20 +270,21 @@ class _CheckInDetailsContent extends StatelessWidget {
     );
   }
 
-  String _formatDateTime(DateTime timestamp) {
+  String _formatDateTime(BuildContext context, DateTime timestamp) {
+    final l10n = context.l10n;
     final months = [
-      'Janeiro',
-      'Fevereiro',
-      'Marco',
-      'Abril',
-      'Maio',
-      'Junho',
-      'Julho',
-      'Agosto',
-      'Setembro',
-      'Outubro',
-      'Novembro',
-      'Dezembro',
+      l10n.monthJanuary,
+      l10n.monthFebruary,
+      l10n.monthMarch,
+      l10n.monthApril,
+      l10n.monthMay,
+      l10n.monthJune,
+      l10n.monthJuly,
+      l10n.monthAugust,
+      l10n.monthSeptember,
+      l10n.monthOctober,
+      l10n.monthNovember,
+      l10n.monthDecember,
     ];
     final day = timestamp.day;
     final month = months[timestamp.month - 1];
@@ -289,7 +292,7 @@ class _CheckInDetailsContent extends StatelessWidget {
     final hour = timestamp.hour.toString().padLeft(2, '0');
     final minute = timestamp.minute.toString().padLeft(2, '0');
 
-    return '$day de $month de $year as $hour:$minute';
+    return l10n.dateAt(day, month, year, '$hour:$minute');
   }
 }
 
@@ -301,6 +304,7 @@ class _NotFoundView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final l10n = context.l10n;
 
     return Center(
       child: Padding(
@@ -315,14 +319,14 @@ class _NotFoundView extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Check-in nao encontrado',
+              l10n.checkInNotFound,
               style: theme.textTheme.titleLarge?.copyWith(
                 color: colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              'Este check-in pode ter sido removido ou o link esta incorreto.',
+              l10n.checkInNotFoundDescription,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -331,7 +335,7 @@ class _NotFoundView extends StatelessWidget {
             const SizedBox(height: 24),
             FilledButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Voltar'),
+              child: Text(l10n.back),
             ),
           ],
         ),
@@ -354,6 +358,7 @@ class _ErrorView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final l10n = context.l10n;
 
     return Center(
       child: Padding(
@@ -368,14 +373,14 @@ class _ErrorView extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Erro ao carregar check-in',
+              l10n.errorLoadingCheckIn,
               style: theme.textTheme.titleLarge?.copyWith(
                 color: colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              'Verifique sua conexao e tente novamente.',
+              l10n.checkConnectionTryAgain,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -385,7 +390,7 @@ class _ErrorView extends StatelessWidget {
             FilledButton.icon(
               onPressed: onRetry,
               icon: const Icon(Icons.refresh),
-              label: const Text('Tentar novamente'),
+              label: Text(l10n.tryAgain),
             ),
           ],
         ),

@@ -1,0 +1,33 @@
+{
+  "id": "i18n-notification-messages",
+  "title": "Localize Notification Messages",
+  "description": "Ensure FCM notification messages support multiple languages",
+  "status": "in_progress",
+  "priority": "low",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "Check-in reminder notifications use user locale",
+    "League invitation notifications use user locale",
+    "Activity notifications use user locale",
+    "Store user locale preference in Firestore",
+    "Cloud Functions send notifications in user preferred language"
+  ],
+  "technicalNotes": [
+    "Add locale field to user document in Firestore",
+    "Update NotificationService to include locale info",
+    "Consider implementing notification templates per locale",
+    "May require Firebase Cloud Functions updates",
+    "Test notifications in both pt-BR and en-US"
+  ],
+  "dependencies": [
+    "i18n-locale-switcher-service"
+  ],
+  "estimatedEffort": "medium",
+  "affectedFiles": [
+    "lib/core/services/notification_service.dart",
+    "lib/core/services/check_in_notification_service.dart",
+    "lib/core/services/reminder_scheduler_service.dart"
+  ],
+  "startedAt": "2026-01-21T02:21:30.824Z",
+  "descriptionHistory": []
+}

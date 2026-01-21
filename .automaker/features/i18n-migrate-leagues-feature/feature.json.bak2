@@ -1,0 +1,36 @@
+{
+  "id": "i18n-migrate-leagues-feature",
+  "title": "Migrate Leagues Feature to i18n",
+  "description": "Replace hardcoded Portuguese strings in leagues feature with localized strings",
+  "status": "in_progress",
+  "priority": "high",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "All strings in leagues_page.dart use AppLocalizations",
+    "All strings in league_details_page.dart use AppLocalizations",
+    "All strings in league_settings_page.dart use AppLocalizations",
+    "League creation/join dialogs are localized",
+    "Error messages and validations are localized",
+    "Leaderboard screen strings are localized"
+  ],
+  "technicalNotes": [
+    "Pay attention to dynamic content (league names, member counts, etc)",
+    "Use ICU MessageFormat for plurals (e.g., \"1 member\" vs \"2 members\")",
+    "Localize invite code generation messages",
+    "Update LeagueRepository error messages",
+    "Test both pt-BR and en-US locales"
+  ],
+  "dependencies": [
+    "i18n-generate-localizations"
+  ],
+  "estimatedEffort": "large",
+  "affectedFiles": [
+    "lib/features/leagues/presentation/pages/leagues_page.dart",
+    "lib/features/leagues/presentation/pages/league_details_page.dart",
+    "lib/features/leagues/presentation/pages/league_settings_page.dart",
+    "lib/features/leagues/presentation/providers/*.dart",
+    "lib/features/leagues/data/repositories/league_repository_impl.dart"
+  ],
+  "startedAt": "2026-01-20T21:44:39.016Z",
+  "descriptionHistory": []
+}

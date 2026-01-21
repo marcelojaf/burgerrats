@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../shared/extensions/context_extensions.dart';
+
 /// Widget for selecting a rating (1-5 stars)
 class RatingSelectorWidget extends StatelessWidget {
   const RatingSelectorWidget({
@@ -16,6 +18,7 @@ class RatingSelectorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +26,7 @@ class RatingSelectorWidget extends StatelessWidget {
         Row(
           children: [
             Text(
-              'Avaliacao',
+              l10n.ratingLabel,
               style: theme.textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.w500,
               ),
@@ -38,7 +41,7 @@ class RatingSelectorWidget extends StatelessWidget {
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
                 child: Text(
-                  'Limpar',
+                  l10n.clear,
                   style: theme.textTheme.labelMedium?.copyWith(
                     color: theme.colorScheme.primary,
                   ),
@@ -82,8 +85,8 @@ class RatingSelectorWidget extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           rating != null
-              ? _getRatingLabel(rating!)
-              : 'Toque nas estrelas para avaliar',
+              ? _getRatingLabel(context, rating!)
+              : l10n.tapStarsToRate,
           style: theme.textTheme.bodySmall?.copyWith(
             color: theme.colorScheme.outline,
           ),
@@ -92,18 +95,19 @@ class RatingSelectorWidget extends StatelessWidget {
     );
   }
 
-  String _getRatingLabel(int rating) {
+  String _getRatingLabel(BuildContext context, int rating) {
+    final l10n = context.l10n;
     switch (rating) {
       case 1:
-        return 'Ruim';
+        return l10n.ratingBad;
       case 2:
-        return 'Regular';
+        return l10n.ratingRegular;
       case 3:
-        return 'Bom';
+        return l10n.ratingGood;
       case 4:
-        return 'Muito bom';
+        return l10n.ratingVeryGood;
       case 5:
-        return 'Excelente';
+        return l10n.ratingExcellent;
       default:
         return '';
     }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../shared/extensions/context_extensions.dart';
+
 /// Widget for displaying the daily check-in limit status
 class DailyLimitStatusWidget extends StatelessWidget {
   const DailyLimitStatusWidget({
@@ -14,6 +16,7 @@ class DailyLimitStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     if (canCheckIn) {
       return Container(
@@ -45,14 +48,14 @@ class DailyLimitStatusWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Disponivel para check-in',
+                    l10n.availableForCheckIn,
                     style: theme.textTheme.titleSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: theme.colorScheme.onPrimaryContainer,
                     ),
                   ),
                   Text(
-                    'Voce pode fazer 1 check-in por dia nesta liga',
+                    l10n.oneCheckInPerDayPerLeague,
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: theme.colorScheme.onPrimaryContainer
                           .withValues(alpha: 0.8),
@@ -95,14 +98,14 @@ class DailyLimitStatusWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Limite diario atingido',
+                  l10n.dailyLimitReached,
                   style: theme.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: theme.colorScheme.onErrorContainer,
                   ),
                 ),
                 Text(
-                  message ?? 'Voce ja fez check-in hoje nesta liga.',
+                  message ?? l10n.alreadyCheckedInToday,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color:
                         theme.colorScheme.onErrorContainer.withValues(alpha: 0.8),

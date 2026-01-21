@@ -2,7 +2,7 @@
   "id": "i18n-generate-localizations",
   "title": "Generate Localization Classes",
   "description": "Run Flutter localization generation and create AppLocalizations classes",
-  "status": "backlog",
+  "status": "verified",
   "priority": "high",
   "category": "localization",
   "acceptanceCriteria": [
@@ -27,5 +27,8 @@
     ".dart_tool/flutter_gen/gen_l10n/",
     "README.md",
     ".gitignore"
-  ]
+  ],
+  "startedAt": "2026-01-20T21:30:39.987Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-20T21:32:54.585Z"
 }

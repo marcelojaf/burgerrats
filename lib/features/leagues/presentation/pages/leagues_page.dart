@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_routes.dart';
+import '../../../../shared/extensions/context_extensions.dart';
 import '../../domain/entities/league_entity.dart';
 import '../providers/my_leagues_provider.dart';
 
@@ -16,11 +17,11 @@ class LeaguesPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Minhas Ligas'),
+        title: Text(context.l10n.myLeagues),
         actions: [
           IconButton(
             icon: const Icon(Icons.login),
-            tooltip: 'Entrar em uma liga',
+            tooltip: context.l10n.joinLeague,
             onPressed: () => context.push(AppRoutes.joinLeague),
           ),
         ],
@@ -36,7 +37,7 @@ class LeaguesPage extends ConsumerWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.push(AppRoutes.createLeague),
         icon: const Icon(Icons.add),
-        label: const Text('Nova Liga'),
+        label: Text(context.l10n.newLeague),
       ),
     );
   }
@@ -121,38 +122,43 @@ class _LeagueCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 4),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.people_outline,
-                          size: 16,
-                          color: colorScheme.onSurfaceVariant,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          '${league.memberCount} ${league.memberCount == 1 ? 'membro' : 'membros'}',
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: colorScheme.onSurfaceVariant,
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Icon(
-                          Icons.access_time,
-                          size: 16,
-                          color: colorScheme.onSurfaceVariant,
-                        ),
-                        const SizedBox(width: 4),
-                        Expanded(
-                          child: Text(
-                            _formatLastActivity(league.createdAt),
-                            style: theme.textTheme.bodySmall?.copyWith(
+                    Builder(
+                      builder: (context) {
+                        final l10n = context.l10n;
+                        return Row(
+                          children: [
+                            Icon(
+                              Icons.people_outline,
+                              size: 16,
                               color: colorScheme.onSurfaceVariant,
                             ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
+                            const SizedBox(width: 4),
+                            Text(
+                              '${league.memberCount} ${league.memberCount == 1 ? l10n.member : l10n.members}',
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Icon(
+                              Icons.access_time,
+                              size: 16,
+                              color: colorScheme.onSurfaceVariant,
+                            ),
+                            const SizedBox(width: 4),
+                            Expanded(
+                              child: Text(
+                                _formatLastActivity(context, league.createdAt),
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: colorScheme.onSurfaceVariant,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -174,31 +180,32 @@ class _LeagueCard extends StatelessWidget {
     return '${words[0][0]}${words[1][0]}'.toUpperCase();
   }
 
-  String _formatLastActivity(DateTime date) {
+  String _formatLastActivity(BuildContext context, DateTime date) {
+    final l10n = context.l10n;
     final now = DateTime.now();
     final difference = now.difference(date);
 
     if (difference.inDays == 0) {
       if (difference.inHours == 0) {
         if (difference.inMinutes == 0) {
-          return 'Agora mesmo';
+          return l10n.justNow;
         }
-        return 'Ha ${difference.inMinutes} min';
+        return l10n.minutesAgo(difference.inMinutes);
       }
-      return 'Ha ${difference.inHours}h';
+      return l10n.hoursAgo(difference.inHours);
     } else if (difference.inDays == 1) {
-      return 'Ontem';
+      return l10n.yesterday;
     } else if (difference.inDays < 7) {
-      return 'Ha ${difference.inDays} dias';
+      return l10n.daysAgo(difference.inDays);
     } else if (difference.inDays < 30) {
       final weeks = (difference.inDays / 7).floor();
-      return 'Ha $weeks ${weeks == 1 ? 'semana' : 'semanas'}';
+      return weeks == 1 ? l10n.weekAgo(weeks) : l10n.weeksAgo(weeks);
     } else if (difference.inDays < 365) {
       final months = (difference.inDays / 30).floor();
-      return 'Ha $months ${months == 1 ? 'mes' : 'meses'}';
+      return months == 1 ? l10n.monthAgo(months) : l10n.monthsAgo(months);
     } else {
       final years = (difference.inDays / 365).floor();
-      return 'Ha $years ${years == 1 ? 'ano' : 'anos'}';
+      return years == 1 ? l10n.yearAgo(years) : l10n.yearsAgo(years);
     }
   }
 }
@@ -211,6 +218,7 @@ class _EmptyLeaguesView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final l10n = context.l10n;
 
     return Center(
       child: Padding(
@@ -225,14 +233,14 @@ class _EmptyLeaguesView extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Text(
-              'Nenhuma liga ainda',
+              l10n.noLeaguesYet,
               style: theme.textTheme.headlineSmall?.copyWith(
                 color: colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              'Crie uma nova liga ou entre em uma existente usando um codigo de convite.',
+              l10n.createOrJoinLeague,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -245,13 +253,13 @@ class _EmptyLeaguesView extends StatelessWidget {
                 OutlinedButton.icon(
                   onPressed: () => context.push(AppRoutes.joinLeague),
                   icon: const Icon(Icons.login),
-                  label: const Text('Entrar'),
+                  label: Text(l10n.join),
                 ),
                 const SizedBox(width: 16),
                 FilledButton.icon(
                   onPressed: () => context.push(AppRoutes.createLeague),
                   icon: const Icon(Icons.add),
-                  label: const Text('Criar Liga'),
+                  label: Text(l10n.createLeague),
                 ),
               ],
             ),
@@ -273,6 +281,7 @@ class _ErrorView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final l10n = context.l10n;
 
     return Center(
       child: Padding(
@@ -283,14 +292,14 @@ class _ErrorView extends StatelessWidget {
             Icon(Icons.error_outline, size: 64, color: colorScheme.error),
             const SizedBox(height: 16),
             Text(
-              'Erro ao carregar ligas',
+              l10n.errorLoadingLeagues,
               style: theme.textTheme.titleLarge?.copyWith(
                 color: colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              'Verifique sua conexao e tente novamente.',
+              l10n.checkConnectionTryAgain,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -300,7 +309,7 @@ class _ErrorView extends StatelessWidget {
             FilledButton.icon(
               onPressed: onRetry,
               icon: const Icon(Icons.refresh),
-              label: const Text('Tentar novamente'),
+              label: Text(l10n.tryAgain),
             ),
           ],
         ),

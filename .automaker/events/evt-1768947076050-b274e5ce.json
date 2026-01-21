@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768947076050-b274e5ce",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-20T22:11:16.050Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "i18n-locale-switcher-service",
+  "error": "Feature completed in 549s - auto-verified",
+  "passes": true
+}

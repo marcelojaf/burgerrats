@@ -1,0 +1,33 @@
+{
+  "id": "i18n-generate-localizations",
+  "title": "Generate Localization Classes",
+  "description": "Run Flutter localization generation and create AppLocalizations classes",
+  "status": "in_progress",
+  "priority": "high",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "Run flutter gen-l10n command successfully",
+    "Generated AppLocalizations class available",
+    "Generated AppLocalizations.of(context) helper works",
+    "Verify generated files in .dart_tool/flutter_gen/gen_l10n/",
+    "Add generation command to README.md"
+  ],
+  "technicalNotes": [
+    "Command: flutter gen-l10n",
+    "Generated files are in .dart_tool/flutter_gen/gen_l10n/",
+    "Add .dart_tool/ to .gitignore if not present",
+    "Verify AppLocalizations delegate is properly configured",
+    "Document generation process in project docs"
+  ],
+  "dependencies": [
+    "i18n-arb-files-structure"
+  ],
+  "estimatedEffort": "small",
+  "affectedFiles": [
+    ".dart_tool/flutter_gen/gen_l10n/",
+    "README.md",
+    ".gitignore"
+  ],
+  "startedAt": "2026-01-20T21:30:39.987Z",
+  "descriptionHistory": []
+}

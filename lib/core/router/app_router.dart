@@ -49,8 +49,6 @@ bool _isPublicRoute(String location) {
 /// - Automatically redirects to home when user logs in from login page
 /// - Protects authenticated routes from unauthenticated access
 final routerProvider = Provider<GoRouter>((ref) {
-  final authState = ref.watch(authStateProvider);
-
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: AppRoutes.splash,
@@ -59,6 +57,8 @@ final routerProvider = Provider<GoRouter>((ref) {
       FirebaseAuth.instance.authStateChanges(),
     ),
     redirect: (context, state) {
+      // Read auth state inside redirect to avoid recreating the router
+      final authState = ref.read(authStateProvider);
       final isLoggedIn = authState.valueOrNull != null;
       final location = state.matchedLocation;
       final isPublicRoute = _isPublicRoute(location);

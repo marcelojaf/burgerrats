@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/state/providers/auth_state_provider.dart';
+import '../../../../shared/extensions/context_extensions.dart';
 import '../providers/user_profile_provider.dart';
 
 /// User profile page displaying avatar, name, email, statistics and actions
@@ -18,7 +19,7 @@ class ProfilePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: Text(context.l10n.profile),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
@@ -38,13 +39,13 @@ class ProfilePage extends ConsumerWidget {
               const Icon(Icons.error_outline, size: 48),
               const SizedBox(height: 16),
               Text(
-                'Erro ao carregar perfil',
+                context.l10n.errorLoadingProfile,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 8),
               TextButton(
                 onPressed: () => ref.invalidate(userProfileProvider),
-                child: const Text('Tentar novamente'),
+                child: Text(context.l10n.tryAgain),
               ),
             ],
           ),
@@ -89,13 +90,13 @@ class _ProfileContent extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _StatCard(
-                label: 'Check-ins',
+                label: context.l10n.checkIns,
                 value: isLoading ? '-' : profile.totalCheckIns.toString(),
                 icon: Icons.restaurant,
                 isLoading: isLoading,
               ),
               _StatCard(
-                label: 'Streak',
+                label: context.l10n.streak,
                 value: isLoading
                     ? '-'
                     : profile.currentStreak > 0
@@ -106,7 +107,7 @@ class _ProfileContent extends ConsumerWidget {
                 highlight: profile.hasActiveStreak,
               ),
               _StatCard(
-                label: 'Leagues',
+                label: context.l10n.leagues,
                 value: isLoading ? '-' : profile.leaguesJoined.toString(),
                 icon: Icons.emoji_events,
                 isLoading: isLoading,
@@ -119,21 +120,21 @@ class _ProfileContent extends ConsumerWidget {
               children: [
                 ListTile(
                   leading: const Icon(Icons.edit),
-                  title: const Text('Edit Profile'),
+                  title: Text(context.l10n.editProfile),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => context.push(AppRoutes.editProfile),
                 ),
                 const Divider(height: 1),
                 ListTile(
                   leading: const Icon(Icons.history),
-                  title: const Text('Check-in History'),
+                  title: Text(context.l10n.checkInHistory),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => context.push(AppRoutes.checkIns),
                 ),
                 const Divider(height: 1),
                 ListTile(
                   leading: const Icon(Icons.emoji_events),
-                  title: const Text('My Leagues'),
+                  title: Text(context.l10n.myLeagues),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => context.push(AppRoutes.leagues),
                 ),
@@ -148,7 +149,7 @@ class _ProfileContent extends ConsumerWidget {
                 color: Theme.of(context).colorScheme.error,
               ),
               title: Text(
-                'Logout',
+                context.l10n.logout,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.error,
                 ),
@@ -164,23 +165,23 @@ class _ProfileContent extends ConsumerWidget {
   void _showLogoutConfirmation(BuildContext context, WidgetRef ref) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Logout'),
-        content: const Text('Tem certeza que deseja sair?'),
+      builder: (dialogContext) => AlertDialog(
+        title: Text(context.l10n.logout),
+        content: Text(context.l10n.logoutConfirmation),
         actions: [
           TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancelar'),
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: Text(context.l10n.cancel),
           ),
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(dialogContext).pop();
               ref.read(authNotifierProvider.notifier).signOut();
             },
             style: TextButton.styleFrom(
               foregroundColor: Theme.of(context).colorScheme.error,
             ),
-            child: const Text('Sair'),
+            child: Text(context.l10n.logout),
           ),
         ],
       ),

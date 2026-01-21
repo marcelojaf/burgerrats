@@ -7,6 +7,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/di/injection.dart';
 import '../../../../core/services/photo_capture_service.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../shared/extensions/context_extensions.dart';
 import '../../../leagues/domain/entities/league_entity.dart';
 import '../providers/create_check_in_provider.dart';
 import '../widgets/daily_limit_status_widget.dart';
@@ -66,7 +68,7 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erro ao capturar foto: ${e.toString()}'),
+            content: Text(context.l10n.errorCapturingPhoto(e.toString())),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
@@ -104,8 +106,8 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
     final userId = currentUser?.uid;
     if (userId == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Voce precisa estar logado para fazer check-in.'),
+        SnackBar(
+          content: Text(context.l10n.mustBeLoggedInToCheckIn),
         ),
       );
       return;
@@ -123,7 +125,7 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
     if (success && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Check-in realizado com sucesso!'),
+          content: Text(context.l10n.checkInSuccess),
           backgroundColor: Theme.of(context).colorScheme.primary,
         ),
       );
@@ -131,20 +133,47 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
     }
   }
 
+  String _getSubmissionStepMessage(CreateCheckInState state, AppLocalizations l10n) {
+    return switch (state.submissionStep) {
+      SubmissionStep.idle => l10n.processing,
+      SubmissionStep.compressing => l10n.compressingPhoto,
+      SubmissionStep.uploading => l10n.uploadingPhoto((state.uploadProgress * 100).toInt()),
+      SubmissionStep.creatingDocument => l10n.savingCheckIn,
+      SubmissionStep.updatingPoints => l10n.updatingPoints,
+    };
+  }
+
+  String? _getErrorMessage(CreateCheckInState state, AppLocalizations l10n) {
+    // If there's an explicit error message (from exception), use it
+    if (state.errorMessage != null) {
+      return state.errorMessage;
+    }
+    // Otherwise, generate message based on error type
+    return switch (state.errorType) {
+      CheckInErrorType.none => null,
+      CheckInErrorType.loadingLeagues => l10n.errorLoadingLeagues,
+      CheckInErrorType.checkingDailyLimit => l10n.errorCheckingDailyLimit,
+      CheckInErrorType.creatingCheckIn => l10n.errorCreatingCheckIn,
+      CheckInErrorType.other => null, // Already has errorMessage
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(createCheckInNotifierProvider);
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     // Listen for errors
     ref.listen<CreateCheckInState>(
       createCheckInNotifierProvider,
       (previous, next) {
-        if (next.errorMessage != null &&
-            previous?.errorMessage != next.errorMessage) {
+        final errorMessage = _getErrorMessage(next, l10n);
+        final previousErrorMessage = previous != null ? _getErrorMessage(previous, l10n) : null;
+        if (errorMessage != null && errorMessage != previousErrorMessage) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(next.errorMessage!),
+              content: Text(errorMessage),
               backgroundColor: theme.colorScheme.error,
             ),
           );
@@ -154,7 +183,7 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Novo Check-in'),
+        title: Text(l10n.newCheckIn),
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () => context.pop(),
@@ -178,7 +207,7 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
 
                   // League Selection Section
                   Text(
-                    'Selecione a Liga',
+                    l10n.selectLeague,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -196,14 +225,13 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
                   if (state.selectedLeagueId != null)
                     DailyLimitStatusWidget(
                       canCheckIn: state.canCheckIn,
-                      message: state.dailyLimitMessage,
                     ),
 
                   // Optional Fields Section
                   if (state.hasPhoto && state.canCheckIn) ...[
                     const SizedBox(height: 24),
                     Text(
-                      'Detalhes (opcional)',
+                      l10n.detailsOptional,
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -214,8 +242,8 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
                     TextField(
                       controller: _restaurantController,
                       decoration: InputDecoration(
-                        labelText: 'Nome do Restaurante',
-                        hintText: 'Ex: Burger King',
+                        labelText: l10n.restaurantName,
+                        hintText: l10n.restaurantNameHint,
                         prefixIcon: const Icon(Icons.restaurant),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -238,8 +266,8 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
                     TextField(
                       controller: _noteController,
                       decoration: InputDecoration(
-                        labelText: 'Observacao',
-                        hintText: 'Conte sobre sua experiencia...',
+                        labelText: l10n.observation,
+                        hintText: l10n.observationHint,
                         prefixIcon: const Icon(Icons.note),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -277,25 +305,23 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
                               ),
                               const SizedBox(width: 12),
                               Text(
-                                state.submissionStepMessage.isNotEmpty
-                                    ? state.submissionStepMessage
-                                    : 'Processando...',
+                                _getSubmissionStepMessage(state, l10n),
                                 style: const TextStyle(fontSize: 14),
                               ),
                             ],
                           )
-                        : const Text(
-                            'Fazer Check-in',
-                            style: TextStyle(fontSize: 16),
+                        : Text(
+                            l10n.makeCheckIn,
+                            style: const TextStyle(fontSize: 16),
                           ),
                   ),
 
                   // Validation Messages
-                  if (!state.canCheckIn && state.dailyLimitMessage != null)
+                  if (!state.canCheckIn)
                     Padding(
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
-                        'Nao e possivel fazer check-in: ${state.dailyLimitMessage}',
+                        l10n.cannotCheckIn(l10n.alreadyCheckedInToday),
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.error,
                         ),
@@ -307,7 +333,7 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
-                        'Tire uma foto do seu burger para fazer check-in',
+                        l10n.takePhotoToCheckIn,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.outline,
                         ),
@@ -319,7 +345,7 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
-                        'Selecione uma liga para fazer check-in',
+                        l10n.selectLeagueToCheckIn,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.outline,
                         ),
@@ -340,7 +366,7 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            'Voce ainda nao faz parte de nenhuma liga.',
+                            l10n.notPartOfAnyLeague,
                             style: theme.textTheme.bodyMedium?.copyWith(
                               color: theme.colorScheme.outline,
                             ),
@@ -349,7 +375,7 @@ class _CreateCheckInPageState extends ConsumerState<CreateCheckInPage> {
                           const SizedBox(height: 8),
                           TextButton(
                             onPressed: () => context.push('/leagues/join'),
-                            child: const Text('Entrar em uma Liga'),
+                            child: Text(l10n.joinALeague),
                           ),
                         ],
                       ),
@@ -380,6 +406,7 @@ class _PhotoSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = context.l10n;
 
     if (photo != null) {
       return PhotoPreviewWidget(
@@ -419,14 +446,14 @@ class _PhotoSection extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Tirar Foto do Burger',
+              l10n.takeBurgerPhoto,
               style: theme.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 4),
             Text(
-              'Toque para adicionar uma foto',
+              l10n.tapToAddPhoto,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.outline,
               ),

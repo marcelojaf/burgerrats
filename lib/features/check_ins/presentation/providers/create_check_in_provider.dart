@@ -57,6 +57,24 @@ enum SubmissionStep {
   updatingPoints,
 }
 
+/// Enum for error types that can occur during check-in creation
+enum CheckInErrorType {
+  /// No error
+  none,
+
+  /// Error loading user's leagues
+  loadingLeagues,
+
+  /// Error checking daily limit
+  checkingDailyLimit,
+
+  /// Error creating the check-in
+  creatingCheckIn,
+
+  /// Other error from exception handler
+  other,
+}
+
 /// State class for the create check-in flow
 class CreateCheckInState {
   final CreateCheckInStatus status;
@@ -70,6 +88,7 @@ class CreateCheckInState {
   final int? rating;
   final String? note;
   final String? errorMessage;
+  final CheckInErrorType errorType;
   final String? createdCheckInId;
   final SubmissionStep submissionStep;
   final double uploadProgress;
@@ -86,6 +105,7 @@ class CreateCheckInState {
     this.rating,
     this.note,
     this.errorMessage,
+    this.errorType = CheckInErrorType.none,
     this.createdCheckInId,
     this.submissionStep = SubmissionStep.idle,
     this.uploadProgress = 0.0,
@@ -103,6 +123,7 @@ class CreateCheckInState {
         rating = null,
         note = null,
         errorMessage = null,
+        errorType = CheckInErrorType.none,
         createdCheckInId = null,
         submissionStep = SubmissionStep.idle,
         uploadProgress = 0.0;
@@ -123,16 +144,6 @@ class CreateCheckInState {
 
   bool get isSuccess => status == CreateCheckInStatus.success;
 
-  /// Returns a user-friendly message for the current submission step
-  String get submissionStepMessage {
-    return switch (submissionStep) {
-      SubmissionStep.idle => '',
-      SubmissionStep.compressing => 'Comprimindo foto...',
-      SubmissionStep.uploading => 'Enviando foto (${(uploadProgress * 100).toInt()}%)...',
-      SubmissionStep.creatingDocument => 'Salvando check-in...',
-      SubmissionStep.updatingPoints => 'Atualizando pontos...',
-    };
-  }
 
   CreateCheckInState copyWith({
     CreateCheckInStatus? status,
@@ -146,6 +157,7 @@ class CreateCheckInState {
     int? rating,
     String? note,
     String? errorMessage,
+    CheckInErrorType? errorType,
     String? createdCheckInId,
     SubmissionStep? submissionStep,
     double? uploadProgress,
@@ -174,6 +186,7 @@ class CreateCheckInState {
       rating: clearRating ? null : (rating ?? this.rating),
       note: clearNote ? null : (note ?? this.note),
       errorMessage: clearError ? null : (errorMessage ?? this.errorMessage),
+      errorType: clearError ? CheckInErrorType.none : (errorType ?? this.errorType),
       createdCheckInId: createdCheckInId ?? this.createdCheckInId,
       submissionStep: submissionStep ?? this.submissionStep,
       uploadProgress: uploadProgress ?? this.uploadProgress,
@@ -194,6 +207,7 @@ class CreateCheckInState {
         other.rating == rating &&
         other.note == note &&
         other.errorMessage == errorMessage &&
+        other.errorType == errorType &&
         other.createdCheckInId == createdCheckInId &&
         other.submissionStep == submissionStep &&
         other.uploadProgress == uploadProgress;
@@ -211,6 +225,7 @@ class CreateCheckInState {
         rating,
         note,
         errorMessage,
+        errorType,
         createdCheckInId,
         submissionStep,
         uploadProgress,
@@ -278,11 +293,12 @@ class CreateCheckInNotifier extends StateNotifier<CreateCheckInState> {
       state = state.copyWith(
         status: CreateCheckInStatus.error,
         errorMessage: ErrorHandler.getUserMessage(e),
+        errorType: CheckInErrorType.other,
       );
     } catch (e) {
       state = state.copyWith(
         status: CreateCheckInStatus.error,
-        errorMessage: 'Erro ao carregar suas ligas. Tente novamente.',
+        errorType: CheckInErrorType.loadingLeagues,
       );
     }
   }
@@ -319,18 +335,19 @@ class CreateCheckInNotifier extends StateNotifier<CreateCheckInState> {
         state = state.copyWith(
           status: CreateCheckInStatus.ready,
           canCheckIn: false,
-          dailyLimitMessage: 'Voce ja fez check-in hoje nesta liga.',
+          // dailyLimitMessage is now handled in the UI using l10n.alreadyCheckedInToday
         );
       }
     } on AppException catch (e) {
       state = state.copyWith(
         status: CreateCheckInStatus.error,
         errorMessage: ErrorHandler.getUserMessage(e),
+        errorType: CheckInErrorType.other,
       );
     } catch (e) {
       state = state.copyWith(
         status: CreateCheckInStatus.error,
-        errorMessage: 'Erro ao verificar limite diario. Tente novamente.',
+        errorType: CheckInErrorType.checkingDailyLimit,
       );
     }
   }
@@ -479,6 +496,7 @@ class CreateCheckInNotifier extends StateNotifier<CreateCheckInState> {
         status: CreateCheckInStatus.photoReady,
         submissionStep: SubmissionStep.idle,
         errorMessage: e.message,
+        errorType: CheckInErrorType.other,
       );
       return false;
     } on StorageException catch (e) {
@@ -486,6 +504,7 @@ class CreateCheckInNotifier extends StateNotifier<CreateCheckInState> {
         status: CreateCheckInStatus.photoReady,
         submissionStep: SubmissionStep.idle,
         errorMessage: e.message,
+        errorType: CheckInErrorType.other,
       );
       return false;
     } on FirestoreException catch (e) {
@@ -493,6 +512,7 @@ class CreateCheckInNotifier extends StateNotifier<CreateCheckInState> {
         status: CreateCheckInStatus.photoReady,
         submissionStep: SubmissionStep.idle,
         errorMessage: e.message,
+        errorType: CheckInErrorType.other,
       );
       return false;
     } on BusinessException catch (e) {
@@ -500,6 +520,7 @@ class CreateCheckInNotifier extends StateNotifier<CreateCheckInState> {
         status: CreateCheckInStatus.photoReady,
         submissionStep: SubmissionStep.idle,
         errorMessage: e.message,
+        errorType: CheckInErrorType.other,
       );
       return false;
     } on AppException catch (e) {
@@ -507,13 +528,14 @@ class CreateCheckInNotifier extends StateNotifier<CreateCheckInState> {
         status: CreateCheckInStatus.photoReady,
         submissionStep: SubmissionStep.idle,
         errorMessage: ErrorHandler.getUserMessage(e),
+        errorType: CheckInErrorType.other,
       );
       return false;
     } catch (e) {
       state = state.copyWith(
         status: CreateCheckInStatus.photoReady,
         submissionStep: SubmissionStep.idle,
-        errorMessage: 'Erro ao criar check-in. Tente novamente.',
+        errorType: CheckInErrorType.creatingCheckIn,
       );
       return false;
     }

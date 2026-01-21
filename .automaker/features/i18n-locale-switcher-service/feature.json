@@ -2,7 +2,7 @@
   "id": "i18n-locale-switcher-service",
   "title": "Create Locale Switcher Service",
   "description": "Implement service to allow users to change app language at runtime",
-  "status": "backlog",
+  "status": "verified",
   "priority": "medium",
   "category": "localization",
   "acceptanceCriteria": [
@@ -31,5 +31,8 @@
     "lib/main.dart",
     "lib/features/profile/presentation/pages/settings_page.dart",
     "pubspec.yaml"
-  ]
+  ],
+  "startedAt": "2026-01-20T22:02:06.411Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-20T22:11:16.027Z"
 }

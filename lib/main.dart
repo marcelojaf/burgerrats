@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/di/injection.dart';
@@ -97,6 +99,9 @@ class _BurgerRatsAppState extends ConsumerState<BurgerRatsApp> {
     // Watch theme mode from app state
     final themeMode = ref.watch(themeModeProvider);
 
+    // Watch locale from app state
+    final locale = ref.watch(localeProvider);
+
     // Watch auth-aware router that automatically handles redirects
     final router = ref.watch(routerProvider);
 
@@ -107,6 +112,14 @@ class _BurgerRatsAppState extends ConsumerState<BurgerRatsApp> {
       darkTheme: AppTheme.dark,
       themeMode: themeMode,
       routerConfig: router,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: locale,
       builder: (context, child) {
         // Wrap the app with ErrorBoundary for uncaught widget errors
         return ErrorBoundary(

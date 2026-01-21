@@ -131,7 +131,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
                   // Title
                   Text(
-                    'BurgerRats',
+                    context.l10n.appTitle,
                     style: context.textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: context.colorScheme.primary,
@@ -142,7 +142,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
                   // Subtitle
                   Text(
-                    'Entre para avaliar hamburguerias',
+                    context.l10n.loginSubtitle,
                     style: context.textTheme.bodyLarge?.copyWith(
                       color: context.colorScheme.onSurfaceVariant,
                     ),
@@ -153,10 +153,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   // Email field
                   TextFormField(
                     controller: _emailController,
-                    decoration: const InputDecoration(
-                      labelText: 'E-mail',
-                      prefixIcon: Icon(Icons.email_outlined),
-                      hintText: 'seu@email.com',
+                    decoration: InputDecoration(
+                      labelText: context.l10n.email,
+                      prefixIcon: const Icon(Icons.email_outlined),
+                      hintText: context.l10n.emailHint,
                     ),
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
@@ -170,7 +170,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   TextFormField(
                     controller: _passwordController,
                     decoration: InputDecoration(
-                      labelText: 'Senha',
+                      labelText: context.l10n.password,
                       prefixIcon: const Icon(Icons.lock_outlined),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -205,14 +205,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               strokeWidth: 2,
                             ),
                           )
-                        : const Text('Entrar'),
+                        : Text(context.l10n.login),
                   ),
                   AppSpacing.gapVerticalMd,
 
                   // Forgot password link
                   TextButton(
                     onPressed: () => context.push(AppRoutes.forgotPassword),
-                    child: const Text('Esqueceu a senha?'),
+                    child: Text(context.l10n.forgotPassword),
                   ),
 
                   // Divider
@@ -223,7 +223,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       Padding(
                         padding: AppSpacing.paddingHorizontalMd,
                         child: Text(
-                          'ou',
+                          context.l10n.or,
                           style: context.textTheme.bodySmall?.copyWith(
                             color: context.colorScheme.onSurfaceVariant,
                           ),
@@ -248,14 +248,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                             ),
                           )
                         : const _GoogleIcon(),
-                    label: const Text('Continuar com Google'),
+                    label: Text(context.l10n.continueWithGoogle),
                   ),
                   AppSpacing.gapVerticalMd,
 
                   // Create account link
                   OutlinedButton(
                     onPressed: () => context.push(AppRoutes.register),
-                    child: const Text('Criar conta'),
+                    child: Text(context.l10n.createAccount),
                   ),
                 ],
               ),

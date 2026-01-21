@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../features/check_ins/domain/entities/check_in_entity.dart';
+import '../../extensions/context_extensions.dart';
 import 'cached_photo_widget.dart';
 import 'fullscreen_photo_viewer.dart';
 
@@ -258,14 +259,14 @@ class _EmptyGalleryView extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Nenhuma foto ainda',
+              context.l10n.noPhotosYet,
               style: theme.textTheme.titleMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              'Suas fotos de check-in aparecerao aqui',
+              context.l10n.checkInPhotosWillAppearHere,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant.withValues(alpha: 0.7),
               ),

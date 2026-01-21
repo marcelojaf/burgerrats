@@ -1,0 +1,2149 @@
+{
+  "@@locale": "pt",
+
+  "appTitle": "BurgerRats",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+
+  "welcome": "Bem-vindo",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+
+  "login": "Entrar",
+  "@login": {
+    "description": "Login button text"
+  },
+
+  "logout": "Sair",
+  "@logout": {
+    "description": "Logout button text"
+  },
+
+  "register": "Cadastrar",
+  "@register": {
+    "description": "Register button text"
+  },
+
+  "email": "E-mail",
+  "@email": {
+    "description": "Email field label"
+  },
+
+  "password": "Senha",
+  "@password": {
+    "description": "Password field label"
+  },
+
+  "confirmPassword": "Confirmar senha",
+  "@confirmPassword": {
+    "description": "Confirm password field label"
+  },
+
+  "forgotPassword": "Esqueceu a senha?",
+  "@forgotPassword": {
+    "description": "Forgot password link text"
+  },
+
+  "home": "Inicio",
+  "@home": {
+    "description": "Home navigation item"
+  },
+
+  "profile": "Perfil",
+  "@profile": {
+    "description": "Profile navigation item"
+  },
+
+  "settings": "Configuracoes",
+  "@settings": {
+    "description": "Settings navigation item"
+  },
+
+  "loading": "Carregando...",
+  "@loading": {
+    "description": "Loading indicator text"
+  },
+
+  "error": "Erro",
+  "@error": {
+    "description": "Generic error title"
+  },
+
+  "tryAgain": "Tentar novamente",
+  "@tryAgain": {
+    "description": "Try again button text"
+  },
+
+  "cancel": "Cancelar",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+
+  "save": "Salvar",
+  "@save": {
+    "description": "Save button text"
+  },
+
+  "delete": "Excluir",
+  "@delete": {
+    "description": "Delete button text"
+  },
+
+  "confirm": "Confirmar",
+  "@confirm": {
+    "description": "Confirm button text"
+  },
+
+  "loginSubtitle": "Entre para avaliar hamburguerias",
+  "@loginSubtitle": {
+    "description": "Login page subtitle"
+  },
+
+  "emailHint": "seu@email.com",
+  "@emailHint": {
+    "description": "Email field hint"
+  },
+
+  "or": "ou",
+  "@or": {
+    "description": "Divider text between login options"
+  },
+
+  "continueWithGoogle": "Continuar com Google",
+  "@continueWithGoogle": {
+    "description": "Google sign-in button text"
+  },
+
+  "createAccount": "Criar conta",
+  "@createAccount": {
+    "description": "Create account button text"
+  },
+
+  "registerSubtitle": "Crie sua conta para comecar a avaliar hamburguerias e competir com seus amigos!",
+  "@registerSubtitle": {
+    "description": "Register page subtitle"
+  },
+
+  "name": "Nome",
+  "@name": {
+    "description": "Name field label"
+  },
+
+  "nameHint": "Seu nome",
+  "@nameHint": {
+    "description": "Name field hint"
+  },
+
+  "passwordMinChars": "Minimo 6 caracteres",
+  "@passwordMinChars": {
+    "description": "Password minimum characters helper text"
+  },
+
+  "acceptTermsText": "Li e aceito os ",
+  "@acceptTermsText": {
+    "description": "Terms acceptance prefix text"
+  },
+
+  "termsOfUse": "Termos de Uso",
+  "@termsOfUse": {
+    "description": "Terms of use link text"
+  },
+
+  "and": " e a ",
+  "@and": {
+    "description": "Conjunction between terms and privacy"
+  },
+
+  "privacyPolicy": "Politica de Privacidade",
+  "@privacyPolicy": {
+    "description": "Privacy policy link text"
+  },
+
+  "mustAcceptTerms": "Voce deve aceitar os termos de uso",
+  "@mustAcceptTerms": {
+    "description": "Terms acceptance validation error"
+  },
+
+  "alreadyHaveAccount": "Ja tem uma conta?",
+  "@alreadyHaveAccount": {
+    "description": "Already have account text"
+  },
+
+  "recoverPassword": "Recuperar senha",
+  "@recoverPassword": {
+    "description": "Recover password page title"
+  },
+
+  "forgotPasswordTitle": "Esqueceu sua senha?",
+  "@forgotPasswordTitle": {
+    "description": "Forgot password page title"
+  },
+
+  "forgotPasswordDescription": "Digite seu e-mail e enviaremos um link para voce redefinir sua senha.",
+  "@forgotPasswordDescription": {
+    "description": "Forgot password page description"
+  },
+
+  "sendLink": "Enviar link",
+  "@sendLink": {
+    "description": "Send reset link button text"
+  },
+
+  "backToLogin": "Voltar para login",
+  "@backToLogin": {
+    "description": "Back to login button text"
+  },
+
+  "emailSent": "E-mail enviado!",
+  "@emailSent": {
+    "description": "Email sent success title"
+  },
+
+  "recoveryLinkSentTo": "Enviamos um link de recuperacao para:",
+  "@recoveryLinkSentTo": {
+    "description": "Recovery link sent message"
+  },
+
+  "checkInboxAndSpam": "Verifique sua caixa de entrada e a pasta de spam.",
+  "@checkInboxAndSpam": {
+    "description": "Check inbox and spam folder message"
+  },
+
+  "didNotReceiveResend": "Nao recebeu? Enviar novamente",
+  "@didNotReceiveResend": {
+    "description": "Resend email link text"
+  },
+
+  "myLeagues": "Minhas Ligas",
+  "@myLeagues": {
+    "description": "My leagues page title"
+  },
+
+  "joinLeague": "Entrar em uma liga",
+  "@joinLeague": {
+    "description": "Join league button tooltip"
+  },
+
+  "newLeague": "Nova Liga",
+  "@newLeague": {
+    "description": "New league FAB label"
+  },
+
+  "member": "membro",
+  "@member": {
+    "description": "Singular member text"
+  },
+
+  "members": "membros",
+  "@members": {
+    "description": "Plural members text"
+  },
+
+  "justNow": "Agora mesmo",
+  "@justNow": {
+    "description": "Just now time text"
+  },
+
+  "minutesAgo": "Ha {minutes} min",
+  "@minutesAgo": {
+    "description": "Minutes ago time text",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAgo": "Ha {hours}h",
+  "@hoursAgo": {
+    "description": "Hours ago time text",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "yesterday": "Ontem",
+  "@yesterday": {
+    "description": "Yesterday time text"
+  },
+
+  "daysAgo": "Ha {days} dias",
+  "@daysAgo": {
+    "description": "Days ago time text",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+
+  "weekAgo": "Ha {weeks} semana",
+  "@weekAgo": {
+    "description": "Week ago time text (singular)",
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+
+  "weeksAgo": "Ha {weeks} semanas",
+  "@weeksAgo": {
+    "description": "Weeks ago time text (plural)",
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+
+  "monthAgo": "Ha {months} mes",
+  "@monthAgo": {
+    "description": "Month ago time text (singular)",
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+
+  "monthsAgo": "Ha {months} meses",
+  "@monthsAgo": {
+    "description": "Months ago time text (plural)",
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+
+  "yearAgo": "Ha {years} ano",
+  "@yearAgo": {
+    "description": "Year ago time text (singular)",
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+
+  "yearsAgo": "Ha {years} anos",
+  "@yearsAgo": {
+    "description": "Years ago time text (plural)",
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+
+  "noLeaguesYet": "Nenhuma liga ainda",
+  "@noLeaguesYet": {
+    "description": "Empty leagues state title"
+  },
+
+  "createOrJoinLeague": "Crie uma nova liga ou entre em uma existente usando um codigo de convite.",
+  "@createOrJoinLeague": {
+    "description": "Empty leagues state description"
+  },
+
+  "join": "Entrar",
+  "@join": {
+    "description": "Join button text"
+  },
+
+  "createLeague": "Criar Liga",
+  "@createLeague": {
+    "description": "Create league button text"
+  },
+
+  "errorLoadingLeagues": "Erro ao carregar ligas",
+  "@errorLoadingLeagues": {
+    "description": "Error loading leagues message"
+  },
+
+  "checkConnectionTryAgain": "Verifique sua conexao e tente novamente.",
+  "@checkConnectionTryAgain": {
+    "description": "Check connection and try again message"
+  },
+
+  "myCheckIns": "Meus Check-ins",
+  "@myCheckIns": {
+    "description": "My check-ins page title"
+  },
+
+  "viewAsGallery": "Ver como galeria",
+  "@viewAsGallery": {
+    "description": "View as gallery button tooltip"
+  },
+
+  "viewAsList": "Ver como lista",
+  "@viewAsList": {
+    "description": "View as list button tooltip"
+  },
+
+  "clearFilters": "Limpar filtros",
+  "@clearFilters": {
+    "description": "Clear filters button text"
+  },
+
+  "filter": "Filtrar",
+  "@filter": {
+    "description": "Filter button tooltip"
+  },
+
+  "noCheckInsFound": "Nenhum check-in encontrado",
+  "@noCheckInsFound": {
+    "description": "No check-ins found with filters"
+  },
+
+  "noCheckInsYet": "Nenhum check-in ainda",
+  "@noCheckInsYet": {
+    "description": "No check-ins yet"
+  },
+
+  "adjustFiltersMessage": "Tente ajustar os filtros para ver mais resultados.",
+  "@adjustFiltersMessage": {
+    "description": "Adjust filters suggestion message"
+  },
+
+  "makeFirstCheckIn": "Faca seu primeiro check-in clicando no botao +",
+  "@makeFirstCheckIn": {
+    "description": "Make first check-in suggestion"
+  },
+
+  "errorLoadingCheckIns": "Erro ao carregar check-ins",
+  "@errorLoadingCheckIns": {
+    "description": "Error loading check-ins message"
+  },
+
+  "filters": "Filtros",
+  "@filters": {
+    "description": "Filters bottom sheet title"
+  },
+
+  "clear": "Limpar",
+  "@clear": {
+    "description": "Clear button text"
+  },
+
+  "league": "Liga",
+  "@league": {
+    "description": "League filter section title"
+  },
+
+  "notPartOfAnyLeague": "Voce ainda nao faz parte de nenhuma liga.",
+  "@notPartOfAnyLeague": {
+    "description": "Not part of any league message"
+  },
+
+  "allLeagues": "Todas as ligas",
+  "@allLeagues": {
+    "description": "All leagues filter option"
+  },
+
+  "period": "Periodo",
+  "@period": {
+    "description": "Period filter section title"
+  },
+
+  "today": "Hoje",
+  "@today": {
+    "description": "Today filter option"
+  },
+
+  "thisWeek": "Esta semana",
+  "@thisWeek": {
+    "description": "This week filter option"
+  },
+
+  "thisMonth": "Este mes",
+  "@thisMonth": {
+    "description": "This month filter option"
+  },
+
+  "last30Days": "Ultimos 30 dias",
+  "@last30Days": {
+    "description": "Last 30 days filter option"
+  },
+
+  "startDate": "Data inicial",
+  "@startDate": {
+    "description": "Start date picker label"
+  },
+
+  "endDate": "Data final",
+  "@endDate": {
+    "description": "End date picker label"
+  },
+
+  "clearPeriod": "Limpar periodo",
+  "@clearPeriod": {
+    "description": "Clear period button text"
+  },
+
+  "applyFilters": "Aplicar filtros",
+  "@applyFilters": {
+    "description": "Apply filters button text"
+  },
+
+  "errorLoadingProfile": "Erro ao carregar perfil",
+  "@errorLoadingProfile": {
+    "description": "Error loading profile message"
+  },
+
+  "checkIns": "Check-ins",
+  "@checkIns": {
+    "description": "Check-ins stat label"
+  },
+
+  "streak": "Streak",
+  "@streak": {
+    "description": "Streak stat label"
+  },
+
+  "leagues": "Ligas",
+  "@leagues": {
+    "description": "Leagues stat label"
+  },
+
+  "editProfile": "Editar Perfil",
+  "@editProfile": {
+    "description": "Edit profile menu item"
+  },
+
+  "checkInHistory": "Historico de Check-ins",
+  "@checkInHistory": {
+    "description": "Check-in history menu item"
+  },
+
+  "logoutConfirmation": "Tem certeza que deseja sair?",
+  "@logoutConfirmation": {
+    "description": "Logout confirmation message"
+  },
+
+  "notifications": "Notificacoes",
+  "@notifications": {
+    "description": "Notifications settings item"
+  },
+
+  "theme": "Tema",
+  "@theme": {
+    "description": "Theme settings item"
+  },
+
+  "language": "Idioma",
+  "@language": {
+    "description": "Language settings item"
+  },
+
+  "portuguese": "Portugues",
+  "@portuguese": {
+    "description": "Portuguese language option"
+  },
+
+  "english": "Ingles",
+  "@english": {
+    "description": "English language option"
+  },
+
+  "about": "Sobre",
+  "@about": {
+    "description": "About settings item"
+  },
+
+  "version": "Versao {version}",
+  "@version": {
+    "description": "Version text",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+
+  "deleteAccount": "Excluir Conta",
+  "@deleteAccount": {
+    "description": "Delete account settings item"
+  },
+
+  "deleteAccountConfirmation": "Tem certeza que deseja excluir sua conta? Esta acao nao pode ser desfeita.",
+  "@deleteAccountConfirmation": {
+    "description": "Delete account confirmation message"
+  },
+
+  "selectTheme": "Selecionar Tema",
+  "@selectTheme": {
+    "description": "Select theme dialog title"
+  },
+
+  "light": "Claro",
+  "@light": {
+    "description": "Light theme option"
+  },
+
+  "dark": "Escuro",
+  "@dark": {
+    "description": "Dark theme option"
+  },
+
+  "system": "Sistema",
+  "@system": {
+    "description": "System theme option"
+  },
+
+  "selectLanguage": "Selecionar Idioma",
+  "@selectLanguage": {
+    "description": "Select language dialog title"
+  },
+
+  "skip": "Pular",
+  "@skip": {
+    "description": "Skip button text"
+  },
+
+  "next": "Proximo",
+  "@next": {
+    "description": "Next button text"
+  },
+
+  "start": "Comecar",
+  "@start": {
+    "description": "Start button text"
+  },
+
+  "onboardingTitle1": "Bem-vindo ao BurgerRats!",
+  "@onboardingTitle1": {
+    "description": "Onboarding page 1 title"
+  },
+
+  "onboardingDescription1": "Registre suas visitas a hamburguerias, avalie seus burgers favoritos e compartilhe suas experiencias com amigos.",
+  "@onboardingDescription1": {
+    "description": "Onboarding page 1 description"
+  },
+
+  "onboardingHighlight1": "Sua jornada burger comeca aqui!",
+  "@onboardingHighlight1": {
+    "description": "Onboarding page 1 highlight"
+  },
+
+  "onboardingTitle2": "Compita em Ligas",
+  "@onboardingTitle2": {
+    "description": "Onboarding page 2 title"
+  },
+
+  "onboardingDescription2": "Crie ou participe de ligas com seus amigos. Quem visitar mais hamburguerias no periodo da liga, ganha!",
+  "@onboardingDescription2": {
+    "description": "Onboarding page 2 description"
+  },
+
+  "onboardingHighlight2": "Forme sua equipe e suba no ranking!",
+  "@onboardingHighlight2": {
+    "description": "Onboarding page 2 highlight"
+  },
+
+  "onboardingTitle3": "Faca Check-ins",
+  "@onboardingTitle3": {
+    "description": "Onboarding page 3 title"
+  },
+
+  "onboardingDescription3": "Tire uma foto do seu burger, avalie de 1 a 5 estrelas e registre o nome da hamburgueria. Cada check-in vale pontos na liga!",
+  "@onboardingDescription3": {
+    "description": "Onboarding page 3 description"
+  },
+
+  "onboardingHighlight3": "Um check-in por dia por liga!",
+  "@onboardingHighlight3": {
+    "description": "Onboarding page 3 highlight"
+  },
+
+  "mustBeLoggedIn": "Voce precisa estar logado para criar uma liga",
+  "@mustBeLoggedIn": {
+    "description": "Must be logged in message"
+  },
+
+  "createYourLeague": "Crie sua liga",
+  "@createYourLeague": {
+    "description": "Create your league title"
+  },
+
+  "createLeagueDescription": "Reuna seus amigos e compitam para encontrar os melhores hamburgueres!",
+  "@createLeagueDescription": {
+    "description": "Create league page description"
+  },
+
+  "leagueName": "Nome da Liga",
+  "@leagueName": {
+    "description": "League name field label"
+  },
+
+  "leagueNameRequired": "Nome da liga e obrigatorio",
+  "@leagueNameRequired": {
+    "description": "League name required validation message"
+  },
+
+  "leagueNameHint": "Ex: Burguer Hunters",
+  "@leagueNameHint": {
+    "description": "League name field hint"
+  },
+
+  "minCharsRequired": "Minimo de {min} caracteres",
+  "@minCharsRequired": {
+    "description": "Minimum characters required validation message",
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+
+  "descriptionOptional": "Descricao (opcional)",
+  "@descriptionOptional": {
+    "description": "Description field label"
+  },
+
+  "describeYourLeague": "Descreva sua liga...",
+  "@describeYourLeague": {
+    "description": "Description field hint"
+  },
+
+  "configuration": "Configuracoes",
+  "@configuration": {
+    "description": "Configuration section title"
+  },
+
+  "publicLeague": "Liga Publica",
+  "@publicLeague": {
+    "description": "Public league toggle title"
+  },
+
+  "anyoneCanFind": "Qualquer um pode encontrar sua liga",
+  "@anyoneCanFind": {
+    "description": "Public league description"
+  },
+
+  "inviteCodeOnly": "Apenas com codigo de convite",
+  "@inviteCodeOnly": {
+    "description": "Private league description"
+  },
+
+  "membersCanInvite": "Membros podem convidar",
+  "@membersCanInvite": {
+    "description": "Members can invite toggle title"
+  },
+
+  "allMembersCanShare": "Todos membros podem compartilhar o codigo",
+  "@allMembersCanShare": {
+    "description": "Members can share description"
+  },
+
+  "onlyAdminsCanInvite": "Apenas administradores podem convidar",
+  "@onlyAdminsCanInvite": {
+    "description": "Only admins can invite description"
+  },
+
+  "maxMembers": "Maximo de membros",
+  "@maxMembers": {
+    "description": "Max members setting title"
+  },
+
+  "fromToMembers": "De {min} a {max} membros",
+  "@fromToMembers": {
+    "description": "Members range description",
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+
+  "unknownError": "Erro desconhecido",
+  "@unknownError": {
+    "description": "Unknown error message"
+  },
+
+  "creating": "Criando...",
+  "@creating": {
+    "description": "Creating loading state"
+  },
+
+  "leagueCreated": "Liga Criada!",
+  "@leagueCreated": {
+    "description": "League created success title"
+  },
+
+  "leagueCreatedSuccess": "Sua liga \"{name}\" foi criada com sucesso!",
+  "@leagueCreatedSuccess": {
+    "description": "League created success message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "inviteCode": "Codigo de Convite",
+  "@inviteCode": {
+    "description": "Invite code label"
+  },
+
+  "codeCopied": "Codigo copiado!",
+  "@codeCopied": {
+    "description": "Code copied snackbar message"
+  },
+
+  "tapToCopy": "Toque para copiar",
+  "@tapToCopy": {
+    "description": "Tap to copy hint"
+  },
+
+  "shareInviteCode": "Compartilhe este codigo com seus amigos para que eles possam entrar na sua liga!",
+  "@shareInviteCode": {
+    "description": "Share invite code instruction"
+  },
+
+  "back": "Voltar",
+  "@back": {
+    "description": "Back button text"
+  },
+
+  "viewLeague": "Ver Liga",
+  "@viewLeague": {
+    "description": "View league button text"
+  },
+
+  "requiredField": "Este campo e obrigatorio.",
+  "@requiredField": {
+    "description": "Required field validation message"
+  },
+
+  "invalidEmail": "O e-mail informado nao e valido.",
+  "@invalidEmail": {
+    "description": "Invalid email validation message"
+  },
+
+  "weakPassword": "A senha e muito fraca. Use pelo menos 6 caracteres.",
+  "@weakPassword": {
+    "description": "Weak password validation message"
+  },
+
+  "passwordMismatch": "As senhas nao coincidem.",
+  "@passwordMismatch": {
+    "description": "Password mismatch validation message"
+  },
+
+  "maxLengthExceeded": "Maximo de caracteres excedido.",
+  "@maxLengthExceeded": {
+    "description": "Max length exceeded validation message"
+  },
+
+  "leagueDetails": "Detalhes da Liga",
+  "@leagueDetails": {
+    "description": "League details page title"
+  },
+
+  "shareInvite": "Compartilhar Convite",
+  "@shareInvite": {
+    "description": "Share invite button tooltip"
+  },
+
+  "leagueNotFound": "Liga nao encontrada",
+  "@leagueNotFound": {
+    "description": "League not found error title"
+  },
+
+  "leagueNotFoundDescription": "A liga pode ter sido excluida ou voce nao tem acesso.",
+  "@leagueNotFoundDescription": {
+    "description": "League not found error description"
+  },
+
+  "errorLoadingLeague": "Erro ao carregar liga",
+  "@errorLoadingLeague": {
+    "description": "Error loading league message"
+  },
+
+  "promoteToAdmin": "Promover a Admin",
+  "@promoteToAdmin": {
+    "description": "Promote to admin menu item"
+  },
+
+  "removeAdmin": "Remover Admin",
+  "@removeAdmin": {
+    "description": "Remove admin menu item"
+  },
+
+  "removeFromLeague": "Remover da Liga",
+  "@removeFromLeague": {
+    "description": "Remove from league menu item"
+  },
+
+  "transferOwnership": "Transferir Propriedade",
+  "@transferOwnership": {
+    "description": "Transfer ownership menu item"
+  },
+
+  "promoteToAdminConfirmation": "Deseja promover {name} a admin? Admins podem gerenciar membros da liga.",
+  "@promoteToAdminConfirmation": {
+    "description": "Promote to admin confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "promote": "Promover",
+  "@promote": {
+    "description": "Promote button text"
+  },
+
+  "promotingMember": "Promovendo membro...",
+  "@promotingMember": {
+    "description": "Promoting member loading message"
+  },
+
+  "removeAdminConfirmation": "Deseja remover {name} como admin? Ele permanecera como membro da liga.",
+  "@removeAdminConfirmation": {
+    "description": "Remove admin confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "removingAdmin": "Removendo admin...",
+  "@removingAdmin": {
+    "description": "Removing admin loading message"
+  },
+
+  "removeMember": "Remover Membro",
+  "@removeMember": {
+    "description": "Remove member dialog title"
+  },
+
+  "removeMemberConfirmation": "Deseja remover {name} da liga? Esta acao nao pode ser desfeita.",
+  "@removeMemberConfirmation": {
+    "description": "Remove member confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "remove": "Remover",
+  "@remove": {
+    "description": "Remove button text"
+  },
+
+  "removingMember": "Removendo membro...",
+  "@removingMember": {
+    "description": "Removing member loading message"
+  },
+
+  "cannotLeaveTitle": "Nao e possivel sair",
+  "@cannotLeaveTitle": {
+    "description": "Cannot leave league dialog title"
+  },
+
+  "cannotLeaveOnlyMember": "Voce e o unico membro da liga. Para sair, voce precisa excluir a liga.",
+  "@cannotLeaveOnlyMember": {
+    "description": "Cannot leave as only member message"
+  },
+
+  "understood": "Entendi",
+  "@understood": {
+    "description": "Understood button text"
+  },
+
+  "cannotLeaveOwner": "Voce e o dono da liga. Para sair, voce precisa excluir a liga ou transferir a propriedade para outro membro.",
+  "@cannotLeaveOwner": {
+    "description": "Cannot leave as owner message"
+  },
+
+  "leaveLeague": "Sair da Liga",
+  "@leaveLeague": {
+    "description": "Leave league menu item"
+  },
+
+  "leaveLeagueConfirmation": "Deseja sair desta liga? Seus pontos serao perdidos e esta acao nao pode ser desfeita.",
+  "@leaveLeagueConfirmation": {
+    "description": "Leave league confirmation message"
+  },
+
+  "leave": "Sair",
+  "@leave": {
+    "description": "Leave button text"
+  },
+
+  "leavingLeague": "Saindo da liga...",
+  "@leavingLeague": {
+    "description": "Leaving league loading message"
+  },
+
+  "selectNewOwner": "Selecione o novo dono da liga:",
+  "@selectNewOwner": {
+    "description": "Select new owner instruction"
+  },
+
+  "confirmTransfer": "Confirmar Transferencia",
+  "@confirmTransfer": {
+    "description": "Confirm transfer dialog title"
+  },
+
+  "transferOwnershipConfirmation": "Deseja transferir a propriedade da liga para {name}?\n\nVoce se tornara um admin da liga.",
+  "@transferOwnershipConfirmation": {
+    "description": "Transfer ownership confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "transfer": "Transferir",
+  "@transfer": {
+    "description": "Transfer button text"
+  },
+
+  "transferringOwnership": "Transferindo propriedade...",
+  "@transferringOwnership": {
+    "description": "Transferring ownership loading message"
+  },
+
+  "leagueSettings": "Configuracoes da Liga",
+  "@leagueSettings": {
+    "description": "League settings dialog/page title"
+  },
+
+  "visibleToAllUsers": "Visivel para todos os usuarios",
+  "@visibleToAllUsers": {
+    "description": "Public league subtitle"
+  },
+
+  "pointsPerCheckIn": "Pontos por Check-in",
+  "@pointsPerCheckIn": {
+    "description": "Points per check-in setting"
+  },
+
+  "pointsPerReview": "Pontos por Review",
+  "@pointsPerReview": {
+    "description": "Points per review setting"
+  },
+
+  "allowsMemberInvites": "Permite que membros compartilhem o convite",
+  "@allowsMemberInvites": {
+    "description": "Allows member invites subtitle"
+  },
+
+  "requiresApproval": "Requer aprovacao",
+  "@requiresApproval": {
+    "description": "Requires approval setting title"
+  },
+
+  "newMembersNeedApproval": "Novos membros precisam de aprovacao",
+  "@newMembersNeedApproval": {
+    "description": "New members need approval subtitle"
+  },
+
+  "savingSettings": "Salvando configuracoes...",
+  "@savingSettings": {
+    "description": "Saving settings loading message"
+  },
+
+  "deleteLeague": "Excluir Liga",
+  "@deleteLeague": {
+    "description": "Delete league menu item"
+  },
+
+  "deleteLeagueConfirmation": "Deseja excluir esta liga permanentemente? Todos os membros serao removidos e esta acao nao pode ser desfeita.",
+  "@deleteLeagueConfirmation": {
+    "description": "Delete league confirmation message"
+  },
+
+  "deletingLeague": "Excluindo liga...",
+  "@deletingLeague": {
+    "description": "Deleting league loading message"
+  },
+
+  "generateNewCode": "Gerar Novo Codigo",
+  "@generateNewCode": {
+    "description": "Generate new code button text"
+  },
+
+  "generateNewCodeConfirmation": "Deseja gerar um novo codigo de convite? O codigo antigo sera invalidado.",
+  "@generateNewCodeConfirmation": {
+    "description": "Generate new code confirmation message"
+  },
+
+  "generate": "Gerar",
+  "@generate": {
+    "description": "Generate button text"
+  },
+
+  "generatingNewCode": "Gerando novo codigo...",
+  "@generatingNewCode": {
+    "description": "Generating new code loading message"
+  },
+
+  "roleOwner": "Dono",
+  "@roleOwner": {
+    "description": "Owner role label"
+  },
+
+  "roleAdmin": "Admin",
+  "@roleAdmin": {
+    "description": "Admin role label"
+  },
+
+  "roleMember": "Membro",
+  "@roleMember": {
+    "description": "Member role label"
+  },
+
+  "publicLabel": "Publica",
+  "@publicLabel": {
+    "description": "Public label for league visibility"
+  },
+
+  "privateLabel": "Privada",
+  "@privateLabel": {
+    "description": "Private label for league visibility"
+  },
+
+  "membersCount": "{count}/{max} membros",
+  "@membersCount": {
+    "description": "Members count with max",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+
+  "createdOn": "Criada em {date}",
+  "@createdOn": {
+    "description": "Created on date text",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+
+  "statistics": "Estatisticas",
+  "@statistics": {
+    "description": "Statistics section title"
+  },
+
+  "totalPoints": "Total de Pontos",
+  "@totalPoints": {
+    "description": "Total points stat label"
+  },
+
+  "averagePerMember": "Media por Membro",
+  "@averagePerMember": {
+    "description": "Average per member stat label"
+  },
+
+  "ranking": "Ranking",
+  "@ranking": {
+    "description": "Ranking section title"
+  },
+
+  "noMembersYet": "Nenhum membro ainda",
+  "@noMembersYet": {
+    "description": "No members yet message"
+  },
+
+  "makeCheckInsForPoints": "Faca check-ins para ganhar pontos!",
+  "@makeCheckInsForPoints": {
+    "description": "Make check-ins for points suggestion"
+  },
+
+  "tied": "Empatado",
+  "@tied": {
+    "description": "Tied status label"
+  },
+
+  "loadingRanking": "Carregando ranking...",
+  "@loadingRanking": {
+    "description": "Loading ranking message"
+  },
+
+  "errorLoadingRanking": "Erro ao carregar ranking",
+  "@errorLoadingRanking": {
+    "description": "Error loading ranking message"
+  },
+
+  "reminders": "Lembretes",
+  "@reminders": {
+    "description": "Reminders menu item"
+  },
+
+  "copy": "Copiar",
+  "@copy": {
+    "description": "Copy button tooltip"
+  },
+
+  "yes": "Sim",
+  "@yes": {
+    "description": "Yes text"
+  },
+
+  "no": "Nao",
+  "@no": {
+    "description": "No text"
+  },
+
+  "errorMessage": "Erro: {message}",
+  "@errorMessage": {
+    "description": "Error message with details",
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+
+  "joinLeagueTitle": "Entrar em Liga",
+  "@joinLeagueTitle": {
+    "description": "Join league page title"
+  },
+
+  "enterInviteCode": "Digite o codigo de convite",
+  "@enterInviteCode": {
+    "description": "Enter invite code instruction"
+  },
+
+  "askAdminForCode": "Peca ao administrador da liga o codigo de 8 caracteres",
+  "@askAdminForCode": {
+    "description": "Ask admin for code hint"
+  },
+
+  "enterInviteCodeValidation": "Insira o codigo de convite",
+  "@enterInviteCodeValidation": {
+    "description": "Enter invite code validation error"
+  },
+
+  "codeMustHaveChars": "O codigo deve ter 8 caracteres",
+  "@codeMustHaveChars": {
+    "description": "Code must have 8 characters validation error"
+  },
+
+  "searching": "Buscando...",
+  "@searching": {
+    "description": "Searching loading state"
+  },
+
+  "searchLeague": "Buscar Liga",
+  "@searchLeague": {
+    "description": "Search league button text"
+  },
+
+  "visibility": "Visibilidade",
+  "@visibility": {
+    "description": "Visibility label"
+  },
+
+  "youJoined": "Voce entrou!",
+  "@youJoined": {
+    "description": "You joined success message"
+  },
+
+  "joining": "Entrando...",
+  "@joining": {
+    "description": "Joining loading state"
+  },
+
+  "joinTheLeague": "Entrar na Liga",
+  "@joinTheLeague": {
+    "description": "Join the league button text"
+  },
+
+  "mustBeLoggedInToJoin": "Voce precisa estar logado para entrar em uma liga",
+  "@mustBeLoggedInToJoin": {
+    "description": "Must be logged in to join message"
+  },
+
+  "joinedLeagueSuccess": "Voce entrou na liga \"{name}\" com sucesso!",
+  "@joinedLeagueSuccess": {
+    "description": "Joined league success message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "basicInfo": "Informacoes Basicas",
+  "@basicInfo": {
+    "description": "Basic info section title"
+  },
+
+  "leagueNameLabel": "Nome da Liga",
+  "@leagueNameLabel": {
+    "description": "League name field label"
+  },
+
+  "enterLeagueName": "Digite o nome da liga",
+  "@enterLeagueName": {
+    "description": "League name field hint"
+  },
+
+  "leagueNameRequiredValidation": "O nome da liga e obrigatorio",
+  "@leagueNameRequiredValidation": {
+    "description": "League name required validation"
+  },
+
+  "nameMustHaveChars": "O nome deve ter pelo menos 3 caracteres",
+  "@nameMustHaveChars": {
+    "description": "Name must have at least 3 characters validation"
+  },
+
+  "description": "Descricao",
+  "@description": {
+    "description": "Description field label"
+  },
+
+  "enterDescriptionOptional": "Digite uma descricao (opcional)",
+  "@enterDescriptionOptional": {
+    "description": "Description field hint"
+  },
+
+  "noPermission": "Sem permissao",
+  "@noPermission": {
+    "description": "No permission title"
+  },
+
+  "onlyAdminsCanAccessSettings": "Apenas administradores podem acessar as configuracoes da liga.",
+  "@onlyAdminsCanAccessSettings": {
+    "description": "Only admins can access settings message"
+  },
+
+  "errorLoadingSettings": "Erro ao carregar configuracoes",
+  "@errorLoadingSettings": {
+    "description": "Error loading settings message"
+  },
+
+  "savingChanges": "Salvando alteracoes...",
+  "@savingChanges": {
+    "description": "Saving changes loading message"
+  },
+
+  "changesSavedSuccess": "Alteracoes salvas com sucesso!",
+  "@changesSavedSuccess": {
+    "description": "Changes saved success message"
+  },
+
+  "saveChanges": "Salvar Alteracoes",
+  "@saveChanges": {
+    "description": "Save changes button text"
+  },
+
+  "discardChanges": "Descartar alteracoes?",
+  "@discardChanges": {
+    "description": "Discard changes dialog title"
+  },
+
+  "unsavedChangesWarning": "Voce tem alteracoes nao salvas. Deseja descarta-las?",
+  "@unsavedChangesWarning": {
+    "description": "Unsaved changes warning message"
+  },
+
+  "continueEditing": "Continuar Editando",
+  "@continueEditing": {
+    "description": "Continue editing button text"
+  },
+
+  "discard": "Descartar",
+  "@discard": {
+    "description": "Discard button text"
+  },
+
+  "youLabel": "(voce)",
+  "@youLabel": {
+    "description": "You label for current user"
+  },
+
+  "shareLeagueInviteMessage": "Junte-se a minha liga \"{name}\" no BurgerRats! {link}\n\nCodigo de convite: {code}",
+  "@shareLeagueInviteMessage": {
+    "description": "Share league invite message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "link": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+
+  "leagueInviteSubject": "Convite para Liga - {name}",
+  "@leagueInviteSubject": {
+    "description": "League invite share subject",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "checkInDetails": "Detalhes do Check-in",
+  "@checkInDetails": {
+    "description": "Check-in details page title"
+  },
+
+  "share": "Compartilhar",
+  "@share": {
+    "description": "Share button tooltip"
+  },
+
+  "generatingShareableImage": "Gerando imagem compartilhavel...",
+  "@generatingShareableImage": {
+    "description": "Generating shareable image message"
+  },
+
+  "note": "Nota",
+  "@note": {
+    "description": "Note section title"
+  },
+
+  "details": "Detalhes",
+  "@details": {
+    "description": "Details section title"
+  },
+
+  "checkInNotFound": "Check-in nao encontrado",
+  "@checkInNotFound": {
+    "description": "Check-in not found title"
+  },
+
+  "checkInNotFoundDescription": "Este check-in pode ter sido removido ou o link esta incorreto.",
+  "@checkInNotFoundDescription": {
+    "description": "Check-in not found description"
+  },
+
+  "errorLoadingCheckIn": "Erro ao carregar check-in",
+  "@errorLoadingCheckIn": {
+    "description": "Error loading check-in message"
+  },
+
+  "newCheckIn": "Novo Check-in",
+  "@newCheckIn": {
+    "description": "New check-in page title"
+  },
+
+  "selectLeague": "Selecione a Liga",
+  "@selectLeague": {
+    "description": "Select league section title"
+  },
+
+  "detailsOptional": "Detalhes (opcional)",
+  "@detailsOptional": {
+    "description": "Details optional section title"
+  },
+
+  "restaurantName": "Nome do Restaurante",
+  "@restaurantName": {
+    "description": "Restaurant name field label"
+  },
+
+  "restaurantNameHint": "Ex: Burger King",
+  "@restaurantNameHint": {
+    "description": "Restaurant name field hint"
+  },
+
+  "observation": "Observacao",
+  "@observation": {
+    "description": "Observation field label"
+  },
+
+  "observationHint": "Conte sobre sua experiencia...",
+  "@observationHint": {
+    "description": "Observation field hint"
+  },
+
+  "processing": "Processando...",
+  "@processing": {
+    "description": "Processing text"
+  },
+
+  "makeCheckIn": "Fazer Check-in",
+  "@makeCheckIn": {
+    "description": "Make check-in button text"
+  },
+
+  "cannotCheckIn": "Nao e possivel fazer check-in: {message}",
+  "@cannotCheckIn": {
+    "description": "Cannot check-in message",
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+
+  "takePhotoToCheckIn": "Tire uma foto do seu burger para fazer check-in",
+  "@takePhotoToCheckIn": {
+    "description": "Take photo to check-in hint"
+  },
+
+  "selectLeagueToCheckIn": "Selecione uma liga para fazer check-in",
+  "@selectLeagueToCheckIn": {
+    "description": "Select league to check-in hint"
+  },
+
+  "joinALeague": "Entrar em uma Liga",
+  "@joinALeague": {
+    "description": "Join a league button text"
+  },
+
+  "mustBeLoggedInToCheckIn": "Voce precisa estar logado para fazer check-in.",
+  "@mustBeLoggedInToCheckIn": {
+    "description": "Must be logged in to check-in message"
+  },
+
+  "checkInSuccess": "Check-in realizado com sucesso!",
+  "@checkInSuccess": {
+    "description": "Check-in success message"
+  },
+
+  "errorCapturingPhoto": "Erro ao capturar foto: {error}",
+  "@errorCapturingPhoto": {
+    "description": "Error capturing photo message",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+
+  "takeBurgerPhoto": "Tirar Foto do Burger",
+  "@takeBurgerPhoto": {
+    "description": "Take burger photo button text"
+  },
+
+  "tapToAddPhoto": "Toque para adicionar uma foto",
+  "@tapToAddPhoto": {
+    "description": "Tap to add photo hint"
+  },
+
+  "availableForCheckIn": "Disponivel para check-in",
+  "@availableForCheckIn": {
+    "description": "Available for check-in status"
+  },
+
+  "oneCheckInPerDayPerLeague": "Voce pode fazer 1 check-in por dia nesta liga",
+  "@oneCheckInPerDayPerLeague": {
+    "description": "One check-in per day per league message"
+  },
+
+  "dailyLimitReached": "Limite diario atingido",
+  "@dailyLimitReached": {
+    "description": "Daily limit reached status"
+  },
+
+  "alreadyCheckedInToday": "Voce ja fez check-in hoje nesta liga.",
+  "@alreadyCheckedInToday": {
+    "description": "Already checked in today message"
+  },
+
+  "changePhoto": "Trocar",
+  "@changePhoto": {
+    "description": "Change photo button text"
+  },
+
+  "errorLoadingImage": "Erro ao carregar imagem",
+  "@errorLoadingImage": {
+    "description": "Error loading image message"
+  },
+
+  "photoAdded": "Foto adicionada",
+  "@photoAdded": {
+    "description": "Photo added indicator text"
+  },
+
+  "ratingLabel": "Avaliacao",
+  "@ratingLabel": {
+    "description": "Rating label"
+  },
+
+  "tapStarsToRate": "Toque nas estrelas para avaliar",
+  "@tapStarsToRate": {
+    "description": "Tap stars to rate hint"
+  },
+
+  "ratingBad": "Ruim",
+  "@ratingBad": {
+    "description": "Rating 1 label"
+  },
+
+  "ratingRegular": "Regular",
+  "@ratingRegular": {
+    "description": "Rating 2 label"
+  },
+
+  "ratingGood": "Bom",
+  "@ratingGood": {
+    "description": "Rating 3 label"
+  },
+
+  "ratingVeryGood": "Muito bom",
+  "@ratingVeryGood": {
+    "description": "Rating 4 label"
+  },
+
+  "ratingExcellent": "Excelente",
+  "@ratingExcellent": {
+    "description": "Rating 5 label"
+  },
+
+  "compressingPhoto": "Comprimindo foto...",
+  "@compressingPhoto": {
+    "description": "Compressing photo message"
+  },
+
+  "uploadingPhoto": "Enviando foto ({progress}%)...",
+  "@uploadingPhoto": {
+    "description": "Uploading photo message",
+    "placeholders": {
+      "progress": {
+        "type": "int"
+      }
+    }
+  },
+
+  "savingCheckIn": "Salvando check-in...",
+  "@savingCheckIn": {
+    "description": "Saving check-in message"
+  },
+
+  "updatingPoints": "Atualizando pontos...",
+  "@updatingPoints": {
+    "description": "Updating points message"
+  },
+
+  "errorLoadingYourLeagues": "Erro ao carregar suas ligas. Tente novamente.",
+  "@errorLoadingYourLeagues": {
+    "description": "Error loading your leagues message"
+  },
+
+  "errorCheckingDailyLimit": "Erro ao verificar limite diario. Tente novamente.",
+  "@errorCheckingDailyLimit": {
+    "description": "Error checking daily limit message"
+  },
+
+  "errorCreatingCheckIn": "Erro ao criar check-in. Tente novamente.",
+  "@errorCreatingCheckIn": {
+    "description": "Error creating check-in message"
+  },
+
+  "dateAt": "{day} de {month} de {year} as {time}",
+  "@dateAt": {
+    "description": "Date at time format",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "monthJanuary": "Janeiro",
+  "@monthJanuary": {
+    "description": "January month name"
+  },
+
+  "monthFebruary": "Fevereiro",
+  "@monthFebruary": {
+    "description": "February month name"
+  },
+
+  "monthMarch": "Marco",
+  "@monthMarch": {
+    "description": "March month name"
+  },
+
+  "monthApril": "Abril",
+  "@monthApril": {
+    "description": "April month name"
+  },
+
+  "monthMay": "Maio",
+  "@monthMay": {
+    "description": "May month name"
+  },
+
+  "monthJune": "Junho",
+  "@monthJune": {
+    "description": "June month name"
+  },
+
+  "monthJuly": "Julho",
+  "@monthJuly": {
+    "description": "July month name"
+  },
+
+  "monthAugust": "Agosto",
+  "@monthAugust": {
+    "description": "August month name"
+  },
+
+  "monthSeptember": "Setembro",
+  "@monthSeptember": {
+    "description": "September month name"
+  },
+
+  "monthOctober": "Outubro",
+  "@monthOctober": {
+    "description": "October month name"
+  },
+
+  "monthNovember": "Novembro",
+  "@monthNovember": {
+    "description": "November month name"
+  },
+
+  "monthDecember": "Dezembro",
+  "@monthDecember": {
+    "description": "December month name"
+  },
+
+  "week": "semana",
+  "@week": {
+    "description": "Week singular"
+  },
+
+  "weeks": "semanas",
+  "@weeks": {
+    "description": "Weeks plural"
+  },
+
+  "monthSingular": "mes",
+  "@monthSingular": {
+    "description": "Month singular"
+  },
+
+  "monthsPlural": "meses",
+  "@monthsPlural": {
+    "description": "Months plural"
+  },
+
+  "year": "ano",
+  "@year": {
+    "description": "Year singular"
+  },
+
+  "yearsPlural": "anos",
+  "@yearsPlural": {
+    "description": "Years plural"
+  },
+
+  "verifyEmail": "Verificar e-mail",
+  "@verifyEmail": {
+    "description": "Verify email page title"
+  },
+
+  "verificationEmailSent": "E-mail de verificacao enviado!",
+  "@verificationEmailSent": {
+    "description": "Verification email sent success message"
+  },
+
+  "verifyYourEmail": "Verifique seu e-mail",
+  "@verifyYourEmail": {
+    "description": "Verify your email title"
+  },
+
+  "verificationLinkSentTo": "Enviamos um link de verificacao para:",
+  "@verificationLinkSentTo": {
+    "description": "Verification link sent to message"
+  },
+
+  "openEmailApp": "Abra seu aplicativo de e-mail",
+  "@openEmailApp": {
+    "description": "Open email app instruction"
+  },
+
+  "lookForBurgerRatsEmail": "Procure pelo e-mail do BurgerRats",
+  "@lookForBurgerRatsEmail": {
+    "description": "Look for BurgerRats email instruction"
+  },
+
+  "clickVerificationLink": "Clique no link de verificacao",
+  "@clickVerificationLink": {
+    "description": "Click verification link instruction"
+  },
+
+  "checkSpamFolder": "Nao encontrou? Verifique tambem a pasta de spam.",
+  "@checkSpamFolder": {
+    "description": "Check spam folder hint"
+  },
+
+  "alreadyVerified": "Ja verifiquei",
+  "@alreadyVerified": {
+    "description": "Already verified button text"
+  },
+
+  "resendEmail": "Reenviar e-mail",
+  "@resendEmail": {
+    "description": "Resend email button text"
+  },
+
+  "resendInSeconds": "Reenviar em {seconds}s",
+  "@resendInSeconds": {
+    "description": "Resend in seconds button text",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+
+  "emailNotYetVerified": "E-mail ainda nao verificado",
+  "@emailNotYetVerified": {
+    "description": "Email not yet verified message"
+  },
+
+  "verifyingAutomatically": "Verificando automaticamente...",
+  "@verifyingAutomatically": {
+    "description": "Verifying automatically message"
+  },
+
+  "myCheckIns": "Meus Check-ins",
+  "viewAsGallery": "Ver como galeria",
+  "viewAsList": "Ver como lista",
+  "clearFilters": "Limpar filtros",
+  "filter": "Filtrar",
+  "noCheckInsFound": "Nenhum check-in encontrado",
+  "noCheckInsYet": "Nenhum check-in ainda",
+  "adjustFiltersMessage": "Tente ajustar os filtros para ver mais resultados.",
+  "makeFirstCheckIn": "Faca seu primeiro check-in clicando no botao +",
+  "errorLoadingCheckIns": "Erro ao carregar check-ins",
+  "checkConnectionTryAgain": "Verifique sua conexao e tente novamente.",
+  "tryAgain": "Tentar novamente",
+  "filters": "Filtros",
+  "clearAll": "Limpar todos",
+  "clear": "Limpar",
+  "league": "Liga",
+  "period": "Periodo",
+  "applyFilters": "Aplicar filtros",
+  "notPartOfAnyLeague": "Voce ainda nao faz parte de nenhuma liga.",
+  "allLeagues": "Todas as ligas",
+  "today": "Hoje",
+  "thisWeek": "Esta semana",
+  "thisMonth": "Este mes",
+  "last30Days": "Ultimos 30 dias",
+  "startDate": "Data inicial",
+  "endDate": "Data final",
+  "clearPeriod": "Limpar periodo",
+  "justNow": "Agora mesmo",
+  "minutesAgo": "Ha {minutes} min",
+  "@minutesAgo": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "Ha {hours}h",
+  "@hoursAgo": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "memberSingular": "membro",
+  "membersPlural": "membros",
+
+  "removeSelectedPhoto": "Remover foto selecionada",
+  "@removeSelectedPhoto": {
+    "description": "Button text to remove selected photo"
+  },
+
+  "pleaseEnterName": "Por favor, insira seu nome",
+  "@pleaseEnterName": {
+    "description": "Name field validation error"
+  },
+
+  "nameMustHaveMinChars": "Nome deve ter pelo menos {min} caracteres",
+  "@nameMustHaveMinChars": {
+    "description": "Name minimum characters validation error",
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+
+  "emailCannotBeChanged": "O email nao pode ser alterado",
+  "@emailCannotBeChanged": {
+    "description": "Email field help text"
+  },
+
+  "profileUpdatedSuccess": "Perfil atualizado com sucesso!",
+  "@profileUpdatedSuccess": {
+    "description": "Profile updated success message"
+  },
+
+  "errorUpdatingProfile": "Erro ao atualizar perfil. Tente novamente.",
+  "@errorUpdatingProfile": {
+    "description": "Error updating profile message"
+  },
+
+  "photoUpdatedSuccess": "Foto atualizada com sucesso!",
+  "@photoUpdatedSuccess": {
+    "description": "Photo updated success message"
+  },
+
+  "errorUpdatingPhoto": "Erro ao atualizar foto no perfil.",
+  "@errorUpdatingPhoto": {
+    "description": "Error updating profile photo message"
+  },
+
+  "errorUploadingPhoto": "Erro ao enviar foto. Tente novamente.",
+  "@errorUploadingPhoto": {
+    "description": "Error uploading photo message"
+  },
+
+  "errorSelectingPhoto": "Erro ao selecionar foto: {error}",
+  "@errorSelectingPhoto": {
+    "description": "Error selecting photo message",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button text"
+  },
+
+  "criticalError": "Erro Critico",
+  "@criticalError": {
+    "description": "Critical error dialog title"
+  },
+
+  "contactSupportIfPersists": "Por favor, entre em contato com o suporte se o problema persistir.",
+  "@contactSupportIfPersists": {
+    "description": "Contact support message"
+  },
+
+  "noInternetConnection": "Sem conexao com a internet",
+  "@noInternetConnection": {
+    "description": "No internet connection message"
+  },
+
+  "noDataFound": "Nenhum dado encontrado",
+  "@noDataFound": {
+    "description": "No data found empty state message"
+  },
+
+  "cameraAccess": "Acesso a Camera",
+  "@cameraAccess": {
+    "description": "Camera access card title"
+  },
+
+  "cameraAccessRequired": "Acesso a Camera Necessario",
+  "@cameraAccessRequired": {
+    "description": "Camera access required screen title"
+  },
+
+  "cameraPermission": "Permissao de Camera",
+  "@cameraPermission": {
+    "description": "Camera permission title"
+  },
+
+  "cameraPermissionDenied": "Permissao de Camera Negada",
+  "@cameraPermissionDenied": {
+    "description": "Camera permission denied title"
+  },
+
+  "cameraPermissionExplanation": "Precisamos de acesso a sua camera para tirar fotos dos seus check-ins. Suas fotos ajudam a verificar suas visitas e tornam a experiencia mais divertida!",
+  "@cameraPermissionExplanation": {
+    "description": "Camera permission explanation text"
+  },
+
+  "cameraPermissionDeniedExplanation": "A permissao de camera foi negada. Para usar esta funcionalidade, voce precisa habilitar o acesso nas configuracoes do seu dispositivo.",
+  "@cameraPermissionDeniedExplanation": {
+    "description": "Camera permission denied explanation"
+  },
+
+  "cameraPermissionPermanentlyDeniedExplanation": "Voce negou permanentemente o acesso a camera. Para usar esta funcionalidade, voce precisa habilitar a permissao nas configuracoes do seu dispositivo.",
+  "@cameraPermissionPermanentlyDeniedExplanation": {
+    "description": "Camera permission permanently denied explanation"
+  },
+
+  "cameraPermissionForCheckIns": "Para fazer check-ins com fotos, precisamos de acesso a camera do seu dispositivo.\n\nSuas fotos ajudam a verificar suas visitas e tornam a experiencia mais interativa e divertida!",
+  "@cameraPermissionForCheckIns": {
+    "description": "Camera permission for check-ins explanation"
+  },
+
+  "allowAccess": "Permitir Acesso",
+  "@allowAccess": {
+    "description": "Allow access button text"
+  },
+
+  "allowCameraAccess": "Permitir Acesso a Camera",
+  "@allowCameraAccess": {
+    "description": "Allow camera access button text"
+  },
+
+  "openSettings": "Abrir Configuracoes",
+  "@openSettings": {
+    "description": "Open settings button text"
+  },
+
+  "notNow": "Agora nao",
+  "@notNow": {
+    "description": "Not now button text"
+  },
+
+  "takeCheckInPhotos": "Tire fotos dos seus check-ins",
+  "@takeCheckInPhotos": {
+    "description": "Camera feature: take check-in photos"
+  },
+
+  "verifyYourVisits": "Verifique suas visitas",
+  "@verifyYourVisits": {
+    "description": "Camera feature: verify visits"
+  },
+
+  "shareWithFriends": "Compartilhe com amigos",
+  "@shareWithFriends": {
+    "description": "Camera feature: share with friends"
+  },
+
+  "noPhotosYet": "Nenhuma foto ainda",
+  "@noPhotosYet": {
+    "description": "Empty gallery title"
+  },
+
+  "checkInPhotosWillAppearHere": "Suas fotos de check-in aparecerao aqui",
+  "@checkInPhotosWillAppearHere": {
+    "description": "Empty gallery description"
+  },
+
+  "notificationChannelGeneral": "Geral",
+  "@notificationChannelGeneral": {
+    "description": "General notification channel name"
+  },
+
+  "notificationChannelGeneralDescription": "Notificacoes gerais do aplicativo",
+  "@notificationChannelGeneralDescription": {
+    "description": "General notification channel description"
+  },
+
+  "notificationChannelCheckIns": "Check-ins",
+  "@notificationChannelCheckIns": {
+    "description": "Check-ins notification channel name"
+  },
+
+  "notificationChannelCheckInsDescription": "Notificacoes sobre novos check-ins na liga",
+  "@notificationChannelCheckInsDescription": {
+    "description": "Check-ins notification channel description"
+  },
+
+  "notificationChannelLeagues": "Ligas",
+  "@notificationChannelLeagues": {
+    "description": "Leagues notification channel name"
+  },
+
+  "notificationChannelLeaguesDescription": "Notificacoes sobre convites e atualizacoes de ligas",
+  "@notificationChannelLeaguesDescription": {
+    "description": "Leagues notification channel description"
+  },
+
+  "notificationChannelReminders": "Lembretes",
+  "@notificationChannelReminders": {
+    "description": "Reminders notification channel name"
+  },
+
+  "notificationChannelRemindersDescription": "Lembretes para fazer check-in",
+  "@notificationChannelRemindersDescription": {
+    "description": "Reminders notification channel description"
+  },
+
+  "notificationReminderTitle": "Hora do check-in!",
+  "@notificationReminderTitle": {
+    "description": "Reminder notification title"
+  },
+
+  "notificationReminderBody": "Nao esqueca de fazer seu check-in na liga \"{leagueName}\"",
+  "@notificationReminderBody": {
+    "description": "Reminder notification body with league name",
+    "placeholders": {
+      "leagueName": {
+        "type": "String"
+      }
+    }
+  },
+
+  "notificationCheckInTitle": "{userName} fez check-in!",
+  "@notificationCheckInTitle": {
+    "description": "Check-in notification title",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+
+  "notificationCheckInBodyWithRestaurant": "{restaurantName} - {leagueName}",
+  "@notificationCheckInBodyWithRestaurant": {
+    "description": "Check-in notification body with restaurant and league",
+    "placeholders": {
+      "restaurantName": {
+        "type": "String"
+      },
+      "leagueName": {
+        "type": "String"
+      }
+    }
+  },
+
+  "notificationCheckInBodyWithoutRestaurant": "Novo check-in na liga {leagueName}",
+  "@notificationCheckInBodyWithoutRestaurant": {
+    "description": "Check-in notification body without restaurant",
+    "placeholders": {
+      "leagueName": {
+        "type": "String"
+      }
+    }
+  },
+
+  "notificationReminderChannelName": "Lembretes de Check-in",
+  "@notificationReminderChannelName": {
+    "description": "Reminder channel name for local notifications"
+  },
+
+  "notificationReminderChannelDescription": "Lembretes diarios para fazer check-in nas suas ligas",
+  "@notificationReminderChannelDescription": {
+    "description": "Reminder channel description for local notifications"
+  }
+}

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_routes.dart';
+import '../../../../shared/extensions/context_extensions.dart';
 import '../../../../shared/widgets/photo_gallery/photo_gallery.dart';
 import '../../../leagues/domain/entities/league_entity.dart';
 import '../../domain/entities/check_in_entity.dart';
@@ -47,10 +48,11 @@ class _CheckInsPageState extends ConsumerState<CheckInsPage> {
   Widget build(BuildContext context) {
     final checkInsAsync = ref.watch(checkInHistoryProvider);
     final filter = ref.watch(checkInHistoryFilterNotifierProvider);
+    final l10n = context.l10n;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Meus Check-ins'),
+        title: Text(l10n.myCheckIns),
         actions: [
           // View mode toggle
           IconButton(
@@ -60,14 +62,14 @@ class _CheckInsPageState extends ConsumerState<CheckInsPage> {
                   : Icons.view_list_outlined,
             ),
             tooltip: _viewMode == CheckInsViewMode.list
-                ? 'Ver como galeria'
-                : 'Ver como lista',
+                ? l10n.viewAsGallery
+                : l10n.viewAsList,
             onPressed: _toggleViewMode,
           ),
           if (filter.hasActiveFilters)
             IconButton(
               icon: const Icon(Icons.filter_alt_off),
-              tooltip: 'Limpar filtros',
+              tooltip: l10n.clearFilters,
               onPressed: () {
                 ref.read(checkInHistoryFilterNotifierProvider.notifier).clearAllFilters();
               },
@@ -77,7 +79,7 @@ class _CheckInsPageState extends ConsumerState<CheckInsPage> {
               isLabelVisible: filter.hasActiveFilters,
               child: const Icon(Icons.filter_alt_outlined),
             ),
-            tooltip: 'Filtrar',
+            tooltip: l10n.filter,
             onPressed: _showFilterBottomSheet,
           ),
         ],
@@ -195,6 +197,7 @@ class _EmptyCheckInsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final l10n = context.l10n;
 
     return Center(
       child: Padding(
@@ -210,8 +213,8 @@ class _EmptyCheckInsView extends StatelessWidget {
             const SizedBox(height: 24),
             Text(
               hasFilters
-                  ? 'Nenhum check-in encontrado'
-                  : 'Nenhum check-in ainda',
+                  ? l10n.noCheckInsFound
+                  : l10n.noCheckInsYet,
               style: theme.textTheme.headlineSmall?.copyWith(
                 color: colorScheme.onSurface,
               ),
@@ -219,8 +222,8 @@ class _EmptyCheckInsView extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               hasFilters
-                  ? 'Tente ajustar os filtros para ver mais resultados.'
-                  : 'Faca seu primeiro check-in clicando no botao +',
+                  ? l10n.adjustFiltersMessage
+                  : l10n.makeFirstCheckIn,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -234,7 +237,7 @@ class _EmptyCheckInsView extends StatelessWidget {
                     ref.read(checkInHistoryFilterNotifierProvider.notifier).clearAllFilters();
                   },
                   icon: const Icon(Icons.filter_alt_off),
-                  label: const Text('Limpar filtros'),
+                  label: Text(l10n.clearFilters),
                 ),
               ),
             ],
@@ -259,6 +262,7 @@ class _ErrorView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final l10n = context.l10n;
 
     return Center(
       child: Padding(
@@ -273,14 +277,14 @@ class _ErrorView extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Erro ao carregar check-ins',
+              l10n.errorLoadingCheckIns,
               style: theme.textTheme.titleLarge?.copyWith(
                 color: colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              'Verifique sua conexao e tente novamente.',
+              l10n.checkConnectionTryAgain,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -290,7 +294,7 @@ class _ErrorView extends StatelessWidget {
             FilledButton.icon(
               onPressed: onRetry,
               icon: const Icon(Icons.refresh),
-              label: const Text('Tentar novamente'),
+              label: Text(l10n.tryAgain),
             ),
           ],
         ),
@@ -326,6 +330,7 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final leaguesAsync = ref.watch(userLeaguesForFilterProvider);
+    final l10n = context.l10n;
 
     return DraggableScrollableSheet(
       initialChildSize: 0.6,
@@ -354,7 +359,7 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
               child: Row(
                 children: [
                   Text(
-                    'Filtros',
+                    l10n.filters,
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -368,7 +373,7 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
                         _endDate = null;
                       });
                     },
-                    child: const Text('Limpar'),
+                    child: Text(l10n.clear),
                   ),
                 ],
               ),
@@ -386,7 +391,7 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
                   children: [
                     // League filter section
                     Text(
-                      'Liga',
+                      l10n.league,
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -407,7 +412,7 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
                         ),
                       ),
                       error: (_, _) => Text(
-                        'Erro ao carregar ligas',
+                        l10n.errorLoadingLeagues,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: colorScheme.error,
                         ),
@@ -418,7 +423,7 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
 
                     // Date range filter section
                     Text(
-                      'Periodo',
+                      l10n.period,
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -454,7 +459,7 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
 
                     Navigator.of(context).pop();
                   },
-                  child: const Text('Aplicar filtros'),
+                  child: Text(l10n.applyFilters),
                 ),
               ),
             ),
@@ -481,6 +486,7 @@ class _LeagueFilterSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final l10n = context.l10n;
 
     if (leagues.isEmpty) {
       return Container(
@@ -498,7 +504,7 @@ class _LeagueFilterSection extends StatelessWidget {
             const SizedBox(width: 12),
             Expanded(
               child: Text(
-                'Voce ainda nao faz parte de nenhuma liga.',
+                l10n.notPartOfAnyLeague,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: colorScheme.onSurfaceVariant,
                 ),
@@ -515,7 +521,7 @@ class _LeagueFilterSection extends StatelessWidget {
       children: [
         // "All leagues" chip
         ChoiceChip(
-          label: const Text('Todas as ligas'),
+          label: Text(l10n.allLeagues),
           selected: selectedLeagueId == null,
           onSelected: (_) => onLeagueSelected(null),
         ),
@@ -564,6 +570,7 @@ class _DateRangeFilterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = context.l10n;
 
     return Column(
       children: [
@@ -573,7 +580,7 @@ class _DateRangeFilterSection extends StatelessWidget {
           runSpacing: 8,
           children: [
             ActionChip(
-              label: const Text('Hoje'),
+              label: Text(l10n.today),
               onPressed: () {
                 final today = DateTime.now();
                 onStartDateChanged(today);
@@ -581,7 +588,7 @@ class _DateRangeFilterSection extends StatelessWidget {
               },
             ),
             ActionChip(
-              label: const Text('Esta semana'),
+              label: Text(l10n.thisWeek),
               onPressed: () {
                 final now = DateTime.now();
                 final startOfWeek = now.subtract(Duration(days: now.weekday - 1));
@@ -590,7 +597,7 @@ class _DateRangeFilterSection extends StatelessWidget {
               },
             ),
             ActionChip(
-              label: const Text('Este mes'),
+              label: Text(l10n.thisMonth),
               onPressed: () {
                 final now = DateTime.now();
                 final startOfMonth = DateTime(now.year, now.month, 1);
@@ -599,7 +606,7 @@ class _DateRangeFilterSection extends StatelessWidget {
               },
             ),
             ActionChip(
-              label: const Text('Ultimos 30 dias'),
+              label: Text(l10n.last30Days),
               onPressed: () {
                 final now = DateTime.now();
                 final thirtyDaysAgo = now.subtract(const Duration(days: 30));
@@ -617,7 +624,7 @@ class _DateRangeFilterSection extends StatelessWidget {
           children: [
             Expanded(
               child: _DatePickerField(
-                label: 'Data inicial',
+                label: l10n.startDate,
                 date: startDate,
                 onDateSelected: onStartDateChanged,
                 lastDate: endDate ?? DateTime.now(),
@@ -632,7 +639,7 @@ class _DateRangeFilterSection extends StatelessWidget {
             ),
             Expanded(
               child: _DatePickerField(
-                label: 'Data final',
+                label: l10n.endDate,
                 date: endDate,
                 onDateSelected: onEndDateChanged,
                 firstDate: startDate,
@@ -651,7 +658,7 @@ class _DateRangeFilterSection extends StatelessWidget {
               onEndDateChanged(null);
             },
             icon: const Icon(Icons.clear),
-            label: const Text('Limpar periodo'),
+            label: Text(l10n.clearPeriod),
           ),
         ],
       ],

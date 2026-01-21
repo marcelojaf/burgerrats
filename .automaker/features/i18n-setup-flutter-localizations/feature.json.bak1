@@ -1,0 +1,29 @@
+{
+  "id": "i18n-setup-flutter-localizations",
+  "title": "Setup Flutter Localizations Package",
+  "description": "Configure flutter_localizations and intl packages for internationalization support",
+  "status": "in_progress",
+  "priority": "high",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "Add flutter_localizations and intl packages to pubspec.yaml",
+    "Configure MaterialApp with localizationsDelegates and supportedLocales",
+    "Set pt_BR as default locale and en_US as supported locale",
+    "Add intl_utils configuration to pubspec.yaml for code generation"
+  ],
+  "technicalNotes": [
+    "Use flutter_localizations package from Flutter SDK",
+    "Configure intl: ^0.18.0 or latest compatible version",
+    "Add intl_utils for ARB file generation",
+    "Update MaterialApp in main.dart with localization config"
+  ],
+  "dependencies": [],
+  "estimatedEffort": "small",
+  "affectedFiles": [
+    "pubspec.yaml",
+    "lib/main.dart"
+  ],
+  "startedAt": "2026-01-20T21:15:55.974Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-20T21:15:56.256Z"
+}

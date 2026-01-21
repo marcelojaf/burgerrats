@@ -1,14 +1,37 @@
 import 'package:burgerrats/core/services/check_in_notification_service.dart';
+import 'package:burgerrats/core/services/notification_messages_service.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+
+class MockNotificationMessagesService extends Mock
+    implements NotificationMessagesService {}
 
 void main() {
   late FakeFirebaseFirestore fakeFirestore;
+  late MockNotificationMessagesService mockMessagesService;
   late CheckInNotificationService service;
 
   setUp(() {
     fakeFirestore = FakeFirebaseFirestore();
-    service = CheckInNotificationService(fakeFirestore);
+    mockMessagesService = MockNotificationMessagesService();
+
+    // Setup mock to return Portuguese messages by default (matching original test expectations)
+    when(() => mockMessagesService.checkInNotificationTitle(any()))
+        .thenAnswer((invocation) => '${invocation.positionalArguments[0]} fez check-in!');
+    when(() => mockMessagesService.checkInNotificationBody(
+          restaurantName: any(named: 'restaurantName'),
+          leagueName: any(named: 'leagueName'),
+        )).thenAnswer((invocation) {
+      final restaurantName = invocation.namedArguments[#restaurantName] as String?;
+      final leagueName = invocation.namedArguments[#leagueName] as String;
+      if (restaurantName != null && restaurantName.isNotEmpty) {
+        return '$restaurantName - $leagueName';
+      }
+      return 'Novo check-in na liga $leagueName';
+    });
+
+    service = CheckInNotificationService(fakeFirestore, mockMessagesService);
   });
 
   group('CheckInNotificationService', () {

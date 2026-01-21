@@ -1,0 +1,35 @@
+{
+  "id": "i18n-testing-coverage",
+  "title": "Add i18n Testing Coverage",
+  "description": "Create tests to ensure localization works correctly across the app",
+  "status": "in_progress",
+  "priority": "low",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "Unit tests for LocaleService",
+    "Widget tests verify strings are not hardcoded",
+    "Test locale switching functionality",
+    "Test ARB files have matching keys",
+    "Test pluralization and ICU MessageFormat",
+    "Document localization testing approach"
+  ],
+  "technicalNotes": [
+    "Use flutter_test package with localization support",
+    "Mock AppLocalizations in widget tests",
+    "Create helper to verify all ARB keys match",
+    "Test edge cases (missing translations, null contexts)",
+    "Add CI check to validate ARB files"
+  ],
+  "dependencies": [
+    "i18n-locale-switcher-service"
+  ],
+  "estimatedEffort": "medium",
+  "affectedFiles": [
+    "test/core/services/locale_service_test.dart",
+    "test/l10n/arb_validation_test.dart",
+    "test/features/*/presentation/pages/*_test.dart"
+  ],
+  "startedAt": "2026-01-21T02:21:34.036Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-21T02:21:34.328Z"
+}

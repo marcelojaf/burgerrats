@@ -9,6 +9,7 @@ import 'package:timezone/timezone.dart' as tz;
 import '../../features/reminders/data/repositories/reminder_settings_repository.dart';
 import '../../features/reminders/domain/entities/reminder_settings.dart';
 import '../errors/exceptions.dart';
+import 'notification_messages_service.dart';
 
 /// Callback for handling notification taps in background
 @pragma('vm:entry-point')
@@ -36,17 +37,11 @@ void notificationTapBackground(NotificationResponse notificationResponse) {
 @lazySingleton
 class ReminderSchedulerService {
   final ReminderSettingsRepository _settingsRepository;
+  final NotificationMessagesService _messagesService;
   final FlutterLocalNotificationsPlugin _notificationsPlugin;
 
   /// Notification channel ID for reminders (Android)
   static const String channelId = 'burgerrats_reminders_channel';
-
-  /// Notification channel name (Android)
-  static const String channelName = 'Lembretes de Check-in';
-
-  /// Notification channel description (Android)
-  static const String channelDescription =
-      'Lembretes diarios para fazer check-in nas suas ligas';
 
   /// Base notification ID for league reminders
   /// Each league gets ID: _baseNotificationId + leagueId.hashCode
@@ -54,8 +49,14 @@ class ReminderSchedulerService {
 
   bool _isInitialized = false;
 
-  ReminderSchedulerService(this._settingsRepository)
+  ReminderSchedulerService(this._settingsRepository, this._messagesService)
       : _notificationsPlugin = FlutterLocalNotificationsPlugin();
+
+  /// Get localized channel name
+  String get channelName => _messagesService.channelNameCheckInReminders;
+
+  /// Get localized channel description
+  String get channelDescription => _messagesService.channelDescriptionCheckInReminders;
 
   /// Whether the service has been initialized
   bool get isInitialized => _isInitialized;
@@ -200,7 +201,7 @@ class ReminderSchedulerService {
         scheduledDate = scheduledDate.add(const Duration(days: 1));
       }
 
-      const androidDetails = AndroidNotificationDetails(
+      final androidDetails = AndroidNotificationDetails(
         channelId,
         channelName,
         channelDescription: channelDescription,
@@ -216,15 +217,15 @@ class ReminderSchedulerService {
         presentSound: true,
       );
 
-      const notificationDetails = NotificationDetails(
+      final notificationDetails = NotificationDetails(
         android: androidDetails,
         iOS: iosDetails,
       );
 
       await _notificationsPlugin.zonedSchedule(
         notificationId,
-        'Hora do check-in!',
-        'Nao esqueca de fazer seu check-in na liga "$leagueName"',
+        _messagesService.reminderTitle,
+        _messagesService.reminderBody(leagueName),
         scheduledDate,
         notificationDetails,
         androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
@@ -334,7 +335,7 @@ class ReminderSchedulerService {
 
   /// Create the Android notification channel
   Future<void> _createAndroidNotificationChannel() async {
-    const channel = AndroidNotificationChannel(
+    final channel = AndroidNotificationChannel(
       channelId,
       channelName,
       description: channelDescription,

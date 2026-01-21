@@ -2,7 +2,7 @@
   "id": "i18n-migrate-profile-feature",
   "title": "Migrate Profile Feature to i18n",
   "description": "Replace hardcoded Portuguese strings in profile feature with localized strings",
-  "status": "backlog",
+  "status": "verified",
   "priority": "medium",
   "category": "localization",
   "acceptanceCriteria": [
@@ -26,5 +26,8 @@
     "lib/features/profile/presentation/pages/profile_page.dart",
     "lib/features/profile/presentation/pages/edit_profile_page.dart",
     "lib/features/profile/presentation/pages/settings_page.dart"
-  ]
+  ],
+  "startedAt": "2026-01-20T21:52:07.538Z",
+  "descriptionHistory": [],
+  "updatedAt": "2026-01-20T21:58:19.072Z"
 }

@@ -1,0 +1,10 @@
+{
+  "id": "evt-1768944038102-58eabea1",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-20T21:20:38.102Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "i18n-setup-flutter-localizations",
+  "error": "Feature completed in 282s - auto-verified",
+  "passes": true
+}

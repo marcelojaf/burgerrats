@@ -399,39 +399,37 @@ void main() {
       });
     });
 
-    group('submissionStepMessage', () {
-      test('should return empty string when idle', () {
-        expect(notifier.state.submissionStepMessage, '');
+    group('submissionStep', () {
+      test('should be idle by default', () {
+        expect(notifier.state.submissionStep, SubmissionStep.idle);
       });
 
-      test('should return correct messages for each step', () {
+      test('should track submission step changes', () {
         // Test compressing step
         final compressingState = notifier.state.copyWith(
           submissionStep: SubmissionStep.compressing,
         );
-        expect(compressingState.submissionStepMessage, 'Comprimindo foto...');
+        expect(compressingState.submissionStep, SubmissionStep.compressing);
 
         // Test uploading step with progress
         final uploadingState = notifier.state.copyWith(
           submissionStep: SubmissionStep.uploading,
           uploadProgress: 0.5,
         );
-        expect(uploadingState.submissionStepMessage, 'Enviando foto (50%)...');
+        expect(uploadingState.submissionStep, SubmissionStep.uploading);
+        expect(uploadingState.uploadProgress, 0.5);
 
         // Test creating document step
         final creatingState = notifier.state.copyWith(
           submissionStep: SubmissionStep.creatingDocument,
         );
-        expect(creatingState.submissionStepMessage, 'Salvando check-in...');
+        expect(creatingState.submissionStep, SubmissionStep.creatingDocument);
 
         // Test updating points step
         final updatingPointsState = notifier.state.copyWith(
           submissionStep: SubmissionStep.updatingPoints,
         );
-        expect(
-          updatingPointsState.submissionStepMessage,
-          'Atualizando pontos...',
-        );
+        expect(updatingPointsState.submissionStep, SubmissionStep.updatingPoints);
       });
     });
 

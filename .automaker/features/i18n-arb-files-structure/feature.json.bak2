@@ -1,0 +1,33 @@
+{
+  "id": "i18n-arb-files-structure",
+  "title": "Create ARB Files Structure",
+  "description": "Set up ARB (Application Resource Bundle) files for pt-BR and en-US translations",
+  "status": "in_progress",
+  "priority": "high",
+  "category": "localization",
+  "acceptanceCriteria": [
+    "Create lib/l10n directory structure",
+    "Create app_pt_BR.arb with all existing Portuguese strings",
+    "Create app_en_US.arb with English translations",
+    "Add metadata and placeholders for dynamic content",
+    "Configure l10n.yaml for code generation"
+  ],
+  "technicalNotes": [
+    "ARB files should include all user-facing strings from the app",
+    "Extract strings from: auth pages, league pages, check-in pages, profile pages",
+    "Include error messages, validation messages, button labels, titles",
+    "Add @-prefixed metadata for context and placeholders",
+    "Use ICU MessageFormat for plurals and selects if needed"
+  ],
+  "dependencies": [
+    "i18n-setup-flutter-localizations"
+  ],
+  "estimatedEffort": "large",
+  "affectedFiles": [
+    "lib/l10n/app_pt_BR.arb",
+    "lib/l10n/app_en_US.arb",
+    "l10n.yaml"
+  ],
+  "startedAt": "2026-01-20T21:20:42.234Z",
+  "descriptionHistory": []
+}

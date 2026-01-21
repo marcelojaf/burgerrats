@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/errors/error_handler.dart';
 import '../../core/errors/exceptions.dart';
+import '../extensions/context_extensions.dart';
 
 /// Utility class for displaying errors to users
 class ErrorDisplay {
@@ -46,7 +47,7 @@ class ErrorDisplay {
       action: action ??
           (onRetry != null
               ? SnackBarAction(
-                  label: 'Tentar novamente',
+                  label: context.l10n.tryAgain,
                   textColor: theme.colorScheme.onErrorContainer,
                   onPressed: onRetry,
                 )
@@ -78,7 +79,7 @@ class ErrorDisplay {
           color: theme.colorScheme.error,
           size: 48,
         ),
-        title: Text(title ?? 'Erro'),
+        title: Text(title ?? context.l10n.error),
         content: Text(
           message,
           textAlign: TextAlign.center,
@@ -90,11 +91,11 @@ class ErrorDisplay {
                 Navigator.of(context).pop();
                 onRetry();
               },
-              child: const Text('Tentar novamente'),
+              child: Text(context.l10n.tryAgain),
             ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('OK'),
+            child: Text(context.l10n.ok),
           ),
         ],
       ),
@@ -120,7 +121,7 @@ class ErrorDisplay {
           color: theme.colorScheme.error,
           size: 56,
         ),
-        title: Text(title ?? 'Erro Crítico'),
+        title: Text(title ?? context.l10n.criticalError),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -130,7 +131,7 @@ class ErrorDisplay {
             ),
             const SizedBox(height: 16),
             Text(
-              'Por favor, entre em contato com o suporte se o problema persistir.',
+              context.l10n.contactSupportIfPersists,
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
               ),
@@ -144,7 +145,7 @@ class ErrorDisplay {
               Navigator.of(context).pop();
               onDismiss?.call();
             },
-            child: const Text('Entendi'),
+            child: Text(context.l10n.understood),
           ),
         ],
       ),
@@ -158,8 +159,8 @@ class ErrorDisplay {
   }) {
     showSnackbar(
       context,
-      const NetworkException(
-        message: 'Sem conexão com a internet',
+      NetworkException(
+        message: context.l10n.noInternetConnection,
         code: 'network-error',
       ),
       onRetry: onRetry,
@@ -301,7 +302,7 @@ class EmptyStateWidget extends StatelessWidget {
               const SizedBox(height: 24),
               FilledButton.tonal(
                 onPressed: action,
-                child: Text(actionLabel ?? 'Tentar novamente'),
+                child: Text(actionLabel ?? context.l10n.tryAgain),
               ),
             ],
           ],
@@ -346,13 +347,13 @@ class AsyncContentWidget<T> extends StatelessWidget {
         message: '',
         error: error,
         action: onRetry,
-        actionLabel: 'Tentar novamente',
+        actionLabel: context.l10n.tryAgain,
       );
     }
 
     if (data == null) {
       return EmptyStateWidget(
-        message: emptyMessage ?? 'Nenhum dado encontrado',
+        message: emptyMessage ?? context.l10n.noDataFound,
         action: onRetry,
       );
     }

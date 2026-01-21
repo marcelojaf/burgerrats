@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Extensions on BuildContext for easier access to common properties
 extension ContextExtensions on BuildContext {
+  /// Get the current localizations
+  AppLocalizations get l10n => AppLocalizations.of(this);
+
   /// Get the current theme
   ThemeData get theme => Theme.of(this);
 

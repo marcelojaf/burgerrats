@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/services/permission_service.dart';
+import '../extensions/context_extensions.dart';
 
 /// A card widget for requesting camera permission
 ///
@@ -54,7 +55,7 @@ class CameraPermissionCard extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Acesso a Camera',
+              context.l10n.cameraAccess,
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -62,10 +63,8 @@ class CameraPermissionCard extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               isPermanentlyDenied
-                  ? 'A permissao de camera foi negada. Para usar esta funcionalidade, '
-                      'voce precisa habilitar o acesso nas configuracoes do seu dispositivo.'
-                  : 'Precisamos de acesso a sua camera para tirar fotos dos seus check-ins. '
-                      'Suas fotos ajudam a verificar suas visitas e tornam a experiencia mais divertida!',
+                  ? context.l10n.cameraPermissionDeniedExplanation
+                  : context.l10n.cameraPermissionExplanation,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
               ),
@@ -76,13 +75,13 @@ class CameraPermissionCard extends StatelessWidget {
               FilledButton.icon(
                 onPressed: onOpenSettings,
                 icon: const Icon(Icons.settings_outlined),
-                label: const Text('Abrir Configuracoes'),
+                label: Text(context.l10n.openSettings),
               )
             else
               FilledButton.icon(
                 onPressed: onRequestPermission,
                 icon: const Icon(Icons.camera_alt_outlined),
-                label: const Text('Permitir Acesso'),
+                label: Text(context.l10n.allowAccess),
               ),
           ],
         ),
@@ -101,7 +100,7 @@ class CameraPermissionScreen extends StatelessWidget {
     this.onOpenSettings,
     this.onCancel,
     this.isPermanentlyDenied = false,
-    this.title = 'Acesso a Camera Necessario',
+    this.title,
   });
 
   /// Callback when user taps the permission request button
@@ -117,7 +116,7 @@ class CameraPermissionScreen extends StatelessWidget {
   final bool isPermanentlyDenied;
 
   /// Screen title
-  final String title;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +124,7 @@ class CameraPermissionScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title ?? context.l10n.cameraAccessRequired),
         leading: onCancel != null
             ? IconButton(
                 icon: const Icon(Icons.close),
@@ -161,8 +160,8 @@ class CameraPermissionScreen extends StatelessWidget {
                     const SizedBox(height: 32),
                     Text(
                       isPermanentlyDenied
-                          ? 'Permissao de Camera Negada'
-                          : 'Permissao de Camera',
+                          ? context.l10n.cameraPermissionDenied
+                          : context.l10n.cameraPermission,
                       style: theme.textTheme.headlineSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -171,20 +170,15 @@ class CameraPermissionScreen extends StatelessWidget {
                     const SizedBox(height: 16),
                     Text(
                       isPermanentlyDenied
-                          ? 'Voce negou permanentemente o acesso a camera. '
-                              'Para usar esta funcionalidade, voce precisa habilitar '
-                              'a permissao nas configuracoes do seu dispositivo.'
-                          : 'Para fazer check-ins com fotos, precisamos de acesso '
-                              'a camera do seu dispositivo.\n\n'
-                              'Suas fotos ajudam a verificar suas visitas e tornam '
-                              'a experiencia mais interativa e divertida!',
+                          ? context.l10n.cameraPermissionPermanentlyDeniedExplanation
+                          : context.l10n.cameraPermissionForCheckIns,
                       style: theme.textTheme.bodyLarge?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
                       ),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 32),
-                    _buildFeatureList(theme),
+                    _buildFeatureList(context, theme),
                     const SizedBox(height: 32),
                     SizedBox(
                       width: double.infinity,
@@ -192,7 +186,7 @@ class CameraPermissionScreen extends StatelessWidget {
                           ? FilledButton.icon(
                               onPressed: onOpenSettings,
                               icon: const Icon(Icons.settings_outlined),
-                              label: const Text('Abrir Configuracoes'),
+                              label: Text(context.l10n.openSettings),
                               style: FilledButton.styleFrom(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 16),
@@ -201,7 +195,7 @@ class CameraPermissionScreen extends StatelessWidget {
                           : FilledButton.icon(
                               onPressed: onRequestPermission,
                               icon: const Icon(Icons.camera_alt_outlined),
-                              label: const Text('Permitir Acesso a Camera'),
+                              label: Text(context.l10n.allowCameraAccess),
                               style: FilledButton.styleFrom(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 16),
@@ -212,7 +206,7 @@ class CameraPermissionScreen extends StatelessWidget {
                       const SizedBox(height: 12),
                       TextButton(
                         onPressed: onCancel,
-                        child: const Text('Agora nao'),
+                        child: Text(context.l10n.notNow),
                       ),
                     ],
                     const SizedBox(height: 24),
@@ -226,22 +220,22 @@ class CameraPermissionScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFeatureList(ThemeData theme) {
+  Widget _buildFeatureList(BuildContext context, ThemeData theme) {
     return Column(
       children: [
         _FeatureItem(
           icon: Icons.photo_camera_outlined,
-          text: 'Tire fotos dos seus check-ins',
+          text: context.l10n.takeCheckInPhotos,
           theme: theme,
         ),
         _FeatureItem(
           icon: Icons.verified_outlined,
-          text: 'Verifique suas visitas',
+          text: context.l10n.verifyYourVisits,
           theme: theme,
         ),
         _FeatureItem(
           icon: Icons.emoji_events_outlined,
-          text: 'Compartilhe com amigos',
+          text: context.l10n.shareWithFriends,
           theme: theme,
         ),
       ],

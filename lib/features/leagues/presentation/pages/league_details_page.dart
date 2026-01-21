@@ -7,6 +7,7 @@ import 'package:share_plus/share_plus.dart';
 import '../../../../core/di/injection.dart';
 import '../../../../core/services/deep_link_service.dart';
 import '../../../../core/state/providers/auth_state_provider.dart';
+import '../../../../shared/extensions/context_extensions.dart';
 import '../../../auth/domain/entities/user_entity.dart';
 import '../../../auth/domain/repositories/user_repository.dart';
 import '../../domain/entities/league_entity.dart';
@@ -67,21 +68,23 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
   }
 
   void _shareLeagueInvite(LeagueEntity league) {
+    final l10n = context.l10n;
     final deepLinkService = getIt<DeepLinkService>();
     final link = deepLinkService.generateLeagueInviteLink(league.id);
 
     Share.share(
-      'Junte-se a minha liga "${league.name}" no BurgerRats! $link\n\nCodigo de convite: ${league.inviteCode}',
-      subject: 'Convite para Liga - ${league.name}',
+      l10n.shareLeagueInviteMessage(league.name, link, league.inviteCode),
+      subject: l10n.leagueInviteSubject(league.name),
     );
   }
 
   void _copyInviteCode(String inviteCode) {
+    final l10n = context.l10n;
     Clipboard.setData(ClipboardData(text: inviteCode));
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Codigo copiado!'),
-        duration: Duration(seconds: 2),
+      SnackBar(
+        content: Text(l10n.codeCopied),
+        duration: const Duration(seconds: 2),
       ),
     );
   }
@@ -105,6 +108,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
     String currentUserId,
     Map<String, UserEntity?> profiles,
   ) {
+    final l10n = context.l10n;
     final isCurrentUserAdmin = league.isAdmin(currentUserId);
     final isCurrentUserOwner = league.isOwner(currentUserId);
     final isMemberOwner = member.isOwner;
@@ -126,13 +130,13 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
             ListTile(
               leading: const Icon(Icons.person),
               title: Text(_getMemberDisplayName(member.userId, profiles)),
-              subtitle: Text(_getRoleLabel(member.role)),
+              subtitle: Text(_getRoleLabel(context, member.role)),
             ),
             const Divider(),
             if (isCurrentUserOwner && !isMemberAdmin)
               ListTile(
                 leading: const Icon(Icons.arrow_upward, color: Colors.green),
-                title: const Text('Promover a Admin'),
+                title: Text(l10n.promoteToAdmin),
                 onTap: () {
                   Navigator.pop(context);
                   _confirmPromote(member.userId, profiles, currentUserId);
@@ -141,7 +145,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
             if (isCurrentUserOwner && isMemberAdmin && !isMemberOwner)
               ListTile(
                 leading: const Icon(Icons.arrow_downward, color: Colors.orange),
-                title: const Text('Remover Admin'),
+                title: Text(l10n.removeAdmin),
                 onTap: () {
                   Navigator.pop(context);
                   _confirmDemote(member.userId, profiles, currentUserId);
@@ -150,7 +154,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
             if (isCurrentUserAdmin && !isMemberOwner)
               ListTile(
                 leading: const Icon(Icons.person_remove, color: Colors.red),
-                title: const Text('Remover da Liga'),
+                title: Text(l10n.removeFromLeague),
                 onTap: () {
                   Navigator.pop(context);
                   _confirmRemove(member.userId, profiles, currentUserId);
@@ -159,7 +163,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
             if (isCurrentUserOwner && !isMemberOwner)
               ListTile(
                 leading: const Icon(Icons.swap_horiz, color: Colors.blue),
-                title: const Text('Transferir Propriedade'),
+                title: Text(l10n.transferOwnership),
                 onTap: () {
                   Navigator.pop(context);
                   _confirmTransferOwnership(member.userId, _getMemberDisplayName(member.userId, profiles), currentUserId);
@@ -184,9 +188,10 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
       await action();
     } catch (e) {
       if (mounted) {
+        final l10n = context.l10n;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erro: ${e.toString()}'),
+            content: Text(l10n.errorMessage(e.toString())),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
@@ -202,24 +207,23 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
   }
 
   void _confirmPromote(String userId, Map<String, UserEntity?> profiles, String currentUserId) {
+    final l10n = context.l10n;
     final displayName = _getMemberDisplayName(userId, profiles);
 
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Promover a Admin'),
-        content: Text(
-          'Deseja promover $displayName a admin? Admins podem gerenciar membros da liga.',
-        ),
+        title: Text(l10n.promoteToAdmin),
+        content: Text(l10n.promoteToAdminConfirmation(displayName)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancelar'),
+            child: Text(l10n.cancel),
           ),
           FilledButton(
             onPressed: () {
               Navigator.pop(context);
-              _performAction('Promovendo membro...', () async {
+              _performAction(l10n.promotingMember, () async {
                 final repository = getIt<LeagueRepository>();
                 await repository.updateMemberRole(
                   leagueId: widget.leagueId,
@@ -229,7 +233,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
                 );
               });
             },
-            child: const Text('Promover'),
+            child: Text(l10n.promote),
           ),
         ],
       ),
@@ -237,24 +241,23 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
   }
 
   void _confirmDemote(String userId, Map<String, UserEntity?> profiles, String currentUserId) {
+    final l10n = context.l10n;
     final displayName = _getMemberDisplayName(userId, profiles);
 
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Remover Admin'),
-        content: Text(
-          'Deseja remover $displayName como admin? Ele permanecera como membro da liga.',
-        ),
+        title: Text(l10n.removeAdmin),
+        content: Text(l10n.removeAdminConfirmation(displayName)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancelar'),
+            child: Text(l10n.cancel),
           ),
           FilledButton(
             onPressed: () {
               Navigator.pop(context);
-              _performAction('Removendo admin...', () async {
+              _performAction(l10n.removingAdmin, () async {
                 final repository = getIt<LeagueRepository>();
                 await repository.updateMemberRole(
                   leagueId: widget.leagueId,
@@ -264,7 +267,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
                 );
               });
             },
-            child: const Text('Remover Admin'),
+            child: Text(l10n.removeAdmin),
           ),
         ],
       ),
@@ -272,19 +275,18 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
   }
 
   void _confirmRemove(String userId, Map<String, UserEntity?> profiles, String currentUserId) {
+    final l10n = context.l10n;
     final displayName = _getMemberDisplayName(userId, profiles);
 
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Remover Membro'),
-        content: Text(
-          'Deseja remover $displayName da liga? Esta acao nao pode ser desfeita.',
-        ),
+        title: Text(l10n.removeMember),
+        content: Text(l10n.removeMemberConfirmation(displayName)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancelar'),
+            child: Text(l10n.cancel),
           ),
           FilledButton(
             style: FilledButton.styleFrom(
@@ -292,7 +294,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
             ),
             onPressed: () {
               Navigator.pop(context);
-              _performAction('Removendo membro...', () async {
+              _performAction(l10n.removingMember, () async {
                 final repository = getIt<LeagueRepository>();
                 await repository.removeMember(
                   leagueId: widget.leagueId,
@@ -301,7 +303,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
                 );
               });
             },
-            child: const Text('Remover'),
+            child: Text(l10n.remove),
           ),
         ],
       ),
@@ -419,7 +421,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
                         child: photoUrl == null ? Text(displayName.substring(0, 1).toUpperCase()) : null,
                       ),
                       title: Text(displayName),
-                      subtitle: Text(_getRoleLabel(member.role)),
+                      subtitle: Text(_getRoleLabel(context, member.role)),
                       onTap: () {
                         Navigator.pop(context);
                         _confirmTransferOwnership(member.userId, displayName, currentUserId);
@@ -644,11 +646,12 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
     );
   }
 
-  String _getRoleLabel(LeagueMemberRole role) {
+  String _getRoleLabel(BuildContext context, LeagueMemberRole role) {
+    final l10n = context.l10n;
     return switch (role) {
-      LeagueMemberRole.owner => 'Dono',
-      LeagueMemberRole.admin => 'Admin',
-      LeagueMemberRole.member => 'Membro',
+      LeagueMemberRole.owner => l10n.roleOwner,
+      LeagueMemberRole.admin => l10n.roleAdmin,
+      LeagueMemberRole.member => l10n.roleMember,
     };
   }
 
@@ -1431,7 +1434,7 @@ class _LeagueDetailsPageState extends ConsumerState<LeagueDetailsPage> {
                     ),
                     subtitle: Row(
                       children: [
-                        Text(_getRoleLabel(member.role)),
+                        Text(_getRoleLabel(context, member.role)),
                         if (entry.isTied) ...[
                           const SizedBox(width: 8),
                           Container(

@@ -626,6 +626,127 @@
       "dismissed": false,
       "featureId": "dark-mode-support",
       "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "f4100ff8-a6f7-4005-bdf9-821002781564",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-setup-flutter-localizations\" has been verified and is complete.",
+      "createdAt": "2026-01-20T21:20:38.092Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-setup-flutter-localizations",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "c0932985-c5fc-4f89-91ef-33c4ec93f012",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-arb-files-structure\" has been verified and is complete.",
+      "createdAt": "2026-01-20T21:24:51.205Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-arb-files-structure",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "205f1e68-62db-4951-a2e4-b1ec10e48aaf",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-generate-localizations\" has been verified and is complete.",
+      "createdAt": "2026-01-20T21:32:54.588Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-generate-localizations",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "ec77b65e-e616-4581-aa62-71b7db55cbca",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-migrate-auth-feature\" has been verified and is complete.",
+      "createdAt": "2026-01-20T21:50:47.419Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-migrate-auth-feature",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "0887d24b-b317-4fba-95f0-030989d645de",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-migrate-leagues-feature\" has been verified and is complete.",
+      "createdAt": "2026-01-20T21:57:45.654Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-migrate-leagues-feature",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "930daff3-1304-4ec5-99ae-c781d397568e",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-migrate-profile-feature\" has been verified and is complete.",
+      "createdAt": "2026-01-20T21:58:19.081Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-migrate-profile-feature",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "61f06993-ecd7-4902-bd5c-4151a3456a15",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-migrate-checkins-feature\" has been verified and is complete.",
+      "createdAt": "2026-01-20T22:02:01.083Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-migrate-checkins-feature",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "33ed3835-a298-4157-a0db-eaf1b9a1e427",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-migrate-shared-widgets\" has been verified and is complete.",
+      "createdAt": "2026-01-20T22:07:45.804Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-migrate-shared-widgets",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "86995df7-171f-45e1-964e-b2abe7fecdb6",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-locale-switcher-service\" has been verified and is complete.",
+      "createdAt": "2026-01-20T22:11:16.033Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-locale-switcher-service",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "6faa7026-0c37-4a10-9e69-ea5799c8c892",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-testing-coverage\" has been verified and is complete.",
+      "createdAt": "2026-01-21T02:27:19.856Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-testing-coverage",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "ca9161f1-79d7-4c19-ad1b-07389aee202d",
+      "type": "feature_verified",
+      "title": "Feature Verified",
+      "message": "\"i18n-notification-messages\" has been verified and is complete.",
+      "createdAt": "2026-01-21T02:28:45.877Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "i18n-notification-messages",
+      "projectPath": "C:\\dev\\burgerrats"
     }
   ]
 }
