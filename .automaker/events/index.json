@@ -2,6 +2,68 @@
   "version": 1,
   "events": [
     {
+      "id": "evt-1768968268482-a79c8e8c",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T04:04:28.482Z",
+      "featureName": "Versionamento de releases no Sentry",
+      "featureId": "sentry-release-tracking"
+    },
+    {
+      "id": "evt-1768968261443-50753be6",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T04:04:21.443Z",
+      "featureName": "Monitoramento de performance Firebase",
+      "featureId": "sentry-firebase-tracing"
+    },
+    {
+      "id": "evt-1768968118141-f02fb5cf",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T04:01:58.142Z",
+      "featureName": "Tracking de navegação com Sentry",
+      "featureId": "sentry-navigation-tracking"
+    },
+    {
+      "id": "evt-1768968102779-116233bf",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T04:01:42.779Z",
+      "featureName": "Capturar contexto de usuário no Sentry",
+      "featureId": "sentry-user-context"
+    },
+    {
+      "id": "evt-1768967881789-746744a0",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T03:58:01.789Z",
+      "featureName": "Integrar Sentry no main.dart",
+      "featureId": "sentry-app-init"
+    },
+    {
+      "id": "evt-1768967875542-40b8ffc5",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T03:57:55.542Z",
+      "featureName": "Criar SentryService",
+      "featureId": "sentry-service"
+    },
+    {
+      "id": "evt-1768967733562-13664a97",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T03:55:33.562Z",
+      "featureName": "Configurar secrets do Sentry",
+      "featureId": "sentry-secrets-config"
+    },
+    {
+      "id": "evt-1768967718977-14979f2b",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-21T03:55:18.977Z",
+      "featureName": "Adicionar dependência sentry_flutter",
+      "featureId": "sentry-dependency"
+    },
+    {
+      "id": "evt-1768966755369-30b546c1",
+      "trigger": "feature_created",
+      "timestamp": "2026-01-21T03:39:15.369Z",
+      "featureId": "feature-1768966754879-lv1d6n91e"
+    },
+    {
       "id": "evt-1768962525905-f15f8df8",
       "trigger": "feature_success",
       "timestamp": "2026-01-21T02:28:45.905Z",

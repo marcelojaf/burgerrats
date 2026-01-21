@@ -1,0 +1,11 @@
+{
+  "id": "evt-1768968261443-50753be6",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-21T04:04:21.443Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "sentry-firebase-tracing",
+  "featureName": "Monitoramento de performance Firebase",
+  "error": "Feature completed in 516s",
+  "passes": true
+}

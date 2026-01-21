@@ -349,16 +349,21 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
       // User cancelled the sign-in flow
       if (credential == null) {
+        debugPrint('Google Sign-In: User cancelled the flow');
         state = const AuthState.unauthenticated();
         return false;
       }
 
+      debugPrint('Google Sign-In: Success for user ${credential.user?.email}');
       state = AuthState.authenticated(credential.user);
       return true;
     } on FirebaseAuthException catch (e) {
+      debugPrint('Google Sign-In FirebaseAuthException: ${e.code} - ${e.message}');
       state = AuthState.error(_mapFirebaseError(e.code));
       return false;
-    } catch (e) {
+    } catch (e, stackTrace) {
+      debugPrint('Google Sign-In Error: $e');
+      debugPrint('Google Sign-In StackTrace: $stackTrace');
       state = AuthState.error('Erro ao fazer login com Google. Tente novamente.');
       return false;
     }

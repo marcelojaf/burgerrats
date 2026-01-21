@@ -1,0 +1,32 @@
+{
+  "id": "sentry-release-tracking",
+  "category": "Infrastructure",
+  "title": "Versionamento de releases no Sentry",
+  "description": "Configurar o Sentry para usar automaticamente a versão do pubspec.yaml (versão + build number) como release identifier. Permite rastrear crashes e performance por versão específica do app, facilitando identificação de regressões.",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 3,
+  "complexity": "simple",
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [
+    "sentry-app-init"
+  ],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "createdAt": "2026-01-21T03:40:00.000Z",
+  "descriptionHistory": [
+    {
+      "description": "Configurar o Sentry para usar automaticamente a versão do pubspec.yaml (versão + build number) como release identifier. Permite rastrear crashes e performance por versão específica do app, facilitando identificação de regressões.",
+      "timestamp": "2026-01-21T03:40:00.000Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T04:01:57.516Z"
+}

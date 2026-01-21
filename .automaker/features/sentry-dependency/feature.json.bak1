@@ -1,0 +1,32 @@
+{
+  "id": "sentry-dependency",
+  "category": "Infrastructure",
+  "title": "Adicionar dependência sentry_flutter",
+  "description": "Adicionar o pacote sentry_flutter no pubspec.yaml para monitoramento de crashes e performance tracking. Incluir versão mais recente compatível com Flutter SDK 3.10.1.",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 1,
+  "complexity": "simple",
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "createdAt": "2026-01-21T03:40:00.000Z",
+  "descriptionHistory": [
+    {
+      "description": "Adicionar o pacote sentry_flutter no pubspec.yaml para monitoramento de crashes e performance tracking. Incluir versão mais recente compatível com Flutter SDK 3.10.1.",
+      "timestamp": "2026-01-21T03:40:00.000Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T03:53:56.941Z",
+  "updatedAt": "2026-01-21T03:55:18.968Z",
+  "justFinishedAt": "2026-01-21T03:55:18.968Z"
+}

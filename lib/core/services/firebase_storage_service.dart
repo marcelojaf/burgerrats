@@ -8,6 +8,7 @@ import 'package:path/path.dart' as path;
 import '../errors/error_handler.dart';
 import '../errors/error_messages.dart';
 import '../errors/exceptions.dart';
+import 'sentry_performance_wrapper.dart';
 
 /// Result of a storage upload operation
 class UploadResult {
@@ -175,11 +176,23 @@ class FirebaseStorageService {
       ...?options.metadata,
     };
 
-    return _uploadFile(
-      file: file,
+    final fileSize = await file.length();
+
+    return SentryPerformanceWrapper.traceStorageOperation(
+      operation: 'uploadCheckInPhoto',
       storagePath: storagePath,
-      options: options.copyWith(metadata: metadata),
-      onProgress: onProgress,
+      action: () => _uploadFile(
+        file: file,
+        storagePath: storagePath,
+        options: options.copyWith(metadata: metadata),
+        onProgress: onProgress,
+      ),
+      extraData: {
+        'userId': userId,
+        'leagueId': leagueId,
+        'fileSize': fileSize,
+        'contentType': _getContentType(file.path),
+      },
     );
   }
 
@@ -211,11 +224,22 @@ class FirebaseStorageService {
       ...?options.metadata,
     };
 
-    return _uploadFile(
-      file: file,
+    final fileSize = await file.length();
+
+    return SentryPerformanceWrapper.traceStorageOperation(
+      operation: 'uploadProfilePhoto',
       storagePath: storagePath,
-      options: options.copyWith(metadata: metadata),
-      onProgress: onProgress,
+      action: () => _uploadFile(
+        file: file,
+        storagePath: storagePath,
+        options: options.copyWith(metadata: metadata),
+        onProgress: onProgress,
+      ),
+      extraData: {
+        'userId': userId,
+        'fileSize': fileSize,
+        'contentType': _getContentType(file.path),
+      },
     );
   }
 
@@ -242,57 +266,67 @@ class FirebaseStorageService {
       );
     }
 
-    try {
-      final ref = _storage.ref().child(storagePath);
+    return SentryPerformanceWrapper.traceStorageOperation(
+      operation: 'uploadBytes',
+      storagePath: storagePath,
+      action: () async {
+        try {
+          final ref = _storage.ref().child(storagePath);
 
-      // Build metadata
-      final settableMetadata = SettableMetadata(
-        contentType: options.contentType ?? 'application/octet-stream',
-        cacheControl: options.cacheControl,
-        customMetadata: options.metadata,
-      );
+          // Build metadata
+          final settableMetadata = SettableMetadata(
+            contentType: options.contentType ?? 'application/octet-stream',
+            cacheControl: options.cacheControl,
+            customMetadata: options.metadata,
+          );
 
-      // Start upload
-      final uploadTask = ref.putData(bytes, settableMetadata);
+          // Start upload
+          final uploadTask = ref.putData(bytes, settableMetadata);
 
-      // Track progress
-      if (onProgress != null) {
-        uploadTask.snapshotEvents.listen((TaskSnapshot snapshot) {
-          final progress = snapshot.bytesTransferred / snapshot.totalBytes;
-          onProgress(progress);
-        });
-      }
+          // Track progress
+          if (onProgress != null) {
+            uploadTask.snapshotEvents.listen((TaskSnapshot snapshot) {
+              final progress = snapshot.bytesTransferred / snapshot.totalBytes;
+              onProgress(progress);
+            });
+          }
 
-      // Wait for completion
-      await uploadTask;
+          // Wait for completion
+          await uploadTask;
 
-      // Get download URL
-      final downloadUrl = await ref.getDownloadURL();
+          // Get download URL
+          final downloadUrl = await ref.getDownloadURL();
 
-      return UploadResult(
-        downloadUrl: downloadUrl,
-        storagePath: storagePath,
-        fileName: path.basename(storagePath),
-        sizeInBytes: bytes.length,
-        contentType: options.contentType,
-        uploadedAt: DateTime.now(),
-        metadata: options.metadata,
-      );
-    } on FirebaseException catch (e) {
-      throw StorageException(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-        originalError: e,
-      );
-    } catch (e, stackTrace) {
-      final exception = ErrorHandler.handleError(e, stackTrace);
-      throw StorageException(
-        message: exception.message,
-        code: exception.code,
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+          return UploadResult(
+            downloadUrl: downloadUrl,
+            storagePath: storagePath,
+            fileName: path.basename(storagePath),
+            sizeInBytes: bytes.length,
+            contentType: options.contentType,
+            uploadedAt: DateTime.now(),
+            metadata: options.metadata,
+          );
+        } on FirebaseException catch (e) {
+          throw StorageException(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+            originalError: e,
+          );
+        } catch (e, stackTrace) {
+          final exception = ErrorHandler.handleError(e, stackTrace);
+          throw StorageException(
+            message: exception.message,
+            code: exception.code,
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+      extraData: {
+        'fileSize': bytes.length,
+        'contentType': options.contentType ?? 'application/octet-stream',
+      },
+    );
   }
 
   /// Delete a file from storage
@@ -301,24 +335,30 @@ class FirebaseStorageService {
   ///
   /// Throws [StorageException] on failure.
   Future<void> deleteFile(String storagePath) async {
-    try {
-      final ref = _storage.ref().child(storagePath);
-      await ref.delete();
-    } on FirebaseException catch (e) {
-      throw StorageException(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-        originalError: e,
-      );
-    } catch (e, stackTrace) {
-      final exception = ErrorHandler.handleError(e, stackTrace);
-      throw StorageException(
-        message: exception.message,
-        code: exception.code,
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+    return SentryPerformanceWrapper.traceStorageOperation(
+      operation: 'deleteFile',
+      storagePath: storagePath,
+      action: () async {
+        try {
+          final ref = _storage.ref().child(storagePath);
+          await ref.delete();
+        } on FirebaseException catch (e) {
+          throw StorageException(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+            originalError: e,
+          );
+        } catch (e, stackTrace) {
+          final exception = ErrorHandler.handleError(e, stackTrace);
+          throw StorageException(
+            message: exception.message,
+            code: exception.code,
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// Get a secure download URL for a file
@@ -328,24 +368,30 @@ class FirebaseStorageService {
   /// Returns the download URL string.
   /// Throws [StorageException] if file not found or on failure.
   Future<String> getDownloadUrl(String storagePath) async {
-    try {
-      final ref = _storage.ref().child(storagePath);
-      return await ref.getDownloadURL();
-    } on FirebaseException catch (e) {
-      throw StorageException(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-        originalError: e,
-      );
-    } catch (e, stackTrace) {
-      final exception = ErrorHandler.handleError(e, stackTrace);
-      throw StorageException(
-        message: exception.message,
-        code: exception.code,
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+    return SentryPerformanceWrapper.traceStorageOperation(
+      operation: 'getDownloadUrl',
+      storagePath: storagePath,
+      action: () async {
+        try {
+          final ref = _storage.ref().child(storagePath);
+          return await ref.getDownloadURL();
+        } on FirebaseException catch (e) {
+          throw StorageException(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+            originalError: e,
+          );
+        } catch (e, stackTrace) {
+          final exception = ErrorHandler.handleError(e, stackTrace);
+          throw StorageException(
+            message: exception.message,
+            code: exception.code,
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// Get file metadata
@@ -355,24 +401,30 @@ class FirebaseStorageService {
   /// Returns the file metadata.
   /// Throws [StorageException] if file not found or on failure.
   Future<FullMetadata> getFileMetadata(String storagePath) async {
-    try {
-      final ref = _storage.ref().child(storagePath);
-      return await ref.getMetadata();
-    } on FirebaseException catch (e) {
-      throw StorageException(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-        originalError: e,
-      );
-    } catch (e, stackTrace) {
-      final exception = ErrorHandler.handleError(e, stackTrace);
-      throw StorageException(
-        message: exception.message,
-        code: exception.code,
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+    return SentryPerformanceWrapper.traceStorageOperation(
+      operation: 'getFileMetadata',
+      storagePath: storagePath,
+      action: () async {
+        try {
+          final ref = _storage.ref().child(storagePath);
+          return await ref.getMetadata();
+        } on FirebaseException catch (e) {
+          throw StorageException(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+            originalError: e,
+          );
+        } catch (e, stackTrace) {
+          final exception = ErrorHandler.handleError(e, stackTrace);
+          throw StorageException(
+            message: exception.message,
+            code: exception.code,
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// List all check-in photos for a user on a specific date
@@ -390,25 +442,35 @@ class FirebaseStorageService {
     final day = date.day.toString().padLeft(2, '0');
     final prefix = 'check-ins/$userId/$year/$month/$day/';
 
-    try {
-      final ref = _storage.ref().child(prefix);
-      final result = await ref.listAll();
-      return result.items.map((item) => item.fullPath).toList();
-    } on FirebaseException catch (e) {
-      throw StorageException(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-        originalError: e,
-      );
-    } catch (e, stackTrace) {
-      final exception = ErrorHandler.handleError(e, stackTrace);
-      throw StorageException(
-        message: exception.message,
-        code: exception.code,
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+    return SentryPerformanceWrapper.traceStorageOperation(
+      operation: 'listCheckInPhotos',
+      storagePath: prefix,
+      action: () async {
+        try {
+          final ref = _storage.ref().child(prefix);
+          final result = await ref.listAll();
+          return result.items.map((item) => item.fullPath).toList();
+        } on FirebaseException catch (e) {
+          throw StorageException(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+            originalError: e,
+          );
+        } catch (e, stackTrace) {
+          final exception = ErrorHandler.handleError(e, stackTrace);
+          throw StorageException(
+            message: exception.message,
+            code: exception.code,
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+      extraData: {
+        'userId': userId,
+        'date': date.toIso8601String(),
+      },
+    );
   }
 
   /// Internal method to upload a file

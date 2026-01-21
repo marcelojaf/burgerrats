@@ -5,9 +5,9 @@ relevantTo: [error, bug, fix, issue, problem]
 importance: 0.9
 relatedFiles: []
 usageStats:
-  loaded: 60
-  referenced: 15
-  successfulFeatures: 15
+  loaded: 71
+  referenced: 16
+  successfulFeatures: 16
 ---
 # Gotchas
 

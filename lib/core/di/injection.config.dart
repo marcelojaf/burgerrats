@@ -46,6 +46,7 @@ import '../../features/streak_tracker/domain/repositories/streak_repository.dart
 import '../../features/streak_tracker/domain/services/streak_tracker_service.dart'
     as _i873;
 import '../services/app_service.dart' as _i479;
+import '../services/app_version_service.dart' as _i212;
 import '../services/check_in_notification_service.dart' as _i998;
 import '../services/deep_link_service.dart' as _i391;
 import '../services/firebase_auth_service.dart' as _i592;
@@ -53,11 +54,12 @@ import '../services/firebase_storage_service.dart' as _i879;
 import '../services/image_compression_service.dart' as _i53;
 import '../services/invite_code_generator_service.dart' as _i231;
 import '../services/locale_preferences_service.dart' as _i688;
-import '../services/notification_messages_service.dart' as _i555;
+import '../services/notification_messages_service.dart' as _i781;
 import '../services/notification_service.dart' as _i941;
 import '../services/permission_service.dart' as _i165;
 import '../services/photo_capture_service.dart' as _i12;
 import '../services/reminder_scheduler_service.dart' as _i1010;
+import '../services/sentry_service.dart' as _i343;
 import '../services/shareable_image_service.dart' as _i273;
 import '../services/theme_preferences_service.dart' as _i977;
 import 'register_module.dart' as _i291;
@@ -90,9 +92,11 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i53.ImageCompressionService(),
     );
     gh.lazySingleton<_i165.PermissionService>(() => _i165.PermissionService());
+    gh.lazySingleton<_i343.SentryService>(() => _i343.SentryService());
     gh.lazySingleton<_i273.ShareableImageService>(
       () => _i273.ShareableImageService(),
     );
+    gh.lazySingleton<_i212.AppVersionService>(() => _i212.AppVersionService());
     gh.lazySingleton<_i879.FirebaseStorageService>(
       () => _i879.FirebaseStorageService(gh<_i457.FirebaseStorage>()),
     );
@@ -102,23 +106,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i977.ThemePreferencesService>(
       () => _i977.ThemePreferencesService(gh<_i460.SharedPreferences>()),
     );
-    gh.lazySingleton<_i555.NotificationMessagesService>(
-      () => _i555.NotificationMessagesService(
+    gh.lazySingleton<_i195.ReminderSettingsRepository>(
+      () => _i195.ReminderSettingsRepository(gh<_i460.SharedPreferences>()),
+    );
+    gh.lazySingleton<_i781.NotificationMessagesService>(
+      () => _i781.NotificationMessagesService(
         gh<_i688.LocalePreferencesService>(),
-      ),
-    );
-    gh.lazySingleton<_i941.NotificationService>(
-      () => _i941.NotificationService(
-        gh<_i892.FirebaseMessaging>(),
-        gh<_i974.FirebaseFirestore>(),
-        gh<_i59.FirebaseAuth>(),
-        gh<_i555.NotificationMessagesService>(),
-      ),
-    );
-    gh.lazySingleton<_i998.CheckInNotificationService>(
-      () => _i998.CheckInNotificationService(
-        gh<_i974.FirebaseFirestore>(),
-        gh<_i555.NotificationMessagesService>(),
       ),
     );
     gh.lazySingleton<_i231.InviteCodeGeneratorService>(
@@ -136,14 +129,16 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i926.UserRepository>(
       () => _i687.UserRepositoryImpl(gh<_i974.FirebaseFirestore>()),
     );
+    gh.lazySingleton<_i941.NotificationService>(
+      () => _i941.NotificationService(
+        gh<_i892.FirebaseMessaging>(),
+        gh<_i974.FirebaseFirestore>(),
+        gh<_i59.FirebaseAuth>(),
+        gh<_i781.NotificationMessagesService>(),
+      ),
+    );
     gh.lazySingleton<_i649.CheckInRepository>(
       () => _i128.CheckInRepositoryImpl(gh<_i974.FirebaseFirestore>()),
-    );
-    gh.lazySingleton<_i1010.ReminderSchedulerService>(
-      () => _i1010.ReminderSchedulerService(
-        gh<_i195.ReminderSettingsRepository>(),
-        gh<_i555.NotificationMessagesService>(),
-      ),
     );
     gh.lazySingleton<_i787.AuthRepository>(
       () => _i153.AuthRepositoryImpl(
@@ -162,6 +157,18 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i974.FirebaseFirestore>(),
         gh<_i926.UserRepository>(),
         gh<_i381.LeagueRepository>(),
+      ),
+    );
+    gh.lazySingleton<_i998.CheckInNotificationService>(
+      () => _i998.CheckInNotificationService(
+        gh<_i974.FirebaseFirestore>(),
+        gh<_i781.NotificationMessagesService>(),
+      ),
+    );
+    gh.lazySingleton<_i1010.ReminderSchedulerService>(
+      () => _i1010.ReminderSchedulerService(
+        gh<_i195.ReminderSettingsRepository>(),
+        gh<_i781.NotificationMessagesService>(),
       ),
     );
     gh.lazySingleton<_i873.StreakTrackerService>(

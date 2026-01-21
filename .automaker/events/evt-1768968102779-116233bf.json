@@ -1,0 +1,11 @@
+{
+  "id": "evt-1768968102779-116233bf",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-21T04:01:42.779Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "sentry-user-context",
+  "featureName": "Capturar contexto de usuário no Sentry",
+  "error": "Feature completed in 95s",
+  "passes": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "sentry-user-context",
+  "category": "Infrastructure",
+  "title": "Capturar contexto de usuário no Sentry",
+  "description": "Configurar o Sentry para capturar e anexar informações do usuário autenticado (ID, email, username) em todos os eventos, crashes e transações. Integrar com auth state provider para atualizar contexto automaticamente no login/logout.",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "complexity": "simple",
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [
+    "sentry-app-init",
+    "auth-state-provider"
+  ],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "createdAt": "2026-01-21T03:40:00.000Z",
+  "descriptionHistory": [
+    {
+      "description": "Configurar o Sentry para capturar e anexar informações do usuário autenticado (ID, email, username) em todos os eventos, crashes e transações. Integrar com auth state provider para atualizar contexto automaticamente no login/logout.",
+      "timestamp": "2026-01-21T03:40:00.000Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T04:00:07.426Z",
+  "updatedAt": "2026-01-21T04:01:42.773Z",
+  "justFinishedAt": "2026-01-21T04:01:42.773Z"
+}

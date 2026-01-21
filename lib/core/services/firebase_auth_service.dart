@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import '../errors/error_handler.dart';
 import '../errors/error_messages.dart';
 import '../errors/exceptions.dart';
+import 'sentry_performance_wrapper.dart';
 
 /// Result of an authentication operation
 class AuthResult {
@@ -112,32 +113,37 @@ class FirebaseAuthService {
     required String email,
     required String password,
   }) async {
-    try {
-      final credential = await _firebaseAuth.signInWithEmailAndPassword(
-        email: email.trim(),
-        password: password,
-      );
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'signInWithEmailAndPassword',
+      action: () async {
+        try {
+          final credential = await _firebaseAuth.signInWithEmailAndPassword(
+            email: email.trim(),
+            password: password,
+          );
 
-      if (credential.user == null) {
-        return AuthResult.failure(
-          message: ErrorMessages.unknownError,
-          code: 'no-user-returned',
-        );
-      }
+          if (credential.user == null) {
+            return AuthResult.failure(
+              message: ErrorMessages.unknownError,
+              code: 'no-user-returned',
+            );
+          }
 
-      return AuthResult.success(credential.user!);
-    } on FirebaseAuthException catch (e) {
-      return AuthResult.failure(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-      );
-    } catch (e, stackTrace) {
-      final exception = ErrorHandler.handleError(e, stackTrace);
-      return AuthResult.failure(
-        message: exception.message,
-        code: exception.code,
-      );
-    }
+          return AuthResult.success(credential.user!);
+        } on FirebaseAuthException catch (e) {
+          return AuthResult.failure(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+          );
+        } catch (e, stackTrace) {
+          final exception = ErrorHandler.handleError(e, stackTrace);
+          return AuthResult.failure(
+            message: exception.message,
+            code: exception.code,
+          );
+        }
+      },
+    );
   }
 
   /// Creates a new user with email and password
@@ -147,72 +153,87 @@ class FirebaseAuthService {
     required String email,
     required String password,
   }) async {
-    try {
-      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email.trim(),
-        password: password,
-      );
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'createUserWithEmailAndPassword',
+      action: () async {
+        try {
+          final credential = await _firebaseAuth.createUserWithEmailAndPassword(
+            email: email.trim(),
+            password: password,
+          );
 
-      if (credential.user == null) {
-        return AuthResult.failure(
-          message: ErrorMessages.unknownError,
-          code: 'no-user-returned',
-        );
-      }
+          if (credential.user == null) {
+            return AuthResult.failure(
+              message: ErrorMessages.unknownError,
+              code: 'no-user-returned',
+            );
+          }
 
-      return AuthResult.success(credential.user!);
-    } on FirebaseAuthException catch (e) {
-      return AuthResult.failure(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-      );
-    } catch (e, stackTrace) {
-      final exception = ErrorHandler.handleError(e, stackTrace);
-      return AuthResult.failure(
-        message: exception.message,
-        code: exception.code,
-      );
-    }
+          return AuthResult.success(credential.user!);
+        } on FirebaseAuthException catch (e) {
+          return AuthResult.failure(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+          );
+        } catch (e, stackTrace) {
+          final exception = ErrorHandler.handleError(e, stackTrace);
+          return AuthResult.failure(
+            message: exception.message,
+            code: exception.code,
+          );
+        }
+      },
+    );
   }
 
   /// Signs out the current user
   ///
   /// Throws [AuthException] if sign out fails.
   Future<void> signOut() async {
-    try {
-      await _firebaseAuth.signOut();
-    } catch (e, stackTrace) {
-      throw AuthException(
-        message: 'Erro ao sair da conta. Por favor, tente novamente.',
-        code: 'sign-out-failed',
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'signOut',
+      action: () async {
+        try {
+          await _firebaseAuth.signOut();
+        } catch (e, stackTrace) {
+          throw AuthException(
+            message: 'Erro ao sair da conta. Por favor, tente novamente.',
+            code: 'sign-out-failed',
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// Sends a password reset email to the specified address
   ///
   /// Returns true on success, throws [AuthException] on failure.
   Future<bool> sendPasswordResetEmail({required String email}) async {
-    try {
-      await _firebaseAuth.sendPasswordResetEmail(email: email.trim());
-      return true;
-    } on FirebaseAuthException catch (e) {
-      throw AuthException(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-        originalError: e,
-      );
-    } catch (e, stackTrace) {
-      final exception = ErrorHandler.handleError(e, stackTrace);
-      throw AuthException(
-        message: exception.message,
-        code: exception.code,
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'sendPasswordResetEmail',
+      action: () async {
+        try {
+          await _firebaseAuth.sendPasswordResetEmail(email: email.trim());
+          return true;
+        } on FirebaseAuthException catch (e) {
+          throw AuthException(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+            originalError: e,
+          );
+        } catch (e, stackTrace) {
+          final exception = ErrorHandler.handleError(e, stackTrace);
+          throw AuthException(
+            message: exception.message,
+            code: exception.code,
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// Sends an email verification to the current user
@@ -220,50 +241,60 @@ class FirebaseAuthService {
   /// Returns true on success, throws [AuthException] if no user is signed in
   /// or if the operation fails.
   Future<bool> sendEmailVerification() async {
-    final user = currentUser;
-    if (user == null) {
-      throw const AuthException(
-        message: 'Nenhum usuario logado para verificar o e-mail.',
-        code: 'no-current-user',
-      );
-    }
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'sendEmailVerification',
+      action: () async {
+        final user = currentUser;
+        if (user == null) {
+          throw const AuthException(
+            message: 'Nenhum usuario logado para verificar o e-mail.',
+            code: 'no-current-user',
+          );
+        }
 
-    try {
-      await user.sendEmailVerification();
-      return true;
-    } on FirebaseAuthException catch (e) {
-      throw AuthException(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-        originalError: e,
-      );
-    } catch (e, stackTrace) {
-      throw AuthException(
-        message: 'Erro ao enviar e-mail de verificacao. Tente novamente.',
-        code: 'email-verification-failed',
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+        try {
+          await user.sendEmailVerification();
+          return true;
+        } on FirebaseAuthException catch (e) {
+          throw AuthException(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+            originalError: e,
+          );
+        } catch (e, stackTrace) {
+          throw AuthException(
+            message: 'Erro ao enviar e-mail de verificacao. Tente novamente.',
+            code: 'email-verification-failed',
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// Reloads the current user's data from Firebase
   ///
   /// Useful to check if email has been verified after sending verification.
   Future<void> reloadUser() async {
-    final user = currentUser;
-    if (user == null) return;
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'reloadUser',
+      action: () async {
+        final user = currentUser;
+        if (user == null) return;
 
-    try {
-      await user.reload();
-    } catch (e, stackTrace) {
-      throw AuthException(
-        message: 'Erro ao atualizar dados do usuario.',
-        code: 'reload-failed',
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+        try {
+          await user.reload();
+        } catch (e, stackTrace) {
+          throw AuthException(
+            message: 'Erro ao atualizar dados do usuario.',
+            code: 'reload-failed',
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// Checks if the current user's email is verified
@@ -273,48 +304,58 @@ class FirebaseAuthService {
   ///
   /// Throws [AuthException] if no user is signed in or update fails.
   Future<void> updateDisplayName(String displayName) async {
-    final user = currentUser;
-    if (user == null) {
-      throw const AuthException(
-        message: 'Nenhum usuario logado.',
-        code: 'no-current-user',
-      );
-    }
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'updateDisplayName',
+      action: () async {
+        final user = currentUser;
+        if (user == null) {
+          throw const AuthException(
+            message: 'Nenhum usuario logado.',
+            code: 'no-current-user',
+          );
+        }
 
-    try {
-      await user.updateDisplayName(displayName);
-    } catch (e, stackTrace) {
-      throw AuthException(
-        message: 'Erro ao atualizar nome de exibicao.',
-        code: 'update-display-name-failed',
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+        try {
+          await user.updateDisplayName(displayName);
+        } catch (e, stackTrace) {
+          throw AuthException(
+            message: 'Erro ao atualizar nome de exibicao.',
+            code: 'update-display-name-failed',
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// Updates the current user's photo URL
   ///
   /// Throws [AuthException] if no user is signed in or update fails.
   Future<void> updatePhotoURL(String photoURL) async {
-    final user = currentUser;
-    if (user == null) {
-      throw const AuthException(
-        message: 'Nenhum usuario logado.',
-        code: 'no-current-user',
-      );
-    }
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'updatePhotoURL',
+      action: () async {
+        final user = currentUser;
+        if (user == null) {
+          throw const AuthException(
+            message: 'Nenhum usuario logado.',
+            code: 'no-current-user',
+          );
+        }
 
-    try {
-      await user.updatePhotoURL(photoURL);
-    } catch (e, stackTrace) {
-      throw AuthException(
-        message: 'Erro ao atualizar foto de perfil.',
-        code: 'update-photo-failed',
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+        try {
+          await user.updatePhotoURL(photoURL);
+        } catch (e, stackTrace) {
+          throw AuthException(
+            message: 'Erro ao atualizar foto de perfil.',
+            code: 'update-photo-failed',
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// Deletes the current user's account
@@ -324,30 +365,35 @@ class FirebaseAuthService {
   ///
   /// Throws [AuthException] if no user is signed in or deletion fails.
   Future<void> deleteAccount() async {
-    final user = currentUser;
-    if (user == null) {
-      throw const AuthException(
-        message: 'Nenhum usuario logado.',
-        code: 'no-current-user',
-      );
-    }
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'deleteAccount',
+      action: () async {
+        final user = currentUser;
+        if (user == null) {
+          throw const AuthException(
+            message: 'Nenhum usuario logado.',
+            code: 'no-current-user',
+          );
+        }
 
-    try {
-      await user.delete();
-    } on FirebaseAuthException catch (e) {
-      throw AuthException(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-        originalError: e,
-      );
-    } catch (e, stackTrace) {
-      throw AuthException(
-        message: 'Erro ao excluir conta. Tente fazer login novamente.',
-        code: 'delete-account-failed',
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+        try {
+          await user.delete();
+        } on FirebaseAuthException catch (e) {
+          throw AuthException(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+            originalError: e,
+          );
+        } catch (e, stackTrace) {
+          throw AuthException(
+            message: 'Erro ao excluir conta. Tente fazer login novamente.',
+            code: 'delete-account-failed',
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 
   /// Re-authenticates the user with email and password
@@ -358,34 +404,39 @@ class FirebaseAuthService {
     required String email,
     required String password,
   }) async {
-    final user = currentUser;
-    if (user == null) {
-      return AuthResult.failure(
-        message: 'Nenhum usuario logado.',
-        code: 'no-current-user',
-      );
-    }
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'reauthenticateWithEmailAndPassword',
+      action: () async {
+        final user = currentUser;
+        if (user == null) {
+          return AuthResult.failure(
+            message: 'Nenhum usuario logado.',
+            code: 'no-current-user',
+          );
+        }
 
-    try {
-      final credential = EmailAuthProvider.credential(
-        email: email.trim(),
-        password: password,
-      );
+        try {
+          final credential = EmailAuthProvider.credential(
+            email: email.trim(),
+            password: password,
+          );
 
-      await user.reauthenticateWithCredential(credential);
-      return AuthResult.success(user);
-    } on FirebaseAuthException catch (e) {
-      return AuthResult.failure(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-      );
-    } catch (e, stackTrace) {
-      final exception = ErrorHandler.handleError(e, stackTrace);
-      return AuthResult.failure(
-        message: exception.message,
-        code: exception.code,
-      );
-    }
+          await user.reauthenticateWithCredential(credential);
+          return AuthResult.success(user);
+        } on FirebaseAuthException catch (e) {
+          return AuthResult.failure(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+          );
+        } catch (e, stackTrace) {
+          final exception = ErrorHandler.handleError(e, stackTrace);
+          return AuthResult.failure(
+            message: exception.message,
+            code: exception.code,
+          );
+        }
+      },
+    );
   }
 
   /// Updates the current user's password
@@ -395,29 +446,34 @@ class FirebaseAuthService {
   ///
   /// Throws [AuthException] on failure.
   Future<void> updatePassword(String newPassword) async {
-    final user = currentUser;
-    if (user == null) {
-      throw const AuthException(
-        message: 'Nenhum usuario logado.',
-        code: 'no-current-user',
-      );
-    }
+    return SentryPerformanceWrapper.traceAuthOperation(
+      operation: 'updatePassword',
+      action: () async {
+        final user = currentUser;
+        if (user == null) {
+          throw const AuthException(
+            message: 'Nenhum usuario logado.',
+            code: 'no-current-user',
+          );
+        }
 
-    try {
-      await user.updatePassword(newPassword);
-    } on FirebaseAuthException catch (e) {
-      throw AuthException(
-        message: ErrorMessages.getMessageForCode(e.code),
-        code: e.code,
-        originalError: e,
-      );
-    } catch (e, stackTrace) {
-      throw AuthException(
-        message: 'Erro ao atualizar senha.',
-        code: 'update-password-failed',
-        originalError: e,
-        stackTrace: stackTrace,
-      );
-    }
+        try {
+          await user.updatePassword(newPassword);
+        } on FirebaseAuthException catch (e) {
+          throw AuthException(
+            message: ErrorMessages.getMessageForCode(e.code),
+            code: e.code,
+            originalError: e,
+          );
+        } catch (e, stackTrace) {
+          throw AuthException(
+            message: 'Erro ao atualizar senha.',
+            code: 'update-password-failed',
+            originalError: e,
+            stackTrace: stackTrace,
+          );
+        }
+      },
+    );
   }
 }

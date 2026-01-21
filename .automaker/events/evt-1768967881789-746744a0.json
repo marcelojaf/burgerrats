@@ -1,0 +1,11 @@
+{
+  "id": "evt-1768967881789-746744a0",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-21T03:58:01.789Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "sentry-app-init",
+  "featureName": "Integrar Sentry no main.dart",
+  "error": "Feature completed in 143s",
+  "passes": true
+}

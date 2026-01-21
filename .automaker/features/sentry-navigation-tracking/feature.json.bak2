@@ -1,0 +1,34 @@
+{
+  "id": "sentry-navigation-tracking",
+  "category": "Infrastructure",
+  "title": "Tracking de navegação com Sentry",
+  "description": "Integrar SentryNavigatorObserver no GoRouter para rastrear automaticamente navegação entre telas, medir performance de rotas e identificar gargalos na UX. Criar breadcrumbs de navegação para contexto em crashes.",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "complexity": "simple",
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [
+    "sentry-app-init",
+    "navigation-router-setup"
+  ],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "createdAt": "2026-01-21T03:40:00.000Z",
+  "descriptionHistory": [
+    {
+      "description": "Integrar SentryNavigatorObserver no GoRouter para rastrear automaticamente navegação entre telas, medir performance de rotas e identificar gargalos na UX. Criar breadcrumbs de navegação para contexto em crashes.",
+      "timestamp": "2026-01-21T03:40:00.000Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T04:00:06.058Z",
+  "updatedAt": "2026-01-21T04:00:06.290Z"
+}

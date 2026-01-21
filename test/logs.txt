@@ -1,25 +1,30 @@
 Launching lib\main.dart on SM A556E in debug mode...
 √ Built build\app\outputs\flutter-apk\app-debug.apk
-D/FlutterJNI(20744): Beginning load of flutter...
-D/FlutterJNI(20744): flutter (null) was loaded normally!
-I/flutter (20744): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
-Connecting to VM Service at ws://127.0.0.1:62764/eE70uQmnf20=/ws
+D/FlutterJNI(  468): Beginning load of flutter...
+D/FlutterJNI(  468): flutter (null) was loaded normally!
+I/flutter (  468): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+Connecting to VM Service at ws://127.0.0.1:50519/L9oxsPoUsZ8=/ws
 Connected to the VM Service.
-I/flutter (20744): FCM authorization status: AuthorizationStatus.authorized
-I/flutter (20744): FCM Token: fSTR6IHzQ8-bmcPYupAd-s:APA91bEC9C_B9nlUN8jXMM8lCxBWGSjQmEz3sZlZWnKM2mlIX8D7fKvejFaTC-tQeqsMCpWneKuiF_PluVxnwOJnCmaJJ2hKtuN5UpJv7s5infm96GRpC54
-I/flutter (20744): Firebase initialized successfully
-I/FLTFireBGExecutor(20744): Creating background FlutterEngine instance, with args: [--start-paused, --enable-dart-profiling]
-V/XGL     (20744): ----------------------------------------------------------------------
-V/XGL     (20744): SUMD version compiled date     = 2025-06-11 14:47 - KST
-V/XGL     (20744): SUMD version revision number   = 1fc295b0d2
-V/XGL     (20744): SUMD version info              = Driver version: 24.0.545, git hash: 1fc295b0d2
-V/XGL     (20744): ----------------------------------------------------------------------
-V/XGL     (20744): Entering: Create
-D/FLTFireContextHolder(20744): received application context.
-V/XGL     (20744): Exiting: Create
-I/flutter (20744): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
-I/flutter (20744): ReminderSchedulerService initialized successfully
-I/flutter (20744): Notification message handlers setup complete
+I/flutter (  468): Warning: .secrets/app_secrets.json not found
+I/flutter (  468): AppVersionService: Loaded version 1.0.0+1
+I/flutter (  468): Sentry: DSN not configured, skipping initialization
+I/flutter (  468): FCM authorization status: AuthorizationStatus.authorized
+I/flutter (  468): FCM Token: fq6KldjBQYe18RkexJ5Kp4:APA91bGPML38GGEG1jM4dc6hnmxbOCRMM1wq2qmp0wdejTi-4LwlxxMZFzX3m2hGLD_tqZtY2Ep8IPEgBq0Z4pZ2i4ExoVobhSKs6rO2OzzUMnbx16JtYxI
+I/flutter (  468): Firebase initialized successfully
+I/flutter (  468): Sentry: Service marked as initialized
+I/FLTFireBGExecutor(  468): Creating background FlutterEngine instance, with args: [--start-paused, --enable-dart-profiling]
+V/XGL     (  468): ----------------------------------------------------------------------
+V/XGL     (  468): SUMD version compiled date     = 2025-06-11 14:47 - KST
+V/XGL     (  468): SUMD version revision number   = 1fc295b0d2
+V/XGL     (  468): SUMD version info              = Driver version: 24.0.545, git hash: 1fc295b0d2
+V/XGL     (  468): ----------------------------------------------------------------------
+V/XGL     (  468): Entering: Create
+D/FLTFireContextHolder(  468): received application context.
+V/XGL     (  468): Exiting: Create
+I/flutter (  468): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/Choreographer(  468): Skipped 39 frames!  The application may be doing too much work on its main thread.
+I/flutter (  468): ReminderSchedulerService initialized successfully
+I/flutter (  468): Notification message handlers setup complete
 [GoRouter] setting initial location /
 [GoRouter] Full paths for routes:
            ├─/ (SplashPage)
@@ -71,97 +76,107 @@ I/flutter (20744): Notification message handlers setup complete
              checkin-share => /checkin/:checkInId
              join-league-invite => /join/:inviteCode
 [GoRouter] Using MaterialApp configuration
-I/flutter (20744): SplashPage: Starting initialization...
-I/flutter (20744): SplashPage: _checkOnboardingAndNavigate called, _hasNavigated=false, mounted=true
-I/flutter (20744): SplashPage: Checking hasCompletedOnboarding...
-I/flutter (20744): SplashPage: hasCompletedOnboarding=false
-I/flutter (20744): SplashPage: Navigating to onboarding
-[GoRouter] going to /onboarding
-I/GSC     (20744): SID[77] : 4a351227322e164f, Kind: 1, time : 6.734 ms
-I/GSC     (20744): SID[78] : aad7ee51021e4d4d, Kind: 0, time : 3.173 ms
-[GoRouter] setting initial location /
-[GoRouter] Full paths for routes:
-           ├─/ (SplashPage)
-           ├─/onboarding (OnboardingPage)
-           ├─/login (LoginPage)
-           │ ├─/login/register (RegisterPage)
-           │ └─/login/forgot-password (ForgotPasswordPage)
-           ├─/email-verification (EmailVerificationPage)
-           ├─ (ShellRoute)
-           │ ├─/home
-           │ ├─/leagues
-           │ ├─/check-ins
-           │ └─/profile
-           ├─/leagues/:leagueId (LeagueDetailsPage)
-           ├─/check-ins/:checkInId (CheckInDetailsPage)
-           ├─/check-ins/create (CreateCheckInPage)
-           ├─/profile/edit (EditProfilePage)
-           ├─/settings (SettingsPage)
-           ├─/leagues/join (JoinLeaguePage)
-           ├─/leagues/create (CreateLeaguePage)
-           ├─/leagues/:leagueId/settings (LeagueSettingsPage)
-           ├─/leagues/:leagueId/reminders (ReminderSettingsPageWrapper)
-           ├─/error-demo (ErrorDemoPage)
-           ├─/league/:leagueId
-           ├─/checkin/:checkInId
-           └─/join/:inviteCode
-           known full paths for route names:
-             splash => /
-             onboarding => /onboarding
-             login => /login
-             register => /login/register
-             forgot-password => /login/forgot-password
-             email-verification => /email-verification
-             home => /home
-             leagues => /leagues
-             check-ins => /check-ins
-             profile => /profile
-             league-details => /leagues/:leagueId
-             check-in-details => /check-ins/:checkInId
-             create-check-in => /check-ins/create
-             edit-profile => /profile/edit
-             settings => /settings
-             join-league => /leagues/join
-             create-league => /leagues/create
-             league-settings => /leagues/:leagueId/settings
-             league-reminders => /leagues/:leagueId/reminders
-             error-demo => /error-demo
-             league-invite => /league/:leagueId
-             checkin-share => /checkin/:checkInId
-             join-league-invite => /join/:inviteCode
-I/flutter (20744): NotificationHandler initialized
-I/BLASTBufferQueue(20744): [575682a SurfaceView[com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity]@0#1](f:0,a:0,s:0) onFrameAvailable the first frame is available
-I/Choreographer(20744): Skipped 135 frames!  The application may be doing too much work on its main thread.
-I/SurfaceView(20744): 91580458 finishedDrawing
-D/PhoneWindow(20744): forceLight changed to false [com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4584 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4275 io.flutter.plugin.platform.PlatformPlugin.setSystemChromeSystemUIOverlayStyle:503 io.flutter.plugin.platform.PlatformPlugin.access$700:36 io.flutter.plugin.platform.PlatformPlugin$1.setSystemUiOverlayStyle:123
-I/FLTFireMsgService(20744): FlutterFirebaseMessagingBackgroundService started!
-I/BLASTBufferQueue_Java(20744): update, w= 1080 h= 2340 mName = VRI[MainActivity]@5d4e032 mNativeObject= 0xb4000072b27e0cf0 sc.mNativeObject= 0xb4000073d2733010 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901
-I/VRI[MainActivity]@5d4e032(20744): Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)0 dur=4 res=0x1 s={true 0xb400007462733d90} ch=false seqId=0
-I/VRI[MainActivity]@5d4e032(20744): updateBoundsLayer: t=android.view.SurfaceControl$Transaction@ac90933 sc=Surface(name=Bounds for - com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity@0)/@0x8d8a4f0 frame=1
-D/VRI[MainActivity]@5d4e032(20744): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910
-D/VRI[MainActivity]@5d4e032(20744): Setup new sync=wmsSync-VRI[MainActivity]@5d4e032#1
-I/VRI[MainActivity]@5d4e032(20744): Creating new active sync group VRI[MainActivity]@5d4e032#2
-D/VRI[MainActivity]@5d4e032(20744): Draw frame after cancel
-D/VRI[MainActivity]@5d4e032(20744): registerCallbacksForSync syncBuffer=false
-D/SurfaceView(20744): 91580458 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 0, 1080, 2340] surfaceSize = 1080x2340
-I/SV[91580458 MainActivity](20744): uSP: rtp = Rect(0, 0 - 1080, 2340) rtsw = 1080 rtsh = 2340
-I/SV[91580458 MainActivity](20744): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
-I/SV[91580458 MainActivity](20744): aOrMT: VRI[MainActivity]@5d4e032 t = android.view.SurfaceControl$Transaction@43b201c fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401
-I/VRI[MainActivity]@5d4e032(20744): mWNT: t=0xb4000074e2746a10 mBlastBufferQueue=0xb4000072b27e0cf0 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932
-D/VRI[MainActivity]@5d4e032(20744): Received frameDrawingCallback syncResult=0 frameNum=1.
-I/VRI[MainActivity]@5d4e032(20744): mWNT: t=0xb4000074e274e110 mBlastBufferQueue=0xb4000072b27e0cf0 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack>
-I/VRI[MainActivity]@5d4e032(20744): Setting up sync and frameCommitCallback
-I/BLASTBufferQueue(20744): [VRI[MainActivity]@5d4e032#0](f:0,a:0,s:0) onFrameAvailable the first frame is available
-I/VRI[MainActivity]@5d4e032(20744): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
-D/HWUI    (20744): CFMS:: SetUp Pid : 20744    Tid : 20767
-D/VRI[MainActivity]@5d4e032(20744): reportDrawFinished seqId=0
-D/VRI[MainActivity]@5d4e032(20744): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007462733d90}
-D/InputMethodManagerUtils(20744): startInputInner - Id : 0
-I/InputMethodManager(20744): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
-I/InputMethodManager(20744): handleMessage: setImeVisibility visible=false
-D/InsetsController(20744): hide(ime(), fromIme=false)
-I/ImeTracker(20744): com.cklabs.burgerratsapp:1ef5b20e: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
-D/InputTransport(20744): Input channel constructed: 'ClientS', fd=178
-I/flutter (20744): SplashPage: Checking onboarding...
-I/flutter (20744): SplashPage: _checkOnboardingAndNavigate called, _hasNavigated=true, mounted=true
-D/ProfileInstaller(20744): Installing profile for com.cklabs.burgerratsapp
+I/flutter (  468): SplashPage: Starting initialization...
+I/flutter (  468): Sentry: User context cleared
+I/flutter (  468): Sentry: User context cleared
+I/flutter (  468): SplashPage: _checkOnboardingAndNavigate called, _hasNavigated=false, mounted=true
+I/flutter (  468): SplashPage: Checking hasCompletedOnboarding...
+I/flutter (  468): SplashPage: hasCompletedOnboarding=true
+I/flutter (  468): SplashPage: Checking auth state...
+[GoRouter] going to /login
+I/GSC     (  468): SID[77] : 4a351227322e164f, Kind: 1, time : 7.745 ms
+I/GSC     (  468): SID[78] : aad7ee51021e4d4d, Kind: 0, time : 2.918 ms
+I/flutter (  468): NotificationHandler initialized
+I/BLASTBufferQueue(  468): [93ed282 SurfaceView[com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity]@0#1](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/Choreographer(  468): Skipped 173 frames!  The application may be doing too much work on its main thread.
+I/SurfaceView(  468): 155112066 finishedDrawing
+D/PhoneWindow(  468): forceLight changed to false [com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4584 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4275 io.flutter.plugin.platform.PlatformPlugin.setSystemChromeSystemUIOverlayStyle:503 io.flutter.plugin.platform.PlatformPlugin.access$700:36 io.flutter.plugin.platform.PlatformPlugin$1.setSystemUiOverlayStyle:123
+I/Choreographer(  468): Skipped 31 frames!  The application may be doing too much work on its main thread.
+I/BLASTBufferQueue_Java(  468): update, w= 1080 h= 2340 mName = VRI[MainActivity]@604438a mNativeObject= 0xb4000072b27dccb0 sc.mNativeObject= 0xb4000073d2737450 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901
+I/VRI[MainActivity]@604438a(  468): Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)0 dur=4 res=0x1 s={true 0xb400007462733720} ch=false seqId=0
+I/VRI[MainActivity]@604438a(  468): updateBoundsLayer: t=android.view.SurfaceControl$Transaction@e6a523 sc=Surface(name=Bounds for - com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity@0)/@0x4972a20 frame=1
+D/VRI[MainActivity]@604438a(  468): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910
+D/VRI[MainActivity]@604438a(  468): Setup new sync=wmsSync-VRI[MainActivity]@604438a#1
+I/VRI[MainActivity]@604438a(  468): Creating new active sync group VRI[MainActivity]@604438a#2
+D/VRI[MainActivity]@604438a(  468): Draw frame after cancel
+D/VRI[MainActivity]@604438a(  468): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(  468): 155112066 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 0, 1080, 2340] surfaceSize = 1080x2340
+I/SV[155112066 MainActivity](  468): uSP: rtp = Rect(0, 0 - 1080, 2340) rtsw = 1080 rtsh = 2340
+I/SV[155112066 MainActivity](  468): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[155112066 MainActivity](  468): aOrMT: VRI[MainActivity]@604438a t = android.view.SurfaceControl$Transaction@f14c84c fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401
+I/VRI[MainActivity]@604438a(  468): mWNT: t=0xb4000074e2746d90 mBlastBufferQueue=0xb4000072b27dccb0 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932
+D/VRI[MainActivity]@604438a(  468): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[MainActivity]@604438a(  468): mWNT: t=0xb4000074e275af90 mBlastBufferQueue=0xb4000072b27dccb0 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack>
+I/VRI[MainActivity]@604438a(  468): Setting up sync and frameCommitCallback
+I/BLASTBufferQueue(  468): [VRI[MainActivity]@604438a#0](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/VRI[MainActivity]@604438a(  468): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+D/HWUI    (  468): CFMS:: SetUp Pid : 468    Tid : 535
+D/VRI[MainActivity]@604438a(  468): reportDrawFinished seqId=0
+I/FLTFireMsgService(  468): FlutterFirebaseMessagingBackgroundService started!
+W/WindowOnBackDispatcher(  468): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@158ee52
+D/VRI[MainActivity]@604438a(  468): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007462733720}
+D/InputMethodManagerUtils(  468): startInputInner - Id : 0
+I/InputMethodManager(  468): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+D/InputTransport(  468): Input channel constructed: 'ClientS', fd=185
+I/InputMethodManager(  468): handleMessage: setImeVisibility visible=false
+D/InsetsController(  468): hide(ime(), fromIme=false)
+I/ImeTracker(  468): com.cklabs.burgerratsapp:98bc6a61: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/ProfileInstaller(  468): Installing profile for com.cklabs.burgerratsapp
+I/flutter (  468): SplashPage: Widget not mounted after delay
+I/VRI[MainActivity]@604438a(  468): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@604438a
+I/GSC     (  468): SID[79] : bbcf157b19f70f61, Kind: 1, time : 12.582 ms
+D/ActivityThread(  468): com.cklabs.burgerratsapp will use render engine as VK
+I/DecorView(  468): setWindowBackground: isPopOver=false color=0 d=android.graphics.drawable.ColorDrawable@e815200
+I/ViewRootImpl(  468): dVRR is disabled
+D/NativeCustomFrequencyManager(  468): [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+D/InputTransport(  468): Input channel constructed: '24c7bde', fd=163
+I/InsetsController(  468): onStateChanged: host=com.cklabs.burgerratsapp/com.google.android.gms.auth.api.signin.internal.SignInHubActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2340), mDisplayCutout=DisplayCutout{insets=Rect(0, 89 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(507, 0 - 573, 89), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2340 physicalDisplayWidth=1080 physicalDisplayHeight=2340 density={2.8125} cutoutSpec={M 0,0 M 0,8.177777777777778 a 11.73333333333333,11.73333333333333 0 1,0 0,23.46666666666667 a 11.73333333333333,11.73333333333333 0 1,0 0,-23.46666666666667 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=118, center=Point(118, 118)}, RoundedCorner{position=TopRight, radius=118, center=Point(962, 118)}, RoundedCorner{position=BottomRight, radius=118, center=Point(962, 2222)}, RoundedCorner{position=BottomLeft, radius=118, center=Point(118, 2222)}]}  mRoundedCornerFrame=Rect(0, 0 - 1080, 2340), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(956, 0 - 1080, 89) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2340 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5f80000 mType=statusBars mFrame=[0,0][1080,89] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80005 mType=mandatorySystemGestures mFrame=[0,0][1080,123] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80006 mType=tappableElement mFrame=[0,0][1080,89] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,89] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {5a310001 mType=navigationBars mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5a310004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {5a310005 mType=mandatorySystemGestures mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5a310006 mType=tappableElement mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5a310024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null} }
+I/VRI[SignInHubActivity]@82b5956(  468): synced displayState. AttachInfo displayState=2
+I/VRI[SignInHubActivity]@82b5956(  468): setView = com.android.internal.policy.DecorView@24379ad IsHRR=false mFlingFrameRateChange=0 TM=true
+D/HWUI    (  468): HWUI - treat SMPTE_170M as sRGB
+I/InsetsController(  468): onStateChanged: host=com.cklabs.burgerratsapp/com.google.android.gms.auth.api.signin.internal.SignInHubActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2340), mDisplayCutout=DisplayCutout{insets=Rect(0, 89 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(507, 0 - 573, 89), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2340 physicalDisplayWidth=1080 physicalDisplayHeight=2340 density={2.8125} cutoutSpec={M 0,0 M 0,8.177777777777778 a 11.73333333333333,11.73333333333333 0 1,0 0,23.46666666666667 a 11.73333333333333,11.73333333333333 0 1,0 0,-23.46666666666667 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=118, center=Point(118, 118)}, RoundedCorner{position=TopRight, radius=118, center=Point(962, 118)}, RoundedCorner{position=BottomRight, radius=118, center=Point(962, 2222)}, RoundedCorner{position=BottomLeft, radius=118, center=Point(118, 2222)}]}  mRoundedCornerFrame=Rect(0, 0 - 1080, 2340), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(956, 0 - 1080, 89) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2340 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5f80000 mType=statusBars mFrame=[0,0][1080,89] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80005 mType=mandatorySystemGestures mFrame=[0,0][1080,123] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {a5f80006 mType=tappableElement mFrame=[0,0][1080,89] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,89] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {5a310001 mType=navigationBars mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5a310004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {5a310005 mType=mandatorySystemGestures mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5a310006 mType=tappableElement mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5a310024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null} }
+I/BLASTBufferQueue_Java(  468): new BLASTBufferQueue, mName= VRI[SignInHubActivity]@82b5956 mNativeObject= 0xb4000072b2854420 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3585 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 android.view.Choreographer.doCallbacks:1367 android.view.Choreographer.doFrame:1292 android.view.Choreographer$FrameDisplayEventReceiver.run:1870
+I/BLASTBufferQueue_Java(  468): update, w= 1080 h= 2340 mName = VRI[SignInHubActivity]@82b5956 mNativeObject= 0xb4000072b2854420 sc.mNativeObject= 0xb4000073d273a5d0 format= -2 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3590 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901
+I/VRI[SignInHubActivity]@82b5956(  468): Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)0 dur=6 res=0x3 s={true 0xb40000746273c4c0} ch=true seqId=0
+I/VRI[SignInHubActivity]@82b5956(  468): performConfigurationChange setNightDimText nightDimLevel=0
+D/VRI[SignInHubActivity]@82b5956(  468): mThreadedRenderer.initialize() mSurface={isValid=true 0xb40000746273c4c0} hwInitialized=true
+D/VRI[SignInHubActivity]@82b5956(  468): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910
+D/VRI[SignInHubActivity]@82b5956(  468): Setup new sync=wmsSync-VRI[SignInHubActivity]@82b5956#3
+I/VRI[SignInHubActivity]@82b5956(  468): Creating new active sync group VRI[SignInHubActivity]@82b5956#4
+D/VRI[SignInHubActivity]@82b5956(  468): registerCallbacksForSync syncBuffer=false
+D/VRI[SignInHubActivity]@82b5956(  468): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[SignInHubActivity]@82b5956(  468): mWNT: t=0xb4000074e2763f10 mBlastBufferQueue=0xb4000072b2854420 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack>
+I/VRI[SignInHubActivity]@82b5956(  468): Setting up sync and frameCommitCallback
+I/GSC     (  468): SID[80] : fe6ff4e467193f9c, Kind: 1, time : 6.051 ms
+I/GSC     (  468): SID[81] : 9fb7104710fc7e74, Kind: 0, time : 3.851 ms
+I/BLASTBufferQueue(  468): [VRI[SignInHubActivity]@82b5956#2](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/VRI[SignInHubActivity]@82b5956(  468): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+D/HWUI    (  468): CFMS:: SetUp Pid : 468    Tid : 535
+D/VRI[SignInHubActivity]@82b5956(  468): reportDrawFinished seqId=0
+I/ImeFocusController(  468): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(  468): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/InsetsSourceConsumer(  468): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.cklabs.burgerratsapp/com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+I/InsetsSourceConsumer(  468): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.cklabs.burgerratsapp/com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+I/InsetsSourceConsumer(  468): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/InsetsSourceConsumer(  468): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/InsetsSourceConsumer(  468): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.cklabs.burgerratsapp/com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+I/InsetsSourceConsumer(  468): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.cklabs.burgerratsapp/com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+D/InputTransport(  468): Input channel destroyed: 'ClientS', fd=185
+I/InsetsSourceConsumer(  468): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/InsetsSourceConsumer(  468): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.cklabs.burgerratsapp/com.cklabs.burgerratsapp.MainActivity
+I/VRI[SignInHubActivity]@82b5956(  468): handleAppVisibility mAppVisible = true visible = false
+D/VRI[SignInHubActivity]@82b5956(  468): visibilityChanged oldVisibility=true newVisibility=false
+I/VRI[SignInHubActivity]@82b5956(  468): stopped(true) old = false
+D/VRI[SignInHubActivity]@82b5956(  468): WindowStopped on com.cklabs.burgerratsapp/com.google.android.gms.auth.api.signin.internal.SignInHubActivity set to true
+W/WindowOnBackDispatcher(  468): sendCancelIfRunning: isInProgress=false callback=android.app.Activity$$ExternalSyntheticLambda0@64b03a9
+D/ViewRootImpl(  468): Skipping stats log for color mode
+I/VRI[SignInHubActivity]@82b5956(  468): dispatchDetachedFromWindow
+D/InputTransport(  468): Input channel destroyed: '24c7bde', fd=163
+D/VRI[MainActivity]@604438a(  468): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007462733720}
+D/InputMethodManagerUtils(  468): startInputInner - Id : 0
+I/InputMethodManager(  468): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+D/InputTransport(  468): Input channel constructed: 'ClientS', fd=165
+I/InputMethodManager(  468): handleMessage: setImeVisibility visible=false
+D/InsetsController(  468): hide(ime(), fromIme=false)
+I/ImeTracker(  468): com.cklabs.burgerratsapp:314af851: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+I/VRI[MainActivity]@604438a(  468): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@604438a

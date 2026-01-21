@@ -1,0 +1,35 @@
+{
+  "id": "sentry-service",
+  "category": "Infrastructure",
+  "title": "Criar SentryService",
+  "description": "Criar um serviço centralizado (lib/core/services/sentry_service.dart) para gerenciar a inicialização do Sentry, configurar contexto de usuário, ambientes e opções de monitoramento. Registrar como @LazySingleton no sistema de DI.",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 1,
+  "complexity": "medium",
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [
+    "sentry-dependency",
+    "sentry-secrets-config",
+    "dependency-injection-setup"
+  ],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "createdAt": "2026-01-21T03:40:00.000Z",
+  "descriptionHistory": [
+    {
+      "description": "Criar um serviço centralizado (lib/core/services/sentry_service.dart) para gerenciar a inicialização do Sentry, configurar contexto de usuário, ambientes e opções de monitoramento. Registrar como @LazySingleton no sistema de DI.",
+      "timestamp": "2026-01-21T03:40:00.000Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T03:54:29.894Z",
+  "updatedAt": "2026-01-21T03:54:30.107Z"
+}

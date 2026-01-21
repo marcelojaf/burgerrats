@@ -1,0 +1,11 @@
+{
+  "id": "evt-1768967875542-40b8ffc5",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-21T03:57:55.542Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "sentry-service",
+  "featureName": "Criar SentryService",
+  "error": "Feature completed in 205s",
+  "passes": true
+}

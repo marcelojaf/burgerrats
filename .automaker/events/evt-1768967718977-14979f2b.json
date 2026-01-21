@@ -1,0 +1,11 @@
+{
+  "id": "evt-1768967718977-14979f2b",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-21T03:55:18.977Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "sentry-dependency",
+  "featureName": "Adicionar dependência sentry_flutter",
+  "error": "Feature completed in 82s",
+  "passes": true
+}

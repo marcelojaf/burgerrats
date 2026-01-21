@@ -1,0 +1,32 @@
+{
+  "id": "sentry-secrets-config",
+  "category": "Infrastructure",
+  "title": "Configurar secrets do Sentry",
+  "description": "Configurar o arquivo .secrets/app_secrets.json com o DSN real do Sentry (slug: burger-rats) e definir configurações de ambiente (dev, stg, prod) incluindo taxas de amostragem de traces apropriadas para cada ambiente.",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 1,
+  "complexity": "simple",
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [
+    "sentry-dependency"
+  ],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "createdAt": "2026-01-21T03:40:00.000Z",
+  "descriptionHistory": [
+    {
+      "description": "Configurar o arquivo .secrets/app_secrets.json com o DSN real do Sentry (slug: burger-rats) e definir configurações de ambiente (dev, stg, prod) incluindo taxas de amostragem de traces apropriadas para cada ambiente.",
+      "timestamp": "2026-01-21T03:40:00.000Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T03:54:23.619Z"
+}

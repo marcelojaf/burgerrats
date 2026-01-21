@@ -18,9 +18,6 @@ class StreakRepositoryImpl implements StreakRepository {
   /// Collection reference for streaks
   static const String _streaksCollection = 'streaks';
 
-  /// Default grace period in hours
-  static const int _defaultGracePeriodHours = 4;
-
   StreakRepositoryImpl(this._firestore);
 
   /// Gets the streaks collection reference

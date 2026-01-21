@@ -92,10 +92,10 @@ class LeagueReminderSettingsNotifier
     _loadSettings();
   }
 
-  Future<void> _loadSettings() async {
+  void _loadSettings() {
     state = state.copyWith(isLoading: true);
     try {
-      final settings = await _repository.getLeagueSettings(leagueId);
+      final settings = _repository.getLeagueSettings(leagueId);
       state = ReminderSettingsState(settings: settings);
     } catch (e) {
       state = state.copyWith(

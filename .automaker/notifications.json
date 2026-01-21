@@ -17,7 +17,7 @@
       "title": "Feature Verified",
       "message": "\"flutter-project-init\" has been verified and is complete.",
       "createdAt": "2026-01-18T14:59:37.505Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "flutter-project-init",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -28,7 +28,7 @@
       "title": "Feature Verified",
       "message": "\"project-structure-setup\" has been verified and is complete.",
       "createdAt": "2026-01-18T15:17:22.079Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "project-structure-setup",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -39,7 +39,7 @@
       "title": "Feature Verified",
       "message": "\"firebase-project-config\" has been verified and is complete.",
       "createdAt": "2026-01-18T15:18:48.385Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "firebase-project-config",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -50,7 +50,7 @@
       "title": "Feature Verified",
       "message": "\"theme-design-system\" has been verified and is complete.",
       "createdAt": "2026-01-18T15:24:31.899Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "theme-design-system",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -61,7 +61,7 @@
       "title": "Feature Verified",
       "message": "\"dependency-injection-setup\" has been verified and is complete.",
       "createdAt": "2026-01-18T15:35:33.665Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "dependency-injection-setup",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -72,7 +72,7 @@
       "title": "Feature Verified",
       "message": "\"navigation-router-setup\" has been verified and is complete.",
       "createdAt": "2026-01-18T15:44:27.992Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "navigation-router-setup",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -83,7 +83,7 @@
       "title": "Feature Verified",
       "message": "\"error-handling-framework\" has been verified and is complete.",
       "createdAt": "2026-01-18T15:55:53.477Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "error-handling-framework",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -94,7 +94,7 @@
       "title": "Feature Verified",
       "message": "\"camera-permission-handler\" has been verified and is complete.",
       "createdAt": "2026-01-18T16:28:40.144Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "camera-permission-handler",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -105,7 +105,7 @@
       "title": "Feature Verified",
       "message": "\"photo-capture-service\" has been verified and is complete.",
       "createdAt": "2026-01-18T16:44:34.126Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "photo-capture-service",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -116,7 +116,7 @@
       "title": "Feature Verified",
       "message": "\"image-compression-service\" has been verified and is complete.",
       "createdAt": "2026-01-18T19:53:19.707Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "image-compression-service",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -127,7 +127,7 @@
       "title": "Feature Verified",
       "message": "\"state-management-setup\" has been verified and is complete.",
       "createdAt": "2026-01-18T19:55:10.765Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "state-management-setup",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -138,7 +138,7 @@
       "title": "Feature Verified",
       "message": "\"user-model\" has been verified and is complete.",
       "createdAt": "2026-01-18T20:02:46.374Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "user-model",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -149,7 +149,7 @@
       "title": "Feature Verified",
       "message": "\"deep-linking-setup\" has been verified and is complete.",
       "createdAt": "2026-01-18T20:06:00.881Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "deep-linking-setup",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -160,7 +160,7 @@
       "title": "Feature Verified",
       "message": "\"user-repository\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:09:10.436Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "user-repository",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -171,7 +171,7 @@
       "title": "Feature Verified",
       "message": "\"league-model\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:10:10.326Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "league-model",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -182,7 +182,7 @@
       "title": "Feature Verified",
       "message": "\"checkin-model\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:32:02.443Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "checkin-model",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -193,7 +193,7 @@
       "title": "Feature Verified",
       "message": "\"checkin-repository\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:32:40.265Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "checkin-repository",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -204,7 +204,7 @@
       "title": "Feature Verified",
       "message": "\"league-repository\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:34:41.394Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "league-repository",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -215,7 +215,7 @@
       "title": "Feature Verified",
       "message": "\"daily-limit-validator\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:39:26.606Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "daily-limit-validator",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -226,7 +226,7 @@
       "title": "Feature Verified",
       "message": "\"invite-code-generator\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:40:44.902Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "invite-code-generator",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -237,7 +237,7 @@
       "title": "Feature Verified",
       "message": "\"join-league-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:43:20.825Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "join-league-screen",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -248,7 +248,7 @@
       "title": "Feature Verified",
       "message": "\"create-league-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:47:50.011Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "create-league-screen",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -259,7 +259,7 @@
       "title": "Feature Verified",
       "message": "\"create-checkin-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:48:35.691Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "create-checkin-screen",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -270,7 +270,7 @@
       "title": "Feature Verified",
       "message": "\"firebase-auth-service\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:50:04.910Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "firebase-auth-service",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -281,7 +281,7 @@
       "title": "Feature Verified",
       "message": "\"firebase-storage-service\" has been verified and is complete.",
       "createdAt": "2026-01-19T13:54:27.875Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "firebase-storage-service",
       "projectPath": "/Users/marcelo/dev/burgerrats"
@@ -292,7 +292,7 @@
       "title": "Feature Verified",
       "message": "\"auth-state-provider\" has been verified and is complete.",
       "createdAt": "2026-01-19T14:55:36.001Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "auth-state-provider",
       "projectPath": "C:\\dev\\burgerrats"
@@ -303,7 +303,7 @@
       "title": "Feature Verified",
       "message": "\"checkin-submission-flow\" has been verified and is complete.",
       "createdAt": "2026-01-19T14:56:41.411Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "checkin-submission-flow",
       "projectPath": "C:\\dev\\burgerrats"
@@ -314,7 +314,7 @@
       "title": "Feature Verified",
       "message": "\"email-password-auth\" has been verified and is complete.",
       "createdAt": "2026-01-19T15:00:38.139Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "email-password-auth",
       "projectPath": "C:\\dev\\burgerrats"
@@ -325,7 +325,7 @@
       "title": "Feature Verified",
       "message": "\"google-signin-integration\" has been verified and is complete.",
       "createdAt": "2026-01-19T15:43:33.674Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "google-signin-integration",
       "projectPath": "C:\\dev\\burgerrats"
@@ -336,7 +336,7 @@
       "title": "Feature Verified",
       "message": "\"leaderboard-calculator\" has been verified and is complete.",
       "createdAt": "2026-01-19T15:51:01.458Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "leaderboard-calculator",
       "projectPath": "C:\\dev\\burgerrats"
@@ -347,7 +347,7 @@
       "title": "Feature Verified",
       "message": "\"login-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T15:52:48.596Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "login-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -358,7 +358,7 @@
       "title": "Feature Verified",
       "message": "\"league-detail-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T15:53:24.643Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "league-detail-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -369,7 +369,7 @@
       "title": "Feature Verified",
       "message": "\"leaderboard-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T15:55:10.407Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "leaderboard-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -380,7 +380,7 @@
       "title": "Feature Verified",
       "message": "\"signup-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T15:58:22.152Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "signup-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -391,7 +391,7 @@
       "title": "Feature Verified",
       "message": "\"my-leagues-list\" has been verified and is complete.",
       "createdAt": "2026-01-19T15:58:23.688Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "my-leagues-list",
       "projectPath": "C:\\dev\\burgerrats"
@@ -402,7 +402,7 @@
       "title": "Feature Verified",
       "message": "\"splash-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T16:39:42.866Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "splash-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -413,7 +413,7 @@
       "title": "Feature Verified",
       "message": "\"checkin-history-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T16:45:14.509Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "checkin-history-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -424,7 +424,7 @@
       "title": "Feature Verified",
       "message": "\"activity-feed-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T16:45:54.923Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "activity-feed-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -435,7 +435,7 @@
       "title": "Feature Verified",
       "message": "\"fcm-setup\" has been verified and is complete.",
       "createdAt": "2026-01-19T16:57:14.025Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "fcm-setup",
       "projectPath": "C:\\dev\\burgerrats"
@@ -446,7 +446,7 @@
       "title": "Feature Verified",
       "message": "\"onboarding-flow\" has been verified and is complete.",
       "createdAt": "2026-01-19T16:57:36.070Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "onboarding-flow",
       "projectPath": "C:\\dev\\burgerrats"
@@ -457,7 +457,7 @@
       "title": "Feature Verified",
       "message": "\"league-member-management\" has been verified and is complete.",
       "createdAt": "2026-01-19T16:59:00.668Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "league-member-management",
       "projectPath": "C:\\dev\\burgerrats"
@@ -468,7 +468,7 @@
       "title": "Feature Verified",
       "message": "\"league-settings-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T17:49:00.046Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "league-settings-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -479,7 +479,7 @@
       "title": "Feature Verified",
       "message": "\"daily-reminder-scheduler\" has been verified and is complete.",
       "createdAt": "2026-01-19T17:50:51.831Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "daily-reminder-scheduler",
       "projectPath": "C:\\dev\\burgerrats"
@@ -490,7 +490,7 @@
       "title": "Feature Verified",
       "message": "\"notification-service\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:12:59.644Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "notification-service",
       "projectPath": "C:\\dev\\burgerrats"
@@ -501,7 +501,7 @@
       "title": "Feature Verified",
       "message": "\"photo-gallery-view\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:13:58.893Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "photo-gallery-view",
       "projectPath": "C:\\dev\\burgerrats"
@@ -512,7 +512,7 @@
       "title": "Feature Verified",
       "message": "\"streak-tracker-service\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:16:21.139Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "streak-tracker-service",
       "projectPath": "C:\\dev\\burgerrats"
@@ -523,7 +523,7 @@
       "title": "Feature Verified",
       "message": "\"user-profile-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:22:50.917Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "user-profile-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -534,7 +534,7 @@
       "title": "Feature Verified",
       "message": "\"share-checkin-feature\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:23:15.775Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "share-checkin-feature",
       "projectPath": "C:\\dev\\burgerrats"
@@ -545,7 +545,7 @@
       "title": "Feature Verified",
       "message": "\"checkin-notifications\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:24:45.300Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "checkin-notifications",
       "projectPath": "C:\\dev\\burgerrats"
@@ -556,7 +556,7 @@
       "title": "Feature Verified",
       "message": "\"android-app-icon\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:36:52.221Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "android-app-icon",
       "projectPath": "C:\\dev\\burgerrats"
@@ -567,7 +567,7 @@
       "title": "Feature Verified",
       "message": "\"color-system-implementation\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:39:41.660Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "color-system-implementation",
       "projectPath": "C:\\dev\\burgerrats"
@@ -578,7 +578,7 @@
       "title": "Feature Verified",
       "message": "\"ios-app-icon\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:40:12.321Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "ios-app-icon",
       "projectPath": "C:\\dev\\burgerrats"
@@ -589,7 +589,7 @@
       "title": "Feature Verified",
       "message": "\"edit-profile-screen\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:40:34.157Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "edit-profile-screen",
       "projectPath": "C:\\dev\\burgerrats"
@@ -600,7 +600,7 @@
       "title": "Feature Verified",
       "message": "\"app-branding-assets\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:46:55.272Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "app-branding-assets",
       "projectPath": "C:\\dev\\burgerrats"
@@ -611,7 +611,7 @@
       "title": "Feature Verified",
       "message": "\"theme-configuration\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:47:29.137Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "theme-configuration",
       "projectPath": "C:\\dev\\burgerrats"
@@ -622,7 +622,7 @@
       "title": "Feature Verified",
       "message": "\"dark-mode-support\" has been verified and is complete.",
       "createdAt": "2026-01-19T18:53:44.241Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "dark-mode-support",
       "projectPath": "C:\\dev\\burgerrats"
@@ -633,7 +633,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-setup-flutter-localizations\" has been verified and is complete.",
       "createdAt": "2026-01-20T21:20:38.092Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-setup-flutter-localizations",
       "projectPath": "C:\\dev\\burgerrats"
@@ -644,7 +644,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-arb-files-structure\" has been verified and is complete.",
       "createdAt": "2026-01-20T21:24:51.205Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-arb-files-structure",
       "projectPath": "C:\\dev\\burgerrats"
@@ -655,7 +655,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-generate-localizations\" has been verified and is complete.",
       "createdAt": "2026-01-20T21:32:54.588Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-generate-localizations",
       "projectPath": "C:\\dev\\burgerrats"
@@ -666,7 +666,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-migrate-auth-feature\" has been verified and is complete.",
       "createdAt": "2026-01-20T21:50:47.419Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-migrate-auth-feature",
       "projectPath": "C:\\dev\\burgerrats"
@@ -677,7 +677,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-migrate-leagues-feature\" has been verified and is complete.",
       "createdAt": "2026-01-20T21:57:45.654Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-migrate-leagues-feature",
       "projectPath": "C:\\dev\\burgerrats"
@@ -688,7 +688,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-migrate-profile-feature\" has been verified and is complete.",
       "createdAt": "2026-01-20T21:58:19.081Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-migrate-profile-feature",
       "projectPath": "C:\\dev\\burgerrats"
@@ -699,7 +699,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-migrate-checkins-feature\" has been verified and is complete.",
       "createdAt": "2026-01-20T22:02:01.083Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-migrate-checkins-feature",
       "projectPath": "C:\\dev\\burgerrats"
@@ -710,7 +710,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-migrate-shared-widgets\" has been verified and is complete.",
       "createdAt": "2026-01-20T22:07:45.804Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-migrate-shared-widgets",
       "projectPath": "C:\\dev\\burgerrats"
@@ -721,7 +721,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-locale-switcher-service\" has been verified and is complete.",
       "createdAt": "2026-01-20T22:11:16.033Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-locale-switcher-service",
       "projectPath": "C:\\dev\\burgerrats"
@@ -732,7 +732,7 @@
       "title": "Feature Verified",
       "message": "\"i18n-testing-coverage\" has been verified and is complete.",
       "createdAt": "2026-01-21T02:27:19.856Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-testing-coverage",
       "projectPath": "C:\\dev\\burgerrats"
@@ -743,9 +743,97 @@
       "title": "Feature Verified",
       "message": "\"i18n-notification-messages\" has been verified and is complete.",
       "createdAt": "2026-01-21T02:28:45.877Z",
-      "read": false,
+      "read": true,
       "dismissed": false,
       "featureId": "i18n-notification-messages",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "f3781f3c-6687-42d8-9ae1-d7a1ed7e6989",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"sentry-dependency\" is ready for your review and approval.",
+      "createdAt": "2026-01-21T03:55:18.971Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "sentry-dependency",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "99a38f60-0ff2-4a93-b8cb-d76d11da61f4",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"sentry-secrets-config\" is ready for your review and approval.",
+      "createdAt": "2026-01-21T03:55:33.558Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "sentry-secrets-config",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "f1cd6bda-d063-4fc4-882e-a3aacb80d9bc",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"sentry-service\" is ready for your review and approval.",
+      "createdAt": "2026-01-21T03:57:55.538Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "sentry-service",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "960f663d-1bb3-4ab2-94fe-710aa4db3a30",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"sentry-app-init\" is ready for your review and approval.",
+      "createdAt": "2026-01-21T03:58:01.786Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "sentry-app-init",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "5c6fcff3-bca6-4fb6-abf2-9e065ed65524",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"sentry-user-context\" is ready for your review and approval.",
+      "createdAt": "2026-01-21T04:01:42.775Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "sentry-user-context",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "92fffaee-1ba5-49a1-bffe-37167f66371c",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"sentry-navigation-tracking\" is ready for your review and approval.",
+      "createdAt": "2026-01-21T04:01:58.138Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "sentry-navigation-tracking",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "88d8fcf7-0a87-4448-a951-d2c54645b486",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"sentry-firebase-tracing\" is ready for your review and approval.",
+      "createdAt": "2026-01-21T04:04:21.434Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "sentry-firebase-tracing",
+      "projectPath": "C:\\dev\\burgerrats"
+    },
+    {
+      "id": "473d5ac5-66ff-43f7-936c-c858ee26d86d",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"sentry-release-tracking\" is ready for your review and approval.",
+      "createdAt": "2026-01-21T04:04:28.479Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "sentry-release-tracking",
       "projectPath": "C:\\dev\\burgerrats"
     }
   ]

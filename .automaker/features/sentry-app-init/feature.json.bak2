@@ -1,0 +1,33 @@
+{
+  "id": "sentry-app-init",
+  "category": "Infrastructure",
+  "title": "Integrar Sentry no main.dart",
+  "description": "Integrar o SentryFlutter.init no main.dart para capturar crashes não tratados, configurar error handlers e envolver o app com SentryWidget para monitoramento automático de performance de widgets.",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 1,
+  "complexity": "medium",
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [
+    "sentry-service"
+  ],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "createdAt": "2026-01-21T03:40:00.000Z",
+  "descriptionHistory": [
+    {
+      "description": "Integrar o SentryFlutter.init no main.dart para capturar crashes não tratados, configurar error handlers e envolver o app com SentryWidget para monitoramento automático de performance de widgets.",
+      "timestamp": "2026-01-21T03:40:00.000Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T03:55:38.720Z",
+  "updatedAt": "2026-01-21T03:55:38.907Z"
+}

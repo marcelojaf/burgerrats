@@ -1,0 +1,11 @@
+{
+  "id": "evt-1768968268482-a79c8e8c",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-21T04:04:28.482Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "sentry-release-tracking",
+  "featureName": "Versionamento de releases no Sentry",
+  "error": "Feature completed in 151s",
+  "passes": true
+}

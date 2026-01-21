@@ -1,0 +1,36 @@
+{
+  "id": "sentry-firebase-tracing",
+  "category": "Infrastructure",
+  "title": "Monitoramento de performance Firebase",
+  "description": "Instrumentar operações críticas do Firestore, Firebase Auth e Storage com Sentry Transactions e Spans para rastreamento detalhado de performance. Incluir tempos de resposta, erros e métricas de uso.",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "complexity": "medium",
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [
+    "sentry-app-init",
+    "firebase-auth-service",
+    "firebase-storage-service"
+  ],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "createdAt": "2026-01-21T03:40:00.000Z",
+  "descriptionHistory": [
+    {
+      "description": "Instrumentar operações críticas do Firestore, Firebase Auth e Storage com Sentry Transactions e Spans para rastreamento detalhado de performance. Incluir tempos de resposta, erros e métricas de uso.",
+      "timestamp": "2026-01-21T03:40:00.000Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T03:55:44.719Z",
+  "updatedAt": "2026-01-21T04:04:21.431Z",
+  "justFinishedAt": "2026-01-21T04:04:21.431Z"
+}

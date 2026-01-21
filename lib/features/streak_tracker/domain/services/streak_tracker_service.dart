@@ -47,9 +47,8 @@ class StreakTrackerService {
           userId: userId,
         );
 
-    // Get the start of the check-in day and today
+    // Get the start of the check-in day
     final checkInDay = _getStartOfDate(checkInDate);
-    final today = _getStartOfToday();
 
     // Check if already checked in today
     final lastCheckInDay = streak.lastCheckInDate != null

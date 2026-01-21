@@ -324,6 +324,38 @@ Update README.md with instructions on how to make changes in Firebase portal. In
       <name>Localize Notification Messages</name>
       <description>Ensure FCM notification messages support multiple languages</description>
     </feature>
+    <feature>
+      <name>Adicionar dependência sentry_flutter</name>
+      <description>Adicionar o pacote sentry_flutter no pubspec.yaml para monitoramento de crashes e performance tracking. Incluir versão mais recente compatível com Flutter SDK 3.10.1.</description>
+    </feature>
+    <feature>
+      <name>Configurar secrets do Sentry</name>
+      <description>Configurar o arquivo .secrets/app_secrets.json com o DSN real do Sentry (slug: burger-rats) e definir configurações de ambiente (dev, stg, prod) incluindo taxas de amostragem de traces apropriadas para cada ambiente.</description>
+    </feature>
+    <feature>
+      <name>Integrar Sentry no main.dart</name>
+      <description>Integrar o SentryFlutter.init no main.dart para capturar crashes não tratados, configurar error handlers e envolver o app com SentryWidget para monitoramento automático de performance de widgets.</description>
+    </feature>
+    <feature>
+      <name>Criar SentryService</name>
+      <description>Criar um serviço centralizado (lib/core/services/sentry_service.dart) para gerenciar a inicialização do Sentry, configurar contexto de usuário, ambientes e opções de monitoramento. Registrar como @LazySingleton no sistema de DI.</description>
+    </feature>
+    <feature>
+      <name>Capturar contexto de usuário no Sentry</name>
+      <description>Configurar o Sentry para capturar e anexar informações do usuário autenticado (ID, email, username) em todos os eventos, crashes e transações. Integrar com auth state provider para atualizar contexto automaticamente no login/logout.</description>
+    </feature>
+    <feature>
+      <name>Tracking de navegação com Sentry</name>
+      <description>Integrar SentryNavigatorObserver no GoRouter para rastrear automaticamente navegação entre telas, medir performance de rotas e identificar gargalos na UX. Criar breadcrumbs de navegação para contexto em crashes.</description>
+    </feature>
+    <feature>
+      <name>Monitoramento de performance Firebase</name>
+      <description>Instrumentar operações críticas do Firestore, Firebase Auth e Storage com Sentry Transactions e Spans para rastreamento detalhado de performance. Incluir tempos de resposta, erros e métricas de uso.</description>
+    </feature>
+    <feature>
+      <name>Versionamento de releases no Sentry</name>
+      <description>Configurar o Sentry para usar automaticamente a versão do pubspec.yaml (versão + build number) como release identifier. Permite rastrear crashes e performance por versão específica do app, facilitando identificação de regressões.</description>
+    </feature>
   </implemented_features>
 
   <additional_requirements>

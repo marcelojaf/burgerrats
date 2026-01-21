@@ -1,0 +1,11 @@
+{
+  "id": "evt-1768967733562-13664a97",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-21T03:55:33.562Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "sentry-secrets-config",
+  "featureName": "Configurar secrets do Sentry",
+  "error": "Feature completed in 70s",
+  "passes": true
+}

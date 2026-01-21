@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import '../../features/auth/presentation/pages/email_verification_page.dart';
 import '../../features/auth/presentation/pages/forgot_password_page.dart';
@@ -53,6 +54,9 @@ final routerProvider = Provider<GoRouter>((ref) {
     navigatorKey: _rootNavigatorKey,
     initialLocation: AppRoutes.splash,
     debugLogDiagnostics: true,
+    observers: [
+      SentryNavigatorObserver(),
+    ],
     refreshListenable: _GoRouterRefreshStream(
       FirebaseAuth.instance.authStateChanges(),
     ),
@@ -320,6 +324,9 @@ class AppRouter {
     navigatorKey: _rootNavigatorKey,
     initialLocation: AppRoutes.splash,
     debugLogDiagnostics: true,
+    observers: [
+      SentryNavigatorObserver(),
+    ],
     routes: _routes,
     errorBuilder: (context, state) => _ErrorPage(error: state.error),
   );

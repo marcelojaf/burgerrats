@@ -298,7 +298,6 @@ class _GoogleIconPainter extends CustomPainter {
 
     // Draw the Google "G" shape using arcs
     final Rect rect = Rect.fromLTWH(0, 0, s, s);
-    const double strokeWidth = 0.22;
 
     // Blue arc (right side)
     paint.color = blue;

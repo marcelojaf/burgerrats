@@ -147,13 +147,8 @@ class _FeedItemHeader extends StatelessWidget {
 class _UserAvatar extends StatelessWidget {
   final String? photoURL;
   final String initials;
-  final double radius;
 
-  const _UserAvatar({
-    this.photoURL,
-    required this.initials,
-    this.radius = 20.0,
-  });
+  const _UserAvatar({this.photoURL, required this.initials});
 
   @override
   Widget build(BuildContext context) {
@@ -161,7 +156,7 @@ class _UserAvatar extends StatelessWidget {
 
     if (photoURL != null && photoURL!.isNotEmpty) {
       return CircleAvatar(
-        radius: radius,
+        radius: 20,
         backgroundImage: NetworkImage(photoURL!),
         onBackgroundImageError: (_, _) {},
         child: null,
@@ -169,14 +164,14 @@ class _UserAvatar extends StatelessWidget {
     }
 
     return CircleAvatar(
-      radius: radius,
+      radius: 20,
       backgroundColor: colorScheme.primaryContainer,
       child: Text(
         initials,
         style: TextStyle(
           color: colorScheme.onPrimaryContainer,
           fontWeight: FontWeight.bold,
-          fontSize: radius * 0.7,
+          fontSize: 14,
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../domain/entities/reminder_settings.dart';
@@ -8,21 +9,18 @@ import '../../domain/entities/reminder_settings.dart';
 ///
 /// Uses SharedPreferences to store reminder configurations.
 /// Settings are stored per-user and per-league.
+@lazySingleton
 class ReminderSettingsRepository {
   static const String _globalSettingsKey = 'global_reminder_settings';
   static const String _leagueSettingsPrefix = 'league_reminder_settings_';
 
-  SharedPreferences? _prefs;
+  final SharedPreferences _prefs;
 
-  /// Initialize the repository by loading SharedPreferences
-  Future<void> init() async {
-    _prefs ??= await SharedPreferences.getInstance();
-  }
+  ReminderSettingsRepository(this._prefs);
 
   /// Get global reminder settings
-  Future<GlobalReminderSettings> getGlobalSettings() async {
-    await init();
-    final jsonString = _prefs?.getString(_globalSettingsKey);
+  GlobalReminderSettings getGlobalSettings() {
+    final jsonString = _prefs.getString(_globalSettingsKey);
     if (jsonString == null) {
       return const GlobalReminderSettings.defaults();
     }
@@ -36,16 +34,14 @@ class ReminderSettingsRepository {
 
   /// Save global reminder settings
   Future<void> saveGlobalSettings(GlobalReminderSettings settings) async {
-    await init();
     final jsonString = jsonEncode(settings.toJson());
-    await _prefs?.setString(_globalSettingsKey, jsonString);
+    await _prefs.setString(_globalSettingsKey, jsonString);
   }
 
   /// Get reminder settings for a specific league
-  Future<LeagueReminderSettings> getLeagueSettings(String leagueId) async {
-    await init();
+  LeagueReminderSettings getLeagueSettings(String leagueId) {
     final key = '$_leagueSettingsPrefix$leagueId';
-    final jsonString = _prefs?.getString(key);
+    final jsonString = _prefs.getString(key);
     if (jsonString == null) {
       return LeagueReminderSettings.defaults(leagueId: leagueId);
     }
@@ -59,22 +55,20 @@ class ReminderSettingsRepository {
 
   /// Save reminder settings for a specific league
   Future<void> saveLeagueSettings(LeagueReminderSettings settings) async {
-    await init();
     final key = '$_leagueSettingsPrefix${settings.leagueId}';
     final jsonString = jsonEncode(settings.toJson());
-    await _prefs?.setString(key, jsonString);
+    await _prefs.setString(key, jsonString);
   }
 
   /// Get all league reminder settings
-  Future<List<LeagueReminderSettings>> getAllLeagueSettings() async {
-    await init();
-    final allKeys = _prefs?.getKeys() ?? <String>{};
+  List<LeagueReminderSettings> getAllLeagueSettings() {
+    final allKeys = _prefs.getKeys();
     final leagueKeys =
         allKeys.where((key) => key.startsWith(_leagueSettingsPrefix));
 
     final settings = <LeagueReminderSettings>[];
     for (final key in leagueKeys) {
-      final jsonString = _prefs?.getString(key);
+      final jsonString = _prefs.getString(key);
       if (jsonString != null) {
         try {
           final json = jsonDecode(jsonString) as Map<String, dynamic>;
@@ -88,29 +82,27 @@ class ReminderSettingsRepository {
   }
 
   /// Get all enabled league reminder settings
-  Future<List<LeagueReminderSettings>> getEnabledLeagueSettings() async {
-    final allSettings = await getAllLeagueSettings();
+  List<LeagueReminderSettings> getEnabledLeagueSettings() {
+    final allSettings = getAllLeagueSettings();
     return allSettings.where((s) => s.isEnabled).toList();
   }
 
   /// Delete reminder settings for a specific league
   Future<void> deleteLeagueSettings(String leagueId) async {
-    await init();
     final key = '$_leagueSettingsPrefix$leagueId';
-    await _prefs?.remove(key);
+    await _prefs.remove(key);
   }
 
   /// Clear all reminder settings (useful for logout)
   Future<void> clearAllSettings() async {
-    await init();
-    await _prefs?.remove(_globalSettingsKey);
+    await _prefs.remove(_globalSettingsKey);
 
-    final allKeys = _prefs?.getKeys() ?? <String>{};
+    final allKeys = _prefs.getKeys();
     final leagueKeys =
         allKeys.where((key) => key.startsWith(_leagueSettingsPrefix)).toList();
 
     for (final key in leagueKeys) {
-      await _prefs?.remove(key);
+      await _prefs.remove(key);
     }
   }
 }

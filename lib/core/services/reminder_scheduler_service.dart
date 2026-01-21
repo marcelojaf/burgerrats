@@ -258,7 +258,7 @@ class ReminderSchedulerService {
       await _notificationsPlugin.cancel(notificationId);
 
       // Update settings to disabled
-      final settings = await _settingsRepository.getLeagueSettings(leagueId);
+      final settings = _settingsRepository.getLeagueSettings(leagueId);
       await _settingsRepository
           .saveLeagueSettings(settings.copyWith(isEnabled: false));
 
@@ -296,8 +296,7 @@ class ReminderSchedulerService {
   Future<void> rescheduleAllReminders(
       Map<String, String> leagueNames) async {
     try {
-      final enabledSettings =
-          await _settingsRepository.getEnabledLeagueSettings();
+      final enabledSettings = _settingsRepository.getEnabledLeagueSettings();
 
       for (final settings in enabledSettings) {
         final leagueName = leagueNames[settings.leagueId] ?? 'Liga';

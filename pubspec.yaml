@@ -98,6 +98,12 @@ dependencies:
   # Cached network images for efficient loading with caching
   cached_network_image: ^3.4.1
 
+  # Sentry - Crash reporting and performance monitoring
+  sentry_flutter: ^9.10.0
+
+  # Package info - Get app version from pubspec.yaml at runtime
+  package_info_plus: ^8.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

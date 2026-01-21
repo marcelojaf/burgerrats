@@ -1,0 +1,11 @@
+{
+  "id": "evt-1768968118141-f02fb5cf",
+  "trigger": "feature_success",
+  "timestamp": "2026-01-21T04:01:58.142Z",
+  "projectPath": "C:\\dev\\burgerrats",
+  "projectName": "burgerrats",
+  "featureId": "sentry-navigation-tracking",
+  "featureName": "Tracking de navegação com Sentry",
+  "error": "Feature completed in 112s",
+  "passes": true
+}
