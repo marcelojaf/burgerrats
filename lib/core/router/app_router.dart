@@ -196,48 +196,7 @@ final _routes = <RouteBase>[
     ],
   ),
 
-  // Standalone routes (outside shell)
-  GoRoute(
-    path: AppRoutes.leagueDetails,
-    name: RouteNames.leagueDetails,
-    builder: (context, state) {
-      final leagueId = state.pathParameters['leagueId'] ?? '';
-      return LeagueDetailsPage(leagueId: leagueId);
-    },
-  ),
-
-  GoRoute(
-    path: AppRoutes.checkInDetails,
-    name: RouteNames.checkInDetails,
-    builder: (context, state) {
-      final checkInId = state.pathParameters['checkInId'] ?? '';
-      return CheckInDetailsPage(checkInId: checkInId);
-    },
-  ),
-
-  // Create check-in route
-  GoRoute(
-    path: AppRoutes.createCheckIn,
-    name: RouteNames.createCheckIn,
-    builder: (context, state) {
-      final leagueId = state.uri.queryParameters['leagueId'];
-      return CreateCheckInPage(preselectedLeagueId: leagueId);
-    },
-  ),
-
-  GoRoute(
-    path: AppRoutes.editProfile,
-    name: RouteNames.editProfile,
-    builder: (context, state) => const EditProfilePage(),
-  ),
-
-  GoRoute(
-    path: AppRoutes.settings,
-    name: RouteNames.settings,
-    builder: (context, state) => const SettingsPage(),
-  ),
-
-  // League routes
+  // League routes (static paths MUST come before dynamic :leagueId paths)
   GoRoute(
     path: AppRoutes.joinLeague,
     name: RouteNames.joinLeague,
@@ -251,6 +210,48 @@ final _routes = <RouteBase>[
     path: AppRoutes.createLeague,
     name: RouteNames.createLeague,
     builder: (context, state) => const CreateLeaguePage(),
+  ),
+
+  // Standalone routes (outside shell)
+  // Note: Dynamic routes like :leagueId must come AFTER static routes like /leagues/create
+  GoRoute(
+    path: AppRoutes.leagueDetails,
+    name: RouteNames.leagueDetails,
+    builder: (context, state) {
+      final leagueId = state.pathParameters['leagueId'] ?? '';
+      return LeagueDetailsPage(leagueId: leagueId);
+    },
+  ),
+
+  // Create check-in route (must come before :checkInId)
+  GoRoute(
+    path: AppRoutes.createCheckIn,
+    name: RouteNames.createCheckIn,
+    builder: (context, state) {
+      final leagueId = state.uri.queryParameters['leagueId'];
+      return CreateCheckInPage(preselectedLeagueId: leagueId);
+    },
+  ),
+
+  GoRoute(
+    path: AppRoutes.checkInDetails,
+    name: RouteNames.checkInDetails,
+    builder: (context, state) {
+      final checkInId = state.pathParameters['checkInId'] ?? '';
+      return CheckInDetailsPage(checkInId: checkInId);
+    },
+  ),
+
+  GoRoute(
+    path: AppRoutes.editProfile,
+    name: RouteNames.editProfile,
+    builder: (context, state) => const EditProfilePage(),
+  ),
+
+  GoRoute(
+    path: AppRoutes.settings,
+    name: RouteNames.settings,
+    builder: (context, state) => const SettingsPage(),
   ),
 
   // League settings route

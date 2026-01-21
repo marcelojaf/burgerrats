@@ -15,6 +15,12 @@ class LeaguesPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final myLeagues = ref.watch(myLeaguesProvider);
 
+    // Only show FAB when user has leagues (empty state has its own buttons)
+    final showFab = myLeagues.maybeWhen(
+      data: (leagues) => leagues.isNotEmpty,
+      orElse: () => false,
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.myLeagues),
@@ -34,11 +40,13 @@ class LeaguesPage extends ConsumerWidget {
           onRetry: () => ref.invalidate(myLeaguesProvider),
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.push(AppRoutes.createLeague),
-        icon: const Icon(Icons.add),
-        label: Text(context.l10n.newLeague),
-      ),
+      floatingActionButton: showFab
+          ? FloatingActionButton.extended(
+              onPressed: () => context.push(AppRoutes.createLeague),
+              icon: const Icon(Icons.add),
+              label: Text(context.l10n.newLeague),
+            )
+          : null,
     );
   }
 }

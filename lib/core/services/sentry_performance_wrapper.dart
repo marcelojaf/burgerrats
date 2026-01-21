@@ -103,6 +103,18 @@ class SentryPerformanceWrapper {
         },
       ));
 
+      // Capture exception in Sentry before re-throwing
+      await Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+        hint: Hint.withMap({
+          'operation_type': 'firestore',
+          'operation': operation,
+          'collection': collection,
+          if (documentId != null) 'document_id': documentId,
+        }),
+      );
+
       // Re-throw the error
       Error.throwWithStackTrace(error, stackTrace);
     } finally {
@@ -154,6 +166,32 @@ class SentryPerformanceWrapper {
     } catch (error, stackTrace) {
       span.status = const SpanStatus.internalError();
       span.throwable = error;
+
+      // Add error breadcrumb
+      Sentry.addBreadcrumb(Breadcrumb(
+        message: 'Firestore query failed: $operation',
+        category: 'firestore',
+        level: SentryLevel.error,
+        data: {
+          'operation': operation,
+          'collection': collection,
+          if (queryDescription != null) 'query': queryDescription,
+          'error': error.toString(),
+        },
+      ));
+
+      // Capture exception in Sentry before re-throwing
+      await Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+        hint: Hint.withMap({
+          'operation_type': 'firestore_query',
+          'operation': operation,
+          'collection': collection,
+          if (queryDescription != null) 'query_description': queryDescription,
+        }),
+      );
+
       Error.throwWithStackTrace(error, stackTrace);
     } finally {
       await span.finish();
@@ -207,6 +245,16 @@ class SentryPerformanceWrapper {
           'error': error.toString(),
         },
       ));
+
+      // Capture exception in Sentry before re-throwing
+      await Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+        hint: Hint.withMap({
+          'operation_type': 'auth',
+          'operation': operation,
+        }),
+      );
 
       Error.throwWithStackTrace(error, stackTrace);
     } finally {
@@ -266,6 +314,17 @@ class SentryPerformanceWrapper {
         },
       ));
 
+      // Capture exception in Sentry before re-throwing
+      await Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+        hint: Hint.withMap({
+          'operation_type': 'storage',
+          'operation': operation,
+          'storage_path': storagePath,
+        }),
+      );
+
       Error.throwWithStackTrace(error, stackTrace);
     } finally {
       await span.finish();
@@ -320,6 +379,16 @@ class SentryPerformanceWrapper {
         },
       ));
 
+      // Capture exception in Sentry before re-throwing
+      await Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+        hint: Hint.withMap({
+          'operation_type': 'fcm',
+          'operation': operation,
+        }),
+      );
+
       Error.throwWithStackTrace(error, stackTrace);
     } finally {
       await span.finish();
@@ -363,6 +432,18 @@ class SentryPerformanceWrapper {
     } catch (error, stackTrace) {
       span.status = const SpanStatus.internalError();
       span.throwable = error;
+
+      // Capture exception in Sentry before re-throwing
+      await Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+        hint: Hint.withMap({
+          'operation_type': 'child_span',
+          'operation': operation,
+          'description': description,
+        }),
+      );
+
       Error.throwWithStackTrace(error, stackTrace);
     } finally {
       await span.finish();

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/errors/error_handler.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/services/invite_code_generator_service.dart';
 import '../../../../core/services/sentry_performance_wrapper.dart';
@@ -243,17 +244,20 @@ class LeagueRepositoryImpl implements LeagueRepository {
         return null;
       }
       return LeagueModel.fromFirestore(doc).toEntity();
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch league: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchLeague', 'leagueId': leagueId},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch league: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   @override
@@ -264,17 +268,20 @@ class LeagueRepositoryImpl implements LeagueRepository {
           .where((league) => league.isMember(userId))
           .map((league) => league.toEntity())
           .toList();
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch leagues for user: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchLeaguesForUser', 'userId': userId},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch leagues for user: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   @override

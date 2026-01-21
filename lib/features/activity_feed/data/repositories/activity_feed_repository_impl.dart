@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/errors/error_handler.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/utils/typedefs.dart';
 import '../../../auth/domain/repositories/user_repository.dart';
@@ -170,17 +171,20 @@ class ActivityFeedRepositoryImpl implements ActivityFeedRepository {
           .toList();
 
       return _watchCheckInsForLeagues(leagueIds, limit);
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch activity feed: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchFeed', 'userId': userId},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch activity feed: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   Stream<List<ActivityFeedEntry>> _watchCheckInsForLeagues(
@@ -222,17 +226,20 @@ class ActivityFeedRepositoryImpl implements ActivityFeedRepository {
           .map((doc) => CheckInModel.fromFirestore(doc).toEntity())
           .toList();
       return _enrichCheckIns(checkIns);
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch league activity feed: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchFeedForLeague', 'leagueId': leagueId},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch league activity feed: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   /// Enriches check-ins with user and league data

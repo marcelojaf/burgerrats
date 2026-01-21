@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/errors/error_handler.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/utils/typedefs.dart';
 import '../../domain/entities/user_entity.dart';
@@ -111,17 +112,20 @@ class UserRepositoryImpl implements UserRepository {
         return null;
       }
       return UserModel.fromFirestore(doc).toEntity();
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch user: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchUser', 'userId': uid},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch user: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   @override

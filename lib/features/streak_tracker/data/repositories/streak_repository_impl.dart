@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/errors/error_handler.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/utils/typedefs.dart';
 import '../../domain/entities/streak_entity.dart';
@@ -140,17 +141,20 @@ class StreakRepositoryImpl implements StreakRepository {
         return null;
       }
       return StreakModel.fromFirestore(snapshot.docs.first).toEntity();
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch user streak: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchUserStreak', 'userId': userId},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch user streak: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   @override
@@ -208,17 +212,20 @@ class StreakRepositoryImpl implements StreakRepository {
       return snapshot.docs
           .map((doc) => StreakModel.fromFirestore(doc).toEntity())
           .toList();
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch top streaks: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchTopStreaks', 'limit': limit},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch top streaks: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   @override

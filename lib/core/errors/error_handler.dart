@@ -2,10 +2,54 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'error_messages.dart';
 import 'exceptions.dart';
 import 'failures.dart';
+
+/// Extension to add Sentry error reporting to Streams
+extension StreamErrorReporting<T> on Stream<T> {
+  /// Handles errors in the stream and reports them to Sentry
+  ///
+  /// [onError] - Optional callback to transform the error before re-throwing
+  /// [context] - Optional context map for Sentry
+  ///
+  /// Example:
+  /// ```dart
+  /// return _firestore.collection('leagues').snapshots()
+  ///     .map((snapshot) => snapshot.docs.map(...))
+  ///     .handleErrorWithSentry(
+  ///       onError: (error, stackTrace) {
+  ///         if (error is FirebaseException) {
+  ///           throw FirestoreException(...);
+  ///         }
+  ///         throw error;
+  ///       },
+  ///       context: {'operation': 'watchLeagues'},
+  ///     );
+  /// ```
+  Stream<T> handleErrorWithSentry({
+    void Function(Object error, StackTrace stackTrace)? onError,
+    Map<String, dynamic>? context,
+  }) {
+    return handleError((error, stackTrace) {
+      // Report to Sentry
+      ErrorHandler.reportToSentry(
+        error,
+        stackTrace: stackTrace,
+        context: context,
+      );
+
+      // Call custom error handler if provided
+      if (onError != null) {
+        onError(error, stackTrace);
+      } else {
+        throw error;
+      }
+    });
+  }
+}
 
 /// Handles error transformation, logging, and display
 class ErrorHandler {
@@ -55,6 +99,69 @@ class ErrorHandler {
     _notifyListeners(exception, stackTrace);
 
     return exception;
+  }
+
+  /// Handles an error and reports it to Sentry
+  ///
+  /// Use this method when you want to ensure the error is reported to Sentry
+  /// even if it's being handled/caught locally.
+  ///
+  /// [error] - The error to handle
+  /// [stackTrace] - Optional stack trace
+  /// [hint] - Optional additional context for Sentry
+  ///
+  /// Returns the transformed AppException
+  static Future<AppException> handleErrorAndReport(
+    dynamic error, [
+    StackTrace? stackTrace,
+    Map<String, dynamic>? hint,
+  ]) async {
+    final exception = handleError(error, stackTrace);
+
+    // Report to Sentry (only in release mode, as Sentry skips debug mode)
+    if (!kDebugMode) {
+      await Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+        hint: hint != null
+            ? Hint.withMap({
+                ...hint,
+                'error_type': exception.runtimeType.toString(),
+                'error_code': exception.code ?? 'unknown',
+              })
+            : Hint.withMap({
+                'error_type': exception.runtimeType.toString(),
+                'error_code': exception.code ?? 'unknown',
+              }),
+      );
+    }
+
+    return exception;
+  }
+
+  /// Reports an error to Sentry without transforming it
+  ///
+  /// Use this for errors that you want to track in Sentry but are already
+  /// being handled appropriately in the app.
+  ///
+  /// [error] - The error to report
+  /// [stackTrace] - Optional stack trace
+  /// [context] - Optional context map for additional information
+  static Future<void> reportToSentry(
+    dynamic error, {
+    StackTrace? stackTrace,
+    Map<String, dynamic>? context,
+  }) async {
+    if (kDebugMode) {
+      debugPrint('ErrorHandler.reportToSentry: $error');
+      return;
+    }
+
+    await Sentry.captureException(
+      error,
+      stackTrace: stackTrace,
+      hint: context != null ? Hint.withMap(context) : null,
+    );
   }
 
   /// Transforms any error into an AppException

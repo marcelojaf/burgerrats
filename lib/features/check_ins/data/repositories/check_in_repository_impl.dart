@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/errors/error_handler.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/utils/typedefs.dart';
 import '../../domain/entities/check_in_entity.dart';
@@ -366,17 +367,20 @@ class CheckInRepositoryImpl implements CheckInRepository {
       return snapshot.docs
           .map((doc) => CheckInModel.fromFirestore(doc).toEntity())
           .toList();
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch league check-ins: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchLeagueCheckIns', 'leagueId': leagueId},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch league check-ins: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   @override
@@ -396,17 +400,20 @@ class CheckInRepositoryImpl implements CheckInRepository {
       return snapshot.docs
           .map((doc) => CheckInModel.fromFirestore(doc).toEntity())
           .toList();
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch user check-ins: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchUserCheckIns', 'userId': userId},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch user check-ins: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   @override
@@ -416,17 +423,20 @@ class CheckInRepositoryImpl implements CheckInRepository {
         return null;
       }
       return CheckInModel.fromFirestore(doc).toEntity();
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch check-in: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchCheckIn', 'checkInId': id},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch check-in: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 
   @override
@@ -563,16 +573,19 @@ class CheckInRepositoryImpl implements CheckInRepository {
       return snapshot.docs
           .map((doc) => CheckInModel.fromFirestore(doc).toEntity())
           .toList();
-    }).handleError((error, stackTrace) {
-      if (error is FirebaseException) {
-        throw FirestoreException(
-          message: 'Failed to watch filtered check-ins: ${error.message}',
-          code: error.code,
-          originalError: error,
-          stackTrace: stackTrace,
-        );
-      }
-      throw error;
-    });
+    }).handleErrorWithSentry(
+      context: {'operation': 'watchFilteredCheckIns'},
+      onError: (error, stackTrace) {
+        if (error is FirebaseException) {
+          throw FirestoreException(
+            message: 'Failed to watch filtered check-ins: ${error.message}',
+            code: error.code,
+            originalError: error,
+            stackTrace: stackTrace,
+          );
+        }
+        throw error;
+      },
+    );
   }
 }
