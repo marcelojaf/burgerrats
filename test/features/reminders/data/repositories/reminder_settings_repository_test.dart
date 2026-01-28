@@ -14,7 +14,7 @@ void main() {
 
     group('getGlobalSettings', () {
       test('should return default settings when no data stored', () async {
-        final settings = await repository.getGlobalSettings();
+        final settings = repository.getGlobalSettings();
 
         expect(settings.globalEnabled, true);
         expect(settings.defaultHour, 12);
@@ -31,7 +31,7 @@ void main() {
         await repository.saveGlobalSettings(customSettings);
 
         // Then retrieve them
-        final retrievedSettings = await repository.getGlobalSettings();
+        final retrievedSettings = repository.getGlobalSettings();
 
         expect(retrievedSettings.globalEnabled, false);
         expect(retrievedSettings.defaultHour, 18);
@@ -51,7 +51,7 @@ void main() {
 
         // Create a new repository instance to verify persistence
         final newRepository = ReminderSettingsRepository();
-        final retrieved = await newRepository.getGlobalSettings();
+        final retrieved = newRepository.getGlobalSettings();
 
         expect(retrieved.globalEnabled, settings.globalEnabled);
         expect(retrieved.defaultHour, settings.defaultHour);
@@ -61,7 +61,7 @@ void main() {
 
     group('getLeagueSettings', () {
       test('should return default settings for new league', () async {
-        final settings = await repository.getLeagueSettings('newLeague123');
+        final settings = repository.getLeagueSettings('newLeague123');
 
         expect(settings.leagueId, 'newLeague123');
         expect(settings.isEnabled, false);
@@ -78,7 +78,7 @@ void main() {
         );
         await repository.saveLeagueSettings(storedSettings);
 
-        final retrieved = await repository.getLeagueSettings('existingLeague');
+        final retrieved = repository.getLeagueSettings('existingLeague');
 
         expect(retrieved.leagueId, 'existingLeague');
         expect(retrieved.isEnabled, true);
@@ -99,7 +99,7 @@ void main() {
         await repository.saveLeagueSettings(settings);
 
         final newRepository = ReminderSettingsRepository();
-        final retrieved = await newRepository.getLeagueSettings('myLeague');
+        final retrieved = newRepository.getLeagueSettings('myLeague');
 
         expect(retrieved.isEnabled, settings.isEnabled);
         expect(retrieved.reminderHour, settings.reminderHour);
@@ -109,7 +109,7 @@ void main() {
 
     group('getAllLeagueSettings', () {
       test('should return empty list when no leagues configured', () async {
-        final allSettings = await repository.getAllLeagueSettings();
+        final allSettings = repository.getAllLeagueSettings();
 
         expect(allSettings, isEmpty);
       });
@@ -131,7 +131,7 @@ void main() {
         await repository.saveLeagueSettings(settings1);
         await repository.saveLeagueSettings(settings2);
 
-        final allSettings = await repository.getAllLeagueSettings();
+        final allSettings = repository.getAllLeagueSettings();
 
         expect(allSettings.length, 2);
         expect(allSettings.any((s) => s.leagueId == 'league1'), true);
@@ -157,7 +157,7 @@ void main() {
         await repository.saveLeagueSettings(enabledSettings);
         await repository.saveLeagueSettings(disabledSettings);
 
-        final enabledOnly = await repository.getEnabledLeagueSettings();
+        final enabledOnly = repository.getEnabledLeagueSettings();
 
         expect(enabledOnly.length, 1);
         expect(enabledOnly.first.leagueId, 'enabledLeague');
@@ -175,14 +175,14 @@ void main() {
         await repository.saveLeagueSettings(settings);
 
         // Verify it exists
-        var allSettings = await repository.getAllLeagueSettings();
+        var allSettings = repository.getAllLeagueSettings();
         expect(allSettings.any((s) => s.leagueId == 'toDelete'), true);
 
         // Delete it
         await repository.deleteLeagueSettings('toDelete');
 
         // Verify it's gone
-        allSettings = await repository.getAllLeagueSettings();
+        allSettings = repository.getAllLeagueSettings();
         expect(allSettings.any((s) => s.leagueId == 'toDelete'), false);
       });
     });
@@ -204,10 +204,10 @@ void main() {
         await repository.clearAllSettings();
 
         // Verify everything is cleared
-        final globalSettings = await repository.getGlobalSettings();
+        final globalSettings = repository.getGlobalSettings();
         expect(globalSettings.globalEnabled, true); // Should be default
 
-        final leagueSettings = await repository.getAllLeagueSettings();
+        final leagueSettings = repository.getAllLeagueSettings();
         expect(leagueSettings, isEmpty);
       });
     });

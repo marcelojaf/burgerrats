@@ -33,6 +33,9 @@ migrate_working_dir/
 /build/
 /coverage/
 
+# iOS build artifacts
+/ios/build/
+
 # Symbolication related
 app.*.symbols
 
@@ -43,6 +46,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Android signing
+/android/key.properties
+/android/app/keystore/
 
 # Firebase/Google Services configuration files (contain sensitive API keys)
 **/google-services.json
