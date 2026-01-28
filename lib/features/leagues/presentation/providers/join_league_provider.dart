@@ -143,9 +143,9 @@ class JoinLeagueNotifier extends StateNotifier<JoinLeagueState> {
       return;
     }
 
-    if (normalizedCode.length != 8) {
+    if (normalizedCode.length < 6 || normalizedCode.length > 8) {
       state = JoinLeagueState.error(
-        'O codigo de convite deve ter 8 caracteres',
+        'O codigo de convite deve ter entre 6 e 8 caracteres',
         normalizedCode,
       );
       return;

@@ -743,13 +743,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get askAdminForCode =>
-      'Peca ao administrador da liga o codigo de 8 caracteres';
+      'Peca ao administrador da liga o codigo de convite';
 
   @override
   String get enterInviteCodeValidation => 'Insira o codigo de convite';
 
   @override
-  String get codeMustHaveChars => 'O codigo deve ter 8 caracteres';
+  String get codeMustHaveChars => 'O codigo deve ter entre 6 e 8 caracteres';
 
   @override
   String get searching => 'Buscando...';

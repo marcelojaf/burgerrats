@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_routes.dart';
+import '../../../leagues/presentation/providers/my_leagues_provider.dart';
 import '../../domain/entities/activity_feed_entry.dart';
 import '../providers/activity_feed_provider.dart';
 import '../widgets/feed_item_card.dart';
@@ -44,7 +45,9 @@ class ActivityFeedPage extends ConsumerWidget {
     }
 
     if (state.isEmpty) {
+      final hasLeagues = ref.watch(hasLeaguesProvider);
       return _EmptyFeedView(
+        hasLeagues: hasLeagues,
         onCreateCheckIn: () => context.push(AppRoutes.createCheckIn),
         onJoinLeague: () => context.push(AppRoutes.joinLeague),
       );
@@ -145,10 +148,12 @@ class _LoadingMoreIndicator extends StatelessWidget {
 
 /// Empty state view when user has no feed entries
 class _EmptyFeedView extends StatelessWidget {
+  final bool hasLeagues;
   final VoidCallback onCreateCheckIn;
   final VoidCallback onJoinLeague;
 
   const _EmptyFeedView({
+    required this.hasLeagues,
     required this.onCreateCheckIn,
     required this.onJoinLeague,
   });
@@ -178,7 +183,9 @@ class _EmptyFeedView extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Participe de uma liga e faca check-ins de burgers para ver a atividade aqui!',
+              hasLeagues
+                  ? 'Faca check-ins de burgers para ver a atividade aqui!'
+                  : 'Participe de uma liga e faca check-ins de burgers para ver a atividade aqui!',
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -192,12 +199,14 @@ class _EmptyFeedView extends StatelessWidget {
                   icon: const Icon(Icons.add_a_photo),
                   label: const Text('Fazer Check-in'),
                 ),
-                const SizedBox(height: 12),
-                OutlinedButton.icon(
-                  onPressed: onJoinLeague,
-                  icon: const Icon(Icons.login),
-                  label: const Text('Entrar em uma Liga'),
-                ),
+                if (!hasLeagues) ...[
+                  const SizedBox(height: 12),
+                  OutlinedButton.icon(
+                    onPressed: onJoinLeague,
+                    icon: const Icon(Icons.login),
+                    label: const Text('Entrar em uma Liga'),
+                  ),
+                ],
               ],
             ),
           ],
