@@ -1445,7 +1445,7 @@ abstract class AppLocalizations {
   /// Ask admin for code hint
   ///
   /// In pt, this message translates to:
-  /// **'Peca ao administrador da liga o codigo de 8 caracteres'**
+  /// **'Peca ao administrador da liga o codigo de convite'**
   String get askAdminForCode;
 
   /// Enter invite code validation error
@@ -1454,10 +1454,10 @@ abstract class AppLocalizations {
   /// **'Insira o codigo de convite'**
   String get enterInviteCodeValidation;
 
-  /// Code must have 8 characters validation error
+  /// Code must have between 6 and 8 characters validation error
   ///
   /// In pt, this message translates to:
-  /// **'O codigo deve ter 8 caracteres'**
+  /// **'O codigo deve ter entre 6 e 8 caracteres'**
   String get codeMustHaveChars;
 
   /// Searching loading state

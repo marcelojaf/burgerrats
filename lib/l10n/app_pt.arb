@@ -1227,7 +1227,7 @@
     "description": "Enter invite code instruction"
   },
 
-  "askAdminForCode": "Peca ao administrador da liga o codigo de 8 caracteres",
+  "askAdminForCode": "Peca ao administrador da liga o codigo de convite",
   "@askAdminForCode": {
     "description": "Ask admin for code hint"
   },
@@ -1237,9 +1237,9 @@
     "description": "Enter invite code validation error"
   },
 
-  "codeMustHaveChars": "O codigo deve ter 8 caracteres",
+  "codeMustHaveChars": "O codigo deve ter entre 6 e 8 caracteres",
   "@codeMustHaveChars": {
-    "description": "Code must have 8 characters validation error"
+    "description": "Code must have between 6 and 8 characters validation error"
   },
 
   "searching": "Buscando...",

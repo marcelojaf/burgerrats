@@ -80,11 +80,11 @@ class _JoinLeaguePageState extends ConsumerState<JoinLeaguePage> {
       );
       // Navigate to the league details page
       if (league != null) {
-        context.go(
+        context.push(
           AppRoutes.leagueDetails.replaceFirst(':leagueId', league.id),
         );
       } else {
-        context.go(AppRoutes.leagues);
+        context.pop();
       }
     }
   }
@@ -206,7 +206,7 @@ class _InviteCodeForm extends StatelessWidget {
               if (value == null || value.isEmpty) {
                 return l10n.enterInviteCodeValidation;
               }
-              if (value.length != 8) {
+              if (value.length < 6 || value.length > 8) {
                 return l10n.codeMustHaveChars;
               }
               return null;

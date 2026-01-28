@@ -740,13 +740,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get askAdminForCode =>
-      'Ask the league administrator for the 8-character code';
+      'Ask the league administrator for the invite code';
 
   @override
   String get enterInviteCodeValidation => 'Enter the invite code';
 
   @override
-  String get codeMustHaveChars => 'The code must have 8 characters';
+  String get codeMustHaveChars =>
+      'The code must have between 6 and 8 characters';
 
   @override
   String get searching => 'Searching...';
