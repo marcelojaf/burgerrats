@@ -91,34 +91,34 @@ class PermissionService {
       return PermissionResult.granted;
     }
 
-    // Verify context is still valid after async operation
-    if (!context.mounted) {
-      return currentStatus;
-    }
-
-    // If permanently denied, show settings dialog
+    // If permanently denied and context is valid, show settings dialog
     if (currentStatus == PermissionResult.permanentlyDenied) {
-      final shouldOpenSettings = await _showSettingsDialog(context);
-      if (shouldOpenSettings) {
-        await openAppSettings();
-        // Re-check after returning from settings
-        return checkCameraPermission();
+      if (context.mounted) {
+        final shouldOpenSettings = await _showSettingsDialog(context);
+        if (shouldOpenSettings) {
+          await openAppSettings();
+          // Re-check after returning from settings
+          return checkCameraPermission();
+        }
       }
       return PermissionResult.permanentlyDenied;
     }
 
     // If restricted (iOS), inform user they can't grant permission
     if (currentStatus == PermissionResult.restricted) {
-      if (!context.mounted) return PermissionResult.restricted;
-      await _showRestrictedDialog(context);
+      if (context.mounted) {
+        await _showRestrictedDialog(context);
+      }
       return PermissionResult.restricted;
     }
 
-    // Show rationale dialog before requesting
-    if (!context.mounted) return PermissionResult.denied;
-    final shouldRequest = await _showRationaleDialog(context);
-    if (!shouldRequest) {
-      return PermissionResult.denied;
+    // Show rationale dialog before requesting (if context is still valid)
+    // If context is not mounted, skip the rationale and request directly
+    if (context.mounted) {
+      final shouldRequest = await _showRationaleDialog(context);
+      if (!shouldRequest) {
+        return PermissionResult.denied;
+      }
     }
 
     // Request the permission
